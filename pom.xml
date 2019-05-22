@@ -10,6 +10,7 @@
   <modules>
     <module>java-server-pages-taglibs</module>
     <module>utilities</module>
+      <module>demo-web</module>
   </modules>
   <packaging>pom</packaging>
 
