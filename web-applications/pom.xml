@@ -9,7 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.techsocialist</groupId>
+    <modules>
+        <module>demo-web</module>
+    </modules>
+
+    <groupId>com.techsocialist.webapps</groupId>
     <artifactId>web-applications</artifactId>
     <packaging>pom</packaging>
 
