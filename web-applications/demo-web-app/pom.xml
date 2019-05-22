@@ -9,11 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.techsocialist.demoweb</groupId>
-    <artifactId>demo-web</artifactId>
+    <groupId>com.techsocialist.demoapp</groupId>
+    <artifactId>demo-web-app</artifactId>
     <packaging>war</packaging>
 
-    <name>demo-web</name>
+    <name>demo-web-app</name>
     <url>http://www.example.com</url>
 
     <dependencies>
