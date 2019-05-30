@@ -11,6 +11,7 @@
     <module>java-server-pages-taglibs</module>
     <module>utilities</module>
     <module>web-applications</module>
+    <module>portals</module>
   </modules>
   <packaging>pom</packaging>
 
