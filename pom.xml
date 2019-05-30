@@ -12,6 +12,7 @@
     <module>utilities</module>
     <module>web-applications</module>
     <module>portals</module>
+      <module>android-apps</module>
   </modules>
   <packaging>pom</packaging>
 
