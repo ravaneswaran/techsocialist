@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <modules>
-        <module>demo-web-app</module>
+        <module>demo-app</module>
     </modules>
 
     <groupId>com.techsocialist.webapps</groupId>

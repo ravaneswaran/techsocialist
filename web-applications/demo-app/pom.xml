@@ -10,19 +10,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.demoapp</groupId>
-    <artifactId>demo-web-app</artifactId>
+    <artifactId>demo-app</artifactId>
     <packaging>war</packaging>
 
-    <name>demo-web-app</name>
+    <name>demo-app</name>
     <url>http://www.example.com</url>
 
-    <dependencies>
+    <!--<dependencies>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
             <version>9.4.18.v20190429</version>
         </dependency>
-    </dependencies>
+    </dependencies>-->
 
     <build>
         <plugins>
@@ -30,6 +30,11 @@
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.2.11.v20150529</version>
+                <configuration>
+                    <httpConnector>
+                        <port>9090</port>
+                    </httpConnector>
+                </configuration>
             </plugin>
         </plugins>
     </build>
