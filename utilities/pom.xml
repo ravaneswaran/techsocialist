@@ -12,9 +12,13 @@
 
     <groupId>com.techsocialist.utilities</groupId>
     <artifactId>utilities</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>utilities</name>
     <url>http://www.example.com</url>
+
+    <modules>
+        <module>mail</module>
+    </modules>
 
 </project>
