@@ -10,16 +10,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.techsocialist.utilities</groupId>
-    <artifactId>utilities</artifactId>
+    <groupId>com.techsocialist.android</groupId>
+    <artifactId>android-apps</artifactId>
     <packaging>pom</packaging>
 
-    <name>utilities</name>
+    <name>android-apps</name>
     <url>http://www.example.com</url>
-
-    <modules>
-        <module>mail</module>
-        <module>pdf</module>
-    </modules>
 
 </project>
