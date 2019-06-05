@@ -10,9 +10,24 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.mail</groupId>
-    <artifactId>mail</artifactId>
+    <artifactId>tech-socialist-mail</artifactId>
 
     <name>mail</name>
     <url>http://www.example.com</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.techsocialist.utilities.temp</groupId>
+            <artifactId>tech-socialist-temp</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
