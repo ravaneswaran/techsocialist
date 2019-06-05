@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.pdf</groupId>
-    <artifactId>pdf</artifactId>
+    <artifactId>tech-socialist-pdf</artifactId>
 
     <name>pdf</name>
     <url>http://www.example.com</url>
