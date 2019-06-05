@@ -19,6 +19,7 @@
 
     <modules>
         <module>mail</module>
+        <module>pdf</module>
     </modules>
 
 </project>
