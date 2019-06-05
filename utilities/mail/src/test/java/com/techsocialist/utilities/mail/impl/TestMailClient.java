@@ -14,6 +14,7 @@ import org.junit.Assert;
 import com.techsocialist.utilities.temp.Temporary;
 import org.junit.Ignore;
 
+@Ignore
 public class TestMailClient extends TestCase {
 
 	private IMailClient mailClient;
