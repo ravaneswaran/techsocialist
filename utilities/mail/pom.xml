@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.mail</groupId>
-    <artifactId>tech-socialist-mail</artifactId>
+    <artifactId>tech-socialist-mail-util</artifactId>
 
     <name>mail</name>
     <url>http://www.example.com</url>

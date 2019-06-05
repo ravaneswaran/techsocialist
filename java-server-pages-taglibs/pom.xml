@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.jstl</groupId>
-    <artifactId>java-server-pages-taglibs</artifactId>
+    <artifactId>tech-socialist-jstl</artifactId>
 
     <name>java-server-pages-taglibs</name>
     <url>http://www.example.com</url>

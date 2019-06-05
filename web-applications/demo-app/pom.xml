@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.demoapp</groupId>
-    <artifactId>demo-app</artifactId>
+    <artifactId>tech-socialist-demo-app</artifactId>
     <packaging>war</packaging>
 
     <name>demo-app</name>

@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.temp</groupId>
-    <artifactId>tech-socialist-temp</artifactId>
+    <artifactId>tech-socialist-temp-util</artifactId>
 
     <name>temp</name>
     <url>http://www.example.com</url>
