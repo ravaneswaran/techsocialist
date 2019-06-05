@@ -21,6 +21,7 @@
         <module>mail</module>
         <module>pdf</module>
         <module>temp</module>
+        <module>barcodes</module>
     </modules>
 
 </project>
