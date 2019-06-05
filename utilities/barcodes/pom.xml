@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.barcodes</groupId>
-    <artifactId>tech-socialist-barcodes</artifactId>
+    <artifactId>tech-socialist-barcode-util</artifactId>
 
     <name>barcodes</name>
     <url>http://www.example.com</url>
