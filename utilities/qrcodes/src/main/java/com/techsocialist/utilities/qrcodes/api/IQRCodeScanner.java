@@ -1,8 +1,8 @@
 package com.techsocialist.utilities.qrcodes.api;
 
-import java.io.IOException;
-
 import com.google.zxing.NotFoundException;
+
+import java.io.IOException;
 
 public interface IQRCodeScanner {
 	

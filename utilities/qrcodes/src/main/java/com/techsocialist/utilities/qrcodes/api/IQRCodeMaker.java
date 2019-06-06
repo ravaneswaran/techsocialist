@@ -1,9 +1,9 @@
 package com.techsocialist.utilities.qrcodes.api;
 
+import com.google.zxing.WriterException;
+
 import java.io.File;
 import java.io.IOException;
-
-import com.google.zxing.WriterException;
 
 public interface IQRCodeMaker {
 

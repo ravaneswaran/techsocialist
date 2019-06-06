@@ -24,6 +24,8 @@
         <module>barcodes</module>
         <module>qrcodes</module>
         <module>image</module>
+        <module>marshaller</module>
+        <module>unmarshaller</module>
     </modules>
 
 </project>

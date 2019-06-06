@@ -28,7 +28,6 @@
       <artifactId>javase</artifactId>
       <version>3.4.0</version>
     </dependency>
-
     <dependency>
       <groupId>com.techsocialist.utilities.temp</groupId>
       <artifactId>tech-socialist-temp</artifactId>
