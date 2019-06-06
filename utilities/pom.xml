@@ -23,7 +23,6 @@
         <module>temp</module>
         <module>barcodes</module>
         <module>qrcodes</module>
-        <module>testone</module>
     </modules>
 
 </project>
