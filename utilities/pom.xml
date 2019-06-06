@@ -23,6 +23,7 @@
         <module>temp</module>
         <module>barcodes</module>
         <module>qrcodes</module>
+        <module>image</module>
     </modules>
 
 </project>
