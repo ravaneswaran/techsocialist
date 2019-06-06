@@ -1,13 +1,12 @@
 package com.techsocialist.utilities.barcodes.bc4j;
 
+import com.techsocialist.utilities.temp.Temporary;
+import junit.framework.TestCase;
+import org.junit.Assert;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-
-import com.techsocialist.utilities.temp.Temporary;
-import junit.framework.TestCase;
-
-import org.junit.Assert;
 
 public class TestBC4JPOSTNETBarcodeMaker extends TestCase {
 

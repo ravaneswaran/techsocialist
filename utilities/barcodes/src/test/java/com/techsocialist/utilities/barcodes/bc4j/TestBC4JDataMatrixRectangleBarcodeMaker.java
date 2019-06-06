@@ -1,12 +1,11 @@
 package com.techsocialist.utilities.barcodes.bc4j;
 
-import java.io.File;
-import java.io.IOException;
-
 import com.techsocialist.utilities.temp.Temporary;
 import junit.framework.TestCase;
-
 import org.junit.Assert;
+
+import java.io.File;
+import java.io.IOException;
 
 public class TestBC4JDataMatrixRectangleBarcodeMaker extends TestCase {
 

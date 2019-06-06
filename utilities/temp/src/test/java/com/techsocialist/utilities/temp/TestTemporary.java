@@ -1,11 +1,10 @@
 package com.techsocialist.utilities.temp;
 
+import junit.framework.TestCase;
+import org.junit.Assert;
+
 import java.io.File;
 import java.io.IOException;
-
-import junit.framework.TestCase;
-
-import org.junit.Assert;
 
 public class TestTemporary extends TestCase {
 	

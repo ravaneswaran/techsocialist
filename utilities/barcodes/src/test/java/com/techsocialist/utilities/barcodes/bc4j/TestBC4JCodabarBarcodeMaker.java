@@ -1,14 +1,13 @@
 package com.techsocialist.utilities.barcodes.bc4j;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
-
 import com.techsocialist.utilities.barcodes.api.IBarcodeMaker;
 import com.techsocialist.utilities.temp.Temporary;
 import junit.framework.TestCase;
-
 import org.junit.Assert;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 
 public class TestBC4JCodabarBarcodeMaker extends TestCase {
 

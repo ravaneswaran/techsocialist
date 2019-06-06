@@ -1,9 +1,9 @@
 package com.techsocialist.utilities.barcodes.bc4j;
 
+import org.krysalis.barcode4j.impl.code128.Code128Bean;
+
 import java.io.File;
 import java.io.IOException;
-
-import org.krysalis.barcode4j.impl.code128.Code128Bean;
 
 /**
  * @author Ravaneswaran Chinnasamy
