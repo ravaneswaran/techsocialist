@@ -1,19 +1,17 @@
 package com.techsocialist.utilities.barcodes.bc4j;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
-
+import com.google.zxing.ChecksumException;
+import com.google.zxing.FormatException;
+import com.google.zxing.NotFoundException;
 import com.techsocialist.utilities.barcodes.api.IBarcodeMaker;
 import com.techsocialist.utilities.barcodes.api.IBarcodeScanner;
 import com.techsocialist.utilities.temp.Temporary;
 import junit.framework.TestCase;
-
 import org.junit.Assert;
 
-import com.google.zxing.ChecksumException;
-import com.google.zxing.FormatException;
-import com.google.zxing.NotFoundException;
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 
 public class TestCode39BarcodeScanner extends TestCase{
 	

@@ -1,9 +1,9 @@
 package com.techsocialist.utilities.barcodes.bc4j;
 
+import org.krysalis.barcode4j.impl.fourstate.RoyalMailCBCBean;
+
 import java.io.File;
 import java.io.IOException;
-
-import org.krysalis.barcode4j.impl.fourstate.RoyalMailCBCBean;
 
 /**
  * @author Ravaneswaran Chinnasamy

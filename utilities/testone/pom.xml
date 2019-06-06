@@ -2,7 +2,6 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <parent>
         <artifactId>utilities</artifactId>
         <groupId>com.techsocialist.utilities</groupId>
@@ -10,20 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.techsocialist.utilities.barcodes</groupId>
-    <artifactId>tech-socialist-barcode-util</artifactId>
+    <groupId>com.techsocialist.utilities.testone</groupId>
+    <artifactId>testone</artifactId>
 
-    <name>barcodes</name>
+    <name>testone</name>
+    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
     <dependencies>
-        <!--Barcode4J library -->
-        <dependency>
-            <groupId>net.sf.barcode4j</groupId>
-            <artifactId>barcode4j</artifactId>
-            <version>2.1</version>
-            <scope>compile</scope>
-        </dependency>
         <!--QR Code Libraries -->
         <dependency>
             <groupId>com.google.zxing</groupId>
@@ -35,12 +28,11 @@
             <artifactId>javase</artifactId>
             <version>3.4.0</version>
         </dependency>
+
         <dependency>
             <groupId>com.techsocialist.utilities.temp</groupId>
             <artifactId>tech-socialist-temp</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
-
 </project>

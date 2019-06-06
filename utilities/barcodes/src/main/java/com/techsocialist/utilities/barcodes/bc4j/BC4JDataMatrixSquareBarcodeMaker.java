@@ -1,10 +1,10 @@
 package com.techsocialist.utilities.barcodes.bc4j;
 
-import java.io.File;
-import java.io.IOException;
-
 import org.krysalis.barcode4j.impl.datamatrix.DataMatrixBean;
 import org.krysalis.barcode4j.impl.datamatrix.SymbolShapeHint;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author Ravaneswaran Chinnasamy

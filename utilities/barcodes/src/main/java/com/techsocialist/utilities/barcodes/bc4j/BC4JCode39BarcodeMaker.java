@@ -1,9 +1,9 @@
 package com.techsocialist.utilities.barcodes.bc4j;
 
+import org.krysalis.barcode4j.impl.code39.Code39Bean;
+
 import java.io.File;
 import java.io.IOException;
-
-import org.krysalis.barcode4j.impl.code39.Code39Bean;
 
 public class BC4JCode39BarcodeMaker extends AbstractBC4JBarcodeMaker {
 

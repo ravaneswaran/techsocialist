@@ -1,18 +1,14 @@
 package com.techsocialist.utilities.mail.impl;
 
+import com.techsocialist.utilities.mail.api.IMailClient;
+import com.techsocialist.utilities.temp.Temporary;
+import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Ignore;
+
+import javax.mail.MessagingException;
 import java.io.File;
 import java.io.IOException;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-
-import com.techsocialist.utilities.mail.api.IMailClient;
-import junit.framework.TestCase;
-
-import org.junit.Assert;
-
-import com.techsocialist.utilities.temp.Temporary;
-import org.junit.Ignore;
 
 @Ignore
 public class TestMailClient extends TestCase {
