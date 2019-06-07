@@ -15,5 +15,8 @@
 
     <name>portals</name>
     <url>http://www.example.com</url>
+    <modules>
+        <module>liferay</module>
+    </modules>
 
 </project>
