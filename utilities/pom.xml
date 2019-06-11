@@ -26,6 +26,7 @@
         <module>image</module>
         <module>marshaller</module>
         <module>unmarshaller</module>
+        <module>server</module>
     </modules>
 
 </project>
