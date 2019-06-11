@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 class WithChromeSupport {
 
@@ -48,5 +49,7 @@ class WithChromeSupport {
 
 
         WEB_DRIVER = new ChromeDriver(chromeOptions);
+        WEB_DRIVER.manage().window().maximize();
+        WEB_DRIVER.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }
