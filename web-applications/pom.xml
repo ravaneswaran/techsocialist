@@ -24,55 +24,18 @@
         <selenium.version>3.141.59</selenium.version>
         <selenium.server.version>1.0-20081010.060147</selenium.server.version>
         <selenium-htmlunit-driver.version>2.52.0</selenium-htmlunit-driver.version>
+        <tech-socialist.selenium.server.version>1.0-SNAPSHOT</tech-socialist.selenium.server.version>
     </properties>
 
     <dependencies>
-        <!--selenium dependencies-->
+
         <dependency>
-            <groupId>org.openqa.selenium.server</groupId>
-            <artifactId>selenium-server</artifactId>
-            <version>${selenium.server.version}</version>
+            <groupId>com.techsocialist.utilities.server</groupId>
+            <artifactId>tech-socialist-selenium-server</artifactId>
+            <version>${tech-socialist.selenium.server.version}</version>
+            <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-        <!--<dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-server</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-api</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-support</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-remote-driver</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-chrome-driver</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-htmlunit-driver</artifactId>
-            <version>${selenium-htmlunit-driver.version}</version>
-        </dependency>-->
+
     </dependencies>
 
 
