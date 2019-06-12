@@ -20,4 +20,23 @@
     <name>web-applications</name>
     <url>http://www.example.com</url>
 
+    <properties>
+        <selenium.version>3.141.59</selenium.version>
+        <selenium.server.version>1.0-20081010.060147</selenium.server.version>
+        <selenium-htmlunit-driver.version>2.52.0</selenium-htmlunit-driver.version>
+        <tech-socialist.selenium.server.version>1.0-SNAPSHOT</tech-socialist.selenium.server.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.techsocialist.utilities.server</groupId>
+            <artifactId>tech-socialist-selenium-server</artifactId>
+            <version>${tech-socialist.selenium.server.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
 </project>
