@@ -27,6 +27,7 @@
         <module>marshaller</module>
         <module>unmarshaller</module>
         <module>server</module>
+        <module>clients</module>
     </modules>
 
 </project>

@@ -1,4 +1,4 @@
-package com.techsocialist.webapps.selenium;
+package com.techsocialist.web.demo.selenium;
 
 import com.techsocialist.utilities.server.SeleniumSupport;
 import org.junit.AfterClass;
@@ -29,11 +29,11 @@ public class TestChromeDriver extends SeleniumSupport {
 
     @Test
     public void chromeDriverTest() throws MalformedURLException, InterruptedException {
-        _seleniumWebDriver.get("https://www.youtube.com");
-        _seleniumWebDriver.findElement(By.id("search")).sendKeys("i am a rider featuring iron man");
-        _seleniumWebDriver.findElement(By.id("search")).sendKeys(Keys.ENTER);
+        _seleniumWebDriver.get("https://www.google.com");
+        _seleniumWebDriver.findElement(By.name("q")).sendKeys("i am a rider featuring iron man");
+        _seleniumWebDriver.findElement(By.name("q")).sendKeys(Keys.ENTER);
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
     }
 
     @Test
