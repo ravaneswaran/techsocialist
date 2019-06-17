@@ -3,21 +3,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>tech-socialist</artifactId>
-        <groupId>com.techsocialist</groupId>
+        <artifactId>liferay</artifactId>
+        <groupId>com.techsocialist.portals.liferay</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.techsocialist</groupId>
-    <artifactId>portals</artifactId>
+    <groupId>com.techsocialist.liferay.themes</groupId>
+    <artifactId>themes</artifactId>
     <packaging>pom</packaging>
 
-    <name>portals</name>
+    <name>themes</name>
     <url>http://www.example.com</url>
-
-    <modules>
-        <module>liferay</module>
-    </modules>
 
 </project>
