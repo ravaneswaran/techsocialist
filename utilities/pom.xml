@@ -28,6 +28,8 @@
         <module>unmarshaller</module>
         <module>server</module>
         <module>clients</module>
+        <module>exporters</module>
+        <module>importers</module>
     </modules>
 
 </project>

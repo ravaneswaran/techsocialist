@@ -9,15 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.techsocialist.utilities.server</groupId>
-    <artifactId>tech-socialist-server</artifactId>
+    <groupId>com.techsocialist.utilities.importers</groupId>
+    <artifactId>tech-socialist-importers-util</artifactId>
     <packaging>pom</packaging>
 
-    <name>server</name>
+    <name>importers</name>
     <url>http://www.example.com</url>
     <modules>
-        <module>selenium</module>
+        <module>db-importer</module>
     </modules>
-
 
 </project>
