@@ -16,5 +16,9 @@
     <name>service-builder</name>
     <url>http://www.example.com</url>
 
+    <modules>
+        <module>hello-world-servicebuilder</module>
+    </modules>
+
 
 </project>
