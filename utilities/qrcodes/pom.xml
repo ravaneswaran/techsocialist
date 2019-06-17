@@ -30,7 +30,7 @@
     </dependency>
     <dependency>
       <groupId>com.techsocialist.utilities.temp</groupId>
-      <artifactId>tech-socialist-temp</artifactId>
+      <artifactId>tech-socialist-temp-util</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>

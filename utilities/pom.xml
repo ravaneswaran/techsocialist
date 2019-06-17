@@ -18,9 +18,9 @@
     <url>http://www.example.com</url>
 
     <modules>
+        <module>temp</module>
         <module>mail</module>
         <module>pdf</module>
-        <module>temp</module>
         <module>barcodes</module>
         <module>qrcodes</module>
         <module>image</module>
