@@ -1,6 +1,7 @@
 package com.techsocialist.utilities.exporter.database.mysql.exporter.file.mysql;
 
-import com.congruent.db.exporter.file.FileExporter;
+import com.techsocialist.utilities.exporter.database.FileExporter;
+import com.techsocialist.utilities.exporter.database.file.AsMSSql2005SqlFile;
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -21,7 +22,7 @@ public class TestAsMSSql2005SqlFile extends TestCase {
 	}
 
 	public void testAsMSSql2005SqlFileInst2() {
-		String database = "training";
+		String database = "tech_socialist";
 		String host = "";
 		String port = "";
 		String userName = "";
@@ -42,7 +43,7 @@ public class TestAsMSSql2005SqlFile extends TestCase {
 
 	public void testExport() throws IOException, SQLException,
 			ClassNotFoundException {
-		String database = "training";
+		String database = "tech_socialist";
 		String host = "localhost";
 		String port = "3306";
 		String userName = "root";

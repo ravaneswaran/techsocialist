@@ -16,8 +16,8 @@
 
     <name>exporters</name>
     <url>http://www.example.com</url>
+
     <modules>
-        <module>exporters-api</module>
         <module>db-exporter</module>
     </modules>
 

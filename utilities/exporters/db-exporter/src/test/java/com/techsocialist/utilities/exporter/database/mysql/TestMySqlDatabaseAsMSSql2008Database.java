@@ -1,6 +1,6 @@
 package com.techsocialist.utilities.exporter.database.mysql;
 
-import com.congruent.db.Database;
+import com.techsocialist.utilities.exporter.database.Database;
 
 public class TestMySqlDatabaseAsMSSql2008Database extends TestMySqlDatabaseAsMSSql2005Database{
 	

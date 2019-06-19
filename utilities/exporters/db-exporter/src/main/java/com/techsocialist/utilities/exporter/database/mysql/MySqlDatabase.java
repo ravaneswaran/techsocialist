@@ -361,7 +361,7 @@ public class MySqlDatabase implements Database {
 		Statement statement = this.connection.createStatement();
 		if (null != statement) {
 			ResultSet resultSet = statement
-					.executeQuery("SHOW PROCEDURE STATUS");
+					.executeQuery(String.format("SHOW PROCEDURE STATUS WHERE DB = '%s'", this.getDatabaseName()));
 			if (null != resultSet) {
 				List<Procedure> procedures = new ArrayList<Procedure>();
 
@@ -419,7 +419,7 @@ public class MySqlDatabase implements Database {
 		Statement statement = this.connection.createStatement();
 		if (null != statement) {
 			ResultSet resultSet = statement
-					.executeQuery("SHOW FUNCTION STATUS");
+					.executeQuery(String.format("SHOW FUNCTION STATUS WHERE DB = '%s'", this.getDatabaseName()));
 			if (null != resultSet) {
 				List<Function> functions = new ArrayList<Function>();
 
@@ -503,7 +503,6 @@ public class MySqlDatabase implements Database {
 								.append(resultSet.getString("Statement"))
 								.append("$$").append("\n")
 								.append("DELIMITER ;").append("\n");
-
 					}
 				}
 			}

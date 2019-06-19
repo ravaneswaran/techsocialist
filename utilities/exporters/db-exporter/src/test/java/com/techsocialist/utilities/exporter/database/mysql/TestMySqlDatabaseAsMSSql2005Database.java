@@ -1,17 +1,17 @@
 package com.techsocialist.utilities.exporter.database.mysql;
 
-import com.congruent.db.Database;
-import com.congruent.db.Table;
+import com.techsocialist.utilities.exporter.database.Database;
+import com.techsocialist.utilities.exporter.database.Table;
 import junit.framework.TestCase;
-
 import java.sql.SQLException;
 import java.util.List;
+
 
 public class TestMySqlDatabaseAsMSSql2005Database extends TestCase {
 
 	private MySqlDatabaseAsMSSql2005Database db;
 
-	private String url = "jdbc:mysql://localhost:3306/training";
+	private String url = "jdbc:mysql://localhost:3306/tech_socialist";
 
 	private String user = "root";
 
@@ -40,7 +40,7 @@ public class TestMySqlDatabaseAsMSSql2005Database extends TestCase {
 		String user = "root";
 		String password = "admin";
 		String port = "3306";
-		String dbName = "training";
+		String dbName = "tech_socialist";
 		database.open(url, port, dbName, user, password);
 		assertTrue(database.isOpen());
 	}

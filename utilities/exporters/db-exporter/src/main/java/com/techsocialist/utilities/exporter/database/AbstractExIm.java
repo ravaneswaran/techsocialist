@@ -64,6 +64,6 @@ public abstract class AbstractExIm implements ExIm{
         return this.password;
     }
 
-    public abstract void  test();
+    //public abstract void  test();
 
 }

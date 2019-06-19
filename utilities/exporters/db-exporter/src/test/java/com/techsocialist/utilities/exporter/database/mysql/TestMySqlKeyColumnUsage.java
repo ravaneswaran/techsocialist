@@ -1,5 +1,6 @@
 package com.techsocialist.utilities.exporter.database.mysql;
 
+import com.techsocialist.utilities.exporter.database.KeyColumnUsage;
 import junit.framework.TestCase;
 
 public class TestMySqlKeyColumnUsage extends TestCase{

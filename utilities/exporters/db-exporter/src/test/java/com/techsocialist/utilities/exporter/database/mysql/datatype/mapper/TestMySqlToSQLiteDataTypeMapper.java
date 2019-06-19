@@ -1,16 +1,11 @@
 package com.techsocialist.utilities.exporter.database.mysql.datatype.mapper;
 
-import com.congruent.db.mapper.Mapper;
+import com.techsocialist.utilities.exporter.database.DataTypeMapper;
+import com.techsocialist.utilities.exporter.database.Mapper;
 import junit.framework.TestCase;
 
 import java.util.Map;
 
-/**
- * Created with IntelliJ IDEA.
- * User: ravenees
- * Date: 10/30/12
- * Time: 12:36 PM
- */
 public class TestMySqlToSQLiteDataTypeMapper extends TestCase{
 
     @Override

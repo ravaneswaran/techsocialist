@@ -1,6 +1,6 @@
 package com.techsocialist.utilities.exporter.database.mysql;
 
-import com.congruent.db.Database;
+import com.techsocialist.utilities.exporter.database.Database;
 import junit.framework.TestCase;
 
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ public class TestMySqlDatabaseAsOracleDatabase extends TestCase{
 
 	private MySqlDatabaseAsOracleDatabase db;
 
-	private String url = "jdbc:mysql://localhost:3306/training";
+	private String url = "jdbc:mysql://localhost:3306/tech_socialist";
 
 	private String user = "root";
 

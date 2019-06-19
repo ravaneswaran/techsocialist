@@ -1,28 +1,45 @@
-package com.techsocialist.utilities.exporter.database.mysql.file.mysql;
+package com.techsocialist.utilities.exporter.database.file;
 
+import com.techsocialist.utilities.exporter.database.AbstractExIm;
 import com.techsocialist.utilities.exporter.database.Database;
+import com.techsocialist.utilities.exporter.database.FileExporter;
 import com.techsocialist.utilities.exporter.database.mysql.factory.MySqlDatabaseFactory;
 
 import java.io.*;
 import java.sql.SQLException;
 
-public class AsMSSql2008SqlFile extends AsMSSql2005SqlFile {
+public class AsMySqlFile extends AbstractExIm implements FileExporter {
 
-	public AsMSSql2008SqlFile() {
-		super();
+	protected String location;
+
+	protected Database mysqlDB;
+
+	public AsMySqlFile() {
+
 	}
 
-	public AsMSSql2008SqlFile(String host, String port, String database,
+	public AsMySqlFile(String host, String port, String database,
 			String userName, String password) {
-		super(host, port, database, userName, password);
-		this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL_AS_MSSQL_2008);
+		this.host = host;
+		this.port = port;
+		this.databaseName = database;
+		this.username = userName;
+		this.password = password;
+		this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL);
 	}
 
-	@Override
+	public void setLocation(String path) {
+		this.location = path;
+	}
+
+	public String getLocation() {
+		return this.location;
+	}
+
 	public void export() {
 		String url = "jdbc:mysql://" + this.host + ":" + this.port + "/"
-                + this.databaseName;
-            try {
+				+ this.databaseName;
+		try {
 			this.mysqlDB.open(url, this.username, this.password);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -31,7 +48,7 @@ public class AsMSSql2008SqlFile extends AsMSSql2005SqlFile {
 		}
 
 		String fileToCreateAndUpdate = this.location + "database-"
-				+ this.databaseName + "-for-mssql2008.sql";
+				+ this.databaseName + "-for-mysql.sql";
 
 		File file = new File(fileToCreateAndUpdate);
 		if (!file.exists()) {
@@ -64,5 +81,4 @@ public class AsMSSql2008SqlFile extends AsMSSql2005SqlFile {
 			e.printStackTrace();
 		}
 	}
-
 }

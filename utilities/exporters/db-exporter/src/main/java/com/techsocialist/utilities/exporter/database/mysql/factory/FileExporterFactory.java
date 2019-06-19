@@ -2,7 +2,7 @@ package com.techsocialist.utilities.exporter.database.mysql.factory;
 
 import com.techsocialist.utilities.exporter.database.ExIm;
 import com.techsocialist.utilities.exporter.database.FileExporter;
-import com.techsocialist.utilities.exporter.database.mysql.file.mysql.*;
+import com.techsocialist.utilities.exporter.database.file.*;
 
 public class FileExporterFactory {
 

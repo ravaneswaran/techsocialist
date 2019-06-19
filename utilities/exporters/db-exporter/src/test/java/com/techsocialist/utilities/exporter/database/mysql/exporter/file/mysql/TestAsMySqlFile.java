@@ -1,7 +1,8 @@
 package com.techsocialist.utilities.exporter.database.mysql.exporter.file.mysql;
 
-import com.congruent.db.exporter.file.FileExporter;
-import com.congruent.db.factory.exporter.FileExporterFactory;
+import com.techsocialist.utilities.exporter.database.FileExporter;
+import com.techsocialist.utilities.exporter.database.file.AsMySqlFile;
+import com.techsocialist.utilities.exporter.database.mysql.factory.FileExporterFactory;
 import junit.framework.TestCase;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class TestAsMySqlFile extends TestCase {
 	}
 
 	public void testAsMySqllFileInst2() {
-		String database = "training";
+		String database = "tech_socialist";
 		String host = "";
 		String port = "";
 		String userName = "";
@@ -48,7 +49,7 @@ public class TestAsMySqlFile extends TestCase {
 	@Test
 	public void testExport() throws IOException, SQLException,
 			ClassNotFoundException {
-		String database = "training";
+		String database = "tech_socialist";
 		String host = "localhost";
 		String port = "3306";
 		String userName = "root";

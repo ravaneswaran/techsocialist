@@ -1,6 +1,7 @@
 package com.techsocialist.utilities.exporter.database.mysql.datatype.mapper;
 
-import com.congruent.db.mapper.Mapper;
+import com.techsocialist.utilities.exporter.database.DataTypeMapper;
+import com.techsocialist.utilities.exporter.database.Mapper;
 import junit.framework.TestCase;
 
 import java.util.Map;
@@ -52,7 +53,7 @@ public class TestMySqlToSybaseDatatypeMapper extends TestCase {
     public void testSmallInt(){
         DataTypeMapper mapper = new MySqlToSybaselDataTypeMapper();
         String toDataType = mapper.getToDataType("smallint");
-        assertEquals("SMALLINT", toDataType);
+        assertEquals("UNSIGNED SMALLINT", toDataType);
     }
 
     public void testMediumInt(){

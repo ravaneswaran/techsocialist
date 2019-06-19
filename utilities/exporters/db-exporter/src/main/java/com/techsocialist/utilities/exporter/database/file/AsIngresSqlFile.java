@@ -1,4 +1,4 @@
-package com.techsocialist.utilities.exporter.database.mysql.file.mysql;
+package com.techsocialist.utilities.exporter.database.file;
 
 import com.techsocialist.utilities.exporter.database.Database;
 import com.techsocialist.utilities.exporter.database.mysql.factory.MySqlDatabaseFactory;
@@ -6,19 +6,17 @@ import com.techsocialist.utilities.exporter.database.mysql.factory.MySqlDatabase
 import java.io.*;
 import java.sql.SQLException;
 
-public class AsOracleSqlFile extends AsMySqlFile {
+public class AsIngresSqlFile extends AsMySqlFile {
 
-    public AsOracleSqlFile() {
+    public AsIngresSqlFile() {
         super();
     }
 
-    public AsOracleSqlFile(String host, String port, String database,
-                           String userName, String password) {
-        super(host, port, database, userName, password);
-        this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL_AS_ORACLE);
+    public AsIngresSqlFile(String host, String port, String database, String userName, String password) {
+        super(host,port,database,userName,password);
+        this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL_AS_INGRES);
     }
 
-    @Override
     public void export() {
         String url = "jdbc:mysql://" + this.host + ":" + this.port + "/"
                 + this.databaseName;
@@ -31,7 +29,7 @@ public class AsOracleSqlFile extends AsMySqlFile {
         }
 
         String fileToCreateAndUpdate = this.location + "database-"
-                + this.databaseName + "-for-oracle.sql";
+                + this.databaseName + "-for-ingres.sql";
 
         File file = new File(fileToCreateAndUpdate);
         if (!file.exists()) {
@@ -64,4 +62,5 @@ public class AsOracleSqlFile extends AsMySqlFile {
             e.printStackTrace();
         }
     }
+
 }

@@ -1,6 +1,5 @@
 package com.techsocialist.utilities.exporter.database.mysql;
 
-
 import com.techsocialist.utilities.exporter.database.Table;
 import junit.framework.TestCase;
 
@@ -11,7 +10,6 @@ public class TestMySqlTable extends TestCase {
 
 	@Override
 	protected void setUp() throws Exception {
-		// TODO Auto-generated method stub
 		super.setUp();
 	}
 

@@ -1,6 +1,6 @@
 package com.techsocialist.utilities.exporter.database.mysql;
 
-import com.congruent.db.Trigger;
+import com.techsocialist.utilities.exporter.database.Trigger;
 import junit.framework.TestCase;
 
 public class TestMySqlTrigger extends TestCase{
