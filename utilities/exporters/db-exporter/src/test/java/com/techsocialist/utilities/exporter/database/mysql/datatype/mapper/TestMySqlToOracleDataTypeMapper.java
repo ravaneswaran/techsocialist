@@ -1,6 +1,7 @@
 package com.techsocialist.utilities.exporter.database.mysql.datatype.mapper;
 
-import com.congruent.db.mapper.Mapper;
+import com.techsocialist.utilities.exporter.database.DataTypeMapper;
+import com.techsocialist.utilities.exporter.database.Mapper;
 import junit.framework.TestCase;
 
 public class TestMySqlToOracleDataTypeMapper extends TestCase{

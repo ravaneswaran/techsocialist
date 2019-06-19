@@ -1,6 +1,8 @@
 package com.techsocialist.utilities.exporter.database.mysql.exporter.direct;
 
-import com.congruent.db.ExIm;
+import com.techsocialist.utilities.exporter.database.ExIm;
+import com.techsocialist.utilities.exporter.database.direct.MySql;
+
 import junit.framework.TestCase;
 
 public class TestMySql extends TestCase {

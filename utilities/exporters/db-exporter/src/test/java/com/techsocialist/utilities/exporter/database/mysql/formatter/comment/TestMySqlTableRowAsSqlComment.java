@@ -1,8 +1,8 @@
 package com.techsocialist.utilities.exporter.database.mysql.formatter.comment;
 
-import com.congruent.db.formatter.Formatter;
-import com.congruent.db.formatter.TableCell;
-import com.congruent.db.formatter.TableRow;
+import com.techsocialist.utilities.exporter.database.Formatter;
+import com.techsocialist.utilities.exporter.database.TableCell;
+import com.techsocialist.utilities.exporter.database.TableRow;
 import junit.framework.TestCase;
 
 public class TestMySqlTableRowAsSqlComment extends TestCase{
@@ -23,8 +23,7 @@ public class TestMySqlTableRowAsSqlComment extends TestCase{
 		int count = inst.getCellCount();
 		assertTrue(0 == count);
 	}
-		
-	
+
 	public void testAddCell(){
 		TableRow inst = new MySqlTableRowAsSqlComment();
 		TableCell cell = new MySqlTableCellAsSqlComment("test");

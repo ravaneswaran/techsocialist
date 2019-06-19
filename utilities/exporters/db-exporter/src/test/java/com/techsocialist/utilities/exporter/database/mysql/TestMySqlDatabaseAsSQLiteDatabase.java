@@ -1,21 +1,16 @@
 package com.techsocialist.utilities.exporter.database.mysql;
 
+import com.techsocialist.utilities.exporter.database.*;
 import junit.framework.TestCase;
 
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: ravenees
- * Date: 10/30/12
- * Time: 11:29 AM
- */
 public class TestMySqlDatabaseAsSQLiteDatabase extends TestCase {
 
     private MySqlDatabaseAsSQLiteDatabase db;
 
-    private String url = "jdbc:mysql://localhost:3306/training";
+    private String url = "jdbc:mysql://localhost:3306/tech_socialist";
 
     private String user = "root";
 
@@ -44,7 +39,7 @@ public class TestMySqlDatabaseAsSQLiteDatabase extends TestCase {
         String user = "root";
         String password = "admin";
         String port = "3306";
-        String dbName = "training";
+        String dbName = "tech_socialist";
         database.open(url, port, dbName, user, password);
         assertTrue(database.isOpen());
     }

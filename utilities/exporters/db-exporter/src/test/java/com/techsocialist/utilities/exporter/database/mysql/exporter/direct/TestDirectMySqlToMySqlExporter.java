@@ -1,8 +1,10 @@
 package com.techsocialist.utilities.exporter.database.mysql.exporter.direct;
 
-import com.congruent.db.ExIm;
-import com.congruent.db.exporter.Exporter;
-import com.congruent.db.exporter.direct.mysql.DirectMySqlToMySqlExporter;
+import com.techsocialist.utilities.exporter.database.DirectExporter;
+import com.techsocialist.utilities.exporter.database.ExIm;
+import com.techsocialist.utilities.exporter.database.Exporter;
+import com.techsocialist.utilities.exporter.database.direct.DirectMySqlToMySqlExporter;
+import com.techsocialist.utilities.exporter.database.direct.MySql;
 import junit.framework.TestCase;
 
 import java.sql.SQLException;
@@ -38,8 +40,8 @@ public class TestDirectMySqlToMySqlExporter extends TestCase{
 	
 	public void testExport() throws SQLException, ClassNotFoundException{
 		DirectExporter exporter = new DirectMySqlToMySqlExporter();
-        exporter.setSource(new MySql("localhost", "training", "root", "admin"));
-        exporter.setTarget(new MySql("localhost", "training", "root", "admin"));
+        exporter.setSource(new MySql("localhost", "tech_socialist", "root", "admin"));
+        exporter.setTarget(new MySql("localhost", "test", "root", "admin"));
         exporter.export();
 	}
 	

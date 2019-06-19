@@ -1,4 +1,4 @@
-package com.techsocialist.utilities.exporter.database.mysql.file.mysql;
+package com.techsocialist.utilities.exporter.database.file;
 
 import com.techsocialist.utilities.exporter.database.Database;
 import com.techsocialist.utilities.exporter.database.mysql.factory.MySqlDatabaseFactory;
@@ -6,15 +6,16 @@ import com.techsocialist.utilities.exporter.database.mysql.factory.MySqlDatabase
 import java.io.*;
 import java.sql.SQLException;
 
-public class AsIngresSqlFile extends AsMySqlFile {
+public class AsPostgreSqlFile extends AsMySqlFile {
 
-    public AsIngresSqlFile() {
+
+    public AsPostgreSqlFile() {
         super();
     }
 
-    public AsIngresSqlFile(String host, String port, String database, String userName, String password) {
-        super(host,port,database,userName,password);
-        this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL_AS_INGRES);
+    public AsPostgreSqlFile(String host, String port, String database, String userName, String password) {
+        super(host, port, database, userName, password);
+        this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL_AS_POSTGRES);
     }
 
     public void export() {
@@ -29,7 +30,7 @@ public class AsIngresSqlFile extends AsMySqlFile {
         }
 
         String fileToCreateAndUpdate = this.location + "database-"
-                + this.databaseName + "-for-ingres.sql";
+                + this.databaseName + "-for-postgres.sql";
 
         File file = new File(fileToCreateAndUpdate);
         if (!file.exists()) {

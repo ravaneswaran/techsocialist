@@ -1,7 +1,7 @@
 package com.techsocialist.utilities.exporter.database.mysql.formatter.comment;
 
-import com.congruent.db.formatter.Formatter;
-import com.congruent.db.formatter.TableCell;
+import com.techsocialist.utilities.exporter.database.Formatter;
+import com.techsocialist.utilities.exporter.database.TableCell;
 import junit.framework.TestCase;
 
 public class TestMySqlTableCellAsSqlComment extends TestCase {

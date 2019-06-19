@@ -1,6 +1,7 @@
 package com.techsocialist.utilities.exporter.database.mysql.exporter.file.mysql;
 
-import com.congruent.db.exporter.file.FileExporter;
+import com.techsocialist.utilities.exporter.database.FileExporter;
+import com.techsocialist.utilities.exporter.database.file.AsIngresSqlFile;
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -9,12 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 
-/**
- * Created with IntelliJ IDEA.
- * User: ravaneswaran
- * Date: 1/11/12
- * Time: 10:51 PM
- */
 public class TestAsIngresSqlFile  extends TestCase{
 
     @Override
@@ -28,7 +23,7 @@ public class TestAsIngresSqlFile  extends TestCase{
     }
 
     public void testAsPostgreSqlFileInst2() {
-        String database = "training";
+        String database = "tech_socialist";
         String host = "";
         String port = "";
         String userName = "";
@@ -49,7 +44,7 @@ public class TestAsIngresSqlFile  extends TestCase{
 
     public void testExport() throws IOException, SQLException,
             ClassNotFoundException {
-        String database = "training";
+        String database = "tech_socialist";
         String host = "localhost";
         String port = "3306";
         String userName = "root";

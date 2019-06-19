@@ -1,4 +1,4 @@
-package com.techsocialist.utilities.exporter.database.mysql.file.mysql;
+package com.techsocialist.utilities.exporter.database.file;
 
 import com.techsocialist.utilities.exporter.database.Database;
 import com.techsocialist.utilities.exporter.database.mysql.factory.MySqlDatabaseFactory;
@@ -6,22 +6,23 @@ import com.techsocialist.utilities.exporter.database.mysql.factory.MySqlDatabase
 import java.io.*;
 import java.sql.SQLException;
 
-public class AsMSSql2005SqlFile extends AsMySqlFile {
+public class AsMSSql2008SqlFile extends AsMSSql2005SqlFile {
 
-	public AsMSSql2005SqlFile() {
+	public AsMSSql2008SqlFile() {
 		super();
 	}
 
-	public AsMSSql2005SqlFile(String host, String port, String database,
+	public AsMSSql2008SqlFile(String host, String port, String database,
 			String userName, String password) {
 		super(host, port, database, userName, password);
-		this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL_AS_MSSQL_2005);
+		this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL_AS_MSSQL_2008);
 	}
 
+	@Override
 	public void export() {
 		String url = "jdbc:mysql://" + this.host + ":" + this.port + "/"
-				+ this.databaseName;
-		try {
+                + this.databaseName;
+            try {
 			this.mysqlDB.open(url, this.username, this.password);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -30,7 +31,7 @@ public class AsMSSql2005SqlFile extends AsMySqlFile {
 		}
 
 		String fileToCreateAndUpdate = this.location + "database-"
-				+ this.databaseName + "-for-mssql2005.sql";
+				+ this.databaseName + "-for-mssql2008.sql";
 
 		File file = new File(fileToCreateAndUpdate);
 		if (!file.exists()) {
@@ -63,4 +64,5 @@ public class AsMSSql2005SqlFile extends AsMySqlFile {
 			e.printStackTrace();
 		}
 	}
+
 }

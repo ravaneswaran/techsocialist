@@ -1,4 +1,4 @@
-package com.techsocialist.utilities.exporter.database.mysql.file.mysql;
+package com.techsocialist.utilities.exporter.database.file;
 
 import com.techsocialist.utilities.exporter.database.Database;
 import com.techsocialist.utilities.exporter.database.mysql.factory.MySqlDatabaseFactory;
@@ -6,17 +6,19 @@ import com.techsocialist.utilities.exporter.database.mysql.factory.MySqlDatabase
 import java.io.*;
 import java.sql.SQLException;
 
-public class AsSQLiteSqlFile extends AsMySqlFile {
+public class AsOracleSqlFile extends AsMySqlFile {
 
-    public AsSQLiteSqlFile() {
+    public AsOracleSqlFile() {
         super();
     }
 
-    public AsSQLiteSqlFile(String host, String port, String database, String userName, String password) {
+    public AsOracleSqlFile(String host, String port, String database,
+                           String userName, String password) {
         super(host, port, database, userName, password);
-        this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL_AS_SQL_LITE);
+        this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL_AS_ORACLE);
     }
 
+    @Override
     public void export() {
         String url = "jdbc:mysql://" + this.host + ":" + this.port + "/"
                 + this.databaseName;
@@ -29,7 +31,7 @@ public class AsSQLiteSqlFile extends AsMySqlFile {
         }
 
         String fileToCreateAndUpdate = this.location + "database-"
-                + this.databaseName + "-for-sqlite.sql";
+                + this.databaseName + "-for-oracle.sql";
 
         File file = new File(fileToCreateAndUpdate);
         if (!file.exists()) {
@@ -62,5 +64,4 @@ public class AsSQLiteSqlFile extends AsMySqlFile {
             e.printStackTrace();
         }
     }
-
 }

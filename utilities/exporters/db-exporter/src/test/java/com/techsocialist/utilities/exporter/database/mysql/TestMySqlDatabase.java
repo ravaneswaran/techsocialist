@@ -10,7 +10,7 @@ public class TestMySqlDatabase extends TestCase {
 
 	private MySqlDatabase db;
 
-	private String url = "jdbc:mysql://localhost:3306/training";
+	private String url = "jdbc:mysql://localhost:3306/tech_socialist";
 
 	private String user = "root";
 
@@ -38,7 +38,7 @@ public class TestMySqlDatabase extends TestCase {
 		String user = "root";
 		String password = "admin";
 		String port = "3306";
-		String dbName = "training";
+		String dbName = "tech_socialist";
 		database.open(url, port, dbName, user, password);
 		assertTrue(database.isOpen());
 	}
@@ -117,7 +117,7 @@ public class TestMySqlDatabase extends TestCase {
 			ClassNotFoundException {
 		Database database = this.db;
 		database.open(this.url, this.user, this.password);
-		assertEquals("training", database.getDatabaseName());
+		assertEquals("tech_socialist", database.getDatabaseName());
 	}
 
 	public void testGetDatabaseCreateStatement() throws SQLException,
@@ -165,15 +165,6 @@ public class TestMySqlDatabase extends TestCase {
 				st);
 	}
 
-	public void testGetStoredProcedureCreateStatement() throws SQLException,
-			ClassNotFoundException {
-		Database database = this.db;
-		database.open(this.url, this.user, this.password);
-		String storedProcedure = "test";
-		String st = database.getStoredProcedureCreateStatement(storedProcedure);
-		assertNotNull(st);
-	}
-
 	public void testGetFunctions() throws SQLException, ClassNotFoundException {
 		Database database = this.db;
 		database.open(this.url, this.user, this.password);
@@ -188,15 +179,6 @@ public class TestMySqlDatabase extends TestCase {
 		String function = "test";
 		String st = database.getFunctionDropStatement(function);
 		assertEquals("DROP FUNCTION IF EXISTS `" + function + "`;\n", st);
-	}
-
-	public void testGetFunctionCreateStatement() throws SQLException,
-			ClassNotFoundException {
-		Database database = this.db;
-		database.open(this.url, this.user, this.password);
-		String function = "test";
-		String st = database.getFunctionCreateStatement(function);
-		assertNotNull(st);
 	}
 
 	public void testGetTriggers() throws SQLException, ClassNotFoundException {
@@ -225,13 +207,31 @@ public class TestMySqlDatabase extends TestCase {
 		assertNotNull(st);
 	}
 
+	public void testGetStoredProcedureCreateStatement() throws SQLException,
+			ClassNotFoundException {
+		Database database = this.db;
+		database.open(this.url, this.user, this.password);
+		String storedProcedure = "test";
+		String st = database.getStoredProcedureCreateStatement(storedProcedure);
+		assertNotNull(st);
+	}
+
+	public void testGetFunctionCreateStatement() throws SQLException,
+			ClassNotFoundException {
+		Database database = this.db;
+		database.open(this.url, this.user, this.password);
+		String function = "test";
+		String st = database.getFunctionCreateStatement(function);
+		assertNotNull(st);
+	}
+
 	public void testGetKeyColumnUsage() throws SQLException,
 			ClassNotFoundException {
 		Database database = this.db;
 		database.open(this.url, this.user, this.password);
 		String table = "promotion";
 		List<KeyColumnUsage> columnUsages = database.getKeyColumnUsage(table);
-		assertNotNull(columnUsages);
+		assertNull(columnUsages);
 	}
 
 	public void testGetParentTables() throws SQLException,
@@ -240,7 +240,7 @@ public class TestMySqlDatabase extends TestCase {
 		database.open(this.url, this.user, this.password);
 		String table = "promotion";
 		List<Table> tables = database.getParentTables(table);
-		assertNotNull(tables);
+		assertNull(tables);
 	}
 
 	@Override

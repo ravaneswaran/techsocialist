@@ -2,7 +2,7 @@ package com.techsocialist.utilities.exporter.database.mysql.exporter.direct;
 
 
 import com.techsocialist.utilities.exporter.database.ExIm;
-import com.techsocialist.utilities.exporter.database.mysql.direct.MSSql2005;
+import com.techsocialist.utilities.exporter.database.direct.MSSql2005;
 import junit.framework.TestCase;
 
 public class TestMSSql2005 extends TestCase {

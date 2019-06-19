@@ -1,13 +1,11 @@
-package com.techsocialist.utilities.exporter.database.mysql.direct.mysql;
-
-import com.techsocialist.utilities.exporter.database.mysql.direct.AbstractDirectExporter;
+package com.techsocialist.utilities.exporter.database.direct;
 
 import java.sql.SQLException;
 
 public class DirectMySqlToMySqlExporter extends AbstractDirectExporter {
 
 	public void export() throws SQLException, ClassNotFoundException {
-		/*Database source = MySqlDatabaseFactory.getInstance(Database.MYSQL);
+		/*Connection source = MySqlDatabaseFactory.getInstance(Connection.MYSQL);
         source.open("jdbc:mysql://" + this.source.getHost(), "3306",
                 this.source. getDatabaseName(),this.source.getUsername(),
                 this.source.getPassword());

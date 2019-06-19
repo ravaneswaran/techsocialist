@@ -1,4 +1,4 @@
-package com.techsocialist.utilities.exporter.database.mysql.direct;
+package com.techsocialist.utilities.exporter.database.direct;
 
 import com.techsocialist.utilities.exporter.database.Connection;
 import com.techsocialist.utilities.exporter.database.DatabaseExporter;

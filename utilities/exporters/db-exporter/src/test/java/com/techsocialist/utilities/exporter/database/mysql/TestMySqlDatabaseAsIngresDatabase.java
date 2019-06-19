@@ -11,7 +11,7 @@ public class TestMySqlDatabaseAsIngresDatabase extends TestCase{
 
     private MySqlDatabaseAsIngresDatabase db;
 
-    private String url = "jdbc:mysql://localhost:3306/training";
+    private String url = "jdbc:mysql://localhost:3306/tech_socialist";
 
     private String user = "root";
 
@@ -40,7 +40,7 @@ public class TestMySqlDatabaseAsIngresDatabase extends TestCase{
         String user = "root";
         String password = "admin";
         String port = "3306";
-        String dbName = "training";
+        String dbName = "tech_socialist";
         database.open(url, port, dbName, user, password);
         assertTrue(database.isOpen());
     }

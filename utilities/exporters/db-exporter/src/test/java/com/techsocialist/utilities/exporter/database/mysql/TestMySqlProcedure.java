@@ -1,6 +1,6 @@
 package com.techsocialist.utilities.exporter.database.mysql;
 
-import com.congruent.db.Procedure;
+import com.techsocialist.utilities.exporter.database.Procedure;
 import junit.framework.TestCase;
 
 public class TestMySqlProcedure extends TestCase{

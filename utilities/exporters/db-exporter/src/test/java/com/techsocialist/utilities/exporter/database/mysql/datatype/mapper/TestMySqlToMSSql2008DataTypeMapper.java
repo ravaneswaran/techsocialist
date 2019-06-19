@@ -1,8 +1,8 @@
 package com.techsocialist.utilities.exporter.database.mysql.datatype.mapper;
 
-import com.congruent.db.mapper.Mapper;
 
-
+import com.techsocialist.utilities.exporter.database.DataTypeMapper;
+import com.techsocialist.utilities.exporter.database.Mapper;
 
 public class TestMySqlToMSSql2008DataTypeMapper extends TestMySqlToMSSql2005DataTypeMapper{
 	

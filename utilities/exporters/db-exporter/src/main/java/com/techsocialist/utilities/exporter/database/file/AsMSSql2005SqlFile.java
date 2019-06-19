@@ -1,39 +1,21 @@
-package com.techsocialist.utilities.exporter.database.mysql.file.mysql;
+package com.techsocialist.utilities.exporter.database.file;
 
-import com.techsocialist.utilities.exporter.database.AbstractExIm;
 import com.techsocialist.utilities.exporter.database.Database;
-import com.techsocialist.utilities.exporter.database.FileExporter;
 import com.techsocialist.utilities.exporter.database.mysql.factory.MySqlDatabaseFactory;
 
 import java.io.*;
 import java.sql.SQLException;
 
-public class AsMySqlFile extends AbstractExIm implements FileExporter {
+public class AsMSSql2005SqlFile extends AsMySqlFile {
 
-	protected String location;
-
-	protected Database mysqlDB;
-
-	public AsMySqlFile() {
-
+	public AsMSSql2005SqlFile() {
+		super();
 	}
 
-	public AsMySqlFile(String host, String port, String database,
+	public AsMSSql2005SqlFile(String host, String port, String database,
 			String userName, String password) {
-		this.host = host;
-		this.port = port;
-		this.databaseName = database;
-		this.username = userName;
-		this.password = password;
-		this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL);
-	}
-
-	public void setLocation(String path) {
-		this.location = path;
-	}
-
-	public String getLocation() {
-		return this.location;
+		super(host, port, database, userName, password);
+		this.mysqlDB = MySqlDatabaseFactory.getInstance(Database.MYSQL_AS_MSSQL_2005);
 	}
 
 	public void export() {
@@ -48,7 +30,7 @@ public class AsMySqlFile extends AbstractExIm implements FileExporter {
 		}
 
 		String fileToCreateAndUpdate = this.location + "database-"
-				+ this.databaseName + "-for-mysql.sql";
+				+ this.databaseName + "-for-mssql2005.sql";
 
 		File file = new File(fileToCreateAndUpdate);
 		if (!file.exists()) {
