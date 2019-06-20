@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>tech-socialist-database-exporter</artifactId>
+        <artifactId>tech-socialist-database-exporter-util</artifactId>
         <groupId>com.techsocialist.utilities.exporters.database</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.exporters.database.mysql</groupId>
-    <artifactId>tech-socialist-mysql-exporter</artifactId>
+    <artifactId>tech-socialist-mysql-exporter-util</artifactId>
     <packaging>jar</packaging>
 
     <name>mysql</name>
@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>com.techsocialist.utilities.exporters.database.api</groupId>
-            <artifactId>tech-socialist-database-api</artifactId>
+            <artifactId>tech-socialist-database-api-util</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

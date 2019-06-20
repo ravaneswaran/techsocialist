@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.server</groupId>
-    <artifactId>tech-socialist-server</artifactId>
+    <artifactId>tech-socialist-server-util</artifactId>
     <packaging>pom</packaging>
 
     <name>server</name>
