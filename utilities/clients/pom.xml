@@ -12,7 +12,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.clients</groupId>
-    <artifactId>tech-socialist-clients</artifactId>
+    <artifactId>tech-socialist-clients-util</artifactId>
 
     <name>clients</name>
     <url>http://www.example.com</url>

@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>tech-socialist-importers-util</artifactId>
         <groupId>com.techsocialist.utilities.importers</groupId>
+        <artifactId>tech-socialist-importers-util</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.importers</groupId>
-    <artifactId>db-importer</artifactId>
+    <artifactId>tech-socialist-db-importer-util</artifactId>
 
     <name>db-importer</name>
     <url>http://www.example.com</url>

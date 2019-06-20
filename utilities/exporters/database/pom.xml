@@ -3,14 +3,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>tech-socialist-exporters</artifactId>
         <groupId>com.techsocialist.utilities.exporters</groupId>
+        <artifactId>tech-socialist-exporters-util</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.exporters.database</groupId>
-    <artifactId>tech-socialist-database-exporter</artifactId>
+    <artifactId>tech-socialist-database-exporter-util</artifactId>
     <packaging>pom</packaging>
 
     <name>database</name>
