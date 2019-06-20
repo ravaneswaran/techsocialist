@@ -38,22 +38,14 @@
                 <liferay.app.server.lib.global.dir>${liferay-portal.installation.path}/${liferay.tomcat.folder}/lib/ext </liferay.app.server.lib.global.dir>
                 <liferay.app.server.portal.dir>${liferay-portal.installation.path}/${liferay.tomcat.folder}/webapps/root</liferay.app.server.portal.dir>
 
-                <liferay.version>6.2.2</liferay.version>
-                <liferay.maven.plugin.version>6.2.2</liferay.maven.plugin.version>
+                <!--<liferay.version>7.0.0-nightly</liferay.version>-->
+                <liferay.version>6.2.5</liferay.version>
+
+                <!--<liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>-->
+                <liferay.maven.plugin.version>7.0.0-m2</liferay.maven.plugin.version>
             </properties>
         </profile>
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>liferay-ce</id>
-            <name>Liferay Public Releases</name>
-            <url>https://repository.liferay.com/nexus/content/groups/liferay-ce/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
     <pluginRepositories>
         <pluginRepository>
@@ -64,6 +56,37 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
+    <repositories>
+        <repository>
+            <id>liferay-ce</id>
+            <name>Liferay Public Releases</name>
+            <url>https://repository.liferay.com/nexus/content/groups/liferay-ce/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <!-- https://mvnrepository.com/artifact/com.liferay.portal -->
+        <!--<repository>
+            <id>liferay-ce</id>
+            <name>Liferay Public Releases</name>
+            <url>https://mvnrepository.com/artifact/com.liferay.portal</url>
+        </repository>-->
+
+        <!-- https://mvnrepository.com/artifact/com.liferay.maven/plugins -->
+        <repository>
+            <id>liferay-maven2-releases</id>
+            <name>Liferay Maven2 Releases</name>
+            <url>https://mvnrepository.com/artifact/com.liferay.maven/plugins</url>
+        </repository>
+
+        <!--<repository>
+            <id>liferay-maven2-releases</id>
+            <name>Liferay Maven2 Releases</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>-->
+    </repositories>
 
     <build>
         <plugins>
@@ -91,42 +114,49 @@
             <version>${liferay.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.liferay.portal</groupId>
             <artifactId>util-bridges</artifactId>
             <version>${liferay.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.liferay.portal</groupId>
             <artifactId>util-taglib</artifactId>
             <version>${liferay.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.liferay.portal</groupId>
             <artifactId>util-java</artifactId>
             <version>${liferay.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>javax.portlet</groupId>
             <artifactId>portlet-api</artifactId>
             <version>2.0</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.4</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
             <version>2.0</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
 </project>
