@@ -15,8 +15,5 @@
 
     <name>importers</name>
     <url>http://www.example.com</url>
-    <modules>
-        <module>db-importer</module>
-    </modules>
 
 </project>
