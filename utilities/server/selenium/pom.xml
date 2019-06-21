@@ -13,6 +13,8 @@
     <artifactId>tech-socialist-selenium-server</artifactId>
     <packaging>jar</packaging>
 
+    <name>selenium</name>
+
     <properties>
         <selenium.version>3.141.59</selenium.version>
         <selenium.server.version>1.0-20081010.060147</selenium.server.version>

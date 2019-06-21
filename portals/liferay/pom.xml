@@ -14,6 +14,8 @@
     <artifactId>tech-socialist-liferay</artifactId>
     <packaging>pom</packaging>
 
+    <name>liferay</name>
+
     <modules>
         <module>hooks</module>
         <module>themes</module>
