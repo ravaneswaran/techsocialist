@@ -270,10 +270,10 @@ public class MySqlDatabaseAsPostgreSqlDatabase extends MySqlDatabase {
             }
         }
 
-        /*List<Procedure> procedures = getStoredProcedures();
+        List<Procedure> procedures = getStoredProcedures();
         if (null != procedures) {
             buffer.append("\n\n")
-                    .append("*//********************* Stored Procedures *********************//*")
+                    .append("/******************** Stored Procedures ********************/")
                     .append("\n\n");
             Iterator<Procedure> procedureItr = procedures.iterator();
             while (procedureItr.hasNext()) {
@@ -289,7 +289,7 @@ public class MySqlDatabaseAsPostgreSqlDatabase extends MySqlDatabase {
         List<Function> functions = getFunctions();
         if (null != functions) {
             buffer.append("\n")
-                    .append("*//********************* Functions *********************//*")
+                    .append("/******************** Functions ********************/")
                     .append("\n\n");
             Iterator<Function> functionItr = functions.iterator();
             while (functionItr.hasNext()) {
@@ -303,7 +303,7 @@ public class MySqlDatabaseAsPostgreSqlDatabase extends MySqlDatabase {
         List<Trigger> triggers = getTriggers();
         if (null != triggers) {
             buffer.append("\n")
-                    .append("*//********************* Triggers *********************//*")
+                    .append("/******************** Triggers ********************/")
                     .append("\n\n");
             Iterator<Trigger> triggerItr = triggers.iterator();
             while (triggerItr.hasNext()) {
@@ -311,7 +311,7 @@ public class MySqlDatabaseAsPostgreSqlDatabase extends MySqlDatabase {
                 buffer.append(getTriggerDropStatement(trigger.getName()));
                 buffer.append(getTriggerCreateStatement(trigger.getName()));
             }
-        }*/
+        }
 
         return buffer.toString();
     }
@@ -340,9 +340,9 @@ public class MySqlDatabaseAsPostgreSqlDatabase extends MySqlDatabase {
         }
 
         StringBuffer buffer = new StringBuffer();
-        buffer.append("\n").append(tableCatalog.getHeader())
+        buffer.append("/*\n").append(tableCatalog.getHeader())
                 .append(((Formatter) tableCatalog).asFormattedString())
-                .append(tableCatalog.getFooter()).append("").append("\n");
+                .append(tableCatalog.getFooter()).append("*/").append("\n");
 
         return buffer.toString();
     }
