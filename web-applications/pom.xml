@@ -14,7 +14,8 @@
     </modules>
 
     <groupId>com.techsocialist.webapps</groupId>
-    <artifactId>web-applications</artifactId>
+    <artifactId>tech-socialist-web-applications</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>web-applications</name>
