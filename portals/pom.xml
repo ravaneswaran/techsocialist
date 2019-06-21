@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist</groupId>
-    <artifactId>portals</artifactId>
+    <artifactId>tech-socialist-portals</artifactId>
     <packaging>pom</packaging>
 
     <name>portals</name>
