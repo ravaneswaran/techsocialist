@@ -16,8 +16,8 @@
     <name>hello-world-servicebuilder</name>
 
     <modules>
-        <module>hello-world-servicebuilder-portlet</module>
         <module>hello-world-servicebuilder-portlet-service</module>
+        <module>hello-world-servicebuilder-portlet</module>
     </modules>
 
 </project>
