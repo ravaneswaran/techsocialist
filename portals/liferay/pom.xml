@@ -8,6 +8,7 @@
         <artifactId>tech-socialist-portals</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.portals.liferay</groupId>
@@ -24,74 +25,21 @@
     </modules>
 
     <properties>
-        <liferay-portal.installation.path>/home/ravaneswaran/liferay-portal-7.1.3-ga4</liferay-portal.installation.path>
-        <liferay.tomcat.folder>tomcat-9.0.17</liferay.tomcat.folder>
+
+        <liferay.auto.deploy.dir>/home/ravaneswaran/liferay-portal-6.2-ce-ga6/deploy</liferay.auto.deploy.dir>
+        <liferay.app.server.deploy.dir>/home/ravaneswaran/liferay-portal-6.2-ce-ga6/tomcat-7.0.62/webapps</liferay.app.server.deploy.dir>
+        <liferay.app.server.lib.global.dir>/home/ravaneswaran/liferay-portal-6.2-ce-ga6/tomcat-7.0.62/lib/ext</liferay.app.server.lib.global.dir>
+        <liferay.app.server.portal.dir>/home/ravaneswaran/liferay-portal-6.2-ce-ga6/tomcat-7.0.62/webapps/root</liferay.app.server.portal.dir>
+
+        <liferay.version>6.2.5</liferay.version>
+        <liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
+
     </properties>
 
-    <profiles>
-        <profile>
-            <id>techsocialist-liferay-maven-profile</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <liferay.auto.deploy.dir>${liferay-portal.installation.path}/deploy</liferay.auto.deploy.dir>
-                <liferay.app.server.deploy.dir>${liferay-portal.installation.path}/${liferay.tomcat.folder}/webapps</liferay.app.server.deploy.dir>
-                <liferay.app.server.lib.global.dir>${liferay-portal.installation.path}/${liferay.tomcat.folder}/lib/ext </liferay.app.server.lib.global.dir>
-                <liferay.app.server.portal.dir>${liferay-portal.installation.path}/${liferay.tomcat.folder}/webapps/root</liferay.app.server.portal.dir>
-
-                <!--<liferay.version>7.0.0-nightly</liferay.version>-->
-                <liferay.version>6.2.5</liferay.version>
-
-                <!--<liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>-->
-                <liferay.maven.plugin.version>7.0.0-m2</liferay.maven.plugin.version>
-            </properties>
-        </profile>
-    </profiles>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>liferay-public</id>
-            <url>https://repository.liferay.com/nexus/content/groups/public/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
-    <repositories>
-        <repository>
-            <id>liferay-ce</id>
-            <name>Liferay Public Releases</name>
-            <url>https://repository.liferay.com/nexus/content/groups/liferay-ce/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-
-        <!-- https://mvnrepository.com/artifact/com.liferay.portal -->
-        <!--<repository>
-            <id>liferay-ce</id>
-            <name>Liferay Public Releases</name>
-            <url>https://mvnrepository.com/artifact/com.liferay.portal</url>
-        </repository>-->
-
-        <!-- https://mvnrepository.com/artifact/com.liferay.maven/plugins -->
-        <repository>
-            <id>liferay-maven2-releases</id>
-            <name>Liferay Maven2 Releases</name>
-            <url>https://mvnrepository.com/artifact/com.liferay.maven/plugins</url>
-        </repository>
-
-        <!--<repository>
-            <id>liferay-maven2-releases</id>
-            <name>Liferay Maven2 Releases</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>-->
-    </repositories>
-
     <build>
+
         <plugins>
+
             <plugin>
                 <groupId>com.liferay.maven.plugins</groupId>
                 <artifactId>liferay-maven-plugin</artifactId>
@@ -102,10 +50,30 @@
                     <appServerLibGlobalDir>${liferay.app.server.lib.global.dir}</appServerLibGlobalDir>
                     <appServerPortalDir>${liferay.app.server.portal.dir}</appServerPortalDir>
                     <liferayVersion>${liferay.version}</liferayVersion>
-                    <pluginType>portlet</pluginType>
+                    <!--<pluginType>portlet</pluginType>-->
                 </configuration>
             </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
         </plugins>
+
     </build>
 
     <dependencies>
@@ -143,6 +111,18 @@
             <artifactId>portlet-api</artifactId>
             <version>2.0</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.liferay.faces</groupId>
+            <artifactId>liferay-faces-bridge-impl</artifactId>
+            <version>3.2.4-ga5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.liferay.faces</groupId>
+            <artifactId>liferay-faces-portal</artifactId>
+            <version>3.2.4-ga5</version>
         </dependency>
 
         <dependency>

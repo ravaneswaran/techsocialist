@@ -13,7 +13,34 @@
     <artifactId>tech-socialist-image-util</artifactId>
 
     <name>image</name>
-    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
+
+    <properties>
+        <commons-collections4.version>4.0</commons-collections4.version>
+        <commons-lang.version>2.3</commons-lang.version>
+        <commons-io.version>2.5</commons-io.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${commons-collections4.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons-lang.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
