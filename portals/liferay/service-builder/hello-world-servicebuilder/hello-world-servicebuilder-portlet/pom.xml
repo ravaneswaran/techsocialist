@@ -19,4 +19,14 @@
     <name>hello-world-servicebuilder-portlet</name>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.techsocialist.liferay.servicebuilder</groupId>
+            <artifactId>hello-world-servicebuilder-portlet-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
 </project>
