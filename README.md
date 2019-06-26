@@ -32,5 +32,13 @@ Now extract the downloaded tar ball to the folder /opt/softwares/java-sdk/**1.8.
 1. Create a 'bin' directory under /opt
 2. Create a soft link to the file **java -> /opt/softwares/java-sdk/1.8.0_191/bin/java**
 
+### Exporting OPT_BIN path to the PATH environment variable
+1. Open /etc/profile in you favourite text editor and insert the following lines at the bottom of the file
+  - export OPT_BIN=/opt/bin
+  - export PATH=$PATH:$OPT_BIN
+
 ### Setting JAVA_HOME and updating PATH environment variable
+1. Open /etc/profile in you favourite text editor and insert the following lines at the bottom of the file
+  - export JAVA_HOME=/opt/softwares/java-sdk/1.8.0_191
+2. 
 
