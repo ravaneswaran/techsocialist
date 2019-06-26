@@ -25,5 +25,5 @@ After you download extract it to the folder /opt/softwares/java-sdk/1.8.0_191 us
 1. Create a 'bin' directory under /opt
 2. Create a soft link to the file **java -> /opt/softwares/java-sdk/1.8.0_191/bin/java**
 
-###### Setting JAVA_HOME and updating PATH environment variable
+## Setting JAVA_HOME and updating PATH environment variable
 
