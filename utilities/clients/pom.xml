@@ -13,9 +13,14 @@
 
     <groupId>com.techsocialist.utilities.clients</groupId>
     <artifactId>tech-socialist-clients-util</artifactId>
+    <packaging>pom</packaging>
 
     <name>clients</name>
     <url>http://www.example.com</url>
+
+    <modules>
+        <module>okhttp-client</module>
+    </modules>
 
 
 </project>
