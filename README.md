@@ -1,4 +1,4 @@
-# Development Environment Setup of Tech Socialist
+# Development Environment Setup of TECH SOCIALIST
 
 The following are the software requirements to have the development environment in place...
 
