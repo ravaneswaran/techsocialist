@@ -10,7 +10,7 @@ At time of writing this document, I have used Ubuntu - 16.04 LTS as Operating Sy
 
 Let us Install the softwares required one by one.
 
-# Installation of Java - 8
+## Installation of Java - 8
 
 The way I prefer to install java is to extract the tar ball to a common folder, In mycase the folder I preferred was **/opt**.
 
@@ -25,5 +25,5 @@ After you download extract it to the folder /opt/softwares/java-sdk/1.8.0_191 us
 1. Create a 'bin' directory under /opt
 2. Create a soft link to the file **java -> /opt/softwares/java-sdk/1.8.0_191/bin/java**
 
-## Setting JAVA_HOME and updating PATH environment variable
+### Setting JAVA_HOME and updating PATH environment variable
 
