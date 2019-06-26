@@ -40,5 +40,5 @@ Now extract the downloaded tar ball to the folder /opt/softwares/java-sdk/**1.8.
 ### Setting JAVA_HOME and updating PATH environment variable
 1. Open /etc/profile in you favourite text editor and insert the following lines at the bottom of the file
   - export JAVA_HOME=/opt/softwares/java-sdk/1.8.0_191
-2. 
 
+## Installation of Maven
