@@ -26,7 +26,7 @@ Create a folder path **/opt/softwares/java-sdk** as follows....
 
 Now extract the downloaded tar ball to the folder /opt/softwares/java-sdk/**1.8.0_191** using the following command.
 
-**sudo tar -xvf <tar-file> /opt/softwares/java-sdk/1.8.0_191**
+**sudo tar -xvf tar-file /opt/softwares/java-sdk/1.8.0_191**
 
 1. Create a 'bin' directory under /opt
 2. Create a soft link to the file **java -> /opt/softwares/java-sdk/1.8.0_191/bin/java**
@@ -74,5 +74,5 @@ Use the following command to create a directory under /tmp folder
 
 Once the directory is created, change the owner ship of the directory as follows....
 
-**sudo chown <user-name>:<user-group> /temp/liferay**
+**sudo chown user-name:user-group /temp/liferay**
 
