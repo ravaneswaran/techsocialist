@@ -14,15 +14,17 @@ Let us Install the softwares required one by one.
 
 # Installation of Java - 8
 
-The way I prefer to install java is to extract the tar ball to a common folder, In mycase the folder I preferred was /opt.
+The way I prefer to install java is to extract the tar ball to a common folder, In mycase the folder I preferred was **/opt**.
 
 Just go the following link and grab the latest version of java-8 I mean the tar ball 
 
-https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+**https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html**
 
 After you download extract it to the folder /opt/softwares/java-sdk/1.8.0_191 using the following command
 
-sudo tar -xvf <tar-file> /opt/softwares/java-sdk/1.8.0_191
+**sudo tar -xvf <tar-file> /opt/softwares/java-sdk/1.8.0_191**
 
-Create a 'bin' directory under /opt
-
+1. Create a 'bin' directory under /opt
+  - one
+  - two
+  - three
