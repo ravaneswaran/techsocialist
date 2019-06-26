@@ -62,3 +62,7 @@ Now extract the downloaded tar ball to the folder /opt/softwares/apache-maven/**
 1. Open /etc/profile in you favourite text editor and insert the following lines at the bottom of the file
   - export M2_HOME=/opt/softwares/apache-maven/3.6.0
   
+Logout and Login back to have the changes be in effect...
+
+## Creating 'liferay' Directory
+
