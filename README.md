@@ -24,7 +24,6 @@ Create a folder path **/opt/softwares/java-sdk** as follows....
 
 **sudo mkdir -p /opt/softwares/java-sdk**
 
-
 Now extract the downloaded tar ball to the folder /opt/softwares/java-sdk/**1.8.0_191** using the following command.
 
 **sudo tar -xvf <tar-file> /opt/softwares/java-sdk/1.8.0_191**
@@ -41,4 +40,25 @@ Now extract the downloaded tar ball to the folder /opt/softwares/java-sdk/**1.8.
 1. Open /etc/profile in you favourite text editor and insert the following lines at the bottom of the file
   - export JAVA_HOME=/opt/softwares/java-sdk/1.8.0_191
 
+Logout and Login back to have the changes be in effect...
+
 ## Installation of Maven
+
+We are going to use the same procedure as we had for the installation of Java
+
+Goto the following link to download maven tar ball
+
+Create a folder path **/opt/softwares/apache-maven** as follows....
+
+**sudo mkdir -p /opt/softwares/apache-maven**
+
+Now extract the downloaded tar ball to the folder /opt/softwares/apache-maven/**3.6.0** using the following command.
+
+**sudo tar -xvf <tar-file> /opt/softwares/apache-maven/3.6.0**
+  
+1. Create a soft link to the file **mvn -> /opt/softwares/apache-maven/3.6.0/bin/mvn**
+
+### Setting M2_HOME and updating PATH environment variable
+1. Open /etc/profile in you favourite text editor and insert the following lines at the bottom of the file
+  - export M2_HOME=/opt/softwares/apache-maven/3.6.0
+  
