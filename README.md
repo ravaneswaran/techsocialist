@@ -66,3 +66,13 @@ Logout and Login back to have the changes be in effect...
 
 ## Creating 'liferay' Directory
 
+This is one of the most important steps in the setup... i.e creating liferay direcory
+
+Use the following command to create a directory under /tmp folder
+
+**sudo mkdir -p /tmp/liferay**
+
+Once the directory is created, change the owner ship of the directory as follows....
+
+**sudo chown <user-name>:<user-group> /temp/liferay**
+
