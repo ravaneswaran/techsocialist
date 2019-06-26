@@ -6,9 +6,7 @@ The following are the software requirements to have the development environment 
 2. Maven - 3.6.0
 3. IntelliJ - IDEA - 2018.3.2
 
-
 At time of writing this document, I have used Ubuntu - 16.04 LTS as Operating System.
-
 
 Let us Install the softwares required one by one.
 
@@ -25,6 +23,7 @@ After you download extract it to the folder /opt/softwares/java-sdk/1.8.0_191 us
 **sudo tar -xvf <tar-file> /opt/softwares/java-sdk/1.8.0_191**
 
 1. Create a 'bin' directory under /opt
-  - one
-  - two
-  - three
+2. Create a soft link to the file **java -> /opt/softwares/java-sdk/1.8.0_191/bin/java**
+
+Setting JAVA_HOME and updating PATH environment variable
+
