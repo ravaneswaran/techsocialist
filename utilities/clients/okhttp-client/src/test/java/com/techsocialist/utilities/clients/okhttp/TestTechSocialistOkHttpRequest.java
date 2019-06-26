@@ -4,9 +4,9 @@ import junit.framework.TestCase;
 import okhttp3.Request;
 import org.junit.Assert;
 
-public class TestTechSocialistRequest extends TestCase {
+public class TestTechSocialistOkHttpRequest extends TestCase {
 
-    TechSocialistRequest techSocialistRequest = new TechSocialistRequest("https://www.google.com");
+    TechSocialistOkHttpRequest techSocialistRequest = new TechSocialistOkHttpRequest("https://www.google.com");
 
     public void testInstance(){
         Assert.assertNotNull(techSocialistRequest);
@@ -19,14 +19,14 @@ public class TestTechSocialistRequest extends TestCase {
     public void testAddQueryParameter(){
         String name = "name";
         String value = "Ravaneswaran";
-        TechSocialistRequest newTechSocialistRequest = this.techSocialistRequest.addQueryParameter(name, value);
+        TechSocialistOkHttpRequest newTechSocialistRequest = this.techSocialistRequest.addQueryParameter(name, value);
         Assert.assertNotNull(newTechSocialistRequest);
     }
 
     public void testAddHeaders(){
         String name = "name";
         String value = "Ravaneswaran";
-        TechSocialistRequest newTechSocialistRequest = this.techSocialistRequest.addHeader(name, value);
+        TechSocialistOkHttpRequest newTechSocialistRequest = this.techSocialistRequest.addHeader(name, value);
         Assert.assertNotNull(newTechSocialistRequest);
     }
 

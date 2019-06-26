@@ -3,11 +3,11 @@ package com.techsocialist.utilities.clients.okhttp;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 
-public class TechSocialistRequest {
+public class TechSocialistOkHttpRequest {
 
     private Request request;
 
-    public TechSocialistRequest(String url) {
+    public TechSocialistOkHttpRequest(String url) {
         this.request = new Request.Builder()
                 .url(url)
                 .build();
@@ -17,20 +17,18 @@ public class TechSocialistRequest {
         return this.request;
     }
 
-    public TechSocialistRequest addQueryParameter(String name, String value) {
+    public TechSocialistOkHttpRequest addQueryParameter(String name, String value) {
         HttpUrl.Builder urlBuilder = this.request.url().newBuilder();
         urlBuilder.addQueryParameter(name, value);
         String url = urlBuilder.build().toString();
-
         this.request = new Request.Builder()
                 .url(url)
                 .build();
-
         return this;
     }
 
 
-    public TechSocialistRequest addHeader(String name, String value) {
+    public TechSocialistOkHttpRequest addHeader(String name, String value) {
         Request.Builder builder = this.request.newBuilder();
         this.request = builder.header(name, value).build();
         return this;
