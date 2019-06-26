@@ -18,12 +18,19 @@ Just go the following link and grab the latest version of java-8 I mean the tar 
 
 **https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html**
 
-After you download extract it to the folder /opt/softwares/java-sdk/1.8.0_191 using the following command
+After you download....
+
+Create a folder path **/opt/softwares/java-sdk** as follows....
+
+**sudo mkdir -p /opt/softwares/java-sdk**
+
+
+Now extract the downloaded tar ball to the folder /opt/softwares/java-sdk/**1.8.0_191** using the following command.
 
 **sudo tar -xvf <tar-file> /opt/softwares/java-sdk/1.8.0_191**
 
 1. Create a 'bin' directory under /opt
 2. Create a soft link to the file **java -> /opt/softwares/java-sdk/1.8.0_191/bin/java**
 
-### Setting JAVA_HOME and updating PATH environment variable
+#### Setting JAVA_HOME and updating PATH environment variable
 
