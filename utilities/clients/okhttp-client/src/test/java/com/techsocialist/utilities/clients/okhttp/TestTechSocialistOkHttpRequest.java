@@ -34,7 +34,7 @@ public class TestTechSocialistOkHttpRequest extends TestCase {
     public void testAddRequestBody(){
         String requestBody = "";
         MediaType mediaType = MediaType.parse("text/html; charset=utf-8");
-        TechSocialistOkHttpRequest newTechSocialistRequest = this.techSocialistRequest.addBody(mediaType, requestBody);
+        TechSocialistOkHttpRequest newTechSocialistRequest = this.techSocialistRequest.addBody_Post(mediaType, requestBody);
         Assert.assertNotNull(newTechSocialistRequest);
     }
 

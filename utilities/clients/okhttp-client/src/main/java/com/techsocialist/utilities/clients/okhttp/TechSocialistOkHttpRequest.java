@@ -40,7 +40,7 @@ public class TechSocialistOkHttpRequest {
         return this;
     }
 
-    public TechSocialistOkHttpRequest addBody(MediaType mediaType, String requestBody) {
+    public TechSocialistOkHttpRequest addBody_Post(MediaType mediaType, String requestBody) {
         RequestBody body = RequestBody.create(mediaType, requestBody);
         HttpUrl.Builder urlBuilder = this.request.url().newBuilder();
         String url = urlBuilder.build().toString();
@@ -51,8 +51,19 @@ public class TechSocialistOkHttpRequest {
         return this;
     }
 
+    public TechSocialistOkHttpRequest addBody_Put(MediaType mediaType, String requestBody) {
+        RequestBody body = RequestBody.create(mediaType, requestBody);
+        HttpUrl.Builder urlBuilder = this.request.url().newBuilder();
+        String url = urlBuilder.build().toString();
+        this.request = new Request.Builder()
+                .url(url)
+                .put(body)
+                .build();
+        return this;
+    }
+
     public TechSocialistOkHttpRequest addJsonBody(String requestBody) {
         MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-        return this.addBody(mediaType, requestBody);
+        return this.addBody_Post(mediaType, requestBody);
     }
 }
