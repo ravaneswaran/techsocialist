@@ -1,6 +1,7 @@
 package com.techsocialist.utilities.clients.okhttp;
 
 import junit.framework.TestCase;
+import okhttp3.MediaType;
 import okhttp3.Request;
 import org.junit.Assert;
 
@@ -27,6 +28,19 @@ public class TestTechSocialistOkHttpRequest extends TestCase {
         String name = "name";
         String value = "Ravaneswaran";
         TechSocialistOkHttpRequest newTechSocialistRequest = this.techSocialistRequest.addHeader(name, value);
+        Assert.assertNotNull(newTechSocialistRequest);
+    }
+
+    public void testAddRequestBody(){
+        String requestBody = "";
+        MediaType mediaType = MediaType.parse("text/html; charset=utf-8");
+        TechSocialistOkHttpRequest newTechSocialistRequest = this.techSocialistRequest.addBody(mediaType, requestBody);
+        Assert.assertNotNull(newTechSocialistRequest);
+    }
+
+    public void testAddJsonRequestBody(){
+        String requestBody = "";
+        TechSocialistOkHttpRequest newTechSocialistRequest = this.techSocialistRequest.addJsonBody(requestBody);
         Assert.assertNotNull(newTechSocialistRequest);
     }
 

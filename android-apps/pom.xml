@@ -18,9 +18,8 @@
     <name>android-apps</name>
     <url>http://www.example.com</url>
 
-    <!--
 
-    https://kotlinlang.org/docs/reference/using-maven.html
+    <!--https://kotlinlang.org/docs/reference/using-maven.html-->
 
 
     <properties>
@@ -69,6 +68,5 @@
         </plugins>
     </build>
 
-    -->
 
 </project>
