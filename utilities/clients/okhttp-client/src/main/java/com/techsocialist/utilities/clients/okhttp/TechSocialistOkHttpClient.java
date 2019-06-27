@@ -16,6 +16,20 @@ public class TechSocialistOkHttpClient {
 
     OkHttpClient client = new OkHttpClient();
 
+    public void addRequestHeader(String name, String value) {
+        this.headers.put(name, value);
+    }
+
+    private void addRequestHeaders(TechSocialistOkHttpRequest techSocialistOkHttpRequest) {
+        Iterator<String> iterator = this.headers.keySet().iterator();
+        while (iterator.hasNext()) {
+            String headerKey = iterator.next();
+            String headerValue = this.headers.get(headerKey);
+
+            techSocialistOkHttpRequest.addHeader(headerKey, headerValue);
+        }
+    }
+
     public Response doGet(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
@@ -26,23 +40,19 @@ public class TechSocialistOkHttpClient {
 
     public Response doPost(String url, MediaType mediaType, String requestBody) throws IOException {
         TechSocialistOkHttpRequest techSocialistOkHttpRequest = new TechSocialistOkHttpRequest(url);
-        techSocialistOkHttpRequest = techSocialistOkHttpRequest.addBody(mediaType, requestBody);
+        techSocialistOkHttpRequest = techSocialistOkHttpRequest.addBody_Post(mediaType, requestBody);
         this.addRequestHeaders(techSocialistOkHttpRequest);
 
         return this.client.newCall(techSocialistOkHttpRequest.getOkHttpRequest()).execute();
     }
 
-    public void addRequestHeader(String name, String value) {
-        this.headers.put(name, value);
+    public Response doPut(String url, MediaType mediaType, String requestBody) throws IOException {
+        TechSocialistOkHttpRequest techSocialistOkHttpRequest = new TechSocialistOkHttpRequest(url);
+        techSocialistOkHttpRequest = techSocialistOkHttpRequest.addBody_Put(mediaType, requestBody);
+        this.addRequestHeaders(techSocialistOkHttpRequest);
+
+        return this.client.newCall(techSocialistOkHttpRequest.getOkHttpRequest()).execute();
     }
 
-    private void addRequestHeaders(TechSocialistOkHttpRequest techSocialistOkHttpRequest){
-        Iterator<String> iterator = this.headers.keySet().iterator();
-        while(iterator.hasNext()){
-            String headerKey = iterator.next();
-            String headerValue = this.headers.get(headerKey);
 
-            techSocialistOkHttpRequest.addHeader(headerKey, headerValue);
-        }
-    }
 }
