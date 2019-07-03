@@ -1,4 +1,4 @@
-package com.techsocialist.web.demo.features.logout;
+package com.techsocialist.web.demo.cucumber.features.logout;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

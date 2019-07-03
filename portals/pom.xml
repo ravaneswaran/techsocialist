@@ -16,6 +16,11 @@
     <name>portals</name>
     <url>http://www.example.com</url>
 
+    <properties>
+        <liferay.home>/home/ravaneswaran/liferay-portal-6.2-ce-ga6</liferay.home>
+        <liferay.server>tomcat-7.0.62</liferay.server>
+    </properties>
+
     <modules>
         <module>liferay</module>
     </modules>

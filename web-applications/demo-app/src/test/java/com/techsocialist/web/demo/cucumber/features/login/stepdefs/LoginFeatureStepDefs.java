@@ -1,4 +1,4 @@
-package com.techsocialist.web.demo.features.login.stepdefs;
+package com.techsocialist.web.demo.cucumber.features.login.stepdefs;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

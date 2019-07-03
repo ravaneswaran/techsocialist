@@ -1,4 +1,4 @@
-package com.techsocialist.web.demo.selenium;
+package com.techsocialist.web.demo.cucumber.selenium;
 
 import com.techsocialist.utilities.server.SeleniumSupport;
 import org.junit.AfterClass;

@@ -11,6 +11,7 @@
 
     <modules>
         <module>demo-app</module>
+        <module>demo</module>
     </modules>
 
     <groupId>com.techsocialist.webapps</groupId>
