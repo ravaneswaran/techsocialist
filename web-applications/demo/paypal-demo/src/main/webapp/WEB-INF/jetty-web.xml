@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+    <Set name="contextPath">/paypal-demo</Set>
+    <Set name="war"><Property name="jetty.webapps"/>/tech-socialist-paypal-demo-1.0-SNAPSHOT.war</Set>
+    <!--<Set name="virtualHosts">
+        <Array type="java.lang.String">
+            <Item>333.444.555.666</Item>
+            <Item>127.0.0.1</Item>
+            <Item>www.blah.com</Item>
+            <Item>www.blah.net</Item>
+            <Item>www.blah.org</Item>
+        </Array>
+    </Set>-->
+</Configure>

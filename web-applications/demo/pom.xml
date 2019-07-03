@@ -22,11 +22,20 @@
     </modules>
 
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.4.3.Final</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -39,6 +48,7 @@
                     <httpConnector>
                         <port>9090</port>
                     </httpConnector>
+                    <jettyXml>src/main/webapp/WEB-INF/jetty-web.xml</jettyXml>
                 </configuration>
             </plugin>
         </plugins>
