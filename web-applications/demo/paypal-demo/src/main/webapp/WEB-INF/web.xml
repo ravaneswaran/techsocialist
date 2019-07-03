@@ -4,4 +4,15 @@
 
 <web-app>
   <display-name>PayPal Payment Gateway Demo Application</display-name>
+
+  <servlet>
+    <servlet-name>PayPalServlet</servlet-name>
+    <servlet-class>com.techsocialist.webapps.demo.paypal.PayPalServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>PayPalServlet</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
 </web-app>
