@@ -19,6 +19,7 @@
         <module>paytm-demo</module>
         <module>paypal-demo</module>
         <module>xpay-demo</module>
+        <module>razorpay-demo</module>
     </modules>
 
     <dependencies>
