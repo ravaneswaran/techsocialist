@@ -16,4 +16,15 @@
     <name>paypal-demo</name>
     <url>http://www.example.com</url>
 
+    <dependencies>
+
+        <dependency>
+            <!-- https://crunchify.com/paypal-java-sdk-tutorial-authorization-call/ -->
+            <groupId>com.paypal.sdk</groupId>
+            <artifactId>rest-api-sdk</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+    </dependencies>
+
 </project>
