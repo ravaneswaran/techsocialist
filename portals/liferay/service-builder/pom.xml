@@ -24,7 +24,7 @@
     </modules>
 
     <build>
-        <pluginManagement>
+        <!--<pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>com.liferay.maven.plugins</groupId>
@@ -48,7 +48,10 @@
                     </executions>
                 </plugin>
             </plugins>
-        </pluginManagement>
+        </pluginManagement>-->
+        <plugins>
+
+        </plugins>
     </build>
 
 </project>
