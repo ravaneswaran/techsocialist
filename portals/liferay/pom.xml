@@ -25,9 +25,15 @@
     </modules>
 
     <properties>
+
+        <liferay.version></liferay.version>
+        <liferay.auto.deploy.dir></liferay.auto.deploy.dir>
+        <liferay.app.server.deploy.dir></liferay.app.server.deploy.dir>
+        <liferay.app.server.lib.global.dir></liferay.app.server.lib.global.dir>
+        <liferay.app.server.portal.dir></liferay.app.server.portal.dir>
+
         <liferay.source.formatter.plugin.version>1.0.841</liferay.source.formatter.plugin.version>
         <liferay.db.support.plugin.version>1.0.6</liferay.db.support.plugin.version>
-
         <liferay.css.builder.plugin.version>1.0.21</liferay.css.builder.plugin.version>
         <liferay.theme.builder.plugin.version>1.1.7</liferay.theme.builder.plugin.version>
         <liferay.service.builder.plugin.version>1.0.293</liferay.service.builder.plugin.version>
