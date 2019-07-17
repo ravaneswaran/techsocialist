@@ -18,6 +18,8 @@
 
     <modules>
         <module>hello-world</module>
+        <module>liferay-mvc-portlets</module>
+        <module>spring-mvc-portlets</module>
     </modules>
 
     <dependencies>
