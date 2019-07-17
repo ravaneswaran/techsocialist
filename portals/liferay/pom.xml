@@ -26,6 +26,8 @@
 
     <properties>
 
+        <liferay.portal.installation.dir></liferay.portal.installation.dir>
+
         <liferay.version></liferay.version>
         <liferay.auto.deploy.dir></liferay.auto.deploy.dir>
         <liferay.app.server.deploy.dir></liferay.app.server.deploy.dir>
@@ -42,9 +44,7 @@
     </properties>
 
     <build>
-
         <plugins>
-
             <plugin>
                 <groupId>com.liferay</groupId>
                 <artifactId>com.liferay.css.builder</artifactId>
@@ -142,8 +142,50 @@
                 </configuration>
             </plugin>
 
-        </plugins>
+            <plugin>
+                <groupId>com.liferay</groupId>
+                <artifactId>com.liferay.portal.tools.bundle.support</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>deploy</id>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                    </execution>
+                </executions>
 
+                <configuration>
+                    <liferayHome>${liferay.portal.installation.dir}</liferayHome>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>biz.aQute.bnd</groupId>
+                        <artifactId>biz.aQute.bndlib</artifactId>
+                        <version>3.2.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.liferay</groupId>
+                        <artifactId>com.liferay.ant.bnd</artifactId>
+                        <version>2.0.41</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
