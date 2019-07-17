@@ -11,8 +11,12 @@
 
     <groupId>com.techsocialist.liferay.portlets</groupId>
     <artifactId>tech-socialist-liferay-mvc-portlets</artifactId>
+    <packaging>pom</packaging>
 
     <name>liferay-mvc-portlets</name>
     <url>http://www.example.com</url>
+    <modules>
+        <module>hello-world-liferay-mvc-portlet</module>
+    </modules>
 
 </project>
