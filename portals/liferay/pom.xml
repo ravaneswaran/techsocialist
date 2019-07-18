@@ -28,7 +28,7 @@
 
         <liferay.portal.installation.dir></liferay.portal.installation.dir>
 
-        <liferay.version></liferay.version>
+        <liferay.version>7.1.0</liferay.version>
         <liferay.auto.deploy.dir></liferay.auto.deploy.dir>
         <liferay.app.server.deploy.dir></liferay.app.server.deploy.dir>
         <liferay.app.server.lib.global.dir></liferay.app.server.lib.global.dir>
