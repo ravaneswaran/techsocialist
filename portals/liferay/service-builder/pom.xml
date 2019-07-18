@@ -19,39 +19,5 @@
     <name>service-builder</name>
     <url>http://www.example.com</url>
 
-    <modules>
-        <module>hello-world-servicebuilder</module>
-    </modules>
-
-    <build>
-        <!--<pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>com.liferay.maven.plugins</groupId>
-                    <artifactId>liferay-maven-plugin</artifactId>
-                    <version>6.2.5</version>
-                    <executions>
-                        <execution>
-                            <id>package</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>build-service</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>install</id>
-                            <phase>install</phase>
-                            <goals>
-                                <goal>build-service</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>-->
-        <plugins>
-
-        </plugins>
-    </build>
 
 </project>
