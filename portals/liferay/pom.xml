@@ -28,7 +28,7 @@
 
         <liferay.portal.installation.dir></liferay.portal.installation.dir>
 
-        <liferay.version></liferay.version>
+        <liferay.version>7.1.0</liferay.version>
         <liferay.auto.deploy.dir></liferay.auto.deploy.dir>
         <liferay.app.server.deploy.dir></liferay.app.server.deploy.dir>
         <liferay.app.server.lib.global.dir></liferay.app.server.lib.global.dir>
@@ -45,7 +45,8 @@
 
     <build>
         <plugins>
-            <plugin>
+
+            <!--<plugin>
                 <groupId>com.liferay</groupId>
                 <artifactId>com.liferay.css.builder</artifactId>
                 <version>${liferay.css.builder.plugin.version}</version>
@@ -59,7 +60,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!--<docrootDirName>src/main/webapp</docrootDirName>-->
+                    &lt;!&ndash;<docrootDirName>src/main/webapp</docrootDirName>&ndash;&gt;
                 </configuration>
             </plugin>
 
@@ -77,7 +78,7 @@
                 </executions>
                 <configuration>
                 </configuration>
-            </plugin>
+            </plugin>-->
 
             <plugin>
                 <groupId>com.liferay</groupId>

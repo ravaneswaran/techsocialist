@@ -16,56 +16,9 @@
 
     <name>portlets</name>
     <url>http://www.example.com</url>
-
     <modules>
-        <module>hello-world</module>
-        <module>liferay-mvc-portlets</module>
-        <module>spring-mvc-portlets</module>
+        <module>liferay-mvc</module>
+        <module>spring-mvc</module>
     </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.liferay.portal</groupId>
-            <artifactId>com.liferay.portal.kernel</artifactId>
-            <version>${liferay.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.liferay.portal</groupId>
-            <artifactId>com.liferay.util.bridges</artifactId>
-            <version>${liferay.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.liferay.portal</groupId>
-            <artifactId>com.liferay.util.taglib</artifactId>
-            <version>${liferay.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.liferay.portal</groupId>
-            <artifactId>com.liferay.util.java</artifactId>
-            <version>${liferay.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.portlet</groupId>
-            <artifactId>portlet-api</artifactId>
-            <version>2.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.4</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.0</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
 
 </project>

@@ -2,21 +2,21 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <parent>
         <artifactId>tech-socialist-portlets</artifactId>
         <groupId>com.techsocialist.liferay.portlets</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.liferay.portlets</groupId>
-    <artifactId>tech-socialist-liferay-mvc-portlets</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>tech-socialist-spring-mvc</artifactId>
 
-    <name>liferay-mvc-portlets</name>
+    <name>spring-mvc</name>
     <url>http://www.example.com</url>
-    <modules>
-        <module>hello-world-liferay-mvc-portlet</module>
-    </modules>
+
+    <packaging>pom</packaging>
 
 </project>
