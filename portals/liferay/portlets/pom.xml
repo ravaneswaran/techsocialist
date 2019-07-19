@@ -16,6 +16,7 @@
 
     <name>portlets</name>
     <url>http://www.example.com</url>
+
     <modules>
         <module>liferay-mvc</module>
         <module>spring-mvc</module>

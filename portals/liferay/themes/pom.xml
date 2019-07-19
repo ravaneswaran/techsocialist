@@ -16,4 +16,8 @@
     <name>themes</name>
     <url>http://www.example.com</url>
 
+    <modules>
+        <module>base-theme</module>
+    </modules>
+
 </project>

@@ -20,7 +20,7 @@
     <modules>
         <module>hooks</module>
         <module>themes</module>
-        <module>service-builder</module>
+        <module>service-builders</module>
         <module>portlets</module>
     </modules>
 

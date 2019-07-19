@@ -16,8 +16,11 @@
 
     <packaging>pom</packaging>
 
-    <name>service-builder</name>
+    <name>service-builders</name>
     <url>http://www.example.com</url>
+    <modules>
+        <module>base-service-builder</module>
+    </modules>
 
 
 </project>
