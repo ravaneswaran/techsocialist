@@ -1,0 +1,4 @@
+Bundle-Name: tech-socialist-foundation-module
+Bundle-SymbolicName: tech-socialist-foundation-module
+Bundle-Version: 1.0.0
+Export-Package: com.techsocialist.foundation
