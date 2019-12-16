@@ -1,10 +1,12 @@
 dependencies {
-	compile group: "org.osgi", name: "org.osgi.core"
-	compile group: "org.osgi", name: "org.osgi.service.component.annotations"
+
+	compile group: "org.osgi",           name: "org.osgi.core"
+	compile group: "org.osgi",           name: "org.osgi.service.component.annotations"
 	
 	compile group: "com.liferay.portal", name: "com.liferay.portal.kernel"
 	compile group: "com.liferay.portal", name: "com.liferay.util.taglib"
-	compile group: "javax.portlet", name: "portlet-api"
-	compile group: "javax.servlet", name: "javax.servlet-api"
-	compile group: "jstl", name: "jstl"
+	compile group: "javax.portlet",      name: "portlet-api"
+	compile group: "javax.servlet",      name: "javax.servlet-api"
+	compile group: "jstl",               name: "jstl"
+	
 }
