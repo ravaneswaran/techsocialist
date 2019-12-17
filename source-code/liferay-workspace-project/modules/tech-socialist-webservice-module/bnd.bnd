@@ -1,0 +1,4 @@
+Bundle-Name: tech-socialist-webservice-module
+Bundle-SymbolicName: tech-socialist-webservice-module
+Bundle-Version: 1.0.0
+Export-Package: com.techsocialist.webservice

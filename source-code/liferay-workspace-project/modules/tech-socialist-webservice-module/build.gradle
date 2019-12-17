@@ -1,0 +1,5 @@
+dependencies {
+
+	compileOnly project(":modules:tech-socialist-foundation-module")
+	
+}
