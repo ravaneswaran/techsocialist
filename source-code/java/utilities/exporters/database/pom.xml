@@ -13,7 +13,7 @@
     <artifactId>tech-socialist-database-exporter-util</artifactId>
     <packaging>pom</packaging>
 
-    <name>database</name>
+    <name>tech-socialist-database</name>
     <url>http://www.example.com</url>
 
     <modules>

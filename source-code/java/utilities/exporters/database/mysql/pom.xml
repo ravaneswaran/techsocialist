@@ -14,7 +14,7 @@
     <artifactId>tech-socialist-mysql-exporter-util</artifactId>
     <packaging>jar</packaging>
 
-    <name>mysql</name>
+    <name>tech-socialist-mysql-exporter-util</name>
     <url>http://www.example.com</url>
 
     <dependencies>

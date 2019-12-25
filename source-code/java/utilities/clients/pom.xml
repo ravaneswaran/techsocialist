@@ -12,10 +12,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.techsocialist.utilities.clients</groupId>
-    <artifactId>tech-socialist-clients-util</artifactId>
+    <artifactId>tech-socialist-clients</artifactId>
     <packaging>pom</packaging>
 
-    <name>clients</name>
+    <name>tech-socialist-clients</name>
     <url>http://www.example.com</url>
 
     <modules>

@@ -1,0 +1,4 @@
+Bundle-Name: tech-socialist-liferay-control-panel-module
+Bundle-SymbolicName: com.techsocialist.liferay.control.panel
+Bundle-Version: 1.0.0
+Export-Package: com.techsocialist.liferay.control.panel.api

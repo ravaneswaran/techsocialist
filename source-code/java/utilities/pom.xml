@@ -14,7 +14,7 @@
     <artifactId>tech-socialist-utilities</artifactId>
     <packaging>pom</packaging>
 
-    <name>utilities</name>
+    <name>tech-socialist-utilities</name>
     <url>http://www.example.com</url>
 
     <modules>

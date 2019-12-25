@@ -13,7 +13,7 @@
     <groupId>com.techsocialist.utilities.barcodes</groupId>
     <artifactId>tech-socialist-barcode-util</artifactId>
 
-    <name>barcodes</name>
+    <name>tech-socialist-barcodes-util</name>
     <url>http://www.example.com</url>
 
     <dependencies>

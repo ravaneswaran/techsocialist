@@ -14,7 +14,7 @@
     <artifactId>tech-socialist-exporters-util</artifactId>
     <packaging>pom</packaging>
 
-    <name>exporters</name>
+    <name>tech-socialist-exporters</name>
     <url>http://www.example.com</url>
 
     <modules>
