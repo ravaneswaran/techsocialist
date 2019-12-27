@@ -17,6 +17,7 @@ public class TestJAXBUnMarshaller extends TestCase {
 		String xmlString = JAXBMarshaller.marshall(testEntity);
 		Object object = JAXBUnMarshaller.unMarshall(TestEntity.class,
 				xmlString);
+		System.out.println(object);
 		Assert.assertNotNull(object);
 		Assert.assertTrue(object instanceof TestEntity);
 	}

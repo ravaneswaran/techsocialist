@@ -11,20 +11,20 @@ import java.nio.charset.StandardCharsets;
  * @author Ravaneswaran Chinnasamy
  *
  */
-public class JAXBUnMarshaller {
+public class JAXBUnMarshaller<T> {
 
 	private static JAXBUnMarshaller unMarshaller;
 
 	private JAXBUnMarshaller() {
 	}
 
-	private Object toObject(Class<?> clazz, String xmlString)
+	private T toInstance(Class<?> clazz, String xmlString)
 			throws JAXBException {
 		JAXBContext jaxbContext = JAXBContext.newInstance(clazz);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		InputStream inputStream = new ByteArrayInputStream(
 				xmlString.getBytes(StandardCharsets.UTF_8));
-		return jaxbUnmarshaller.unmarshal(inputStream);
+		return (T)jaxbUnmarshaller.unmarshal(inputStream);
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class JAXBUnMarshaller {
 	 */
 	public static Object unMarshall(Class<?> clazz, String xmlString)
 			throws JAXBException {
-		return JAXBUnMarshaller.unMarshaller.toObject(clazz,
+		return JAXBUnMarshaller.unMarshaller.toInstance(clazz,
 				xmlString);
 	}
 

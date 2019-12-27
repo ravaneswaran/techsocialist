@@ -13,6 +13,7 @@ public class TestJAXBMarshaller extends TestCase {
 	public void testJAXBMarshall() throws JAXBException {
 		TestEntity obj = new TestEntity();
 		String xml = JAXBMarshaller.marshall(obj);
+		System.out.println(xml);
 		assertNotNull(xml);
 	}
 }
