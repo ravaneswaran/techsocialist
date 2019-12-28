@@ -1,6 +1,8 @@
-package com.techsocialist.os.stripper.model.api;
+package com.techsocialist.os.stripper.model.api.linux;
 
-public interface ILinuxProcess extends IProcess{
+import com.techsocialist.os.stripper.model.api.IProcess;
+
+public interface ILinuxProcess extends IProcess {
 
     public void setUser(String user);
 

@@ -1,6 +1,6 @@
 package com.techsocialist.linux.stripper.model.impl;
 
-import com.techsocialist.os.stripper.model.api.ILinuxKernelIPRoutingTableEntry;
+import com.techsocialist.os.stripper.model.api.linux.ILinuxKernelIPRoutingTableEntry;
 
 public class LinuxKernelIPRoutingTableEntry implements ILinuxKernelIPRoutingTableEntry {
 

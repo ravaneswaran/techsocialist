@@ -1,6 +1,6 @@
 package com.techsocialist.linux.stripper.model.impl;
 
-import com.techsocialist.os.stripper.model.api.ILinuxSystemProperty;
+import com.techsocialist.os.stripper.model.api.linux.ILinuxSystemProperty;
 
 public class LinuxSystemProperty implements ILinuxSystemProperty {
 

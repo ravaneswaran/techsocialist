@@ -1,10 +1,11 @@
 package com.techsocialist.linux.stripper.service.impl;
 
-import com.techsocialist.linux.stripper.model.impl.LinuxEnvironmentVariable;
-import com.techsocialist.linux.stripper.model.impl.LinuxKernelIPRoutingTableEntry;
-import com.techsocialist.linux.stripper.model.impl.LinuxProcess;
-import com.techsocialist.linux.stripper.model.impl.LinuxSystemProperty;
+import com.techsocialist.linux.stripper.model.impl.*;
 import com.techsocialist.os.stripper.model.api.*;
+import com.techsocialist.os.stripper.model.api.linux.ILinuxKernelIPRoutingTableEntry;
+import com.techsocialist.os.stripper.model.api.linux.ILinuxLogin;
+import com.techsocialist.os.stripper.model.api.linux.ILinuxProcess;
+import com.techsocialist.os.stripper.model.api.linux.ILinuxSystemProperty;
 import com.techsocialist.os.stripper.service.impl.LinuxStripperService;
 
 import java.io.IOException;
@@ -15,8 +16,13 @@ import java.util.Properties;
 
 public class LinuxStripperServiceImpl extends LinuxStripperService {
 
+    static {
+        System.setProperty(LINUX_STRIPPER_SERVICE_IMPLEMENTATION, LinuxStripperServiceImpl.class.getName());
+    }
+
     public List<IProcess> getProcesses() throws IOException {
-        int[] columnEndIndex = {13, 16, 21, 25, 33, 38, 47, 52, 60, 65, 76};
+        //int[] columnEndIndex = {13, 16, 21, 25, 33, 38, 47, 52, 60, 65, 76};
+        int[] columnEndIndex = {12, 15, 20, 24, 32, 37, 46, 51, 59, 64, 75};
         List<IProcess> processes = new ArrayList<IProcess>();
 
         executeOperatingSystemCommand("ps -aux");
@@ -118,10 +124,10 @@ public class LinuxStripperServiceImpl extends LinuxStripperService {
         return this.getOutput();
     }
 
-
     @Override
     public List<ILinuxKernelIPRoutingTableEntry> getLinuxKernelIPRoutingTableEntries() throws IOException {
-        int[] columnEndIndex = {16, 32, 48, 58, 60, 71, 73};
+        //int[] columnEndIndex = {16, 32, 48, 58, 60, 71, 73};
+        int[] columnEndIndex = {15, 31, 47, 57, 59, 70, 72};
         List<ILinuxKernelIPRoutingTableEntry> linuxKernelIPRoutingTableEntries = new ArrayList<ILinuxKernelIPRoutingTableEntry>();
 
         executeOperatingSystemCommand("netstat -r");
@@ -165,5 +171,63 @@ public class LinuxStripperServiceImpl extends LinuxStripperService {
         }
 
         return linuxKernelIPRoutingTableEntries;
+    }
+
+    @Override
+    public String getCPUDetails() throws IOException {
+        executeOperatingSystemCommand("lscpu");
+        return this.getOutput();
+    }
+
+    @Override
+    public String getHardwareDetails() throws IOException {
+        executeOperatingSystemCommand("lshw");
+        return this.getOutput();
+    }
+
+    @Override
+    public List<ILinuxLogin> getLogins() throws IOException {
+        //int[] columnEndIndex = {2, 6, 24, 29, 38, 48, 59};
+        int[] columnEndIndex = {1, 5, 23, 28, 37, 47, 58};
+        List<ILinuxLogin> linuxLogins = new ArrayList<ILinuxLogin>();
+
+        executeOperatingSystemCommand("lslogins");
+
+        String output = this.getOutput();
+
+        if(null != output && !output.isEmpty()){
+            String[] outputLines = output.split("\n");
+
+            int linesToSkip = 1;
+            int skipCounter = 0;
+            for(String outputLine : outputLines){
+
+                if(skipCounter < linesToSkip){
+                    skipCounter += 1;
+                    continue;
+                }
+
+                String userId = outputLine.substring(0, columnEndIndex[0]);
+                String userName = outputLine.substring(columnEndIndex[0] + 1, columnEndIndex[1]);
+                String proc = outputLine.substring(columnEndIndex[1] + 1, columnEndIndex[2]);
+                String pwdLock = outputLine.substring(columnEndIndex[2] + 1, columnEndIndex[3]);
+                String pwdDeny = outputLine.substring(columnEndIndex[3] + 1, columnEndIndex[4]);
+                String lastLogin = outputLine.substring(columnEndIndex[4] + 1, columnEndIndex[5]);
+                String gecos = outputLine.substring(columnEndIndex[5] + 1, outputLine.length());
+
+                ILinuxLogin linuxLogin = new LinuxLogin();
+                linuxLogin.setUserId(userId);
+                linuxLogin.setUserName(userName);
+                linuxLogin.setPROC(proc);
+                linuxLogin.setPWDLock(pwdLock);
+                linuxLogin.setPWDDeny(pwdDeny);
+                linuxLogin.setLastLogin(lastLogin);
+                linuxLogin.setGECOS(gecos);
+
+                linuxLogins.add(linuxLogin);
+            }
+        }
+
+        return linuxLogins;
     }
 }

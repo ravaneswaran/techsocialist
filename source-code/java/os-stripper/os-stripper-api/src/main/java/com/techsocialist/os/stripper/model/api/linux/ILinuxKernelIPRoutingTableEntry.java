@@ -1,4 +1,4 @@
-package com.techsocialist.os.stripper.model.api;
+package com.techsocialist.os.stripper.model.api.linux;
 
 public interface ILinuxKernelIPRoutingTableEntry {
 

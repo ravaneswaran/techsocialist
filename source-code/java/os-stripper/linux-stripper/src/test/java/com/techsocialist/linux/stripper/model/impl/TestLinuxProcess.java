@@ -1,6 +1,6 @@
 package com.techsocialist.linux.stripper.model.impl;
 
-import com.techsocialist.os.stripper.model.api.ILinuxProcess;
+import com.techsocialist.os.stripper.model.api.linux.ILinuxProcess;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 

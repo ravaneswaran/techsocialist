@@ -1,6 +1,6 @@
 package com.techsocialist.linux.stripper.model.impl;
 
-import com.techsocialist.os.stripper.model.api.ILinuxProcess;
+import com.techsocialist.os.stripper.model.api.linux.ILinuxProcess;
 
 public class LinuxProcess implements ILinuxProcess {
 
