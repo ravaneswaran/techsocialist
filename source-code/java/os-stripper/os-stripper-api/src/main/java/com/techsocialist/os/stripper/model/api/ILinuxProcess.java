@@ -38,6 +38,10 @@ public interface ILinuxProcess extends IProcess{
 
     public String getTime();
 
+    public void setTTY(String tty);
+
+    public String getTTY();
+
     public void setCommand(String command);
 
     public String getCommand();

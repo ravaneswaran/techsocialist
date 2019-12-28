@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IOperatingSystemStripperService {
 
-    public List<IProcess> getProcesses();
+    public List<IProcess> getProcesses() throws IOException;
 
     public List<IEnvironmentVariable> getEnvironmentVariables() throws IOException;
 

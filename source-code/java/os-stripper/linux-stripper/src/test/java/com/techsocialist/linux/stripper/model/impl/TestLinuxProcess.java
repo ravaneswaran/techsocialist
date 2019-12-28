@@ -89,4 +89,12 @@ public class TestLinuxProcess extends TestCase {
         Assert.assertEquals(expected, actual);
     }
 
+    public void testSetGetTTY(){
+        String expected = "";
+        linuxProcess.setTTY(expected);
+        String actual = linuxProcess.getTTY();
+
+        Assert.assertEquals(expected, actual);
+    }
+
 }

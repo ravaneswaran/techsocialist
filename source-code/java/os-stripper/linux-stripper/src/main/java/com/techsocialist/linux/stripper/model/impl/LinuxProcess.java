@@ -20,6 +20,8 @@ public class LinuxProcess implements ILinuxProcess {
 
     private String start;
 
+    private String tty;
+
     private String time;
 
     private String command;
@@ -94,6 +96,16 @@ public class LinuxProcess implements ILinuxProcess {
 
     public String getTime() {
         return this.time;
+    }
+
+    @Override
+    public void setTTY(String tty) {
+        this.tty = tty;
+    }
+
+    @Override
+    public String getTTY() {
+        return this.tty;
     }
 
     public void setCommand(String command) {
