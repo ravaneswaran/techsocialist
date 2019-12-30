@@ -1,4 +1,4 @@
-Bundle-Name: system-details-controlpanel-portlet
-Bundle-SymbolicName: system-details-controlpanel-portlet
+Bundle-Name: techsocialist-system-details-controlpanel-portlet
+Bundle-SymbolicName: techsocialist-system-details-controlpanel-portlet
 Bundle-Version: 1.0.0
 Export-Package: com.techsocialist.liferay.controlpanel.constants

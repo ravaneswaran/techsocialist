@@ -25,6 +25,7 @@ public class SystemDetailsControlPanelPortletTest {
 
     @Deployment
     public static JavaArchive create() throws Exception {
+
         final File tempDir = Files.createTempDir();
 
         String gradlew = "./gradlew";
@@ -43,7 +44,7 @@ public class SystemDetailsControlPanelPortletTest {
 
         final File jarFile = new File(
                 tempDir.getAbsolutePath() +
-                        "/com.liferay.arquillian.sample-1.0.0.jar");
+                        "/system-details-controlpanel-portlet-1.0.0.jar");
 
         return ShrinkWrap.createFromZipFile(JavaArchive.class, jarFile);
     }

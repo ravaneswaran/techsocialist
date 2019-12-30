@@ -5,6 +5,6 @@ package com.techsocialist.liferay.controlpanel.constants;
  */
 public class SystemDetailsControlPanelPortletCategoryKeys {
 
-	public static final String CONTROL_PANEL_CATEGORY = "SystemDetailsControlPanelPortlet";
+	public static final String CONTROL_PANEL_CATEGORY = "System Details";
 
 }
