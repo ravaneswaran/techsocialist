@@ -9,4 +9,12 @@
         <property name="deploymentExportPath">build/deployments</property>
     </engine>
 
+    <extension qualifier="webdriver">
+        <property name="browser">phantomjs</property>
+    </extension>
+
+    <extension qualifier="graphene">
+        <property name="url">http://localhost:8080</property>
+    </extension>
+
 </arquillian>

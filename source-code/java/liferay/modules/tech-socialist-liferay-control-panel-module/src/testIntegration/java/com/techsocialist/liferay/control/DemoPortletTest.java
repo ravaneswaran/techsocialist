@@ -9,7 +9,6 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-@Ignore
+
 @RunWith(Arquillian.class)
 public class DemoPortletTest {
 
