@@ -1,0 +1,4 @@
+Bundle-Name: techsocialist-payment-gateway-module
+Bundle-SymbolicName: techsocialist-payment-gateway-module
+Bundle-Version: 1.0.0
+Export-Package: com.techsocialist.payment.gateway
