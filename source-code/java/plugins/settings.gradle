@@ -1,0 +1,6 @@
+include 'mail-plugin'
+include 'os-plugin-module'
+include 'barcode-plugin-module'
+include 'qrcode-plugin-module'
+include 'client-plugin-module'
+
