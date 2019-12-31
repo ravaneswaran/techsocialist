@@ -1,4 +1,4 @@
-include 'mail-plugin'
+include 'mail-plugin-module'
 include 'os-plugin-module'
 include 'barcode-plugin-module'
 include 'qrcode-plugin-module'
