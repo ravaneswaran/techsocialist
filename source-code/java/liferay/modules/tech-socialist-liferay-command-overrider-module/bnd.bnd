@@ -1,4 +1,0 @@
-Bundle-Name: tech-socialist-liferay-command-overrider-module
-Bundle-SymbolicName: com.techsocialist.liferay.command.overrider
-Bundle-Version: 1.0.0
-Export-Package: com.techsocialist.liferay.command.overrider.api
