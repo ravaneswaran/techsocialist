@@ -1,0 +1,10 @@
+Bundle-Name: techsocialist-core-servicebuilder-api
+Bundle-SymbolicName: com.techsocialist.core.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.techsocialist.core.exception,\
+	com.techsocialist.core.model,\
+	com.techsocialist.core.service,\
+	com.techsocialist.core.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../core-servicebuilder-service/service.xml
