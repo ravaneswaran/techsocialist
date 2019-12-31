@@ -1,4 +1,0 @@
-Bundle-Name: tech-socialist-requirements-module
-Bundle-SymbolicName: tech-socialist-requirements-module
-Bundle-Version: 1.0.0
-Export-Package: com.techsocialist.requirements
