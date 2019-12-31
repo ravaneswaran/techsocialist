@@ -1,5 +1,5 @@
 dependencies {
 
-	compileOnly project(":modules:tech-socialist-foundation-module")
+	compileOnly project(":modules:techsocialist-core:foundation-module")
 	
 }
