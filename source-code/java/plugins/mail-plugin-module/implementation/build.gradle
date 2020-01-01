@@ -1,0 +1,4 @@
+
+dependencies {
+    compile project(":plugins:mail-plugin-module:mail-plugin-api")
+}

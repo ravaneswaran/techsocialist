@@ -1,0 +1,4 @@
+
+dependencies {
+    compile project(":plugins:os-plugin-module:stripper-plugin-module:stripper-plugin-api")
+}
