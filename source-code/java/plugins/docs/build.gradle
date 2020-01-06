@@ -7,3 +7,5 @@ asciidoctor {
         include 'greeter.adoc'
     }
 }
+
+build.dependsOn 'asciidoctor'

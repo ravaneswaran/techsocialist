@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'groovy'
+    id 'scala'
     id 'application'
     id 'org.asciidoctor.convert' version '1.5.6' apply false
 }
@@ -15,8 +17,22 @@ subprojects {
     version = '1.0.0'
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/main/java'
+        }
+        groovy{
+            srcDirs 'src/main/groovy'
+        }
+        scala {
+            srcDirs 'src/main/scala'
+        }
+    }
+}
+
+
+
 dependencies {
-
-    testCompile group: 'junit', name: 'junit', version: '4.4'
-
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
