@@ -27,11 +27,11 @@ public class SystemDetailsControlPanelPortletTest {
     public static JavaArchive create() throws Exception {
 
         final File tempDir = Files.createTempDir();
-
         String gradlew = "./gradlew";
 
         String osName = System.getProperty("os.name", "");
         if (osName.toLowerCase().contains("windows")) {
+
             gradlew = "./gradlew.bat";
         }
 
