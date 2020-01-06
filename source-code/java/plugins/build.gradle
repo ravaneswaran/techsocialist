@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.asciidoctor.convert' version '1.5.6' apply false
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    version = '1.0.0'
+}
+
+dependencies {
+
+    testCompile group: 'junit', name: 'junit', version: '4.4'
+
+}
