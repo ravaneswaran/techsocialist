@@ -21,44 +21,7 @@ subprojects {
             java {
                 srcDirs = ['src/main/java']
             }
-            groovy {
-                srcDirs = ['src/main/groovy']
-            }
-            scala {
-                srcDirs = ['src/main/scala']
-            }
-            resources {
-                srcDirs = ['src/main/resources']
-            }
-        }
-    }
-
-    dependencies {
-        testImplementation 'junit:junit:4.12'
-    }
-}
-
-
-
-test {
-    useJUnit()
-    maxHeapSize = '512MB'
-}
-
-allprojects {
-    Iterator<Project> iterator = getAllprojects().iterator()
-    while(iterator.hasNext()){
-        Project project = iterator.next()
-        Iterator<Project> subProjectsIterator = project.getSubprojects().iterator()
-
-        while(subProjectsIterator.hasNext()){
-            Project subProject = subProjectsIterator.next()
-            System.out.println("=====================>>>>>> "+subProject.getName())
-            System.out.println("=====================>>>>>> "+subProject.getRootDir().getName())
-            System.out.println("=====================>>>>>> "+subProject.getRootProject().getName())
         }
     }
 }
-
-
 
