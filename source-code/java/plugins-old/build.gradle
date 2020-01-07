@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'scala'
+    id 'application'
+    id 'org.asciidoctor.convert' version '1.5.6' apply false
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    version = '1.0.0-SNAPSHOT'
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java']
+            }
+        }
+    }
+}
+

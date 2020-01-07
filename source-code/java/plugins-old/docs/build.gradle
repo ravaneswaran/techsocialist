@@ -1,11 +1,10 @@
-
 plugins {
     id 'org.asciidoctor.convert'
 }
 
 asciidoctor {
     sources {
-        include 'barcodeplugin.adoc'
+        include 'greeter.adoc'
     }
 }
 

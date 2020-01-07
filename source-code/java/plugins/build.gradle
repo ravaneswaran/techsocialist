@@ -1,27 +1,27 @@
 plugins {
     id 'java'
     id 'groovy'
-    id 'scala'
     id 'application'
+
     id 'org.asciidoctor.convert' version '1.5.6' apply false
 }
 
-allprojects {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-    }
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
 }
 
 subprojects {
     version = '1.0.0-SNAPSHOT'
-
-    sourceSets {
-        main {
-            java {
-                srcDirs = ['src/main/java']
-            }
-        }
-    }
 }
 
+dependencies {
+    implementation 'com.google.guava:guava:26.0-jre'
+
+    testImplementation 'org.codehaus.groovy:groovy-all:2.5.4'
+    testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
+    testImplementation 'junit:junit:4.12'
+}
+
+mainClassName = 'com.techsocialist.plugins.App'

@@ -1,0 +1,9 @@
+rootProject.name = 'plugins'
+
+include 'mail-plugin-module'
+include 'os-plugin-module'
+include 'barcode-plugin-module'
+include 'qrcode-plugin-module'
+include 'client-plugin-module'
+include 'socket-plugin-module'
+include 'docs'

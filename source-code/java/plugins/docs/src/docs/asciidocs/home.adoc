@@ -1,0 +1,14 @@
+= Tech Socialist Plugins
+
+== Plugin Listing
+
+[listing]
+----
+1. Barcode
+2. QR-Code
+3. Mail
+4. OS Stripper
+5. Captua
+6. PDF
+----
+
