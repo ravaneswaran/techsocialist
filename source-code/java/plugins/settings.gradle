@@ -9,4 +9,6 @@
 
 rootProject.name = 'plugins'
 
-include 'docs'
+include ':docs',
+        ':barcode-plugin-module:barcode-plugin-api',
+        ':barcode-plugin-module:implementation:bc4j-barcode-plugin'
