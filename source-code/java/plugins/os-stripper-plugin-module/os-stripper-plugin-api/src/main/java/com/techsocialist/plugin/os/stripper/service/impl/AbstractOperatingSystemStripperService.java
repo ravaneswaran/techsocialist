@@ -1,10 +1,12 @@
 package com.techsocialist.plugin.os.stripper.service.impl;
 
+import com.techsocialist.plugin.os.stripper.service.api.IOperatingSystemStripperService;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public abstract class AbstractOperatingSystemStripperService {
+public abstract class AbstractOperatingSystemStripperService implements IOperatingSystemStripperService {
 
     private String output;
 

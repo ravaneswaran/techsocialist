@@ -3,6 +3,16 @@ plugins{
     id 'groovy'
 }
 
+jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)
+
 dependencies{
     compileOnly project(":os-stripper-plugin-module:os-stripper-plugin-api")
+
+    implementation 'com.google.guava:guava:26.0-jre'
+
+    testCompile project(":os-stripper-plugin-module:os-stripper-plugin-api")
+
+    testImplementation 'org.codehaus.groovy:groovy-all:2.5.4'
+    testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
+    testImplementation 'junit:junit:4.12'
 }

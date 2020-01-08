@@ -125,7 +125,7 @@ public class UnixStripperServiceImpl extends AbstractOperatingSystemStripperServ
     }
 
 
-    public List<IKernelIPRoutingTableEntry> getLinuxKernelIPRoutingTableEntries() throws IOException {
+    public List<IKernelIPRoutingTableEntry> getKernelIPRoutingTableEntries() throws IOException {
         //int[] columnEndIndex = {16, 32, 48, 58, 60, 71, 73};
         int[] columnEndIndex = {15, 31, 47, 57, 59, 70, 72};
         List<IKernelIPRoutingTableEntry> linuxKernelIPRoutingTableEntries = new ArrayList<IKernelIPRoutingTableEntry>();
