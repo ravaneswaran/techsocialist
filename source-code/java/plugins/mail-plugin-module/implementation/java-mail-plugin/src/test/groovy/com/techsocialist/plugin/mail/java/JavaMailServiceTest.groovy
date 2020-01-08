@@ -100,4 +100,28 @@ class JavaMailServiceTest extends Specification{
             IMailService.STATUS_SUCCESS == javaMailService.getStatus()
     }
 
+    def "test when sending a mail from from@from.com to to@to.com with one attachment"(){
+        setup :
+            def javaMailService = new JavaMailService()
+            def from = "from@from.com"
+            String[] tos = ["to@to.com"]
+            String[] attachments = {
+                System.out.println(System.getProperty("java.io.tmpdir"))
+                File tempFile = File.createTempFile("file1", "txt")
+                tempFile.createNewFile()
+                System.out.println(tempFile.getAbsolutePath())
+                [tempFile.getAbsolutePath()]
+            }
+            def host = "localhost"
+            def port = "1025"
+            def userName = ""
+            def password = ""
+            javaMailService.connect(host, port, userName, password)
+        when :
+            System.out.println(attachments.length)
+            javaMailService.sendMail(from, tos, null, null, attachments, "Test Subject", "Test Message")
+        then :
+            IMailService.STATUS_SUCCESS == javaMailService.getStatus()
+    }
+
 }
