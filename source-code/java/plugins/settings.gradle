@@ -19,6 +19,7 @@ include ':docs',
 
         ':os-stripper-plugin-module:os-stripper-plugin-api',
         ':os-stripper-plugin-module:implementation:unix-stripper-plugin',
+        ':os-stripper-plugin-module:implementation:linux-stripper-plugin',
 
         ':client-plugin-module:ftp-client-plugin-module:ftp-client-plugin-api',
         ':client-plugin-module:ftp-client-plugin-module:implementation:curl-ftp-client-plugin',

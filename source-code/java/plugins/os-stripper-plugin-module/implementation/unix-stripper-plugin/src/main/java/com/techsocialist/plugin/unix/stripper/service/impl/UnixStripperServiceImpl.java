@@ -186,7 +186,7 @@ public class UnixStripperServiceImpl extends AbstractOperatingSystemStripperServ
     public List<ILogin> getLogins() throws IOException {
         //int[] columnEndIndex = {2, 6, 24, 29, 38, 48, 59};
         int[] columnEndIndex = {1, 5, 23, 28, 37, 47, 58};
-        List<ILogin> linuxLogins = new ArrayList<ILogin>();
+        List<ILogin> unixLogins = new ArrayList<ILogin>();
 
         executeOperatingSystemCommand("lslogins");
 
@@ -221,10 +221,10 @@ public class UnixStripperServiceImpl extends AbstractOperatingSystemStripperServ
                 unixLogin.setLastLogin(lastLogin);
                 unixLogin.setGECOS(gecos);
 
-                linuxLogins.add(unixLogin);
+                unixLogins.add(unixLogin);
             }
         }
 
-        return linuxLogins;
+        return unixLogins;
     }
 }
