@@ -47,11 +47,13 @@ public class JavaMailService extends AbstractMailService {
     @Override
     public void sendMail(String from, String[] tos, String[] ccs, String[] bccs, String[] attachments, String subject, String message) throws Exception {
 
-        if (null == from && from.isEmpty()) {
+        if (null == from || from.isEmpty()) {
+            this.setStatus(STATUS_FAILURE);
             throw new RuntimeException("Invalid from address...");
         }
 
         if (null == tos || tos.length < 1) {
+            this.setStatus(STATUS_FAILURE);
             throw new RuntimeException("Invalid to address...");
         }
 
