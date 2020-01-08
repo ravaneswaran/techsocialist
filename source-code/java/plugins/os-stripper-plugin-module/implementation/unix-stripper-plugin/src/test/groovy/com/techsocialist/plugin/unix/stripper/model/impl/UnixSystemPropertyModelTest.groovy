@@ -17,7 +17,7 @@ class UnixSystemPropertyModelTest extends Specification{
         setup :
             def unixSystemProperty = new UnixSystemProperty()
         when :
-        unixSystemProperty.setValue("")
+            unixSystemProperty.setValue("")
         then :
             "" == unixSystemProperty.getValue()
     }
