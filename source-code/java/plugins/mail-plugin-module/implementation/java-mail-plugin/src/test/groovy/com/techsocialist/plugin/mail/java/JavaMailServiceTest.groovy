@@ -105,13 +105,7 @@ class JavaMailServiceTest extends Specification{
             def javaMailService = new JavaMailService()
             def from = "from@from.com"
             String[] tos = ["to@to.com"]
-            String[] attachments = {
-                System.out.println(System.getProperty("java.io.tmpdir"))
-                File tempFile = File.createTempFile("file1", "txt")
-                tempFile.createNewFile()
-                System.out.println(tempFile.getAbsolutePath())
-                [tempFile.getAbsolutePath()]
-            }
+            String[] attachments = createAttachment()
             def host = "localhost"
             def port = "1025"
             def userName = ""
@@ -124,4 +118,10 @@ class JavaMailServiceTest extends Specification{
             IMailService.STATUS_SUCCESS == javaMailService.getStatus()
     }
 
+    def createAttachment() {
+        File tempFile = File.createTempFile("file1", ".txt")
+        tempFile.createNewFile()
+
+        [tempFile.getAbsolutePath()]
+    }
 }
