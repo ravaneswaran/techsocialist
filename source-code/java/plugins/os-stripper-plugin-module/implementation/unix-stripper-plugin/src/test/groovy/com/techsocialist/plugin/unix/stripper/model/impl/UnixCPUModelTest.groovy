@@ -2,7 +2,7 @@ package com.techsocialist.plugin.unix.stripper.model.impl
 
 import spock.lang.Specification
 
-class CPUModelTest extends Specification{
+class UnixCPUModelTest extends Specification{
 
     def "testing setter and getter of cpu detail"(){
         setup :
