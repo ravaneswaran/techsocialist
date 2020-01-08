@@ -1,0 +1,8 @@
+plugins{
+    id 'java'
+    id 'groovy'
+}
+
+dependencies{
+    compileOnly project(":os-stripper-plugin-module:os-stripper-plugin-api")
+}
