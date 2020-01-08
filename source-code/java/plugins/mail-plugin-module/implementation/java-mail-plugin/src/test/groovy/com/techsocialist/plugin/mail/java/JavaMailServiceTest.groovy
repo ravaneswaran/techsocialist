@@ -15,7 +15,7 @@ class JavaMailServiceTest extends Specification{
         when :
             def result = javaMailService.connect(host, port, userName, password)
         then :
-            IMailService.STATUS_SUCCESS == 0
+            IMailService.STATUS_SUCCESS == result
     }
 
     def "test when sending a mail from from@from.com to to@to.com"(){
