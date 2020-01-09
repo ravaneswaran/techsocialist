@@ -29,8 +29,6 @@ public class TwilioSMSService extends AbstractSMSService {
                 message)
                 .create();
 
-        System.out.println(twilioMessage.getBody());
-
         return twilioMessage.getSid();
     }
 }

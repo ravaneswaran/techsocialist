@@ -38,6 +38,41 @@ class TwilioSMSServiceTest extends Specification{
             null != result && !result.isEmpty()
     }
 
+    def "test sending Hello World message to mobile number when from mobile number is null or empty"(){
+        setup:
+            def twilioSMSService = SMSUtil.getSMSService("com.techsocialist.plugin.sms.twilio.TwilioSMSService")
+            twilioSMSService.initialize(properties.get("sms.account.id"), properties.get("sms.account.auth.token"))
+        when :
+            String result = twilioSMSService.sendSMS(null, "+919894794196", "Hello World")
+        then :
+            RuntimeException re = thrown()
+            "fromMobileNumber cannot be null or empty..." == re.getMessage()
+    }
+
+    def "test sending Hello World message to mobile number when to mobile number is null or empty"(){
+        setup:
+            def twilioSMSService = SMSUtil.getSMSService("com.techsocialist.plugin.sms.twilio.TwilioSMSService")
+            twilioSMSService.initialize(properties.get("sms.account.id"), properties.get("sms.account.auth.token"))
+        when :
+            String result = twilioSMSService.sendSMS(properties.get("sms.from.mobile.number"), null, "Hello World")
+        then :
+            RuntimeException re = thrown()
+            "toMobileNumber cannot be null or empty..." == re.getMessage()
+    }
+
+    def "test sending null or empty message to mobile number +919894794196 using service"(){
+        setup:
+            def twilioSMSService = SMSUtil.getSMSService("com.techsocialist.plugin.sms.twilio.TwilioSMSService")
+            twilioSMSService.initialize(properties.get("sms.account.id"), properties.get("sms.account.auth.token"))
+        when :
+            String result = twilioSMSService.sendSMS(properties.get("sms.from.mobile.number"), "+919894794196", null)
+        then :
+            RuntimeException re = thrown()
+            "message cannot be null or empty..." == re.getMessage()
+    }
+
+
+
     def getProperties(){
         Properties properties = new Properties()
 
