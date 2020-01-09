@@ -23,7 +23,10 @@ include ':docs',
         ':mail-plugin-module:implementation:java-mail-plugin',
 
         ':sms-plugin-module:sms-plugin-api',
-        ':sms-plugin-module:implementation:rest:twilio-rest-sms-plugin',
+        ':sms-plugin-module:sms-rest-plugin-api',
+        ':sms-plugin-module:implementation:twilio-sms-plugin',
+        ':sms-plugin-module:implementation:textlocal-sms-plugin',
+        ':sms-plugin-module:implementation:rest:twilio-sms-rest-plugin',
 
         ':payment-gateway-plugin-module:payment-gateway-plugin-api',
         ':payment-gateway-plugin-module:implementation:rest:paytm-rest-pg-plugin',

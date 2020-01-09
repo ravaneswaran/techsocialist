@@ -46,7 +46,7 @@ class TwilioSMSServiceTest extends Specification{
             String result = twilioSMSService.sendSMS(null, "+919894794196", "Hello World")
         then :
             RuntimeException re = thrown()
-            "fromMobileNumber cannot be null or empty..." == re.getMessage()
+            "from(SMS Source) cannot be null or empty..." == re.getMessage()
     }
 
     def "test sending Hello World message to mobile number when to mobile number is null or empty"(){
@@ -57,7 +57,7 @@ class TwilioSMSServiceTest extends Specification{
             String result = twilioSMSService.sendSMS(properties.get("sms.from.mobile.number"), null, "Hello World")
         then :
             RuntimeException re = thrown()
-            "toMobileNumber cannot be null or empty..." == re.getMessage()
+            "to(SMS Destination) cannot be null or empty..." == re.getMessage()
     }
 
     def "test sending null or empty message to mobile number +919894794196 using service"(){
