@@ -18,6 +18,9 @@ include ':docs',
         ':mail-plugin-module:implementation:curl-mail-plugin',
         ':mail-plugin-module:implementation:java-mail-plugin',
 
+        ':os-command-exec-plugin-module:os-command-exec-plugin-api',
+        ':os-command-exec-plugin-module:implementation:linux-command-exec-plugin',
+
         ':os-stripper-plugin-module:os-stripper-plugin-api',
         ':os-stripper-plugin-module:implementation:unix-stripper-plugin',
         ':os-stripper-plugin-module:implementation:linux-stripper-plugin',
