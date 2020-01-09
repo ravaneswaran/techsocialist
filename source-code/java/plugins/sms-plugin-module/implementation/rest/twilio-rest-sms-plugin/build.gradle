@@ -1,0 +1,20 @@
+plugins{
+    id 'java'
+    id 'groovy'
+}
+
+jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)
+
+dependencies {
+
+    implementation group: "com.twilio.sdk", name: "twilio", version: "7.42.0"
+
+    compileOnly project(":sms-plugin-module:sms-plugin-api")
+
+    testCompile project(":sms-plugin-module:sms-plugin-api")
+
+    implementation 'com.google.guava:guava:26.0-jre'
+    testImplementation 'org.codehaus.groovy:groovy-all:2.5.4'
+    testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
+    testImplementation 'junit:junit:4.12'
+}
