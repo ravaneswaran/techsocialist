@@ -18,6 +18,13 @@ include ':docs',
         ':mail-plugin-module:implementation:curl-mail-plugin',
         ':mail-plugin-module:implementation:java-mail-plugin',
 
+        ':sms-plugin-module:sms-plugin-api',
+        ':sms-plugin-module:implementation:rest:twilio-rest-sms-plugin',
+
+        ':payment-gateway-plugin-module:payment-gateway-plugin-api',
+        ':payment-gateway-plugin-module:implementation:rest:paytm-rest-plugin',
+        ':payment-gateway-plugin-module:implementation:rest:razorpay-rest-plugin',
+
         ':os-command-exec-plugin-module:os-command-exec-plugin-api',
         ':os-command-exec-plugin-module:implementation:linux-command-exec-plugin',
 
