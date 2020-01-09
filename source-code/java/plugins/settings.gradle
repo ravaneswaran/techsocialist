@@ -11,8 +11,12 @@ rootProject.name = 'plugins'
 
 include ':docs',
 
-        ':barcode-plugin-module:barcode-plugin-api',
-        ':barcode-plugin-module:implementation:bc4j-barcode-plugin',
+        ':os-command-exec-plugin-module:os-command-exec-plugin-api',
+        ':os-command-exec-plugin-module:implementation:linux-command-exec-plugin',
+
+        ':os-stripper-plugin-module:os-stripper-plugin-api',
+        ':os-stripper-plugin-module:implementation:unix-stripper-plugin',
+        ':os-stripper-plugin-module:implementation:linux-stripper-plugin',
 
         ':mail-plugin-module:mail-plugin-api',
         ':mail-plugin-module:implementation:curl-mail-plugin',
@@ -22,15 +26,12 @@ include ':docs',
         ':sms-plugin-module:implementation:rest:twilio-rest-sms-plugin',
 
         ':payment-gateway-plugin-module:payment-gateway-plugin-api',
-        ':payment-gateway-plugin-module:implementation:rest:paytm-rest-plugin',
-        ':payment-gateway-plugin-module:implementation:rest:razorpay-rest-plugin',
+        ':payment-gateway-plugin-module:implementation:rest:paytm-rest-pg-plugin',
+        ':payment-gateway-plugin-module:implementation:rest:razorpay-rest-pg-plugin',
+        ':payment-gateway-plugin-module:implementation:rest:paypal-rest-pg-plugin',
 
-        ':os-command-exec-plugin-module:os-command-exec-plugin-api',
-        ':os-command-exec-plugin-module:implementation:linux-command-exec-plugin',
-
-        ':os-stripper-plugin-module:os-stripper-plugin-api',
-        ':os-stripper-plugin-module:implementation:unix-stripper-plugin',
-        ':os-stripper-plugin-module:implementation:linux-stripper-plugin',
+        ':barcode-plugin-module:barcode-plugin-api',
+        ':barcode-plugin-module:implementation:bc4j-barcode-plugin',
 
         ':client-plugin-module:ftp-client-plugin-module:ftp-client-plugin-api',
         ':client-plugin-module:ftp-client-plugin-module:implementation:curl-ftp-client-plugin',
