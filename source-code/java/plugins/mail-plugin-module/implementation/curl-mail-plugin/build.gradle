@@ -3,6 +3,8 @@ plugins {
     id 'groovy'
 }
 
+jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)
+
 dependencies {
     compileOnly project(":mail-plugin-module:mail-plugin-api")
 
