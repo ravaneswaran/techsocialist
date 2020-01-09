@@ -1,0 +1,31 @@
+plugins{
+    id 'java'
+    id 'groovy'
+    id 'jacoco'
+}
+
+jacoco {
+    toolVersion = "0.8.5"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/reports/jacoco")
+    }
+}
+
+jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)
+
+dependencies {
+    compileOnly project(":sms-plugin-module:sms-plugin-api")
+
+    testCompile project(":sms-plugin-module:sms-plugin-api")
+
+    implementation 'com.google.guava:guava:26.0-jre'
+    testImplementation 'org.codehaus.groovy:groovy-all:2.5.4'
+    testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
+    testImplementation 'junit:junit:4.12'
+}

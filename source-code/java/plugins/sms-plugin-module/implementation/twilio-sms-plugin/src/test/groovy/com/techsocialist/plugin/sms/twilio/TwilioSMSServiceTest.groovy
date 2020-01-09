@@ -6,14 +6,43 @@ import spock.lang.Specification
 
 class TwilioSMSServiceTest extends Specification{
 
-    def "test initialize sms service"(){
+    def getProperties(){
+        Properties properties = new Properties()
+
+        properties.put("sms.account.id", "ACcd1bfb5fb1226482df6fe075fbb3af4f")
+        properties.put("sms.account.auth.token", "0e4c956ff5d748ddf248faf65d826a1f")
+        properties.put("sms.from.mobile.number", "+16232422765")
+
+        properties
+    }
+
+    def "test initialize sms service when both are valid"(){
         setup:
             def twilioSMSService = new TwilioSMSService()
         when :
-            twilioSMSService.initialize("", "")
+            def result = twilioSMSService.initialize("123", "456")
         then :
-            RuntimeException rte = thrown()
-            "account ID/SID cannot be null or empty..." == rte.getMessage()
+            null == result
+    }
+
+    def "test initialize sms service when account sid is null or empty"(){
+        setup:
+            def twilioSMSService = new TwilioSMSService()
+        when :
+            def result = twilioSMSService.initialize(null, "456")
+        then :
+            RuntimeException rt =  thrown()
+            "account SID cannot be null or empty..." == rt.getMessage()
+    }
+
+    def "test initialize sms service when auth token is null or empty"(){
+        setup:
+            def twilioSMSService = new TwilioSMSService()
+        when :
+            def result = twilioSMSService.initialize("123", null)
+        then :
+            RuntimeException rt =  thrown()
+            "authToken cannot be null or empty..." == rt.getMessage()
     }
 
     @Ignore
@@ -69,17 +98,5 @@ class TwilioSMSServiceTest extends Specification{
         then :
             RuntimeException re = thrown()
             "message cannot be null or empty..." == re.getMessage()
-    }
-
-
-
-    def getProperties(){
-        Properties properties = new Properties()
-
-        properties.put("sms.account.id", "ACcd1bfb5fb1226482df6fe075fbb3af4f")
-        properties.put("sms.account.auth.token", "0e4c956ff5d748ddf248faf65d826a1f")
-        properties.put("sms.from.mobile.number", "+16232422765")
-
-        properties
     }
 }

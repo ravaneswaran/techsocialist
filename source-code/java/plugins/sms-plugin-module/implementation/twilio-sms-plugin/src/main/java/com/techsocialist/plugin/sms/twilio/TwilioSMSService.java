@@ -8,22 +8,22 @@ import com.twilio.type.PhoneNumber;
 
 public class TwilioSMSService extends AbstractSMSService implements ITwilioSMSService {
 
-    protected String accountId;
+    protected String accountSID;
 
     protected String authToken;
 
     @Override
-    public void initialize(String accountId, String authToken) throws Exception{
+    public void initialize(String accountSID, String authToken) throws Exception{
 
-        if(null == accountId || accountId.isEmpty()){
-            throw new RuntimeException("account ID/SID cannot be null or empty...");
+        if(null == accountSID || accountSID.isEmpty()){
+            throw new RuntimeException("account SID cannot be null or empty...");
         }
 
         if(null == authToken || authToken.isEmpty()){
             throw new RuntimeException("authToken cannot be null or empty...");
         }
 
-        this.accountId = accountId;
+        this.accountSID = accountSID;
         this.authToken = authToken;
     }
 
@@ -42,7 +42,7 @@ public class TwilioSMSService extends AbstractSMSService implements ITwilioSMSSe
             throw new RuntimeException("message cannot be null or empty...");
         }
 
-        Twilio.init(this.accountId, this.authToken);
+        Twilio.init(this.accountSID, this.authToken);
         Message twilioMessage = Message.creator(
                 new PhoneNumber(to),
                 new PhoneNumber(from),
