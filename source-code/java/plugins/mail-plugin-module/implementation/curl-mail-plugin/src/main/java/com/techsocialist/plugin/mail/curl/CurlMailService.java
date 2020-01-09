@@ -1,13 +1,20 @@
 package com.techsocialist.plugin.mail.curl;
 
 import com.techsocialist.plugin.mail.service.impl.AbstractMailService;
+import com.techsocialist.plugin.os.command.exec.service.api.IOSCommandExecService;
+import com.techsocialist.plugin.os.command.exec.util.OSCommandExecUtil;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 public class CurlMailService extends AbstractMailService {
 
     private static final String SPACE = " ";
-    private static final String SINGLE_QUOTE_START = " '";
-    private static final String SINGLE_QUOTE_END = "' ";
+    private static final String SINGLE_QUOTE = "'";
     private static final String SEMI_COLON = ";";
+    private static final String MAIL_FROM = "--mail-from";
     private static final String MAIL_RECIPIENT = "--mail-rcpt";
 
     private StringBuilder curlCommandBuilder = new StringBuilder();
@@ -16,8 +23,11 @@ public class CurlMailService extends AbstractMailService {
 
     @Override
     public int connect(String host, String port, String userName, String password) {
-        this.curlCommandBuilder.append("curl").append(SPACE).append("--url").append(SINGLE_QUOTE_START).append(String.format("smtp://%s:%s", host, port)).append(SINGLE_QUOTE_END);
-        this.curlCommandBuilder.append("--user").append(SINGLE_QUOTE_START).append(userName).append(":").append(SINGLE_QUOTE_END);
+        this.curlCommandBuilder.append("curl").append(SPACE).append("--url").append(SPACE).append(SINGLE_QUOTE).append(String.format("smtp://%s:%s", host, port)).append(SINGLE_QUOTE).append(SPACE);
+        if(null != userName && null != password && !userName.isEmpty() && !password.isEmpty()){
+            this.curlCommandBuilder.append("--user").append(SPACE).append(SINGLE_QUOTE).append(userName).append(":").append(password).append(SINGLE_QUOTE).append(SPACE);
+        }
+
         return STATUS_SUCCESS;
     }
 
@@ -34,7 +44,46 @@ public class CurlMailService extends AbstractMailService {
             throw new RuntimeException("Invalid to address...");
         }
 
-        String curlMailCommand = this.constructCurlCommand(from, tos, ccs, bccs, attachments, subject, message);
+        this.curlCommandBuilder.append(MAIL_FROM).append(SPACE).append(SINGLE_QUOTE).append(from).append(SINGLE_QUOTE).append(SPACE);
+
+        StringBuilder toBuilder = new StringBuilder();
+        for (String to : tos) {
+            toBuilder.append(to).append(SEMI_COLON);
+        }
+        this.curlCommandBuilder.append(MAIL_RECIPIENT).append(SPACE).append(SINGLE_QUOTE).append(toBuilder.toString()).append(SINGLE_QUOTE).append(SPACE);
+
+        if(null != ccs && ccs.length > 0) {
+            StringBuilder ccBuilder = new StringBuilder();
+            for (String cc : ccs) {
+                ccBuilder.append(cc).append(SEMI_COLON);
+            }
+            this.curlCommandBuilder.append(MAIL_RECIPIENT).append(SPACE).append(SINGLE_QUOTE).append(ccBuilder.toString()).append(SINGLE_QUOTE).append(SPACE);
+        }
+
+        if(null != bccs && bccs.length > 0){
+            StringBuilder bccBuilder = new StringBuilder();
+            for (String bcc : bccs) {
+                bccBuilder.append(bcc).append(SEMI_COLON);
+            }
+            this.curlCommandBuilder.append(MAIL_RECIPIENT).append(SPACE).append(SINGLE_QUOTE).append(bccBuilder.toString()).append(SINGLE_QUOTE).append(SPACE);
+        }
+
+        File messageFile = this.createMessageFile(from, tos, subject, message);
+        if(null != messageFile){
+            String fileAbsolutePath = messageFile.getAbsolutePath();
+            this.curlCommandBuilder.append("--upload-file").append(SPACE).append(fileAbsolutePath).append(SPACE);
+        }
+
+        this.curlCommandBuilder.append("--insecure");
+
+        IOSCommandExecService osCommandExecService = OSCommandExecUtil.getOSCommandExecService("com.techsocialist.plugin.linux.command.exec.LinuxCommandExecService");
+        osCommandExecService.executeCommand(this.curlCommandBuilder.toString().trim());
+
+        this.deleteMessageFile(messageFile);
+
+        if(null == osCommandExecService.getError()){
+            this.setStatus(STATUS_SUCCESS);
+        }
     }
 
     @Override
@@ -47,31 +96,31 @@ public class CurlMailService extends AbstractMailService {
         return this.status;
     }
 
-    private String constructCurlCommand(String from, String[] tos, String[] ccs, String[] bccs, String[] attachments, String subject, String message) {
-        this.curlCommandBuilder.append("--mail-from").append(SPACE).append(from).append(SPACE);
-
-        StringBuilder toBuilder = new StringBuilder();
-        for (String to : tos) {
-            toBuilder.append(to).append(SEMI_COLON);
+    private File createMessageFile(String from, String[] tos, String subject, String message) throws IOException {
+        StringBuilder toStringBuilder = new StringBuilder();
+        if(null != tos && tos.length > 0){
+            for(String to : tos){
+                toStringBuilder.append(to).append(";");
+            }
         }
-        this.curlCommandBuilder.append(MAIL_RECIPIENT).append(SPACE).append(SINGLE_QUOTE_START).append(toBuilder.toString()).append(SINGLE_QUOTE_END).append(SPACE);
 
-        StringBuilder ccBuilder = new StringBuilder();
-        for (String cc : ccs) {
-            ccBuilder.append(cc).append(SEMI_COLON);
-        }
-        this.curlCommandBuilder.append(MAIL_RECIPIENT).append(SPACE).append(SINGLE_QUOTE_START).append(ccBuilder.toString()).append(SINGLE_QUOTE_END).append(SPACE);
+        StringBuilder mailMessageBuilder = new StringBuilder();
+        mailMessageBuilder.append("From: ").append(from).append("\n");
+        mailMessageBuilder.append("To: ").append(toStringBuilder.toString()).append("\n");
+        mailMessageBuilder.append("Subject: ").append(subject).append("\n\n");
+        mailMessageBuilder.append(message).append("\n");
 
-        StringBuilder bccBuilder = new StringBuilder();
-        for (String bcc : bccs) {
-            ccBuilder.append(bcc).append(SEMI_COLON);
-        }
-        this.curlCommandBuilder.append(MAIL_RECIPIENT).append(SPACE).append(SINGLE_QUOTE_START).append(bccBuilder.toString()).append(SINGLE_QUOTE_END).append(SPACE);
+        File messageFile = File.createTempFile("mail-message-", ".txt");
+        messageFile.createNewFile();
+        OutputStream outputStream = new FileOutputStream(messageFile);
+        outputStream.write(mailMessageBuilder.toString().getBytes());
+        outputStream.close();
 
-        this.curlCommandBuilder.append("--insecure");
+        return  messageFile;
+    }
 
-
-        return this.curlCommandBuilder.toString().trim();
+    private void deleteMessageFile(File messageFile){
+        messageFile.delete();
     }
 
 }

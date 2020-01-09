@@ -13,9 +13,9 @@ public abstract class AbstractOSCommandExecService implements IOSCommandExecServ
     private String error;
 
     @Override
-    public void executeCommand(String command) throws IOException {
-        // run the Unix "ps -ef" command using the Runtime exec method:
-        Process process = Runtime.getRuntime().exec(command);
+    public void executeCommands(String... commands) throws IOException {
+
+        Process process = new ProcessBuilder().command(commands).start();
 
         BufferedReader stdInput = new BufferedReader(new InputStreamReader(process.getInputStream()));
         BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));

@@ -6,6 +6,9 @@ plugins {
 dependencies {
     compileOnly project(":mail-plugin-module:mail-plugin-api")
 
+    compile project(":os-command-exec-plugin-module:os-command-exec-plugin-api")
+    compile project(":os-command-exec-plugin-module:implementation:linux-command-exec-plugin")
+
     testCompile project(":mail-plugin-module:mail-plugin-api")
 
     implementation 'com.google.guava:guava:26.0-jre'
