@@ -7,11 +7,21 @@ class Barcode4JBarcodeServiceTest extends Specification {
     def "test creating a simple barcode image"(){
         setup:
             def barcodeService = new Barcode4JBarcodeService()
-            def data = String.format("%s", new Date().getTime())
+            def data = String.format("%s", new Date().getTime()).substring(0, 12)
         when:
             def result = barcodeService.createImage(data)
         then:
             null != result
+    }
+
+    def "test creating a codabar barcode image"(){
+        setup:
+        def barcodeService = new Barcode4JBarcodeService()
+        def data = String.format("%s", new Date().getTime())
+        when:
+        def result = barcodeService.createCodabarImage(data)
+        then:
+        null != result
     }
 
     def "test creating a code 128 barcode image"(){
@@ -152,6 +162,17 @@ class Barcode4JBarcodeServiceTest extends Specification {
         def result = barcodeService.createUSPSIntelligentMailImage(data)
         then:
         null != result
+    }
+
+    def "test scanning a barcode image"(){
+        setup:
+        def barcodeService = new Barcode4JBarcodeService()
+        def data = String.format("%s", new Date().getTime()).substring(0, 12)
+        def barcodeImage = barcodeService.createImage(data)
+        when:
+        def result = barcodeService.scanImage(barcodeImage)
+        then:
+        null == result
     }
 
 }

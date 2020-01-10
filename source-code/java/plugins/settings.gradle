@@ -24,6 +24,7 @@ include ':docs',
 
         ':qrcode-plugin-module:qrcode-plugin-api',
         ':qrcode-plugin-module:implementation:google-zxing-qrcode-plugin',
+        ':qrcode-plugin-module:implementation:barcode4j-qrcode-plugin',
 
         ':barcode-plugin-module:barcode-plugin-api',
         ':barcode-plugin-module:implementation:barcode4j-barcode-plugin',

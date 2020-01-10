@@ -5,6 +5,8 @@ import java.io.IOException;
 
 public interface IBarcode4JBarcodeService {
 
+    public BufferedImage createCodabarImage(String data) throws IOException;
+
     public BufferedImage createCode128Image(String data) throws IOException;
 
     public BufferedImage createCode39Image(String data) throws IOException;

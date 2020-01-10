@@ -22,7 +22,6 @@ import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
 import org.krysalis.barcode4j.tools.UnitConv;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class Barcode4JBarcodeService extends AbstractBarcodeService implements IBarcode4JBarcodeService {
@@ -30,7 +29,7 @@ public class Barcode4JBarcodeService extends AbstractBarcodeService implements I
     private static final int BAR_CODE_DPI = 300;
 
     @Override
-    public String scanImage(File file) throws Exception {
+    public String scanImage(BufferedImage bufferedImage) throws Exception {
         return null;
     }
 
@@ -39,13 +38,19 @@ public class Barcode4JBarcodeService extends AbstractBarcodeService implements I
 
         BitmapCanvasProvider canvas = new BitmapCanvasProvider(BAR_CODE_DPI, BufferedImage.TYPE_BYTE_BINARY, false, 0);
         barcodeBean.generateBarcode(canvas, data);
+        BufferedImage bufferedImage = canvas.getBufferedImage();
         canvas.finish();
 
-        return canvas.getBufferedImage();
+        return bufferedImage;
     }
 
     @Override
     public BufferedImage createImage(String data) throws Exception {
+        return this.createEAN13Image(data);
+    }
+
+    @Override
+    public BufferedImage createCodabarImage(String data) throws IOException {
         AbstractBarcodeBean barcodeBean = new CodabarBean();
         return createBarcodeImage(data, barcodeBean);
     }
