@@ -1,0 +1,5 @@
+plugins {
+    id "java"
+}
+
+jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)

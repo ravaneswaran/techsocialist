@@ -36,6 +36,9 @@ include ':docs',
         ':barcode-plugin-module:barcode-plugin-api',
         ':barcode-plugin-module:implementation:bc4j-barcode-plugin',
 
+        ':qrcode-plugin-module:qrcode-plugin-api',
+        ':qrcode-plugin-module:implementation:google-zxing-qrcode-plugin',
+
         ':client-plugin-module:ftp-client-plugin-module:ftp-client-plugin-api',
         ':client-plugin-module:ftp-client-plugin-module:implementation:curl-ftp-client-plugin',
         ':client-plugin-module:http-client-plugin-module:http-client-plugin-api',
