@@ -24,7 +24,7 @@ import org.krysalis.barcode4j.tools.UnitConv;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class Barcode4JPlugin extends AbstractBarcodePlugin implements IBarcode4JBarcodePlugin {
+public class Barcode4JBarcodePlugin extends AbstractBarcodePlugin implements IBarcode4JBarcodePlugin {
 
     private static final int BAR_CODE_DPI = 300;
 

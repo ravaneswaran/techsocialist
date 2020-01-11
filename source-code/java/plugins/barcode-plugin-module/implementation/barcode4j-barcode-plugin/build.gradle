@@ -21,7 +21,7 @@ jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version
 
 dependencies{
 
-    compile group: "net.sf.qrgen", name: "qrgen", version: "2.1"
+    compile group: "net.sf.barcode4j", name: "barcode4j", version: "2.1"
 
     compileOnly project(":barcode-plugin-module:barcode-plugin-api")
     testCompile project(":barcode-plugin-module:barcode-plugin-api")
