@@ -42,22 +42,22 @@ public abstract class AbstractOSCommandExecPlugin implements IOSCommandExecPlugi
     }
 
     @Override
-    public void setOutput(String output) {
-        this.output = output;
-    }
-
-    @Override
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    @Override
     public String getOutput() {
         return output;
     }
 
     @Override
+    public void setOutput(String output) {
+        this.output = output;
+    }
+
+    @Override
     public String getError() {
         return error;
+    }
+
+    @Override
+    public void setError(String error) {
+        this.error = error;
     }
 }

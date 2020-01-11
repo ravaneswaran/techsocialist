@@ -10,7 +10,7 @@ public class OSCommandExecPluginUtil {
     }
 
     public static final IOSCommandExecPlugin getOSCommandExecPlugin(Class<?> clazz) throws ReflectiveOperationException {
-        return (IOSCommandExecPlugin)clazz.newInstance();
+        return (IOSCommandExecPlugin) clazz.newInstance();
     }
 
 }

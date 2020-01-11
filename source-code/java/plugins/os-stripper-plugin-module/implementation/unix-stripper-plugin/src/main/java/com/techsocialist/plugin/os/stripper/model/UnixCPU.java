@@ -7,12 +7,12 @@ public class UnixCPU implements ICPU {
     private String detail;
 
     @Override
-    public void setCPUDetail(String detail) {
-        this.detail = detail;
+    public String getCPUDetail() {
+        return this.detail;
     }
 
     @Override
-    public String getCPUDetail() {
-        return this.detail;
+    public void setCPUDetail(String detail) {
+        this.detail = detail;
     }
 }

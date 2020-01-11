@@ -19,7 +19,7 @@ jacocoTestReport {
 
 jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)
 
-dependencies{
+dependencies {
 
     compile group: "com.google.zxing", name: "core", version: "3.4.0"
     compile group: "com.google.zxing", name: "javase", version: "3.4.0"

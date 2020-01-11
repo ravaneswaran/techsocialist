@@ -2,31 +2,31 @@ package com.techsocialist.plugin.os.stripper.model.api;
 
 public interface ILogin {
 
-    public void setUserId(String userId);
-
     public String getUserId();
 
-    public void setUserName(String userName);
+    public void setUserId(String userId);
 
     public String getUserName();
 
-    public void setPROC(String proc);
+    public void setUserName(String userName);
 
     public String getPROC();
 
-    public void setPWDLock(String pwdLock);
+    public void setPROC(String proc);
 
     public String getPWDLock();
 
-    public void setPWDDeny(String pwdDeny);
+    public void setPWDLock(String pwdLock);
 
     public String getPWDDeny();
 
-    public void setLastLogin(String lastLogin);
+    public void setPWDDeny(String pwdDeny);
 
     public String getLastLogin();
 
-    public void setGECOS(String gecos);
+    public void setLastLogin(String lastLogin);
 
     public String getGECOS();
+
+    public void setGECOS(String gecos);
 }

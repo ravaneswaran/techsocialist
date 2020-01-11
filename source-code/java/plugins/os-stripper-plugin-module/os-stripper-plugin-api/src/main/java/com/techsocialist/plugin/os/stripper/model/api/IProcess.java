@@ -2,49 +2,49 @@ package com.techsocialist.plugin.os.stripper.model.api;
 
 public interface IProcess {
 
-    public void setUser(String user);
-
     public String getUser();
 
-    public void setPID(String pid);
+    public void setUser(String user);
 
     public String getPID();
 
-    public void setCPUPercentage(String cpuPercentage);
+    public void setPID(String pid);
 
     public String getCPUPercentage();
 
-    public void setMemoryPercentage(String memoryPercentage);
+    public void setCPUPercentage(String cpuPercentage);
 
     public String getMemoryPercentage();
 
-    public void setVSZ(String vsz);
+    public void setMemoryPercentage(String memoryPercentage);
 
     public String getVSZ();
 
-    public void setRSS(String rss);
+    public void setVSZ(String vsz);
 
     public String getRSS();
 
-    public void setSTAT(String stat);
+    public void setRSS(String rss);
 
     public String getSTAT();
 
-    public void setStart(String start);
+    public void setSTAT(String stat);
 
     public String getStart();
 
-    public void setTime(String time);
+    public void setStart(String start);
 
     public String getTime();
 
-    public void setTTY(String tty);
+    public void setTime(String time);
 
     public String getTTY();
 
-    public void setCommand(String command);
+    public void setTTY(String tty);
 
     public String getCommand();
+
+    public void setCommand(String command);
 
 }
 

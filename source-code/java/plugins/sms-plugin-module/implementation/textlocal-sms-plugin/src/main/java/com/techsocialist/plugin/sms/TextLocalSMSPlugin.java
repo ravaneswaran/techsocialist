@@ -15,15 +15,15 @@ public class TextLocalSMSPlugin extends AbstractSMSPlugin implements ITextLocalS
     @Override
     public String sendSMS(String from, String to, String message) throws Exception {
 
-        if(null == from || from.isEmpty()){
+        if (null == from || from.isEmpty()) {
             throw new RuntimeException("from(SMS Source) cannot be null or empty...");
         }
 
-        if(null == to || to.isEmpty()){
+        if (null == to || to.isEmpty()) {
             throw new RuntimeException("to(SMS Destination) cannot be null or empty...");
         }
 
-        if(null == message || message.isEmpty()){
+        if (null == message || message.isEmpty()) {
             throw new RuntimeException("message cannot be null or empty...");
         }
 
@@ -53,8 +53,8 @@ public class TextLocalSMSPlugin extends AbstractSMSPlugin implements ITextLocalS
     }
 
     @Override
-    public void initialize(String apiKey) throws Exception{
-        if(null == apiKey || apiKey.isEmpty()){
+    public void initialize(String apiKey) throws Exception {
+        if (null == apiKey || apiKey.isEmpty()) {
             throw new RuntimeException("apiKey cannot be null or empty...");
         }
         this.apiKey = apiKey;

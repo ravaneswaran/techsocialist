@@ -1,4 +1,4 @@
-plugins{
+plugins {
     id 'java'
     id 'groovy'
     id 'jacoco'
@@ -19,7 +19,7 @@ jacocoTestReport {
 
 jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)
 
-dependencies{
+dependencies {
 
     compileOnly project(":os-stripper-plugin-module:os-stripper-plugin-api")
     compileOnly project(":os-stripper-plugin-module:implementation:unix-stripper-plugin")

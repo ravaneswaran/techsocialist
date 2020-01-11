@@ -1,4 +1,4 @@
-plugins{
+plugins {
     id 'java'
     id 'groovy'
     id 'jacoco'
@@ -32,7 +32,7 @@ artifacts {
     testArtifacts testJar
 }
 
-dependencies{
+dependencies {
     compileOnly project(":os-stripper-plugin-module:os-stripper-plugin-api")
 
     testCompile project(":os-stripper-plugin-module:os-stripper-plugin-api")

@@ -8,11 +8,11 @@ public interface IOSCommandExecPlugin {
 
     public void executeCommand(String command) throws IOException;
 
-    public void setOutput(String output);
-
-    public void setError(String error);
-
     public String getOutput();
 
+    public void setOutput(String output);
+
     public String getError();
+
+    public void setError(String error);
 }

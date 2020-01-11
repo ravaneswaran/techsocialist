@@ -21,18 +21,13 @@ public class UnixKernelIPRoutingTableEntry implements IKernelIPRoutingTableEntry
     private String iFace;
 
     @Override
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    @Override
     public String getDestination() {
         return this.destination;
     }
 
     @Override
-    public void setGateway(String gateway) {
-        this.gateway = gateway;
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 
     @Override
@@ -41,8 +36,8 @@ public class UnixKernelIPRoutingTableEntry implements IKernelIPRoutingTableEntry
     }
 
     @Override
-    public void setGenMask(String genMask) {
-        this.genMask = genMask;
+    public void setGateway(String gateway) {
+        this.gateway = gateway;
     }
 
     @Override
@@ -51,8 +46,8 @@ public class UnixKernelIPRoutingTableEntry implements IKernelIPRoutingTableEntry
     }
 
     @Override
-    public void setFlags(String flags) {
-        this.flags = flags;
+    public void setGenMask(String genMask) {
+        this.genMask = genMask;
     }
 
     @Override
@@ -61,8 +56,8 @@ public class UnixKernelIPRoutingTableEntry implements IKernelIPRoutingTableEntry
     }
 
     @Override
-    public void setMSS(String mss) {
-        this.mss = mss;
+    public void setFlags(String flags) {
+        this.flags = flags;
     }
 
     @Override
@@ -71,8 +66,8 @@ public class UnixKernelIPRoutingTableEntry implements IKernelIPRoutingTableEntry
     }
 
     @Override
-    public void setWindow(String window) {
-        this.window = window;
+    public void setMSS(String mss) {
+        this.mss = mss;
     }
 
     @Override
@@ -81,8 +76,8 @@ public class UnixKernelIPRoutingTableEntry implements IKernelIPRoutingTableEntry
     }
 
     @Override
-    public void setIRTT(String irtt) {
-        this.irtt = irtt;
+    public void setWindow(String window) {
+        this.window = window;
     }
 
     @Override
@@ -91,12 +86,17 @@ public class UnixKernelIPRoutingTableEntry implements IKernelIPRoutingTableEntry
     }
 
     @Override
-    public void setIFace(String iFace) {
-        this.iFace = iFace;
+    public void setIRTT(String irtt) {
+        this.irtt = irtt;
     }
 
     @Override
     public String getIFace() {
         return this.iFace;
+    }
+
+    @Override
+    public void setIFace(String iFace) {
+        this.iFace = iFace;
     }
 }

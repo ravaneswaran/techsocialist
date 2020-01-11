@@ -19,7 +19,7 @@ jacocoTestReport {
 
 jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)
 
-dependencies{
+dependencies {
 
     compile group: 'net.glxn', name: 'qrgen', version: '1.4'
     compile project(":qrcode-plugin-module:implementation:google-zxing-qrcode-plugin")

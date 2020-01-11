@@ -11,7 +11,7 @@ public class QRGenQRCodePlugin extends GoogleZxingQRCodePlugin {
 
     @Override
     public BufferedImage createImage(String data, String charset, int imageWidth, int imageHeight) throws Exception {
-        File file =  QRCode.from(data).withCharset(charset).withSize(imageWidth, imageHeight).to(ImageType.PNG).file();
+        File file = QRCode.from(data).withCharset(charset).withSize(imageWidth, imageHeight).to(ImageType.PNG).file();
         return ImageIO.read(file);
     }
 

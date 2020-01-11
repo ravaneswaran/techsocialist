@@ -14,16 +14,16 @@ public interface IMailPlugin {
             throws Exception;
 
     public void sendMail(String from, String to, String[] ccs, String subject,
-                        String message) throws Exception;
+                         String message) throws Exception;
 
     public void sendMail(String from, String to, String[] ccs, String[] bccs,
-                        String subject, String message) throws Exception;
+                         String subject, String message) throws Exception;
 
     public void sendMail(String from, String[] tos, String[] ccs, String[] bccs,
-                        String[] attachments, String subject, String message)
+                         String[] attachments, String subject, String message)
             throws Exception;
 
-    public void setStatus(int status);
-
     public int getStatus();
+
+    public void setStatus(int status);
 }

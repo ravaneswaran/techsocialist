@@ -4,23 +4,23 @@ import spock.lang.Specification
 
 class GoogleZxingQRCodePluginTest extends Specification {
 
-    def "test creating a qrcode image" (){
+    def "test creating a qrcode image"() {
         setup:
-            def qrCodeService = new GoogleZxingQRCodePlugin()
+        def qrCodeService = new GoogleZxingQRCodePlugin()
         when:
-            def result = qrCodeService.createImage("test data", "UTF-8", 100, 100)
+        def result = qrCodeService.createImage("test data", "UTF-8", 100, 100)
         then:
-            result != null
+        result != null
     }
 
-    def "test scanning a qrcode image" (){
+    def "test scanning a qrcode image"() {
         setup:
-            def qrCodeService = new GoogleZxingQRCodePlugin()
-            def image = qrCodeService.createImage("test data", "UTF-8", 100, 100)
+        def qrCodeService = new GoogleZxingQRCodePlugin()
+        def image = qrCodeService.createImage("test data", "UTF-8", 100, 100)
         when:
-            def scannedResult = qrCodeService.scanImage(image)
+        def scannedResult = qrCodeService.scanImage(image)
         then:
-            null != scannedResult && "test data" == scannedResult
+        null != scannedResult && "test data" == scannedResult
     }
 
 }

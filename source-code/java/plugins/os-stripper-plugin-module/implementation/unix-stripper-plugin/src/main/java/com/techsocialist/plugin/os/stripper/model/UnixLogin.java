@@ -13,18 +13,13 @@ public class UnixLogin implements ILogin {
     private String gecos;
 
     @Override
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    @Override
     public String getUserId() {
         return this.userId;
     }
 
     @Override
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -33,8 +28,8 @@ public class UnixLogin implements ILogin {
     }
 
     @Override
-    public void setPROC(String proc) {
-        this.proc = proc;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     @Override
@@ -43,8 +38,8 @@ public class UnixLogin implements ILogin {
     }
 
     @Override
-    public void setPWDLock(String pwdLock) {
-        this.pwdLock = pwdLock;
+    public void setPROC(String proc) {
+        this.proc = proc;
     }
 
     @Override
@@ -53,8 +48,8 @@ public class UnixLogin implements ILogin {
     }
 
     @Override
-    public void setPWDDeny(String pwdDeny) {
-        this.pwdDeny = pwdDeny;
+    public void setPWDLock(String pwdLock) {
+        this.pwdLock = pwdLock;
     }
 
     @Override
@@ -63,8 +58,8 @@ public class UnixLogin implements ILogin {
     }
 
     @Override
-    public void setLastLogin(String lastLogin) {
-        this.lastLogin = lastLogin;
+    public void setPWDDeny(String pwdDeny) {
+        this.pwdDeny = pwdDeny;
     }
 
     @Override
@@ -73,13 +68,18 @@ public class UnixLogin implements ILogin {
     }
 
     @Override
-    public void setGECOS(String gecos) {
-        this.gecos = gecos;
+    public void setLastLogin(String lastLogin) {
+        this.lastLogin = lastLogin;
     }
 
     @Override
     public String getGECOS() {
         return this.gecos;
+    }
+
+    @Override
+    public void setGECOS(String gecos) {
+        this.gecos = gecos;
     }
 
     @Override

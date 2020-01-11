@@ -1,6 +1,5 @@
 package com.techsocialist.plugin.mail;
 
-import com.techsocialist.plugin.mail.service.impl.AbstractMailService;
 import com.techsocialist.plugin.os.api.IOSCommandExecPlugin;
 import com.techsocialist.plugin.os.util.OSCommandExecPluginUtil;
 
@@ -9,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class CurlMailPlugin extends AbstractMailService {
+public class CurlMailPlugin extends com.techsocialist.plugin.mail.impl.AbstractMailPlugin {
 
     private static final String SPACE = " ";
     private static final String SINGLE_QUOTE = "'";
@@ -24,7 +23,7 @@ public class CurlMailPlugin extends AbstractMailService {
     @Override
     public int connect(String host, String port, String userName, String password) {
         this.curlCommandBuilder.append("curl").append(SPACE).append("--url").append(SPACE).append(SINGLE_QUOTE).append(String.format("smtp://%s:%s", host, port)).append(SINGLE_QUOTE).append(SPACE);
-        if(null != userName && null != password && !userName.isEmpty() && !password.isEmpty()){
+        if (null != userName && null != password && !userName.isEmpty() && !password.isEmpty()) {
             this.curlCommandBuilder.append("--user").append(SPACE).append(SINGLE_QUOTE).append(userName).append(":").append(password).append(SINGLE_QUOTE).append(SPACE);
         }
 
@@ -52,7 +51,7 @@ public class CurlMailPlugin extends AbstractMailService {
         }
         this.curlCommandBuilder.append(MAIL_RECIPIENT).append(SPACE).append(SINGLE_QUOTE).append(toBuilder.toString()).append(SINGLE_QUOTE).append(SPACE);
 
-        if(null != ccs && ccs.length > 0) {
+        if (null != ccs && ccs.length > 0) {
             StringBuilder ccBuilder = new StringBuilder();
             for (String cc : ccs) {
                 ccBuilder.append(cc).append(SEMI_COLON);
@@ -60,7 +59,7 @@ public class CurlMailPlugin extends AbstractMailService {
             this.curlCommandBuilder.append(MAIL_RECIPIENT).append(SPACE).append(SINGLE_QUOTE).append(ccBuilder.toString()).append(SINGLE_QUOTE).append(SPACE);
         }
 
-        if(null != bccs && bccs.length > 0){
+        if (null != bccs && bccs.length > 0) {
             StringBuilder bccBuilder = new StringBuilder();
             for (String bcc : bccs) {
                 bccBuilder.append(bcc).append(SEMI_COLON);
@@ -69,26 +68,21 @@ public class CurlMailPlugin extends AbstractMailService {
         }
 
         File messageFile = this.createMessageFile(from, tos, subject, message);
-        if(null != messageFile){
+        if (null != messageFile) {
             String fileAbsolutePath = messageFile.getAbsolutePath();
             this.curlCommandBuilder.append("--upload-file").append(SPACE).append(fileAbsolutePath).append(SPACE);
         }
 
         this.curlCommandBuilder.append("--insecure");
 
-        IOSCommandExecPlugin osCommandExecService = OSCommandExecPluginUtil.getOSCommandExecPlugin("LinuxCommandExecPlugin");
+        IOSCommandExecPlugin osCommandExecService = OSCommandExecPluginUtil.getOSCommandExecPlugin("com.techsocialist.plugin.os.LinuxCommandExecPlugin");
         osCommandExecService.executeCommand(this.curlCommandBuilder.toString().trim());
 
         this.deleteMessageFile(messageFile);
 
-        if(null == osCommandExecService.getError()){
+        if (null == osCommandExecService.getError()) {
             this.setStatus(STATUS_SUCCESS);
         }
-    }
-
-    @Override
-    public void setStatus(int status) {
-        this.status = status;
     }
 
     @Override
@@ -96,10 +90,15 @@ public class CurlMailPlugin extends AbstractMailService {
         return this.status;
     }
 
+    @Override
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     private File createMessageFile(String from, String[] tos, String subject, String message) throws IOException {
         StringBuilder toStringBuilder = new StringBuilder();
-        if(null != tos && tos.length > 0){
-            for(String to : tos){
+        if (null != tos && tos.length > 0) {
+            for (String to : tos) {
                 toStringBuilder.append(to).append(";");
             }
         }
@@ -116,10 +115,10 @@ public class CurlMailPlugin extends AbstractMailService {
         outputStream.write(mailMessageBuilder.toString().getBytes());
         outputStream.close();
 
-        return  messageFile;
+        return messageFile;
     }
 
-    private void deleteMessageFile(File messageFile){
+    private void deleteMessageFile(File messageFile) {
         messageFile.delete();
     }
 

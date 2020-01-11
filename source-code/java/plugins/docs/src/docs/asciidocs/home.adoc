@@ -9,7 +9,6 @@
 [listing]
 == Software Requirements
 
-
 [listing]
 ----
 1. Barcode

@@ -1,6 +1,6 @@
 package com.techsocialist.plugin.mail;
 
-import com.techsocialist.plugin.mail.service.impl.AbstractMailService;
+import com.techsocialist.plugin.mail.impl.AbstractMailPlugin;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -18,7 +18,7 @@ import javax.mail.internet.MimeMultipart;
 import java.io.File;
 import java.util.Properties;
 
-public class JavaMailPlugin extends AbstractMailService {
+public class JavaMailPlugin extends AbstractMailPlugin {
 
     private Session session;
 
@@ -89,7 +89,7 @@ public class JavaMailPlugin extends AbstractMailService {
         Multipart mimeMultipart = new MimeMultipart();
         mimeMultipart.addBodyPart(mimeBodyPart);
 
-        if(null != attachments && attachments.length > 0) {
+        if (null != attachments && attachments.length > 0) {
             for (String attachment : attachments) {
                 File file = new File(attachment);
                 mimeBodyPart = new MimeBodyPart();
@@ -108,12 +108,12 @@ public class JavaMailPlugin extends AbstractMailService {
     }
 
     @Override
-    public void setStatus(int status) {
-        this.status = status;
+    public int getStatus() {
+        return this.status;
     }
 
     @Override
-    public int getStatus() {
-        return this.status;
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

@@ -4,17 +4,17 @@ import spock.lang.Specification
 
 class Barcode4JBarcodePluginTest extends Specification {
 
-    def "test creating a simple barcode image"(){
+    def "test creating a simple barcode image"() {
         setup:
-            def barcodeService = new Barcode4JBarcodePlugin()
-            def data = String.format("%s", new Date().getTime()).substring(0, 12)
+        def barcodeService = new Barcode4JBarcodePlugin()
+        def data = String.format("%s", new Date().getTime()).substring(0, 12)
         when:
-            def result = barcodeService.createImage(data)
+        def result = barcodeService.createImage(data)
         then:
-            null != result
+        null != result
     }
 
-    def "test creating a codabar barcode image"(){
+    def "test creating a codabar barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("%s", new Date().getTime())
@@ -24,7 +24,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a code 128 barcode image"(){
+    def "test creating a code 128 barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("HELLO-WORLD-%s", new Date().getTime())
@@ -34,7 +34,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a code 39 barcode image"(){
+    def "test creating a code 39 barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("HELLO-WORLD-%s", new Date().getTime())
@@ -44,7 +44,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a data matrix rectangle barcode image"(){
+    def "test creating a data matrix rectangle barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("HELLO-WORLD-%s", new Date().getTime())
@@ -54,7 +54,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a data matrix square barcode image"(){
+    def "test creating a data matrix square barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("HELLO-WORLD-%s", new Date().getTime())
@@ -64,7 +64,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a EAN 13 barcode image"(){
+    def "test creating a EAN 13 barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("%s", new Date().getTime()).substring(0, 12)
@@ -74,7 +74,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a EAN 8 barcode image"(){
+    def "test creating a EAN 8 barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("%s", new Date().getTime()).substring(0, 7)
@@ -84,7 +84,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a ITF14 barcode image"(){
+    def "test creating a ITF14 barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = "1234567890123"
@@ -94,7 +94,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a Interleaved2Of5 barcode image"(){
+    def "test creating a Interleaved2Of5 barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = "12345678901234567890"
@@ -104,7 +104,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a PDF417 barcode image"(){
+    def "test creating a PDF417 barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = "helloworld"
@@ -114,7 +114,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a POSTNET barcode image"(){
+    def "test creating a POSTNET barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("%s", new Date().getTime())
@@ -124,7 +124,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a RoyalMailCBC barcode image"(){
+    def "test creating a RoyalMailCBC barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("%s", new Date().getTime())
@@ -134,7 +134,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a UPCA barcode image"(){
+    def "test creating a UPCA barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("%s", new Date().getTime()).substring(0, 11)
@@ -144,7 +144,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a UPCE barcode image"(){
+    def "test creating a UPCE barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("%s", new Date().getTime()).substring(0, 7)
@@ -154,7 +154,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test creating a USPS intelligent mail barcode image"(){
+    def "test creating a USPS intelligent mail barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = "12345678901234567890"
@@ -164,7 +164,7 @@ class Barcode4JBarcodePluginTest extends Specification {
         null != result
     }
 
-    def "test scanning a barcode image"(){
+    def "test scanning a barcode image"() {
         setup:
         def barcodeService = new Barcode4JBarcodePlugin()
         def data = String.format("%s", new Date().getTime()).substring(0, 12)

@@ -19,7 +19,7 @@ jacocoTestReport {
 
 jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)
 
-dependencies{
+dependencies {
 
     compile group: "net.sf.barcode4j", name: "barcode4j", version: "2.1"
 
