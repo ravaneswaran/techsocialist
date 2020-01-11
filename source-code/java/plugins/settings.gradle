@@ -35,8 +35,8 @@ include ':docs',
         ':sms-plugin-module:implementation:textlocal-sms-plugin',
         ':sms-plugin-module:implementation:rest:twilio-sms-rest-plugin',
 
-        ':payment-gateway-plugin-module:payment-gateway-plugin-api',
-        ':payment-gateway-plugin-module:implementation:rest:paytm-rest-pg-plugin',
+        ':payment-gateway-plugin-module:payment-gateway-rest-plugin-api',
+        ':payment-gateway-plugin-module:implementation:rest:paytm-pg-rest-plugin',
         ':payment-gateway-plugin-module:implementation:rest:razorpay-rest-pg-plugin',
         ':payment-gateway-plugin-module:implementation:rest:paypal-rest-pg-plugin',
 
