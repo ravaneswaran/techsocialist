@@ -76,7 +76,7 @@ public class CurlMailPlugin extends AbstractMailService {
 
         this.curlCommandBuilder.append("--insecure");
 
-        IOSCommandExecPlugin osCommandExecService = OSCommandExecPluginUtil.getOSCommandExecService("LinuxCommandExecPlugin");
+        IOSCommandExecPlugin osCommandExecService = OSCommandExecPluginUtil.getOSCommandExecPlugin("LinuxCommandExecPlugin");
         osCommandExecService.executeCommand(this.curlCommandBuilder.toString().trim());
 
         this.deleteMessageFile(messageFile);

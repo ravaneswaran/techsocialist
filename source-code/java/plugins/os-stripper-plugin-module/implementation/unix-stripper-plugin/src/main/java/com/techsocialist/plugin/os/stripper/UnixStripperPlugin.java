@@ -1,5 +1,6 @@
 package com.techsocialist.plugin.os.stripper;
 
+import com.techsocialist.plugin.os.stripper.impl.AbstractOperatingSystemStripperPlugin;
 import com.techsocialist.plugin.os.stripper.model.UnixEnvironmentVariable;
 import com.techsocialist.plugin.os.stripper.model.UnixKernelIPRoutingTableEntry;
 import com.techsocialist.plugin.os.stripper.model.UnixLogin;
@@ -10,7 +11,6 @@ import com.techsocialist.plugin.os.stripper.model.api.IKernelIPRoutingTableEntry
 import com.techsocialist.plugin.os.stripper.model.api.ILogin;
 import com.techsocialist.plugin.os.stripper.model.api.IProcess;
 import com.techsocialist.plugin.os.stripper.model.api.ISystemProperty;
-import com.techsocialist.plugin.os.stripper.service.impl.AbstractOperatingSystemStripperService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,14 +18,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
-public class UnixStripperPlugin extends AbstractOperatingSystemStripperService {
+public class UnixStripperPlugin extends AbstractOperatingSystemStripperPlugin {
 
     public List<IProcess> getProcesses() throws IOException {
         //int[] columnEndIndex = {13, 16, 21, 25, 33, 38, 47, 52, 60, 65, 76};
         int[] columnEndIndex = {12, 15, 20, 24, 32, 37, 46, 51, 59, 64, 75};
         List<IProcess> processes = new ArrayList<IProcess>();
 
-        executeOperatingSystemCommand("ps -aux");
+        executeCommand("ps -aux");
 
         String output = this.getOutput();
 
@@ -77,7 +77,7 @@ public class UnixStripperPlugin extends AbstractOperatingSystemStripperService {
 
         List<IEnvironmentVariable> environmentVariables = new ArrayList<IEnvironmentVariable>();
 
-        executeOperatingSystemCommand("printenv");
+        executeCommand("printenv");
         String output = this.getOutput();
 
         if (null != output && !output.isEmpty()) {
@@ -120,7 +120,7 @@ public class UnixStripperPlugin extends AbstractOperatingSystemStripperService {
 
 
     public String getInternetProtocolConfiguration() throws IOException {
-        executeOperatingSystemCommand("ifconfig");
+        executeCommand("ifconfig");
         return this.getOutput();
     }
 
@@ -130,7 +130,7 @@ public class UnixStripperPlugin extends AbstractOperatingSystemStripperService {
         int[] columnEndIndex = {15, 31, 47, 57, 59, 70, 72};
         List<IKernelIPRoutingTableEntry> linuxKernelIPRoutingTableEntries = new ArrayList<IKernelIPRoutingTableEntry>();
 
-        executeOperatingSystemCommand("netstat -r");
+        executeCommand("netstat -r");
 
         String output = this.getOutput();
 
@@ -174,12 +174,12 @@ public class UnixStripperPlugin extends AbstractOperatingSystemStripperService {
     }
 
     public String getCPUDetails() throws IOException {
-        executeOperatingSystemCommand("lscpu");
+        executeCommand("lscpu");
         return this.getOutput();
     }
 
     public String getHardwareDetails() throws IOException {
-        executeOperatingSystemCommand("lshw");
+        executeCommand("lshw");
         return this.getOutput();
     }
 
@@ -188,7 +188,7 @@ public class UnixStripperPlugin extends AbstractOperatingSystemStripperService {
         int[] columnEndIndex = {1, 5, 23, 28, 37, 47, 58};
         List<ILogin> unixLogins = new ArrayList<ILogin>();
 
-        executeOperatingSystemCommand("lslogins");
+        executeCommand("lslogins");
 
         String output = this.getOutput();
 
@@ -226,5 +226,10 @@ public class UnixStripperPlugin extends AbstractOperatingSystemStripperService {
         }
 
         return unixLogins;
+    }
+
+    @Override
+    public void executeCommand(String command) throws IOException {
+        executeOperatingSystemCommand(command);
     }
 }

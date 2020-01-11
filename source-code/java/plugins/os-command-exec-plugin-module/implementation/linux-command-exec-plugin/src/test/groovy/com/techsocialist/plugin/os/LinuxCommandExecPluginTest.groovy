@@ -6,9 +6,9 @@ import spock.lang.Specification
 
 class LinuxCommandExecPluginTest extends Specification{
 
-    def "executing the command ls -la through the OSCommandExecUtil.getOSCommandExecService"(){
+    def "executing the command ls -la through the OSCommandExecPluginUtil.getOSCommandExecPlugin"(){
         setup :
-            def commandExecService = OSCommandExecPluginUtil.getOSCommandExecService(LinuxCommandExecPlugin.class.getName())
+            def commandExecService = OSCommandExecPluginUtil.getOSCommandExecPlugin("com.techsocialist.plugin.os.LinuxCommandExecPlugin")
             def command = "ls -la"
         when :
             commandExecService.executeCommand(command)
@@ -34,8 +34,7 @@ class LinuxCommandExecPluginTest extends Specification{
         when :
             linuxCommandExecService.executeCommand(command)
         then :
-            IOException ioe = thrown()
-            "Cannot run program \"blah\": error=2, No such file or directory" == ioe.getMessage()
+            "bash: blah: command not found\n" == linuxCommandExecService.getError()
     }
 
 }

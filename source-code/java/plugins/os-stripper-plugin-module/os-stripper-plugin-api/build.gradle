@@ -3,3 +3,7 @@ plugins {
 }
 
 jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)
+
+dependencies {
+    compile project(":os-command-exec-plugin-module:os-command-exec-plugin-api")
+}
