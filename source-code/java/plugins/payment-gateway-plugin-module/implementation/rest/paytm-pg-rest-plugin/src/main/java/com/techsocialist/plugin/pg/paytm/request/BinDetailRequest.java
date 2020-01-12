@@ -13,8 +13,18 @@ public class BinDetailRequest extends AbstractPaytmRequest {
     private String bin;
 
     @Override
+    protected String getStagingUrlEndPointPrefix() {
+        return "https://securegw-stage.paytm.in";
+    }
+
+    @Override
+    protected String getProductionUrlEndPointPrefix() {
+        return "https://securegw.paytm.in";
+    }
+
+    @Override
     public String url(boolean production) {
-        return String.format("%s/%s/fetchBinDetail?mid=%s&orderId=%s", this.getUrlEndPointPrefix(production), this.version,  this.getMerchantId(), this.getOrderId());
+        return String.format("%s/fetchBinDetail?mid=%s&orderId=%s", this.getUrlEndPointPrefix(production), this.getMerchantId(), this.getOrderId());
     }
 
     @Override

@@ -26,7 +26,7 @@ public class BalanceInfoRequest extends AbstractPaytmRequest {
 
     @Override
     public String url(boolean production) {
-        return String.format("%s/%s/fetchBalanceInfo?mid=%s&orderId=%s", this.getUrlEndPointPrefix(production), this.version,  this.getMerchantId(), this.getOrderId());
+        return String.format("%s/fetchBalanceInfo?mid=%s&orderId=%s", this.getUrlEndPointPrefix(production), this.getMerchantId(), this.getOrderId());
     }
 
     @Override

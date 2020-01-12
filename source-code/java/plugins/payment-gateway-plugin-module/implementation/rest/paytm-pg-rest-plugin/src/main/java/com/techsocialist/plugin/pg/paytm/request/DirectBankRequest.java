@@ -29,7 +29,7 @@ public class DirectBankRequest extends AbstractPaytmRequest {
 
     @Override
     public String dataAsJsonString() {
-        return super.dataAsJsonString();
+        return null;
     }
 
     public DirectBankRequest setTransactionToken(String transactionToken) {
