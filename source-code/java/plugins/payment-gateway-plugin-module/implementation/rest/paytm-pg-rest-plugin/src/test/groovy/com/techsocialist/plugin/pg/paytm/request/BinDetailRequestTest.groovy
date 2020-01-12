@@ -2,29 +2,32 @@ package com.techsocialist.plugin.pg.paytm.request
 
 import spock.lang.Specification
 
-class BinDetailRequestTest extends Specification{
+class BinDetailRequestTest extends Specification {
 
-    def "test data head"(){
+    def "test data head"() {
         setup:
         BinDetailRequest paytmRequest = new BinDetailRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setVersion("v1").setChannelId("WEB")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
         paytmRequest.setTransactionToken("txn-001")
 
         then:
         null != paytmRequest.dataHead()
     }
-    def "test data body"(){
+
+    def "test data body"() {
         setup:
         BinDetailRequest paytmRequest = new BinDetailRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setVersion("v1").setChannelId("WEB")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
         paytmRequest.setTransactionToken("txn-001")
         paytmRequest.setBin("bin")
 
@@ -33,14 +36,15 @@ class BinDetailRequestTest extends Specification{
     }
 
 
-    def "test staging url construction"(){
+    def "test staging url construction"() {
         setup:
         BinDetailRequest paytmRequest = new BinDetailRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setVersion("v1").setChannelId("WEB")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
         paytmRequest.setTransactionToken("txn-001")
 
         then:
@@ -48,14 +52,15 @@ class BinDetailRequestTest extends Specification{
 
     }
 
-    def "test production url construction"(){
+    def "test production url construction"() {
         setup:
         BinDetailRequest paytmRequest = new BinDetailRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setVersion("v1").setChannelId("WEB")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
         paytmRequest.setTransactionToken("txn-001")
 
         then:

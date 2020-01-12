@@ -12,7 +12,9 @@ class AbstractPaytmRequestTest extends Specification{
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setClientId("client-001").setVersion("v1").setChannelId("WEB").setPaymentMode("submit");
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
+        paytmRequest.setClientId("client-001")
         paytmRequest.setTransactionToken("txn-001")
 
         then:
@@ -36,7 +38,9 @@ class AbstractPaytmRequestTest extends Specification{
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setClientId("client-001").setVersion("v1").setChannelId("WEB").setPaymentMode("submit");
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
+        paytmRequest.setClientId("client-001")
         paytmRequest.setTransactionToken("txn-001")
 
         then:
@@ -50,7 +54,9 @@ class AbstractPaytmRequestTest extends Specification{
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setClientId("client-001").setVersion("v1").setChannelId("WEB").setPaymentMode("submit");
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
+        paytmRequest.setClientId("client-001")
         paytmRequest.setTransactionToken("txn-001")
 
         then:

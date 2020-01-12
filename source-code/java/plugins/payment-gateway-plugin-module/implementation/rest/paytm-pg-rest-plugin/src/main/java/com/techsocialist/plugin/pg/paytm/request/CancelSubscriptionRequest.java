@@ -4,8 +4,6 @@ import org.json.JSONObject;
 
 public class CancelSubscriptionRequest extends AbstractPaytmRequest {
 
-    private String version;
-
     private String tokenType;
 
     private String signature;
@@ -32,7 +30,7 @@ public class CancelSubscriptionRequest extends AbstractPaytmRequest {
     @Override
     public JSONObject dataHead() {
         JSONObject head = new JSONObject();
-        head.put("version", version);
+        head.put("version", this.getVersion());
         head.put("requestTimestamp", System.currentTimeMillis());
         head.put("tokenType", tokenType);
         if ("AES".equals(tokenType)) {
@@ -52,11 +50,6 @@ public class CancelSubscriptionRequest extends AbstractPaytmRequest {
         }
 
         return body;
-    }
-
-    public CancelSubscriptionRequest setVersion(String version) {
-        this.version = version;
-        return this;
     }
 
     public CancelSubscriptionRequest setTokenType(String tokenType) {

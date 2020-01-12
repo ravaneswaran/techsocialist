@@ -11,7 +11,8 @@ class CancelSubscriptionRequestTest extends Specification{
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setVersion("v1").setTokenType("AES").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setTokenType("AES").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
 
         then:
         null != paytmRequest.dataHead()
@@ -24,7 +25,8 @@ class CancelSubscriptionRequestTest extends Specification{
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setVersion("v1").setTokenType("SSO").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setTokenType("SSO").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
 
         then:
         null != paytmRequest.dataHead()
@@ -37,7 +39,8 @@ class CancelSubscriptionRequestTest extends Specification{
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setVersion("v1").setTokenType("AES").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setTokenType("AES").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
 
         then:
         null != paytmRequest.dataBody()
@@ -50,7 +53,8 @@ class CancelSubscriptionRequestTest extends Specification{
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setVersion("v1").setTokenType("SSO").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setTokenType("SSO").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
 
         then:
         null != paytmRequest.dataBody()
@@ -63,7 +67,8 @@ class CancelSubscriptionRequestTest extends Specification{
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setVersion("v1").setTokenType("AES").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setTokenType("AES").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
 
         then:
         "https://securegw-stage.paytm.in/subscription/cancel" == paytmRequest.url(false)
@@ -77,7 +82,8 @@ class CancelSubscriptionRequestTest extends Specification{
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setVersion("v1").setTokenType("AES").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setTokenType("AES").setSignature("signature").setSubscriptionId("subscription-001").setSsoToken("ss0-001")
 
         then:
         "https://securegw.paytm.in/subscription/cancel" == paytmRequest.url(true)

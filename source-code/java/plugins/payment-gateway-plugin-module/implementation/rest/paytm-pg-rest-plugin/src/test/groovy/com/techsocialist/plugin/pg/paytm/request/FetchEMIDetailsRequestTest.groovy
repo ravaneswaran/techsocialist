@@ -2,45 +2,54 @@ package com.techsocialist.plugin.pg.paytm.request
 
 import spock.lang.Specification
 
-class FetchEMIDetailsRequestTest extends Specification{
+class FetchEMIDetailsRequestTest extends Specification {
 
-    def "test data head"(){
+    def "test data head"() {
         setup:
         FetchEMIDetailRequest paytmRequest = new FetchEMIDetailRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setClientId("client-001").setVersion("v1").setChannelId("WEB")
+        paytmRequest.setClientId("client-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
         paytmRequest.setTransactionToken("txn-001")
 
         then:
         null != paytmRequest.dataHead()
     }
-    def "test data body"(){
+
+    def "test data body"() {
         setup:
         FetchEMIDetailRequest paytmRequest = new FetchEMIDetailRequest()
-        String[] channelCode = ["channel-code-001"]
+        String[] channelCodes = ["channel-code-001"]
 
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setClientId("client-001").setVersion("v1").setChannelId("WEB")
-        paytmRequest.setTransactionToken("txn-001").setChannelCodes(channelCode)
+        paytmRequest.setClientId("client-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
+        paytmRequest.setTransactionToken("txn-001")
+
+        paytmRequest.setChannelCodes(channelCodes)
 
         then:
         null != paytmRequest.dataBody()
     }
 
 
-    def "test staging url construction"(){
+    def "test staging url construction"() {
         setup:
         FetchEMIDetailRequest paytmRequest = new FetchEMIDetailRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setClientId("client-001").setVersion("v1").setChannelId("WEB")
+        paytmRequest.setClientId("client-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
         paytmRequest.setTransactionToken("txn-001")
 
         then:
@@ -48,14 +57,16 @@ class FetchEMIDetailsRequestTest extends Specification{
 
     }
 
-    def "test production url construction"(){
+    def "test production url construction"() {
         setup:
         FetchEMIDetailRequest paytmRequest = new FetchEMIDetailRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
         paytmRequest.setOrderId("order-001")
-        paytmRequest.setClientId("client-001").setVersion("v1").setChannelId("WEB")
+        paytmRequest.setClientId("client-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
         paytmRequest.setTransactionToken("txn-001")
 
         then:

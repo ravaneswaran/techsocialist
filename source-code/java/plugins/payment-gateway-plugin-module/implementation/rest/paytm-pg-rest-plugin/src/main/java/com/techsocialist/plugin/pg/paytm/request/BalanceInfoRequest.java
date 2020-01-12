@@ -4,14 +4,6 @@ import org.json.JSONObject;
 
 public class BalanceInfoRequest extends AbstractPaytmRequest {
 
-    private String clientId;
-
-    private String version;
-
-    private String channelId;
-
-    private String transactionToken;
-
     private String paymentMode;
 
     @Override
@@ -32,11 +24,11 @@ public class BalanceInfoRequest extends AbstractPaytmRequest {
     @Override
     public JSONObject dataHead() {
         JSONObject head = new JSONObject();
-        head.put("clientId", clientId);
-        head.put("version", version);
-        head.put("requestTimestamp", System.currentTimeMillis());
-        head.put("channelId", channelId);
-        head.put("txnToken", transactionToken);
+        head.put("clientId", this.getClientId());
+        head.put("version", this.getVersion());
+        head.put("requestTimestamp", this.getRequestTimestamp());
+        head.put("channelId", this.getChannelId());
+        head.put("txnToken", this.getTransactionToken());
 
         return head;
     }
@@ -47,26 +39,6 @@ public class BalanceInfoRequest extends AbstractPaytmRequest {
         body.put("paymentMode", paymentMode);
 
         return body;
-    }
-
-    public BalanceInfoRequest setClientId(String clientId) {
-        this.clientId = clientId;
-        return this;
-    }
-
-    public BalanceInfoRequest setVersion(String version) {
-        this.version = version;
-        return this;
-    }
-
-    public BalanceInfoRequest setChannelId(String channelId) {
-        this.channelId = channelId;
-        return this;
-    }
-
-    public BalanceInfoRequest setTransactionToken(String transactionToken) {
-        this.transactionToken = transactionToken;
-        return this;
     }
 
     public BalanceInfoRequest setPaymentMode(String paymentMode) {

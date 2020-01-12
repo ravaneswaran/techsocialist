@@ -4,11 +4,6 @@ import org.json.JSONObject;
 
 public class BinDetailRequest extends AbstractPaytmRequest {
 
-    private String version;
-
-    private String channelId;
-
-    private String transactionToken;
 
     private String bin;
 
@@ -30,10 +25,10 @@ public class BinDetailRequest extends AbstractPaytmRequest {
     @Override
     public JSONObject dataHead() {
         JSONObject head = new JSONObject();
-        head.put("version", version);
+        head.put("version", this.getVersion());
         head.put("requestTimestamp", System.currentTimeMillis());
-        head.put("channelId", channelId);
-        head.put("txnToken", transactionToken);
+        head.put("channelId", this.getChannelId());
+        head.put("txnToken", this.getTransactionToken());
 
         return head;
     }
@@ -44,21 +39,6 @@ public class BinDetailRequest extends AbstractPaytmRequest {
         body.put("bin", bin);
 
         return body;
-    }
-
-    public BinDetailRequest setVersion(String version) {
-        this.version = version;
-        return this;
-    }
-
-    public BinDetailRequest setChannelId(String channelId) {
-        this.channelId = channelId;
-        return this;
-    }
-
-    public BinDetailRequest setTransactionToken(String transactionToken) {
-        this.transactionToken = transactionToken;
-        return this;
     }
 
     public BinDetailRequest setBin(String bin) {

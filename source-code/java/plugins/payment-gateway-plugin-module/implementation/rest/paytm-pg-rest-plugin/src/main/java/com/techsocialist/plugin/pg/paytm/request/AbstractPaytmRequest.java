@@ -6,7 +6,15 @@ public abstract class AbstractPaytmRequest {
 
     private String merchantId;
 
+    private String channelId;
+
     private String orderId;
+
+    private String version;
+
+    private String clientId;
+
+    private String transactionToken;
 
     public String dataAsJsonString(){
         return data().toString();
@@ -61,5 +69,41 @@ public abstract class AbstractPaytmRequest {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getChannelId() {
+        return channelId;
+    }
+
+    public void setChannelId(String channelId) {
+        this.channelId = channelId;
+    }
+
+    public long getRequestTimestamp() {
+        return System.currentTimeMillis();
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getTransactionToken() {
+        return transactionToken;
+    }
+
+    public void setTransactionToken(String transactionToken) {
+        this.transactionToken = transactionToken;
     }
 }
