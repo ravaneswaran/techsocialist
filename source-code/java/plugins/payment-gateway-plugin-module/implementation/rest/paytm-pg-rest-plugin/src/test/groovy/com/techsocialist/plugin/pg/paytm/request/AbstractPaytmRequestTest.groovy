@@ -40,7 +40,7 @@ class AbstractPaytmRequestTest extends Specification{
         paytmRequest.setTransactionToken("txn-001")
 
         then:
-        null != paytmRequest.data()
+        null != paytmRequest.data() && "{}".equals(paytmRequest.data().toString())
     }
 
     def "test data as json string"(){
