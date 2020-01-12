@@ -22,6 +22,8 @@ jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version
 dependencies {
 
     compile group: 'org.json', name: 'json', version: '20180813'
+    //compile group: 'com.paytm.pg', name: 'paytm-pg', version: '0.0.1'
+    //compile group: 'com.paytm.pg', name: 'pg-checksum', version: '1.0'
 
     compileOnly project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
     testCompile project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")

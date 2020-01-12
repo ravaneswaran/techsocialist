@@ -11,6 +11,7 @@ class AbstractPaytmRequestTest extends Specification{
 
         when:
         paytmRequest.setMerchantId("mer-001")
+        paytmRequest.setMerchantKey("mer-key")
         paytmRequest.setOrderId("order-001")
         paytmRequest.setVersion("v1")
         paytmRequest.setChannelId("WEB")

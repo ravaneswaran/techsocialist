@@ -6,6 +6,8 @@ public abstract class AbstractPaytmRequest {
 
     private String merchantId;
 
+    private String merchantKey;
+
     private String channelId;
 
     private String orderId;
@@ -105,5 +107,13 @@ public abstract class AbstractPaytmRequest {
 
     public void setTransactionToken(String transactionToken) {
         this.transactionToken = transactionToken;
+    }
+
+    public String getMerchantKey() {
+        return merchantKey;
+    }
+
+    public void setMerchantKey(String merchantKey) {
+        this.merchantKey = merchantKey;
     }
 }
