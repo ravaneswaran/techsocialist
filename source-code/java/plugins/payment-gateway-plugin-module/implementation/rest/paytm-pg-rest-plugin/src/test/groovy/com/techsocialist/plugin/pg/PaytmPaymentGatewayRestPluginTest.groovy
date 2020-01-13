@@ -1,6 +1,7 @@
 package com.techsocialist.plugin.pg
 
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
+import spock.lang.Ignore
 import spock.lang.Specification
 
 class PaytmPaymentGatewayRestPluginTest extends Specification{
@@ -21,10 +22,10 @@ class PaytmPaymentGatewayRestPluginTest extends Specification{
     def "test initiate transaction"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("%s", new Date().getTime())
+        def userId = String.format("USER-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
-        def websiteName = "WEBSITE"
+        def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
 
         when:
@@ -34,6 +35,7 @@ class PaytmPaymentGatewayRestPluginTest extends Specification{
         null != jsonResponse
     }
 
+   @Ignore
     def "test balance info"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

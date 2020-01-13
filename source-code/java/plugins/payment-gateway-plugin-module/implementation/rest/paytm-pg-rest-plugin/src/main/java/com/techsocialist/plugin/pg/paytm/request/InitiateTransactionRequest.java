@@ -14,6 +14,7 @@ public class InitiateTransactionRequest extends AbstractPaytmRequest{
 
     private String websiteName;
 
+
     @Override
     public String url(boolean production) {
         return String.format("%s/%s/initiateTransaction?mid=%s&orderId=%s", this.getUrlEndPointPrefix(production), this.getVersion(),  this.getMerchantId(), this.getOrderId());
@@ -21,9 +22,16 @@ public class InitiateTransactionRequest extends AbstractPaytmRequest{
 
     @Override
     public JSONObject dataHead() {
-        /*String checksum = CheckSumServiceHelper.getCheckSumServiceHelper()
-                .genrateCheckSum(this.getMerchantKey(), body.toString());*/
-        String checksum = this.getMerchantKey();
+
+       /* String checksum = CheckSumServiceHelper.getCheckSumServiceHelper()
+                .genrateCheckSum(this.getMerchantKey(), dataBody().toString());*/
+
+        String checksum = null;
+        try {
+            checksum = genrateCheckSum(this.getMerchantKey(), dataBody());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         JSONObject head = new JSONObject();
         head.put("signature", checksum);
@@ -33,12 +41,6 @@ public class InitiateTransactionRequest extends AbstractPaytmRequest{
 
     @Override
     public JSONObject dataBody() {
-        JSONObject body = new JSONObject();
-        body.put("requestType", "Payment");
-        body.put("mid", this.getMerchantId());
-        body.put("websiteName", this.websiteName);
-        body.put("orderId", this.getOrderId());
-        body.put("callbackUrl", String.format(this.callbackUrl, this.getOrderId()));
 
         JSONObject txnAmount = new JSONObject();
         txnAmount.put("value", this.amount);
@@ -46,6 +48,13 @@ public class InitiateTransactionRequest extends AbstractPaytmRequest{
 
         JSONObject userInfo = new JSONObject();
         userInfo.put("custId", this.userId);
+
+        JSONObject body = new JSONObject();
+        body.put("requestType", "Payment");
+        body.put("mid", this.getMerchantId());
+        body.put("websiteName", this.websiteName);
+        body.put("orderId", this.getOrderId());
+        body.put("callbackUrl", String.format(this.callbackUrl, this.getOrderId()));
         body.put("txnAmount", txnAmount);
         body.put("userInfo", userInfo);
 
