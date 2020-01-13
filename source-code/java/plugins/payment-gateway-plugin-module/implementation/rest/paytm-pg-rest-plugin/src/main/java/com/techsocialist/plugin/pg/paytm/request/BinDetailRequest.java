@@ -4,7 +4,6 @@ import org.json.JSONObject;
 
 public class BinDetailRequest extends AbstractPaytmRequest {
 
-
     private String bin;
 
     @Override
