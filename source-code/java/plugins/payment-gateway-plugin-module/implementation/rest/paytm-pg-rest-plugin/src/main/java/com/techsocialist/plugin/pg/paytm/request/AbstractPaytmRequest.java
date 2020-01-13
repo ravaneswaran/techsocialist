@@ -8,13 +8,13 @@ public abstract class AbstractPaytmRequest {
 
     private String merchantKey;
 
-    private String channelId;
+    private String channelId = "WEB";
 
     private String orderId;
 
-    private String version;
+    private String version = "v1";
 
-    private String clientId;
+    private String clientId = "C11";
 
     private String transactionToken;
 
