@@ -1,15 +1,11 @@
 package com.techsocialist.plugin.pg.paytm.request;
 
-import com.paytm.pgplus.signature.encryption.Encryption;
-import com.paytm.pgplus.signature.encryption.EncryptionFactory;
-import com.paytm.pgplus.signature.utility.CryptoUtils;
+
+import com.paytm.pg.merchant.CheckSumServiceHelper;
 import org.json.JSONObject;
 
-import java.util.Date;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.TreeMap;
 
 public abstract class AbstractPaytmRequest {
 
@@ -126,56 +122,16 @@ public abstract class AbstractPaytmRequest {
         this.merchantKey = merchantKey;
     }
 
-    public String genrateCheckSum(String key, JSONObject jsonObject) throws Exception {
-        StringBuilder response = getCheckSumString(jsonObject.toMap());
-        String checkSumValue = null;
 
+    public String generateChecksum(JSONObject jsonObject) {
+        String checksum = null;
         try {
-            Encryption encryption = EncryptionFactory.getEncryptionInstance("AES");
-            String randomNo = CryptoUtils.generateRandomString(4);
-            response.append(randomNo);
-            String checkSumHash = CryptoUtils.getSHA256(response.toString());
-            checkSumHash = checkSumHash.concat(randomNo);
-            System.out.println("-----------------------------1");
-            System.out.println(checkSumHash);
-            System.out.println("-----------------------------2");
-            checkSumValue = encryption.encrypt(checkSumHash, key.getBytes());
-            if (checkSumValue != null) {
-                checkSumValue = checkSumValue.replaceAll("\r\n", "");
-                checkSumValue = checkSumValue.replaceAll("\r", "");
-                checkSumValue = checkSumValue.replaceAll("\n", "");
-            }
-        } catch (SecurityException se) {
-            se.printStackTrace();
+            checksum = CheckSumServiceHelper.getCheckSumServiceHelper()
+                    .genrateCheckSum(this.getMerchantKey(), jsonObject.toString());
+        } catch (Exception e) {
+            checksum = e.getMessage();
         }
 
-        return checkSumValue;
-    }
-
-    public StringBuilder getCheckSumString(Map<String, Object> paramMap) throws Exception {
-        Set<String> keys = paramMap.keySet();
-        StringBuilder checkSumStringBuffer = new StringBuilder("");
-        TreeSet<String> parameterSet = new TreeSet();
-        Iterator iterator = keys.iterator();
-
-        while(iterator.hasNext()) {
-            String paramName = (String)iterator.next();
-            if (!"CHECKSUMHASH".equalsIgnoreCase(paramName)) {
-                parameterSet.add(paramName);
-            }
-        }
-
-        for(iterator = parameterSet.iterator(); iterator.hasNext(); ) {
-            String paramName = (String)iterator.next();
-            //value = (String)paramMap.get(paramName);
-            String value = String.valueOf(paramMap.get(paramName));
-            if (value == null || value.trim().equalsIgnoreCase("NULL")) {
-                value = "";
-            }
-            System.out.println(String.format("%s : %s",paramName, value));
-            checkSumStringBuffer.append(value).append("|");
-        }
-
-        return checkSumStringBuffer;
+        return checksum;
     }
 }

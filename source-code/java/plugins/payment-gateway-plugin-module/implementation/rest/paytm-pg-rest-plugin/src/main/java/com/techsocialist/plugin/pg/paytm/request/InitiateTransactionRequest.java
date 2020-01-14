@@ -14,7 +14,6 @@ public class InitiateTransactionRequest extends AbstractPaytmRequest{
 
     private String websiteName;
 
-
     @Override
     public String url(boolean production) {
         return String.format("%s/%s/initiateTransaction?mid=%s&orderId=%s", this.getUrlEndPointPrefix(production), this.getVersion(),  this.getMerchantId(), this.getOrderId());
@@ -22,19 +21,8 @@ public class InitiateTransactionRequest extends AbstractPaytmRequest{
 
     @Override
     public JSONObject dataHead() {
-
-       /* String checksum = CheckSumServiceHelper.getCheckSumServiceHelper()
-                .genrateCheckSum(this.getMerchantKey(), dataBody().toString());*/
-
-        String checksum = null;
-        try {
-            checksum = genrateCheckSum(this.getMerchantKey(), dataBody());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         JSONObject head = new JSONObject();
-        head.put("signature", checksum);
+        head.put("signature", this.generateChecksum(dataBody()));
 
         return head;
     }

@@ -32,6 +32,10 @@ dependencies {
     compile group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.moxy', version: '2.5.2'
     compile group: 'com.paytm.pg', name: 'paytm-pg', version: '0.0.1'
     //compile group: 'com.paytm.pg', name: 'pg-checksum', version: '1.0'
+    
+    
+
+    implementation files('lib/paytm-checksum-2.0.0.jar')
 
     compileOnly project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
     testCompile project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")

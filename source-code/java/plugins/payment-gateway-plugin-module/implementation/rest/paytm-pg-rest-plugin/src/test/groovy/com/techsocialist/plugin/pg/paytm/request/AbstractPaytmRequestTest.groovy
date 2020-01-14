@@ -64,4 +64,49 @@ class AbstractPaytmRequestTest extends Specification{
         null != paytmRequest.dataAsJsonString() && paytmRequest.dataAsJsonString().length() > 1
     }
 
+    def "test generate checksum"(){
+        setup:
+        AbstractPaytmRequest paytmRequest = new InitiateTransactionRequest()
+        paytmRequest.setMerchantKey("NgOnN7UT22rslD!%")
+
+        when:
+        JSONObject jsonObject = new JSONObject()
+        jsonObject.put("KEY", "test-key")
+        jsonObject.put("VALUE", "value")
+        def checksum = paytmRequest.generateChecksum(jsonObject)
+
+        then:
+        null != checksum
+    }
+
+    def "test generate checksum when merchant key is null"(){
+        setup:
+        AbstractPaytmRequest paytmRequest = new InitiateTransactionRequest()
+
+
+        when:
+        JSONObject jsonObject = new JSONObject()
+        jsonObject.put("KEY", "test-key")
+        jsonObject.put("VALUE", "value")
+        def checksum = paytmRequest.generateChecksum(jsonObject)
+
+        then:
+        null == checksum
+    }
+
+    def "test generate checksum when merchant key is invalid"(){
+        setup:
+        AbstractPaytmRequest paytmRequest = new InitiateTransactionRequest()
+        paytmRequest.setMerchantKey("1234567")
+
+        when:
+        JSONObject jsonObject = new JSONObject()
+        jsonObject.put("KEY", "test-key")
+        jsonObject.put("VALUE", "value")
+        def checksum = paytmRequest.generateChecksum(jsonObject)
+
+        then:
+        null != checksum
+    }
+
 }

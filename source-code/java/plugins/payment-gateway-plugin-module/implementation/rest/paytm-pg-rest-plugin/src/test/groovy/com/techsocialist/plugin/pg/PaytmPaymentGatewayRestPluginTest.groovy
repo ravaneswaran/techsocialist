@@ -8,7 +8,6 @@ class PaytmPaymentGatewayRestPluginTest extends Specification{
 
     def merchantId = "MqSnHc74327968593861"
     def merchantKey = "NgOnN7UT22rslD!%"
-    def transactionToken = ""
 
     def "test plugin instance"(){
         when:
@@ -42,7 +41,7 @@ class PaytmPaymentGatewayRestPluginTest extends Specification{
         def paymentMode = "BALANCE"
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.balanceInfo(merchantId, merchantKey, transactionToken, paymentMode)
+        String jsonResponse = paymentGatewayRestPlugin.balanceInfo(merchantId, merchantKey, "", paymentMode)
 
         then:
         null != jsonResponse
