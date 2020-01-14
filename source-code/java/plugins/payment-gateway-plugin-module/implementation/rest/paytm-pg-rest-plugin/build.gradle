@@ -32,8 +32,6 @@ dependencies {
     compile group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.moxy', version: '2.5.2'
     compile group: 'com.paytm.pg', name: 'paytm-pg', version: '0.0.1'
     //compile group: 'com.paytm.pg', name: 'pg-checksum', version: '1.0'
-    
-    
 
     implementation files('lib/paytm-checksum-2.0.0.jar')
 
@@ -45,4 +43,5 @@ dependencies {
     testImplementation 'org.codehaus.groovy:groovy-all:2.5.4'
     testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
     testImplementation 'junit:junit:4.12'
+
 }

@@ -42,7 +42,7 @@ public class InitiateTransactionRequest extends AbstractPaytmRequest{
         body.put("mid", this.getMerchantId());
         body.put("websiteName", this.websiteName);
         body.put("orderId", this.getOrderId());
-        body.put("callbackUrl", String.format(this.callbackUrl, this.getOrderId()));
+        body.put("callbackUrl", this.callbackUrl);
         body.put("txnAmount", txnAmount);
         body.put("userInfo", userInfo);
 
