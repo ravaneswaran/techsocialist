@@ -53,6 +53,8 @@ include ':docs',
         ':payment-gateway-plugin-module:implementation:rest:paypal-rest-pg-plugin',
 
         ':unmarshaller-plugin-module:unmarshaller-plugin-api',
-        ':unmarshaller-plugin-module:implementation:google-unmarshaller-plugin',
-        ':unmarshaller-plugin-module:implementation:jaxb-unmarshaller-plugin'
+        ':unmarshaller-plugin-module:implementation:json:google-unmarshaller-plugin',
+        ':unmarshaller-plugin-module:implementation:xml:jaxb-unmarshaller-plugin'
+
+
 

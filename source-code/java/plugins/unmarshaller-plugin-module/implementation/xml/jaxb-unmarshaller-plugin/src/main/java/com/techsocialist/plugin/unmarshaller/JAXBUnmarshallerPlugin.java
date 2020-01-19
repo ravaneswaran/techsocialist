@@ -11,11 +11,11 @@ import java.nio.charset.StandardCharsets;
 public class JAXBUnmarshallerPlugin extends AbstractUnmarshallerPlugin {
 
     @Override
-    public Object toInstance(Class clazz, String xmlString) throws Exception {
+    public Object unmarshall(String source, Class<?> clazz) throws Exception {
         JAXBContext jaxbContext = JAXBContext.newInstance(clazz);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         InputStream inputStream = new ByteArrayInputStream(
-                xmlString.getBytes(StandardCharsets.UTF_8));
+                source.getBytes(StandardCharsets.UTF_8));
         return jaxbUnmarshaller.unmarshal(inputStream);
     }
 }

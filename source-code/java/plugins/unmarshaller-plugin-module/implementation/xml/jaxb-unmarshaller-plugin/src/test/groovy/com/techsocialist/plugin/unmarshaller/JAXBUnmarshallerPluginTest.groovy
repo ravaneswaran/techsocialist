@@ -11,7 +11,7 @@ class JAXBUnmarshallerPluginTest extends Specification{
         def jaxbUnmarshallerPlugin = new JAXBUnmarshallerPlugin();
 
         when:
-        Person person = jaxbUnmarshallerPlugin.toInstance(Person.class, xmlString)
+        Person person = jaxbUnmarshallerPlugin.unmarshall(xmlString, Person.class)
 
         then:
         person != null && "Test" == person.getName() && 21 == person.getAge() && "Male" == person.getGender()
