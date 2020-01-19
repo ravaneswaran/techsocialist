@@ -11,6 +11,14 @@ rootProject.name = 'plugins'
 
 include ':docs',
 
+        ':barcode-plugin-module:barcode-plugin-api',
+        ':barcode-plugin-module:implementation:barcode4j-barcode-plugin',
+
+        ':client-plugin-module:ftp-client-plugin-module:ftp-client-plugin-api',
+        ':client-plugin-module:ftp-client-plugin-module:implementation:curl-ftp-client-plugin',
+        ':client-plugin-module:http-client-plugin-module:http-client-plugin-api',
+        ':client-plugin-module:http-client-plugin-module:implementation:curl-http-client-plugin',
+
         ':os-command-exec-plugin-module:os-command-exec-plugin-api',
         ':os-command-exec-plugin-module:implementation:linux-command-exec-plugin',
 
@@ -22,12 +30,16 @@ include ':docs',
         ':mail-plugin-module:implementation:curl-mail-plugin',
         ':mail-plugin-module:implementation:java-mail-plugin',
 
+        ':os-command-exec-plugin-module:os-command-exec-plugin-api',
+        ':os-command-exec-plugin-module:implementation:linux-command-exec-plugin',
+
+        ':os-stripper-plugin-module:os-stripper-plugin-api',
+        ':os-stripper-plugin-module:implementation:unix-stripper-plugin',
+        ':os-stripper-plugin-module:implementation:linux-stripper-plugin',
+
         ':qrcode-plugin-module:qrcode-plugin-api',
         ':qrcode-plugin-module:implementation:google-zxing-qrcode-plugin',
         ':qrcode-plugin-module:implementation:qrgen-qrcode-plugin',
-
-        ':barcode-plugin-module:barcode-plugin-api',
-        ':barcode-plugin-module:implementation:barcode4j-barcode-plugin',
 
         ':sms-plugin-module:sms-plugin-api',
         ':sms-plugin-module:sms-rest-plugin-api',
@@ -40,7 +52,7 @@ include ':docs',
         ':payment-gateway-plugin-module:implementation:rest:razorpay-rest-pg-plugin',
         ':payment-gateway-plugin-module:implementation:rest:paypal-rest-pg-plugin',
 
-        ':client-plugin-module:ftp-client-plugin-module:ftp-client-plugin-api',
-        ':client-plugin-module:ftp-client-plugin-module:implementation:curl-ftp-client-plugin',
-        ':client-plugin-module:http-client-plugin-module:http-client-plugin-api',
-        ':client-plugin-module:http-client-plugin-module:implementation:curl-http-client-plugin'
+        ':unmarshaller-plugin-module:unmarshaller-plugin-api',
+        ':unmarshaller-plugin-module:implementation:google-unmarshaller-plugin',
+        ':unmarshaller-plugin-module:implementation:jaxb-unmarshaller-plugin'
+

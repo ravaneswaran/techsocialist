@@ -4,9 +4,6 @@ package com.techsocialist.plugin.pg.paytm.request;
 import com.paytm.pg.merchant.CheckSumServiceHelper;
 import org.json.JSONObject;
 
-import java.util.Iterator;
-import java.util.TreeMap;
-
 public abstract class AbstractPaytmRequest {
 
     private String merchantId;

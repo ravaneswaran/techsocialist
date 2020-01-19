@@ -2,7 +2,7 @@ package com.techsocialist.plugin.pg.paytm.request
 
 import spock.lang.Specification
 
-class InitiateTransactionRequestTest extends Specification{
+class InitiateTransactionResponseRequestTest extends Specification{
 
     def "test data head"() {
         setup:
