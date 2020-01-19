@@ -1,5 +1,6 @@
 package com.techsocialist.plugin.pg.paytm.response;
 
+import com.google.gson.annotations.SerializedName;
 import com.techsocialist.plugin.pg.paytm.response.body.InitiateTransactionBody;
 import com.techsocialist.plugin.pg.paytm.response.head.InitiateTransactionHead;
 import org.eclipse.persistence.oxm.annotations.XmlPath;
@@ -13,9 +14,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class InitiateTransactionResponse {
 
     @XmlPath("head")
+    @SerializedName("head")
     private InitiateTransactionHead initiateTransactionHead;
 
     @XmlPath("body")
+    @SerializedName("body")
     private InitiateTransactionBody initiateTransactionBody;
 
     public InitiateTransactionHead getInitiateTransactionHead() {

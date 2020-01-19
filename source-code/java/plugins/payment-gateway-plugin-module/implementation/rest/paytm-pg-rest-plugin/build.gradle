@@ -35,7 +35,12 @@ dependencies {
 
     implementation files('lib/paytm-checksum-2.0.0.jar')
 
+    compileOnly project(":unmarshaller-plugin-module:unmarshaller-plugin-api")
+    compileOnly project(":unmarshaller-plugin-module:implementation:json:google-unmarshaller-plugin")
     compileOnly project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
+    
+    testcompile project(":unmarshaller-plugin-module:unmarshaller-plugin-api")
+    testcompile project(":unmarshaller-plugin-module:implementation:json:google-unmarshaller-plugin")
     testCompile project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
 
     implementation 'com.google.guava:guava:26.0-jre'
