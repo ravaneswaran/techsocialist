@@ -31,7 +31,7 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println(jsonResponse);
+        //System.out.println(jsonResponse);
 
         return jsonResponse;
     }
