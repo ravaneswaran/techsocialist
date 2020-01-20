@@ -1,11 +1,7 @@
 package com.techsocialist.plugin.pg.paytm.response.body.innerstruct;
 
 import com.google.gson.annotations.SerializedName;
-import org.eclipse.persistence.oxm.annotations.XmlPath;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 public class PaymentMode {

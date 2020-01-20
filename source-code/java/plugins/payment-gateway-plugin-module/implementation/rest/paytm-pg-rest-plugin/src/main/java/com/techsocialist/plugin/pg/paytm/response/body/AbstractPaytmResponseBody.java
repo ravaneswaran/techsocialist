@@ -12,7 +12,7 @@ public abstract class AbstractPaytmResponseBody {
         return resultInfo;
     }
 
-    public boolean isOK(){
-        return null != this.resultInfo ? resultInfo.isOk() : false;
+    public boolean ok(){
+        return null != this.resultInfo ? resultInfo.ok() : false;
     }
 }

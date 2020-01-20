@@ -69,7 +69,7 @@ class FetchBalanceInfoResponseTest extends AbstractPaytmPaymentGatewayTest{
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         then:
-        false == initiateTransactionResponse.isOk()
+        false == initiateTransactionResponse.ok()
     }
 
     @Ignore

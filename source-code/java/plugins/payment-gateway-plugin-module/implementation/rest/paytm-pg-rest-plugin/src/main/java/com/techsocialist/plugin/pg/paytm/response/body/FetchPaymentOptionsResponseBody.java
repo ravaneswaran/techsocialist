@@ -1,7 +1,10 @@
 package com.techsocialist.plugin.pg.paytm.response.body;
 
 import com.google.gson.annotations.SerializedName;
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.AddMoneyPayOption;
 import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantDetails;
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantLimitInfo;
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantPayOption;
 
 public class FetchPaymentOptionsResponseBody extends AbstractPaytmResponseBody{
 
@@ -31,6 +34,15 @@ public class FetchPaymentOptionsResponseBody extends AbstractPaytmResponseBody{
 
     @SerializedName("merchantDetails")
     private MerchantDetails merchantDetails;
+
+    @SerializedName("merchantPayOption")
+    private MerchantPayOption merchantPayOption;
+
+    @SerializedName("addMoneyPayOption")
+    private AddMoneyPayOption addMoneyPayOption;
+
+    @SerializedName("merchantLimitInfo")
+    private MerchantLimitInfo merchantLimitInfo;
 
     public boolean isWalletOnly() {
         return walletOnly;
@@ -66,5 +78,17 @@ public class FetchPaymentOptionsResponseBody extends AbstractPaytmResponseBody{
 
     public MerchantDetails getMerchantDetails() {
         return merchantDetails;
+    }
+
+    public MerchantPayOption getMerchantPayOption() {
+        return merchantPayOption;
+    }
+
+    public AddMoneyPayOption getAddMoneyPayOption() {
+        return addMoneyPayOption;
+    }
+
+    public MerchantLimitInfo getMerchantLimitInfo() {
+        return merchantLimitInfo;
     }
 }

@@ -30,6 +30,7 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
+        //System.out.println("initiateTransaction[jsonResponse] ----->>>>> "+jsonResponse);
         return jsonResponse;
     }
 
@@ -54,7 +55,7 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        //System.out.println(jsonResponse);
+        //System.out.println("fetchBalanceInfo[jsonResponse] ----->>>>> "+jsonResponse);
 
         return jsonResponse;
     }
@@ -70,7 +71,9 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println(jsonResponse);
+        System.out.println("fetchPaymentOptions[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("< -------------------------------------------------------->");
+        System.out.println();
 
         return jsonResponse;
     }

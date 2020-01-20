@@ -21,7 +21,7 @@ public class FetchPaymentOptionsResponse extends AbstractPaytmResponse{
     }
 
     @Override
-    public boolean isOk() {
-        return null != this.fetchPaymentOptionsResponseBody ? this.fetchPaymentOptionsResponseBody.isOK() : false;
+    public boolean ok() {
+        return null != this.fetchPaymentOptionsResponseBody ? this.fetchPaymentOptionsResponseBody.ok() : false;
     }
 }

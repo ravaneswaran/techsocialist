@@ -143,7 +143,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         then:
-        true == initiateTransactionResponse.isOk()
+        true == initiateTransactionResponse.ok()
     }
 
     def "test when initiate transaction is erroneous"(){
@@ -181,7 +181,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         then:
-        false == initiateTransactionResponse.isOk()
+        false == initiateTransactionResponse.ok()
     }
 
     def "test result info in body when initiate transaction is erroneous"(){

@@ -18,28 +18,16 @@ public class ResultInfo extends AbstractPaytmResponse {
         return resultStatus;
     }
 
-    public void setResultStatus(String resultStatus) {
-        this.resultStatus = resultStatus;
-    }
-
     public String getResultCode() {
         return resultCode;
-    }
-
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
     }
 
     public String getResultMessage() {
         return resultMessage;
     }
 
-    public void setResultMessage(String resultMessage) {
-        this.resultMessage = resultMessage;
-    }
-
     @Override
-    public boolean isOk(){
+    public boolean ok(){
         return "S".equals(this.getResultStatus()) && 0 == Integer.parseInt(this.getResultCode()) && "Success".equals(this.getResultMessage());
     }
 }

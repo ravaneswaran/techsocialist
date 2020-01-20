@@ -8,7 +8,8 @@ public abstract class AbstractPaytmPaymentGatewayRestPlugin extends AbstractPaym
 
     @Override
     public String processPaytmRequest(String requestUrl, String requestHttpMethod, String requestContentType, String requestData) throws IOException {
-        System.out.println("requestUrl ---->>>> "+requestUrl);
+        System.out.println("processPaytmRequest[requestUrl] ---->>>> "+requestUrl);
+        System.out.println("processPaytmRequest[requestData] ---->>>> "+requestData);
         return super.processRequest(requestUrl, requestHttpMethod, requestContentType, requestData);
     }
 
