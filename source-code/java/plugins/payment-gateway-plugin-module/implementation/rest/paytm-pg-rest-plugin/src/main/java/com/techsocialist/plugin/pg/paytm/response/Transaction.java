@@ -1,31 +1,17 @@
 package com.techsocialist.plugin.pg.paytm.response;
 
-import org.eclipse.persistence.oxm.annotations.XmlPath;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name = "paytm-transaction")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Transaction {
 
-    @XmlPath("head/responseTimestamp")
     private String responseTimestamp;
 
-    @XmlPath("head/version")
     private String version;
 
-    @XmlPath("head/signature")
     private String signature;
 
-    @XmlPath("body/txnToken")
     private String txnToken;
 
-    @XmlPath("body/isPromoCodeValid")
     private boolean isPromoCodeValid;
 
-    @XmlPath("body/authenticated")
     private boolean authenticated;
 
     public String getResponseTimestamp() {

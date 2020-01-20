@@ -6,7 +6,7 @@ class BalanceInfoRequestTest extends Specification {
 
     def "test data head"() {
         setup:
-        BalanceInfoRequest paytmRequest = new BalanceInfoRequest()
+        FetchBalanceInfoRequest paytmRequest = new FetchBalanceInfoRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -23,7 +23,7 @@ class BalanceInfoRequestTest extends Specification {
 
     def "test data body"() {
         setup:
-        BalanceInfoRequest paytmRequest = new BalanceInfoRequest()
+        FetchBalanceInfoRequest paytmRequest = new FetchBalanceInfoRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -41,7 +41,7 @@ class BalanceInfoRequestTest extends Specification {
 
     def "test staging url construction"() {
         setup:
-        BalanceInfoRequest paytmRequest = new BalanceInfoRequest()
+        FetchBalanceInfoRequest paytmRequest = new FetchBalanceInfoRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -59,7 +59,7 @@ class BalanceInfoRequestTest extends Specification {
 
     def "test production url construction"() {
         setup:
-        BalanceInfoRequest paytmRequest = new BalanceInfoRequest();
+        FetchBalanceInfoRequest paytmRequest = new FetchBalanceInfoRequest();
 
         when:
         paytmRequest.setMerchantId("mer-001")

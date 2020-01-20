@@ -1,25 +1,16 @@
-package com.techsocialist.plugin.pg.paytm.response.body;
+package com.techsocialist.plugin.pg.paytm.response.body.innerstruct;
 
 import com.google.gson.annotations.SerializedName;
-import org.eclipse.persistence.oxm.annotations.XmlPath;
+import com.techsocialist.plugin.pg.paytm.response.AbstractPaytmResponse;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+public class ResultInfo extends AbstractPaytmResponse {
 
-@XmlRootElement(name = "resultInfo")
-@XmlAccessorType(XmlAccessType.FIELD)
-public class ResultInfo {
-
-    @XmlPath("body/resultInfo/resultStatus")
     @SerializedName("resultStatus")
     private String resultStatus;
 
-    @XmlPath("body/resultInfo/resultCode")
     @SerializedName("resultCode")
     private String resultCode;
 
-    @XmlPath("body/resultInfo/resultMsg")
     @SerializedName("resultMsg")
     private String resultMessage;
 
@@ -45,5 +36,10 @@ public class ResultInfo {
 
     public void setResultMessage(String resultMessage) {
         this.resultMessage = resultMessage;
+    }
+
+    @Override
+    public boolean isOk(){
+        return "S".equals(this.getResultStatus()) && 0 == Integer.parseInt(this.getResultCode()) && "Success".equals(this.getResultMessage());
     }
 }

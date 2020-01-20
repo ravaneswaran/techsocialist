@@ -2,7 +2,7 @@ package com.techsocialist.plugin.pg.paytm.request;
 
 import org.json.JSONObject;
 
-public class BalanceInfoRequest extends AbstractPaytmRequest {
+public class FetchBalanceInfoRequest extends AbstractPaytmRequest {
 
     private String paymentMode;
 
@@ -24,8 +24,8 @@ public class BalanceInfoRequest extends AbstractPaytmRequest {
     @Override
     public JSONObject dataHead() {
         JSONObject head = new JSONObject();
-        head.put("clientId", this.getClientId());
-        head.put("version", this.getVersion());
+        //head.put("clientId", this.getClientId());
+        //head.put("version", this.getVersion());
         head.put("requestTimestamp", this.getRequestTimestamp());
         head.put("channelId", this.getChannelId());
         head.put("txnToken", this.getTransactionToken());
@@ -36,12 +36,12 @@ public class BalanceInfoRequest extends AbstractPaytmRequest {
     @Override
     public JSONObject dataBody() {
         JSONObject body = new JSONObject();
-        body.put("paymentMode", paymentMode);
+        body.put("paymentMode", this.paymentMode);
 
         return body;
     }
 
-    public BalanceInfoRequest setPaymentMode(String paymentMode) {
+    public FetchBalanceInfoRequest setPaymentMode(String paymentMode) {
         this.paymentMode = paymentMode;
         return this;
     }

@@ -7,7 +7,7 @@ class AbstractPaytmRequestTest extends Specification{
 
     def "test data"(){
         setup:
-        AbstractPaytmRequest paytmRequest = new BalanceInfoRequest()
+        AbstractPaytmRequest paytmRequest = new FetchBalanceInfoRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -24,7 +24,7 @@ class AbstractPaytmRequestTest extends Specification{
 
     def "test data when dataHead and dataBody returns null"(){
         setup:
-        AbstractPaytmRequest paytmRequest = new BalanceInfoRequest(){
+        AbstractPaytmRequest paytmRequest = new FetchBalanceInfoRequest(){
             @Override
             JSONObject dataHead() {
                 return null
@@ -50,7 +50,7 @@ class AbstractPaytmRequestTest extends Specification{
 
     def "test data as json string"(){
         setup:
-        AbstractPaytmRequest paytmRequest = new BalanceInfoRequest()
+        AbstractPaytmRequest paytmRequest = new FetchBalanceInfoRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")

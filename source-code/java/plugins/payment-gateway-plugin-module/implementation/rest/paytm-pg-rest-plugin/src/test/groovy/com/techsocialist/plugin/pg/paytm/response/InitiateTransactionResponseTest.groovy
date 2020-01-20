@@ -3,9 +3,8 @@ package com.techsocialist.plugin.pg.paytm.response
 import com.techsocialist.plugin.pg.AbstractPaytmPaymentGatewayTest
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
-import com.techsocialist.plugin.pg.paytm.response.InitiateTransactionResponse
 import com.techsocialist.plugin.pg.paytm.response.body.InitiateTransactionResponseBody
-import com.techsocialist.plugin.pg.paytm.response.body.ResultInfo
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.ResultInfo
 import com.techsocialist.plugin.pg.paytm.response.head.InitiateTransactionResponseHead
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
 import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
@@ -15,14 +14,15 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
     def "test initiate transaction"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("USER-%s", new Date().getTime())
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, userId, amount, currency, websiteName, callbackUrl)
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
 
         then:
         null != jsonResponse
@@ -31,7 +31,8 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
     def "test initiate transaction un marshalling"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("USER-%s", new Date().getTime())
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
@@ -39,7 +40,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, userId, amount, currency, websiteName, callbackUrl)
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         then:
@@ -49,7 +50,8 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
     def "test initiate transaction unmarshall to check head"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("USER-%s", new Date().getTime())
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
@@ -57,7 +59,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, userId, amount, currency, websiteName, callbackUrl)
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         InitiateTransactionResponseHead initiateTransactionResponseHead = initiateTransactionResponse.getInitiateTransactionResponseHead()
 
@@ -68,7 +70,8 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
     def "test initiate transaction unmarshall to check body"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("USER-%s", new Date().getTime())
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
@@ -76,7 +79,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, userId, amount, currency, websiteName, callbackUrl)
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         InitiateTransactionResponseBody initiateTransactionResponseBody = initiateTransactionResponse.getInitiateTransactionResponseBody()
 
@@ -87,7 +90,8 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
     def "test initiate transaction unmarshall to check result info in body"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("USER-%s", new Date().getTime())
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
@@ -95,7 +99,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, userId, amount, currency, websiteName, callbackUrl)
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         ResultInfo resultInfo = initiateTransactionResponse.getInitiateTransactionResponseBody().getResultInfo()
 
@@ -106,7 +110,8 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
     def "test initiate transaction unmarshall to check result info in body for values"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("USER-%s", new Date().getTime())
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
@@ -114,7 +119,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, userId, amount, currency, websiteName, callbackUrl)
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         ResultInfo resultInfo = initiateTransactionResponse.getInitiateTransactionResponseBody().getResultInfo()
 
@@ -125,7 +130,8 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
     def "test initiate transaction is ok"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("USER-%s", new Date().getTime())
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
@@ -133,7 +139,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, userId, amount, currency, websiteName, callbackUrl)
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         then:
@@ -143,7 +149,8 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
     def "test when initiate transaction is erroneous"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("USER-%s", new Date().getTime())
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
@@ -151,7 +158,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction("somemerchant", "somekey", userId, amount, currency, websiteName, callbackUrl)
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction("somemerchant", "somekey", customerId, orderId, amount, currency, websiteName, callbackUrl)
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         then:
@@ -161,7 +168,8 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
     def "test is ok when initiate transaction is erroneous"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("USER-%s", new Date().getTime())
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
@@ -169,7 +177,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction("somemerchant", "somekey", userId, amount, currency, websiteName, callbackUrl)
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction("somemerchant", "somekey", customerId, orderId, amount, currency, websiteName, callbackUrl)
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         then:
@@ -179,7 +187,8 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
     def "test result info in body when initiate transaction is erroneous"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def userId = String.format("USER-%s", new Date().getTime())
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
@@ -187,7 +196,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction("somemerchant", "somekey", userId, amount, currency, websiteName, callbackUrl)
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction("somemerchant", "somekey", customerId, orderId, amount, currency, websiteName, callbackUrl)
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         ResultInfo resultInfo = initiateTransactionResponse.getInitiateTransactionResponseBody().getResultInfo()
 

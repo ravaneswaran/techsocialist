@@ -2,7 +2,7 @@ package com.techsocialist.plugin.pg.paytm.request;
 
 import org.json.JSONObject;
 
-public class PaymentOptionsRequest extends AbstractPaytmRequest{
+public class FetchPaymentOptionsRequest extends AbstractPaytmRequest{
 
     @Override
     public String url(boolean production) {

@@ -1,18 +1,16 @@
 package com.techsocialist.plugin.pg;
 
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
-import com.techsocialist.plugin.pg.paytm.request.BalanceInfoRequest;
+import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
+import com.techsocialist.plugin.pg.paytm.request.FetchPaymentOptionsRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateTransactionRequest;
-import com.techsocialist.plugin.pg.paytm.request.PaymentOptionsRequest;
 
 import java.io.IOException;
-import java.util.Date;
 
 public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRestPlugin {
 
     @Override
-    public String initiateTransaction(String merchantId, String merchantKey, String customerId, long amount, String currency, String websiteName, String callbackUrl) throws IOException {
-        String orderId = String.format("ORDER-%s", new Date().getTime());
+    public String initiateTransaction(String merchantId, String merchantKey, String customerId, String orderId, long amount, String currency, String websiteName, String callbackUrl) throws IOException {
         return this.initiateTransaction(merchantId, merchantKey, "C11", "WEB", "v1", orderId, customerId, amount, currency, websiteName, callbackUrl);
     }
 
@@ -32,38 +30,38 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        //System.out.println(jsonResponse);
-
         return jsonResponse;
     }
 
     @Override
-    public String balanceInfo(String merchantId, String merchantKey, String transactionToken, String paymentMode) throws IOException {
-        return this.balanceInfo(merchantId, merchantKey, "C11", "WEB", "v1", transactionToken, paymentMode);
+    public String fetchBalanceInfo(String merchantId, String merchantKey, String orderId, String transactionToken, String paymentMode) throws IOException {
+        return this.fetchBalanceInfo(merchantId, merchantKey, "C11", "WEB", "v1", orderId, transactionToken, paymentMode);
     }
 
     @Override
-    public String balanceInfo(String merchantId, String merchantKey, String clientId, String channelId, String version, String transactionToken, String paymentMode) throws IOException {
-        BalanceInfoRequest paytmRequest = new BalanceInfoRequest();
+    public String fetchBalanceInfo(String merchantId, String merchantKey, String clientId, String channelId, String version, String orderId, String transactionToken, String paymentMode) throws IOException {
+        FetchBalanceInfoRequest paytmRequest = new FetchBalanceInfoRequest();
 
         paytmRequest.setMerchantId(merchantId);
         paytmRequest.setMerchantKey(merchantKey);
         paytmRequest.setClientId(clientId);
         paytmRequest.setChannelId(channelId);
         paytmRequest.setVersion(version);
+        paytmRequest.setOrderId(orderId);
+        paytmRequest.setTransactionToken(transactionToken);
 
         paytmRequest.setPaymentMode(paymentMode);
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println(jsonResponse);
+        //System.out.println(jsonResponse);
 
         return jsonResponse;
     }
 
     @Override
     public String fetchPaymentOptions(String merchantId, String merchantKey, String transactionToken, String orderId) throws IOException {
-        PaymentOptionsRequest paytmRequest = new PaymentOptionsRequest();
+        FetchPaymentOptionsRequest paytmRequest = new FetchPaymentOptionsRequest();
 
         paytmRequest.setMerchantId(merchantId);
         paytmRequest.setMerchantKey(merchantKey);

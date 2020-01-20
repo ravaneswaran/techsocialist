@@ -6,7 +6,7 @@ class PaymentOptionsRequestTest extends Specification{
 
     def "test data head"() {
         setup:
-        PaymentOptionsRequest paytmRequest = new PaymentOptionsRequest()
+        FetchPaymentOptionsRequest paytmRequest = new FetchPaymentOptionsRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -22,7 +22,7 @@ class PaymentOptionsRequestTest extends Specification{
 
     def "test data body"() {
         setup:
-        PaymentOptionsRequest paytmRequest = new PaymentOptionsRequest()
+        FetchPaymentOptionsRequest paytmRequest = new FetchPaymentOptionsRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -39,7 +39,7 @@ class PaymentOptionsRequestTest extends Specification{
 
     def "test staging url construction"() {
         setup:
-        PaymentOptionsRequest paytmRequest = new PaymentOptionsRequest()
+        FetchPaymentOptionsRequest paytmRequest = new FetchPaymentOptionsRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -56,7 +56,7 @@ class PaymentOptionsRequestTest extends Specification{
 
     def "test production url construction"() {
         setup:
-        PaymentOptionsRequest paytmRequest = new PaymentOptionsRequest()
+        FetchPaymentOptionsRequest paytmRequest = new FetchPaymentOptionsRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
