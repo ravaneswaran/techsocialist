@@ -25,7 +25,7 @@ class InitiateTransactionResponseRequestTest extends Specification{
         InitiateTransactionRequest paytmRequest = new InitiateTransactionRequest()
 
         when:
-        paytmRequest.setCurrency("INR").setUserId("userid-001").setAmount(1000).setCallbackUrl("http://localhost:8080")
+        paytmRequest.setCurrency("INR").setCustomerId("userid-001").setAmount(1000).setCallbackUrl("http://localhost:8080")
         paytmRequest.setWebsiteName("WEBSITE")
 
         then:

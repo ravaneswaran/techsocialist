@@ -12,4 +12,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String balanceInfo(String merchantId, String merchantKey, String transactionToken, String paymentMode) throws IOException;
     public String balanceInfo(String merchantId, String merchantKey, String clientId, String channelId, String version, String transactionToken, String paymentMode) throws IOException;
 
+    public String fetchPaymentOptions(String merchantId, String merchantKey, String transactionToken, String orderId) throws IOException;
+
 }

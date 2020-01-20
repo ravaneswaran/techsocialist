@@ -3,6 +3,7 @@ package com.techsocialist.plugin.pg;
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.BalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateTransactionRequest;
+import com.techsocialist.plugin.pg.paytm.request.PaymentOptionsRequest;
 
 import java.io.IOException;
 import java.util.Date;
@@ -10,13 +11,13 @@ import java.util.Date;
 public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRestPlugin {
 
     @Override
-    public String initiateTransaction(String merchantId, String merchantKey, String userId, long amount, String currency, String websiteName, String callbackUrl) throws IOException {
+    public String initiateTransaction(String merchantId, String merchantKey, String customerId, long amount, String currency, String websiteName, String callbackUrl) throws IOException {
         String orderId = String.format("ORDER-%s", new Date().getTime());
-        return this.initiateTransaction(merchantId, merchantKey, "C11", "WEB", "v1", orderId, userId, amount, currency, websiteName, callbackUrl);
+        return this.initiateTransaction(merchantId, merchantKey, "C11", "WEB", "v1", orderId, customerId, amount, currency, websiteName, callbackUrl);
     }
 
     @Override
-    public String initiateTransaction(String merchantId, String merchantKey, String clientId, String channelId, String version, String orderId, String userId, long amount, String currency, String websiteName, String callbackUrl) throws IOException {
+    public String initiateTransaction(String merchantId, String merchantKey, String clientId, String channelId, String version, String orderId, String customerId, long amount, String currency, String websiteName, String callbackUrl) throws IOException {
 
         InitiateTransactionRequest paytmRequest = new InitiateTransactionRequest();
 
@@ -27,7 +28,7 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         paytmRequest.setVersion(version);
         paytmRequest.setOrderId(orderId);
 
-        paytmRequest.setUserId(userId).setAmount(amount).setCurrency(currency).setCallbackUrl(callbackUrl).setWebsiteName(websiteName);
+        paytmRequest.setCustomerId(customerId).setAmount(amount).setCurrency(currency).setCallbackUrl(callbackUrl).setWebsiteName(websiteName);
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
@@ -54,6 +55,24 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         paytmRequest.setPaymentMode(paymentMode);
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println(jsonResponse);
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String fetchPaymentOptions(String merchantId, String merchantKey, String transactionToken, String orderId) throws IOException {
+        PaymentOptionsRequest paytmRequest = new PaymentOptionsRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setTransactionToken(transactionToken);
+        paytmRequest.setOrderId(orderId);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println(jsonResponse);
 
         return jsonResponse;
     }

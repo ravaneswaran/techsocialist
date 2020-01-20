@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 public class InitiateTransactionRequest extends AbstractPaytmRequest{
 
-    private String userId;
+    private String customerId;
 
     private long amount;
 
@@ -35,7 +35,7 @@ public class InitiateTransactionRequest extends AbstractPaytmRequest{
         txnAmount.put("currency", this.currency);
 
         JSONObject userInfo = new JSONObject();
-        userInfo.put("custId", this.userId);
+        userInfo.put("custId", this.customerId);
 
         JSONObject body = new JSONObject();
         body.put("requestType", "Payment");
@@ -49,8 +49,8 @@ public class InitiateTransactionRequest extends AbstractPaytmRequest{
         return body;
     }
 
-    public InitiateTransactionRequest setUserId(String userId) {
-        this.userId = userId;
+    public InitiateTransactionRequest setCustomerId(String customerId) {
+        this.customerId = customerId;
         return this;
     }
 
