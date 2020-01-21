@@ -22,6 +22,6 @@ public class InitiateTransactionResponse extends AbstractPaytmResponse{
     }
 
     public boolean ok() {
-        return null != this.initiateTransactionResponseBody ? this.initiateTransactionResponseBody.ok() : false;
+        return this.initiateTransactionResponseBody.ok();
     }
 }

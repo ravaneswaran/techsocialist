@@ -22,7 +22,7 @@ public class PaymentMode {
     private String priority;
 
     @SerializedName("onboarding")
-    private String onBoarding;
+    private boolean onBoarding;
 
     @SerializedName("paymentMode")
     private String mode;
@@ -56,7 +56,7 @@ public class PaymentMode {
         return priority;
     }
 
-    public String getOnBoarding() {
+    public boolean isOnBoarding() {
         return onBoarding;
     }
 

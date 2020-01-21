@@ -14,6 +14,17 @@ public class ResultInfo extends AbstractPaytmResponse {
     @SerializedName("resultMsg")
     private String resultMessage;
 
+
+    public ResultInfo(){}
+
+    public ResultInfo(String resultStatus, String resultCode, String resultMessage){
+        this.resultCode = resultCode;
+        this.resultMessage = resultMessage;
+        this.resultStatus = resultStatus;
+
+    }
+
+
     public String getResultStatus() {
         return resultStatus;
     }

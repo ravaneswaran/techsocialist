@@ -4,12 +4,19 @@ import com.techsocialist.plugin.pg.AbstractPaytmPaymentGatewayTest
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.paytm.response.body.FetchPaymentOptionsResponseBody
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.ActiveSubscription
 import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.AddMoneyPayOption
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.HasLowSuccess
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.IsDisabled
 import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantDetails
 import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantLimitInfo
 import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantPayOption
 import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantRemainingLimit
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.PayChannelOption
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.PaymentMode
 import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.ResultInfo
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.SavedInstrument
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.UserProfileSarvatra
 import com.techsocialist.plugin.pg.paytm.response.head.FetchPaymentOptionsResponseHead
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
 import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
@@ -145,7 +152,7 @@ class FetchPaymentOptionsResponseTest extends AbstractPaytmPaymentGatewayTest{
         null != fetchPaymentOptionsResponseBody
     }
 
-    def "test merchant details of fetch payment options response body"(){
+    def "test FetchPaymentOptionsResponseBody -> MerchantDetails"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -168,7 +175,7 @@ class FetchPaymentOptionsResponseTest extends AbstractPaytmPaymentGatewayTest{
         null == merchantDetails.getMcc() && null == merchantDetails.getMerchantVpa() && "Ravaneswaran Chinnasamy" == merchantDetails.getMerchantName() && null == merchantDetails.getMerchantLogo()
     }
 
-    def "test merchant pay option of fetch payment options response body"(){
+    def "test FetchPaymentOptionsResponseBody -> MerchantPayOption"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -191,7 +198,7 @@ class FetchPaymentOptionsResponseTest extends AbstractPaytmPaymentGatewayTest{
         0 < merchantPayOption.getPaymentModes().size() && 0 == merchantPayOption.getSavedInstruments().size() && null == merchantPayOption.getUserProfileSarvatra() && null == merchantPayOption.getActiveSubscriptions()
     }
 
-    def "test add money pay option of fetch payment options response body"(){
+    def "test FetchPaymentOptionsResponseBody -> AddMoneyPayOption"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -214,7 +221,7 @@ class FetchPaymentOptionsResponseTest extends AbstractPaytmPaymentGatewayTest{
         null == addMoneyPayOption.getPaymentModes() && null == addMoneyPayOption.getSavedInstruments() && null == addMoneyPayOption.getUserProfileSarvatra() && null == addMoneyPayOption.getActiveSubscriptions()
     }
 
-    def "test merchant limit info of fetch payment options response body"(){
+    def "test FetchPaymentOptionsResponseBody -> MerchantLimitInfo"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -237,7 +244,7 @@ class FetchPaymentOptionsResponseTest extends AbstractPaytmPaymentGatewayTest{
         0 < merchantLimitInfo.getMerchantRemainingLimits().size() && null == merchantLimitInfo.getExcludePayModes() && "limit is breached for this pay-mode" == merchantLimitInfo.getMessage()
     }
 
-    def "test merchant remaining limits info of merchant limit info of fetch payment options response body"(){
+    def "test FetchPaymentOptionsResponseBody -> MerchantLimitInfo -> MerchantRemainingLimits"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -261,5 +268,257 @@ class FetchPaymentOptionsResponseTest extends AbstractPaytmPaymentGatewayTest{
         0 < merchantRemainingLimits.size()
     }
 
+    def "test FetchPaymentOptionsResponseBody -> MerchantLimitInfo -> MerchantRemainingLimit"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchPaymentOptions(merchantId, merchantKey, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), orderId)
+        FetchPaymentOptionsResponse fetchPaymentOptionsResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchPaymentOptionsResponse.class)
+        FetchPaymentOptionsResponseBody fetchPaymentOptionsResponseBody = fetchPaymentOptionsResponse.getFetchPaymentOptionsResponseBody()
+        MerchantLimitInfo merchantLimitInfo = fetchPaymentOptionsResponseBody.getMerchantLimitInfo()
+        List<MerchantRemainingLimit> merchantRemainingLimits = merchantLimitInfo.getMerchantRemainingLimits()
+        MerchantRemainingLimit merchantRemainingLimit = merchantRemainingLimits.get(0)
+
+        then:
+        "DAILY" == merchantRemainingLimit.getLimitType() && "100000.00" == merchantRemainingLimit.getAmount()
+    }
+
+    def "test FetchPaymentOptionsResponseBody -> MerchantPayOption -> PaymentModeList"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchPaymentOptions(merchantId, merchantKey, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), orderId)
+        FetchPaymentOptionsResponse fetchPaymentOptionsResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchPaymentOptionsResponse.class)
+        FetchPaymentOptionsResponseBody fetchPaymentOptionsResponseBody = fetchPaymentOptionsResponse.getFetchPaymentOptionsResponseBody()
+        MerchantPayOption merchantPayOption = fetchPaymentOptionsResponseBody.getMerchantPayOption()
+        List<PaymentMode> paymentModes = merchantPayOption.getPaymentModes()
+
+        then:
+        paymentModes.size() > 0
+    }
+
+    def "test FetchPaymentOptionsResponseBody -> MerchantPayOption -> PaymentMode"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchPaymentOptions(merchantId, merchantKey, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), orderId)
+        FetchPaymentOptionsResponse fetchPaymentOptionsResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchPaymentOptionsResponse.class)
+        FetchPaymentOptionsResponseBody fetchPaymentOptionsResponseBody = fetchPaymentOptionsResponse.getFetchPaymentOptionsResponseBody()
+        MerchantPayOption merchantPayOption = fetchPaymentOptionsResponseBody.getMerchantPayOption()
+        List<PaymentMode> paymentModes = merchantPayOption.getPaymentModes()
+        PaymentMode paymentMode = paymentModes.get(0)
+
+        then:
+        "Paytm Balance" == paymentMode.getDisplayName() && null == paymentMode.getFeeAmount() && null == paymentMode.getTaxAmount() && null == paymentMode.getTotalTransactionAmount() && null == paymentMode.getPriority() && false == paymentMode.isOnBoarding() && "BALANCE" == paymentMode.getMode() && false == paymentMode.isHybridDisabled()
+    }
+
+    def "test FetchPaymentOptionsResponseBody -> MerchantPayOption -> IsDisabled"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchPaymentOptions(merchantId, merchantKey, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), orderId)
+        FetchPaymentOptionsResponse fetchPaymentOptionsResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchPaymentOptionsResponse.class)
+        FetchPaymentOptionsResponseBody fetchPaymentOptionsResponseBody = fetchPaymentOptionsResponse.getFetchPaymentOptionsResponseBody()
+        MerchantPayOption merchantPayOption = fetchPaymentOptionsResponseBody.getMerchantPayOption()
+        List<PaymentMode> paymentModes = merchantPayOption.getPaymentModes()
+        PaymentMode paymentMode = paymentModes.get(0)
+        IsDisabled isDisabled = paymentMode.getIsDisabled()
+
+        then:
+        "true" == isDisabled.getStatus() && "Merchant is not accepting payment thru BALANCE" == isDisabled.getMessage() && "false" == isDisabled.getUserAccountExist() && "false" == isDisabled.getMerchantAccept()
+    }
+
+    def "test FetchPaymentOptionsResponseBody -> MerchantPayOption -> PaymentMode -> PayChannelOptionList"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchPaymentOptions(merchantId, merchantKey, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), orderId)
+        FetchPaymentOptionsResponse fetchPaymentOptionsResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchPaymentOptionsResponse.class)
+        FetchPaymentOptionsResponseBody fetchPaymentOptionsResponseBody = fetchPaymentOptionsResponse.getFetchPaymentOptionsResponseBody()
+        MerchantPayOption merchantPayOption = fetchPaymentOptionsResponseBody.getMerchantPayOption()
+        List<PaymentMode> paymentModes = merchantPayOption.getPaymentModes()
+        PaymentMode paymentMode = paymentModes.get(0)
+        List<PayChannelOption> payChannelOptions = paymentMode.getPayChannelOptions()
+
+        then:
+        payChannelOptions.size() > 0
+    }
+
+    def "test FetchPaymentOptionsResponseBody -> MerchantPayOption -> PaymentMode -> PayChannelOption"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchPaymentOptions(merchantId, merchantKey, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), orderId)
+        FetchPaymentOptionsResponse fetchPaymentOptionsResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchPaymentOptionsResponse.class)
+        FetchPaymentOptionsResponseBody fetchPaymentOptionsResponseBody = fetchPaymentOptionsResponse.getFetchPaymentOptionsResponseBody()
+        MerchantPayOption merchantPayOption = fetchPaymentOptionsResponseBody.getMerchantPayOption()
+        List<PaymentMode> paymentModes = merchantPayOption.getPaymentModes()
+        PaymentMode paymentMode = paymentModes.get(0)
+        List<PayChannelOption> payChannelOptions = paymentMode.getPayChannelOptions()
+        PayChannelOption payChannelOption = payChannelOptions.get(0)
+
+        then:
+        null != payChannelOption.getIsDisabled() && null != payChannelOption.getHasLowSuccess() && null == payChannelOption.getIconUrl() && null == payChannelOption.getBalanceInfo() && false == payChannelOption.isHybridDisabled()
+    }
+
+    def "test FetchPaymentOptionsResponseBody -> MerchantPayOption -> PaymentMode -> PayChannelOption -> HasLowSuccess"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchPaymentOptions(merchantId, merchantKey, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), orderId)
+        FetchPaymentOptionsResponse fetchPaymentOptionsResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchPaymentOptionsResponse.class)
+        FetchPaymentOptionsResponseBody fetchPaymentOptionsResponseBody = fetchPaymentOptionsResponse.getFetchPaymentOptionsResponseBody()
+        MerchantPayOption merchantPayOption = fetchPaymentOptionsResponseBody.getMerchantPayOption()
+        List<PaymentMode> paymentModes = merchantPayOption.getPaymentModes()
+        PaymentMode paymentMode = paymentModes.get(0)
+        List<PayChannelOption> payChannelOptions = paymentMode.getPayChannelOptions()
+        PayChannelOption payChannelOption = payChannelOptions.get(0)
+        HasLowSuccess hasLowSuccess = payChannelOption.getHasLowSuccess()
+
+        then:
+        "false" == hasLowSuccess.getStatus() && "" == hasLowSuccess.getMessage()
+    }
+
+    def "test FetchPaymentOptionsResponseBody -> MerchantPayOption -> SavedInstruments"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchPaymentOptions(merchantId, merchantKey, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), orderId)
+        FetchPaymentOptionsResponse fetchPaymentOptionsResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchPaymentOptionsResponse.class)
+        FetchPaymentOptionsResponseBody fetchPaymentOptionsResponseBody = fetchPaymentOptionsResponse.getFetchPaymentOptionsResponseBody()
+        MerchantPayOption merchantPayOption = fetchPaymentOptionsResponseBody.getMerchantPayOption()
+        List<SavedInstrument> savedInstruments = merchantPayOption.getSavedInstruments()
+
+
+        then:
+        0 == savedInstruments.size()
+    }
+
+    def "test FetchPaymentOptionsResponseBody -> MerchantPayOption -> UserProfileSarvatra"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchPaymentOptions(merchantId, merchantKey, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), orderId)
+        FetchPaymentOptionsResponse fetchPaymentOptionsResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchPaymentOptionsResponse.class)
+        FetchPaymentOptionsResponseBody fetchPaymentOptionsResponseBody = fetchPaymentOptionsResponse.getFetchPaymentOptionsResponseBody()
+        MerchantPayOption merchantPayOption = fetchPaymentOptionsResponseBody.getMerchantPayOption()
+        UserProfileSarvatra userProfileSarvatra = merchantPayOption.getUserProfileSarvatra()
+
+        then:
+        null == userProfileSarvatra
+    }
+
+    def "test FetchPaymentOptionsResponseBody -> MerchantPayOption -> ActiveSubscriptionList"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchPaymentOptions(merchantId, merchantKey, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), orderId)
+        FetchPaymentOptionsResponse fetchPaymentOptionsResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchPaymentOptionsResponse.class)
+        FetchPaymentOptionsResponseBody fetchPaymentOptionsResponseBody = fetchPaymentOptionsResponse.getFetchPaymentOptionsResponseBody()
+        MerchantPayOption merchantPayOption = fetchPaymentOptionsResponseBody.getMerchantPayOption()
+        List<ActiveSubscription> activeSubscriptions = merchantPayOption.getActiveSubscriptions()
+
+        then:
+        null == activeSubscriptions
+    }
 }
