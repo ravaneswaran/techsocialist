@@ -10,6 +10,7 @@ import spock.lang.Ignore
 
 class FetchBalanceInfoResponseTest extends AbstractPaytmPaymentGatewayTest{
 
+    @Ignore
     def "test fetch balance info"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -30,6 +31,7 @@ class FetchBalanceInfoResponseTest extends AbstractPaytmPaymentGatewayTest{
         null != jsonResponse
     }
 
+
     @Ignore
     def "test when fetch balance info is erroneous"(){
         setup:
@@ -46,10 +48,10 @@ class FetchBalanceInfoResponseTest extends AbstractPaytmPaymentGatewayTest{
 
         when:
         jsonResponse = paymentGatewayRestPlugin.fetchBalanceInfo(merchantId, merchantKey, orderId, initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken(), "BALANCE")
-        iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchBalanceInfoResponse.class)
+        FetchBalanceInfoResponse fetchBalanceInfoResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchBalanceInfoResponse.class)
 
         then:
-        null != initiateTransactionResponse.getInitiateTransactionResponseHead() && null != initiateTransactionResponse.getInitiateTransactionResponseBody()
+        null != fetchBalanceInfoResponse
     }
 
     @Ignore

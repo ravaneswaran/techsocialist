@@ -20,7 +20,7 @@ public abstract class AbstractPaytmRequest {
 
     private String transactionToken;
 
-    public String dataAsJsonString(){
+    public String dataAsJsonString() throws Exception {
         return data().toString();
     }
 
@@ -42,7 +42,7 @@ public abstract class AbstractPaytmRequest {
 
     public abstract JSONObject dataBody();
 
-    public JSONObject data(){
+    public JSONObject data() throws Exception {
         JSONObject paytmRequestData = new JSONObject();
 
         JSONObject head = dataHead();

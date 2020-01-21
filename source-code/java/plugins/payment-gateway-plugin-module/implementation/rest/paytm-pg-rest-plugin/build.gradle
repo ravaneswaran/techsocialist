@@ -32,6 +32,7 @@ dependencies {
     compile group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.moxy', version: '2.5.2'
     compile group: 'com.paytm.pg', name: 'paytm-pg', version: '0.0.1'
     //compile group: 'com.paytm.pg', name: 'pg-checksum', version: '1.0'
+    compile group: 'joda-time', name: 'joda-time', version: '2.10.5'
 
     implementation files('lib/paytm-checksum-2.0.0.jar')
 
