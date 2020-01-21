@@ -21,10 +21,6 @@ public class InitiateTransactionResponseBody extends AbstractPaytmResponseBody{
         return transactionToken;
     }
 
-    public void setTransactionToken(String transactionToken) {
-        this.transactionToken = transactionToken;
-    }
-
     public boolean isPromoCodeValid() {
         return isPromoCodeValid;
     }

@@ -203,4 +203,24 @@ class InitiateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
         then:
         "2006" == resultInfo.getResultCode() && "F" == resultInfo.getResultStatus() && "Mid is invalid" == resultInfo.getResultMessage()
     }
+
+    def "test getExtraParamMap of InitiateTransactionResponseBody"(){
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+
+        when:
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction("somemerchant", "somekey", customerId, orderId, amount, currency, websiteName, callbackUrl)
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+        InitiateTransactionResponseBody initiateTransactionResponseBody = initiateTransactionResponse.getInitiateTransactionResponseBody();
+
+        then:
+        null == initiateTransactionResponseBody.getExtraParamsMap()
+    }
 }
