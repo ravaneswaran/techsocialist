@@ -74,6 +74,24 @@ class RefundResponseTest extends AbstractPaytmPaymentGatewayTest{
         null != refundResponse.getRefundResponseHead()
     }
 
+    def "test RefundResponse -> RefundResponseHead -> signature"(){
+
+        setup:
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def transactionId = String.format("TRANSACTION-ID-%s", new Date().getTime())
+        def refundId = String.format("REFUND-ID-%s", new Date().getTime())
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+
+        when:
+        String jsonResponse = paymentGatewayRestPlugin.refund(merchantId, merchantKey, orderId, refundId, transactionId, "C11", "1000")
+        RefundResponse refundResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, RefundResponse.class)
+        String signature = refundResponse.getRefundResponseHead().getSignature()
+
+        then:
+        null != signature && signature.length() > 0
+    }
+
     def "test RefundResponse -> RefundResponseBody"(){
 
         setup:

@@ -10,7 +10,7 @@ class RefundStatusRequestTest extends Specification{
 
         when:
         paytmRequest.setMerchantId("mer-001")
-        paytmRequest.setMerchantKey("mer-key")
+        paytmRequest.setMerchantKey("1111111111111111")
         paytmRequest.setOrderId("order-001")
         paytmRequest.setVersion("v1")
         paytmRequest.setChannelId("WEB")

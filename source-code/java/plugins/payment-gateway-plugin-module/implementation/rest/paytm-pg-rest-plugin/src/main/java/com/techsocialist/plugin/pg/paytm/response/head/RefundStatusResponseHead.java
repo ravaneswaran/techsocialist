@@ -2,7 +2,7 @@ package com.techsocialist.plugin.pg.paytm.response.head;
 
 import com.google.gson.annotations.SerializedName;
 
-public class RefundResponseHead extends AbstractPaytmResponseHead{
+public class RefundStatusResponseHead extends AbstractPaytmResponseHead {
 
     @SerializedName("signature")
     private String signature;
@@ -10,5 +10,4 @@ public class RefundResponseHead extends AbstractPaytmResponseHead{
     public String getSignature() {
         return signature;
     }
-
 }

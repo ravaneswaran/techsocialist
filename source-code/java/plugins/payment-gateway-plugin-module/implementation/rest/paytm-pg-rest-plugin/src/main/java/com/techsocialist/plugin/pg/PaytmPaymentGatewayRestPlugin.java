@@ -5,6 +5,7 @@ import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchPaymentOptionsRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundRequest;
+import com.techsocialist.plugin.pg.paytm.request.RefundStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.TransactionStatusRequest;
 
 public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRestPlugin {
@@ -110,7 +111,27 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("refund[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("refund[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String refundStatus(String merchantId, String merchantKey, String orderId, String refundId, String clientId) throws Exception {
+
+        RefundStatusRequest paytmRequest = new RefundStatusRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setOrderId(orderId);
+        paytmRequest.setRefundId(refundId);
+        paytmRequest.setClientId(clientId);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("refundStatus[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
