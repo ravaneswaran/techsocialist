@@ -16,4 +16,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
 
     public String transactionStatus(String merchantId, String merchantKey, String orderId) throws Exception;
 
+    public String refund(String merchantId, String merchantKey, String orderId, String refundId, String transactionId, String clientId,  String refundAmount) throws Exception;
+
 }

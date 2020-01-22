@@ -1,5 +1,6 @@
 package com.techsocialist.plugin.pg.paytm.request;
 
+import com.paytm.pg.merchant.CheckSumServiceHelper;
 import org.json.JSONObject;
 
 public class RefundRequest extends AbstractPaytmRequest{
@@ -28,13 +29,12 @@ public class RefundRequest extends AbstractPaytmRequest{
     }
 
     @Override
-    public JSONObject dataHead() {
+    public JSONObject dataHead() throws Exception {
 
         JSONObject head = new JSONObject();
 
-        /*String checksum = CheckSumServiceHelper.getCheckSumServiceHelper()
-                    .genrateCheckSum(ApplicationProperties.getMerchantKey(), body.toString());*/
-        String checksum = this.getMerchantKey();
+        String checksum = CheckSumServiceHelper.getCheckSumServiceHelper()
+                    .genrateCheckSum(this.getMerchantKey(), dataBody().toString());
 
         head.put("clientId", this.getClientId());
         head.put("signature", checksum);

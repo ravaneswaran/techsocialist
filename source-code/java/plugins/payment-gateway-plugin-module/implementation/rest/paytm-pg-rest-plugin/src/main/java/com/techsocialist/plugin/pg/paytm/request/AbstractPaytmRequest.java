@@ -38,7 +38,7 @@ public abstract class AbstractPaytmRequest {
 
     public abstract String url(boolean production);
 
-    public abstract JSONObject dataHead();
+    public abstract JSONObject dataHead() throws Exception;
 
     public abstract JSONObject dataBody();
 
