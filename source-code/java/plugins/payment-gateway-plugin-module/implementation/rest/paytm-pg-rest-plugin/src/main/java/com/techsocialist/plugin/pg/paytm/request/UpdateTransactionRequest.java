@@ -1,8 +1,9 @@
 package com.techsocialist.plugin.pg.paytm.request;
 
+import com.paytm.pg.merchant.CheckSumServiceHelper;
 import org.json.JSONObject;
 
-public class UpdateTransactionDetailRequest extends AbstractPaytmRequest{
+public class UpdateTransactionRequest extends AbstractPaytmRequest{
 
     private String amount;
 
@@ -16,14 +17,13 @@ public class UpdateTransactionDetailRequest extends AbstractPaytmRequest{
     }
 
     @Override
-    public JSONObject dataHead() {
+    public JSONObject dataHead() throws Exception {
         JSONObject head = new JSONObject();
 
         head.put("txnToken", this.getTransactionToken());
 
-        /*String checksum =  CheckSumServiceHelper.getCheckSumServiceHelper()
-                .genrateCheckSum(ApplicationProperties.getMerchantKey(), body.toString());*/
-        String checksum = this.getMerchantKey();
+        String checksum =  CheckSumServiceHelper.getCheckSumServiceHelper()
+                .genrateCheckSum(this.getMerchantKey(), dataBody().toString());
         head.put("signature", checksum);
 
         return head;
@@ -46,17 +46,17 @@ public class UpdateTransactionDetailRequest extends AbstractPaytmRequest{
         return body;
     }
 
-    public UpdateTransactionDetailRequest setAmount(String amount) {
+    public UpdateTransactionRequest setAmount(String amount) {
         this.amount = amount;
         return this;
     }
 
-    public UpdateTransactionDetailRequest setCurrency(String currency) {
+    public UpdateTransactionRequest setCurrency(String currency) {
         this.currency = currency;
         return this;
     }
 
-    public UpdateTransactionDetailRequest setCustomerId(String customerId) {
+    public UpdateTransactionRequest setCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
     }

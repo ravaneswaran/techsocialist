@@ -7,6 +7,7 @@ import com.techsocialist.plugin.pg.paytm.request.InitiateTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.TransactionStatusRequest;
+import com.techsocialist.plugin.pg.paytm.request.UpdateTransactionRequest;
 
 public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRestPlugin {
 
@@ -131,7 +132,27 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("refundStatus[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("refundStatus[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String updateTransaction(String merchantId, String merchantKey, String orderId, String customerId, String transactionToken, String transactionAmount, String currency) throws Exception {
+
+        UpdateTransactionRequest paytmRequest = new UpdateTransactionRequest();
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setTransactionToken(transactionToken);
+        paytmRequest.setOrderId(orderId);
+
+        paytmRequest.setAmount(transactionAmount).setCurrency(currency).setCustomerId(customerId);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("updateTransaction[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 

@@ -1,7 +1,5 @@
 package com.techsocialist.plugin.pg.api;
 
-import java.io.IOException;
-
 public interface IPaytmPaymentGatewayRestPlugin {
 
     public String processPaytmRequest(String requestUrl, String requestHttpMethod, String requestContentType, String requestData) throws Exception;
@@ -20,4 +18,5 @@ public interface IPaytmPaymentGatewayRestPlugin {
 
     public String refundStatus(String merchantId, String merchantKey, String orderId, String refundId, String clientId) throws Exception;
 
+    public String updateTransaction(String merchantId, String merchantKey, String orderId, String customerId, String transactionToken, String transactionAmount, String currency) throws Exception;
 }
