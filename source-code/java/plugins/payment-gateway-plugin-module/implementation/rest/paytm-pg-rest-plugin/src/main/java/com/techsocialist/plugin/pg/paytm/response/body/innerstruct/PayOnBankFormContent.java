@@ -31,6 +31,28 @@ public class PayOnBankFormContent extends FormContent{
     @SerializedName("txnid")
     private String transactionId;
 
+    public PayOnBankFormContent(){}
+
+    public PayOnBankFormContent(String bankCode,
+                                    String mbid,
+                                    String orderId,
+                                    String transactionAmount,
+                                    String paymentMode,
+                                    String response,
+                                    String bankAbbreviation,
+                                    String channelId,
+                                    String transactionId){
+        this.bankCode = bankCode;
+        this.mbid = mbid;
+        this.orderId = orderId;
+        this.transactionAmount = transactionAmount;
+        this.paymentMode = paymentMode;
+        this.response = response;
+        this.bankAbbreviation = bankAbbreviation;
+        this.channelId = channelId;
+        this.transactionId = transactionId;
+    }
+
     public String getBankCode() {
         return bankCode;
     }

@@ -19,6 +19,16 @@ public class DisplayField {
     @SerializedName("descriptionText")
     private String descriptionText;
 
+    public DisplayField(){}
+
+    public DisplayField(String amount, String headerText, String bankName, String bankLogo, String descriptionText){
+        this.amount = amount;
+        this.headerText = headerText;
+        this.bankName = bankName;
+        this.bankLogo = bankLogo;
+        this.descriptionText = descriptionText;
+    }
+
     public String getAmount() {
         return amount;
     }

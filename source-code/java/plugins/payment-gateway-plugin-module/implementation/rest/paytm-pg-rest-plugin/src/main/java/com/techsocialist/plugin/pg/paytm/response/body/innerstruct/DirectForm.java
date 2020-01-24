@@ -19,6 +19,16 @@ public class DirectForm {
     @SerializedName("content")
     private FormContent content;
 
+    public DirectForm(){}
+
+    public DirectForm(String actionUrl, String method, String type, Header header, FormContent content){
+        this.actionUrl = actionUrl;
+        this.method = method;
+        this.type = type;
+        this.header = header;
+        this.content = content;
+    }
+
     public String getActionUrl() {
         return actionUrl;
     }

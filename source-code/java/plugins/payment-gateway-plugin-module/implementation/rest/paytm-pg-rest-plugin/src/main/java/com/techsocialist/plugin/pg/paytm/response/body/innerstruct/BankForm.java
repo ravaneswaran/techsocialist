@@ -21,6 +21,16 @@ public class BankForm {
     @SerializedName("displayField")
     private DisplayField displayField;
 
+    public BankForm(){}
+
+    public BankForm(String pageType, boolean isForceResendOtp, RedirectForm redirectForm, List<DirectForm> directForms, DisplayField displayField){
+        this.pageType = pageType;
+        this.isForceResendOtp = isForceResendOtp;
+        this.redirectForm = redirectForm;
+        this.directForms = directForms;
+        this.displayField = displayField;
+    }
+
     public String getPageType() {
         return pageType;
     }

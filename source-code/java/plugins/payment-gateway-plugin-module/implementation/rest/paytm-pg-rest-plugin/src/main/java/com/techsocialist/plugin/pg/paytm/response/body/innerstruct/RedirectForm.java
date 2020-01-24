@@ -16,6 +16,15 @@ public class RedirectForm {
     @SerializedName("content")
     private FormContent content;
 
+    public RedirectForm(){}
+
+    public RedirectForm(String actionUrl, String method, Header header, FormContent content){
+        this.actionUrl = actionUrl;
+        this.method = method;
+        this.header = header;
+        this.content = content;
+    }
+
     public String getActionUrl() {
         return actionUrl;
     }
