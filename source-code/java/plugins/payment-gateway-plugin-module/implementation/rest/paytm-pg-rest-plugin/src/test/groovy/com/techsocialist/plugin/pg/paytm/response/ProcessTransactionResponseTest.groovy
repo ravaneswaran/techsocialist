@@ -4,6 +4,7 @@ import com.techsocialist.plugin.pg.AbstractPaytmPaymentGatewayTest
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.paytm.response.body.ProcessTransactionResponseBody
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.BankForm
 import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.TransactionInfo
 import com.techsocialist.plugin.pg.paytm.response.head.ProcessTransactionResponseHead
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
@@ -209,6 +210,36 @@ class ProcessTransactionResponseTest extends AbstractPaytmPaymentGatewayTest {
 
         then:
         null != processTransactionResponseBody.getCallBackUrl() && processTransactionResponseBody.getCallBackUrl().length() > 0
+    }
+
+    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> bankForm"(){
+
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+
+        def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
+        def paymentMode = "NET_BANKING"
+        def authMode = ""
+        def cardInfo = ""
+        def requestType = "NATIVE"
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.processTransaction(merchantId, merchantKey, orderId, transactionToken, paymentMode, authMode, cardInfo, requestType)
+        ProcessTransactionResponse processTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, ProcessTransactionResponse.class)
+        ProcessTransactionResponseBody processTransactionResponseBody = processTransactionResponse.getProcessTransactionResponseBody()
+        BankForm bankForm = processTransactionResponseBody.getBankForm()
+
+        then:
+        null == bankForm
     }
 
     def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> txnInfo"(){
