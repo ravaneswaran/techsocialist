@@ -21,4 +21,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String updateTransaction(String merchantId, String merchantKey, String orderId, String customerId, String transactionToken, String transactionAmount, String currency) throws Exception;
 
     public String processTransaction(String merchantId, String merchantKey, String orderId, String transactionToken, String paymentMode, String authMode, String cardInfo, String requestType) throws Exception;
+
+    public String paymentStatus(String merchantId, String merchantKey, String orderId) throws Exception;
 }

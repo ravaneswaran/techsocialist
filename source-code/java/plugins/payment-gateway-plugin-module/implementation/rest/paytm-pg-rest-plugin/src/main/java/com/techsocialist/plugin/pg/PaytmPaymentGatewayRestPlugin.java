@@ -4,6 +4,7 @@ import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchPaymentOptionsRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateTransactionRequest;
+import com.techsocialist.plugin.pg.paytm.request.PaymentStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.ProcessTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundStatusRequest;
@@ -174,6 +175,22 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         //System.out.println("processTransaction[jsonResponse] ----->>>>> "+jsonResponse);
         //System.out.println("<-------------------------------------------------------->");
         //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String paymentStatus(String merchantId, String merchantKey, String orderId) throws Exception {
+        PaymentStatusRequest paytmRequest = new PaymentStatusRequest();
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setOrderId(orderId);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("paymentStatus[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
 
         return jsonResponse;
     }
