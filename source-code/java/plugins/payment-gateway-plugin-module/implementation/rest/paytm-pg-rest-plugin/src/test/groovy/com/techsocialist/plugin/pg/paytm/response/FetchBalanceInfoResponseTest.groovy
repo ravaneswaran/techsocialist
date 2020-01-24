@@ -1,6 +1,6 @@
 package com.techsocialist.plugin.pg.paytm.response
 
-import com.techsocialist.plugin.pg.AbstractPaytmPaymentGatewayTest
+
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.paytm.response.body.FetchBalanceInfoResponseBody
@@ -8,7 +8,7 @@ import com.techsocialist.plugin.pg.paytm.response.head.FetchBalanceInfoResponseH
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
 import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
 
-class FetchBalanceInfoResponseTest extends AbstractPaytmPaymentGatewayTest{
+class FetchBalanceInfoResponseTest extends AbstractPaytmResponseTest{
 
     def "test FetchBalanceInfoResponse as json string"(){
         setup:

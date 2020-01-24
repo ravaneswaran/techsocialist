@@ -1,6 +1,6 @@
 package com.techsocialist.plugin.pg.paytm.response
 
-import com.techsocialist.plugin.pg.AbstractPaytmPaymentGatewayTest
+
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.paytm.response.body.ProcessTransactionResponseBody
@@ -10,7 +10,7 @@ import com.techsocialist.plugin.pg.paytm.response.head.ProcessTransactionRespons
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
 import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
 
-class ProcessTransactionResponseTest extends AbstractPaytmPaymentGatewayTest {
+class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
 
     def "test ProcessTransactionResponse as json string"(){
         setup:

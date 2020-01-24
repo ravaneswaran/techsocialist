@@ -1,6 +1,6 @@
 package com.techsocialist.plugin.pg.paytm.response
 
-import com.techsocialist.plugin.pg.AbstractPaytmPaymentGatewayTest
+
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.paytm.response.body.UpdateTransactionResponseBody
@@ -8,7 +8,7 @@ import com.techsocialist.plugin.pg.paytm.response.head.UpdateTransactionResponse
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
 import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
 
-class UpdateTransactionResponseTest extends AbstractPaytmPaymentGatewayTest{
+class UpdateTransactionResponseTest extends AbstractPaytmResponseTest{
 
     def "test UpdateTransactionResponse as json string"(){
         setup:

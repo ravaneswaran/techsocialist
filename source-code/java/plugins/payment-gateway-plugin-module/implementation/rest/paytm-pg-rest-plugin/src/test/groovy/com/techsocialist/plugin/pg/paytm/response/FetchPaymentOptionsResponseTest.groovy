@@ -1,27 +1,15 @@
 package com.techsocialist.plugin.pg.paytm.response
 
-import com.techsocialist.plugin.pg.AbstractPaytmPaymentGatewayTest
+
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.paytm.response.body.FetchPaymentOptionsResponseBody
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.ActiveSubscription
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.AddMoneyPayOption
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.HasLowSuccess
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.IsDisabled
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantDetails
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantLimitInfo
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantPayOption
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.MerchantRemainingLimit
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.PayChannelOption
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.PaymentMode
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.ResultInfo
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.SavedInstrument
-import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.UserProfileSarvatra
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.*
 import com.techsocialist.plugin.pg.paytm.response.head.FetchPaymentOptionsResponseHead
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
 import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
 
-class FetchPaymentOptionsResponseTest extends AbstractPaytmPaymentGatewayTest{
+class FetchPaymentOptionsResponseTest extends AbstractPaytmResponseTest{
 
     def "test fetch payment options"(){
         setup:

@@ -3,7 +3,7 @@ package com.techsocialist.plugin.pg
 import org.joda.time.DateTime
 import spock.lang.Specification
 
-class AbstractPaytmPaymentGatewayTest extends Specification{
+class AbstractPaytmPaymentGatewayTest extends Specification {
 
     def fakeMerchantId = "utsdifs6789"
 
