@@ -1,5 +1,6 @@
 package com.techsocialist.plugin.pg.paytm.request;
 
+import com.paytm.pg.merchant.CheckSumServiceHelper;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
@@ -19,19 +20,19 @@ public class InitiateSubscriptionRequest extends AbstractPaytmRequest{
 
     private String subscriptionAmountType;
 
-    private int subscriptionFrequency;
+    private String subscriptionFrequency;
 
     private String subscriptionFrequencyUnit;
 
-    private long subscriptionStartDate;
+    private String subscriptionStartDate;
 
-    private long subscriptionExpiryDate;
+    private String subscriptionExpiryDate;
 
-    private int subscriptionGraceDays;
+    private String subscriptionGraceDays;
 
-    private int subscriptionEnableRetry;
+    private String subscriptionEnableRetry;
 
-    private int subscriptionRetryCount;
+    private String subscriptionRetryCount;
 
     private String subscriptionCallbackURL;
 
@@ -51,15 +52,14 @@ public class InitiateSubscriptionRequest extends AbstractPaytmRequest{
     }
 
     @Override
-    public JSONObject dataHead() {
+    public JSONObject dataHead() throws Exception {
         JSONObject head = new JSONObject();
         head.put("clientId", this.getClientId());
         head.put("version", this.getVersion());
         head.put("requestTimestamp", System.currentTimeMillis());
         head.put("channelId", this.getChannelId());
-        /*String checksum = CheckSumServiceHelper.getCheckSumServiceHelper()
-                    .genrateCheckSum(this.getMerchantKey(), dataBody().toString());*/
-        String checksum = this.getMerchantKey();
+        String checksum = CheckSumServiceHelper.getCheckSumServiceHelper()
+                    .genrateCheckSum(this.getMerchantKey(), dataBody().toString());
         head.put("signature", checksum);
 
         return head;
@@ -68,7 +68,7 @@ public class InitiateSubscriptionRequest extends AbstractPaytmRequest{
     @Override
     public JSONObject dataBody() {
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         JSONObject transactionAmount = new JSONObject();
         transactionAmount.put("value", this.transactionAmount);
@@ -87,13 +87,13 @@ public class InitiateSubscriptionRequest extends AbstractPaytmRequest{
         body.put("subscriptionMaxAmount", this.subscriptionMaxAmount);
         body.put("subscriptionFrequency", this.subscriptionFrequency);
         body.put("subscriptionFrequencyUnit", this.subscriptionFrequencyUnit);
-        body.put("subscriptionStartDate", simpleDateFormat.format(new Date(this.subscriptionStartDate)));
-        body.put("subscriptionExpiryDate", simpleDateFormat.format(new Date(this.subscriptionExpiryDate)));
-        body.put("subscriptionGraceDays", String.valueOf(this.subscriptionGraceDays));
-        body.put("subscriptionEnableRetry", String.valueOf(this.subscriptionEnableRetry));
-        body.put("subscriptionRetryCount", String.valueOf(this.subscriptionRetryCount));
+        body.put("subscriptionStartDate", this.subscriptionStartDate);
+        body.put("subscriptionExpiryDate", this.subscriptionExpiryDate);
+        body.put("subscriptionGraceDays", this.subscriptionGraceDays);
+        body.put("subscriptionEnableRetry", this.subscriptionEnableRetry);
+        body.put("subscriptionRetryCount", this.subscriptionRetryCount);
         body.put("paytmSsoToken", "");
-        body.put("callbackUrl", String.format(subscriptionCallbackURL, this.getOrderId()));
+        body.put("callbackUrl", this.subscriptionCallbackURL);
         body.put("userInfo", userInfo);
         body.put("txnAmount", transactionAmount);
 
@@ -130,7 +130,7 @@ public class InitiateSubscriptionRequest extends AbstractPaytmRequest{
         return this;
     }
 
-    public InitiateSubscriptionRequest setSubscriptionFrequency(int subscriptionFrequency) {
+    public InitiateSubscriptionRequest setSubscriptionFrequency(String subscriptionFrequency) {
         this.subscriptionFrequency = subscriptionFrequency;
         return this;
     }
@@ -140,27 +140,27 @@ public class InitiateSubscriptionRequest extends AbstractPaytmRequest{
         return this;
     }
 
-    public InitiateSubscriptionRequest setSubscriptionStartDate(long subscriptionStartDate) {
+    public InitiateSubscriptionRequest setSubscriptionStartDate(String subscriptionStartDate) {
         this.subscriptionStartDate = subscriptionStartDate;
         return this;
     }
 
-    public InitiateSubscriptionRequest setSubscriptionExpiryDate(long subscriptionExpiryDate) {
+    public InitiateSubscriptionRequest setSubscriptionExpiryDate(String subscriptionExpiryDate) {
         this.subscriptionExpiryDate = subscriptionExpiryDate;
         return this;
     }
 
-    public InitiateSubscriptionRequest setSubscriptionGraceDays(int subscriptionGraceDays) {
+    public InitiateSubscriptionRequest setSubscriptionGraceDays(String subscriptionGraceDays) {
         this.subscriptionGraceDays = subscriptionGraceDays;
         return this;
     }
 
-    public InitiateSubscriptionRequest setSubscriptionEnableRetry(int subscriptionEnableRetry) {
+    public InitiateSubscriptionRequest setSubscriptionEnableRetry(String subscriptionEnableRetry) {
         this.subscriptionEnableRetry = subscriptionEnableRetry;
         return this;
     }
 
-    public InitiateSubscriptionRequest setSubscriptionRetryCount(int subscriptionRetryCount) {
+    public InitiateSubscriptionRequest setSubscriptionRetryCount(String subscriptionRetryCount) {
         this.subscriptionRetryCount = subscriptionRetryCount;
         return this;
     }

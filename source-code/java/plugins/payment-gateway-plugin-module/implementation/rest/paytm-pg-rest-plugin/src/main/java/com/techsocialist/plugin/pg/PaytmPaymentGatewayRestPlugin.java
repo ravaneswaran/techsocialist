@@ -3,6 +3,7 @@ package com.techsocialist.plugin.pg;
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchPaymentOptionsRequest;
+import com.techsocialist.plugin.pg.paytm.request.InitiateSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.PaymentStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.ProcessTransactionRequest;
@@ -188,7 +189,33 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("paymentStatus[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("paymentStatus[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String initiateSubscription(String merchantId, String merchantKey, String customerId, String orderId, String currency, String transactionAmount, String subscriptionMaxAmount, String subscriptionPaymentMode, String subscriptionAmountType, String subscriptionFrequency, String subscriptionFrequencyUnit, String subscriptionStartDate, String subscriptionExpiryDate, String subscriptionGraceDays, String subscriptionEnableRetry, String subscriptionRetryCount, String subscriptionCallbackURL) throws Exception {
+
+        InitiateSubscriptionRequest paytmRequest = new InitiateSubscriptionRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setOrderId(orderId);
+
+        paytmRequest.setCurrency(currency).setTransactionAmount(transactionAmount).setSubscriptionMaxAmount(subscriptionMaxAmount);
+        paytmRequest.setSubscriptionPaymentMode(subscriptionPaymentMode).setSubscriptionAmountType(subscriptionAmountType);
+        paytmRequest.setSubscriptionFrequency(subscriptionFrequency).setSubscriptionFrequencyUnit(subscriptionFrequencyUnit);
+        paytmRequest.setSubscriptionStartDate(subscriptionStartDate).setSubscriptionExpiryDate(subscriptionExpiryDate);
+        paytmRequest.setSubscriptionGraceDays(subscriptionGraceDays).setSubscriptionEnableRetry(subscriptionEnableRetry);
+        paytmRequest.setSubscriptionRetryCount(subscriptionRetryCount).setSubscriptionCallbackURL(subscriptionCallbackURL);
+        paytmRequest.setCustomerId(customerId);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("initiateSubscription[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 

@@ -10,6 +10,7 @@ class InitiateSubscriptionTest extends Specification{
 
         when:
         paytmRequest.setMerchantId("mer-001")
+        paytmRequest.setMerchantKey("1111111111111111")
         paytmRequest.setOrderId("order-001")
         paytmRequest.setClientId("client-001")
         paytmRequest.setVersion("v1")
@@ -25,12 +26,12 @@ class InitiateSubscriptionTest extends Specification{
 
         when:
         paytmRequest.setCurrency("INR").setCustomerId("customer-001").setSubscriptionAmountType("amount-type")
-        paytmRequest.setSubscriptionCallbackURL("https://localhost:8080").setSubscriptionEnableRetry(10)
-        paytmRequest.setSubscriptionExpiryDate(new Date().getTime())
-        paytmRequest.setSubscriptionFrequency(1).setSubscriptionFrequencyUnit("freq-unit")
-        paytmRequest.setSubscriptionGraceDays(10).setSubscriptionMaxAmount("1000.00").setSubscriptionPaymentMode("payment-mode")
-        paytmRequest.setTransactionAmount("1000.00").setSubscriptionStartDate(new Date().getTime())
-        paytmRequest.setSubscriptionRetryCount(10)
+        paytmRequest.setSubscriptionCallbackURL("https://localhost:8080").setSubscriptionEnableRetry("10")
+        paytmRequest.setSubscriptionExpiryDate("2020-12-31")
+        paytmRequest.setSubscriptionFrequency("2").setSubscriptionFrequencyUnit("freq-unit")
+        paytmRequest.setSubscriptionGraceDays("10").setSubscriptionMaxAmount("1000.00").setSubscriptionPaymentMode("payment-mode")
+        paytmRequest.setTransactionAmount("1000.00").setSubscriptionStartDate("2020-01-01")
+        paytmRequest.setSubscriptionRetryCount("10")
         paytmRequest.setTransactionToken("txn-001")
 
         then:

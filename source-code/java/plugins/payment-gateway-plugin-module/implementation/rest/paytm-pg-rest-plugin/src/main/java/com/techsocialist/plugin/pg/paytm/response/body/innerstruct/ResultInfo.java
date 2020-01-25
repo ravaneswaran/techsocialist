@@ -21,9 +21,7 @@ public class ResultInfo extends AbstractPaytmResponse {
         this.resultCode = resultCode;
         this.resultMessage = resultMessage;
         this.resultStatus = resultStatus;
-
     }
-
 
     public String getResultStatus() {
         return resultStatus;
@@ -39,6 +37,7 @@ public class ResultInfo extends AbstractPaytmResponse {
 
     @Override
     public boolean ok(){
-        return "S".equals(this.getResultStatus()) && 0 == Integer.parseInt(this.getResultCode()) && "Success".equals(this.getResultMessage());
+        return 0 == Integer.parseInt(this.getResultCode());
+        //return "S".equals(this.getResultStatus()) && 0 == Integer.parseInt(this.getResultCode()) && "Success".equals(this.getResultMessage());
     }
 }
