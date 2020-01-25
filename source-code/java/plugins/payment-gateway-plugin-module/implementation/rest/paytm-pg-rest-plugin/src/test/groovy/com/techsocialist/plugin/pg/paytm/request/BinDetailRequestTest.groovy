@@ -6,7 +6,7 @@ class BinDetailRequestTest extends Specification {
 
     def "test data head"() {
         setup:
-        BinDetailRequest paytmRequest = new BinDetailRequest()
+        FetchBinDetailsRequest paytmRequest = new FetchBinDetailsRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -21,7 +21,7 @@ class BinDetailRequestTest extends Specification {
 
     def "test data body"() {
         setup:
-        BinDetailRequest paytmRequest = new BinDetailRequest()
+        FetchBinDetailsRequest paytmRequest = new FetchBinDetailsRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -38,7 +38,7 @@ class BinDetailRequestTest extends Specification {
 
     def "test staging url construction"() {
         setup:
-        BinDetailRequest paytmRequest = new BinDetailRequest()
+        FetchBinDetailsRequest paytmRequest = new FetchBinDetailsRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -54,7 +54,7 @@ class BinDetailRequestTest extends Specification {
 
     def "test production url construction"() {
         setup:
-        BinDetailRequest paytmRequest = new BinDetailRequest()
+        FetchBinDetailsRequest paytmRequest = new FetchBinDetailsRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")

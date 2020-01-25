@@ -2,7 +2,7 @@ package com.techsocialist.plugin.pg.paytm.request;
 
 import org.json.JSONObject;
 
-public class BinDetailRequest extends AbstractPaytmRequest {
+public class FetchBinDetailsRequest extends AbstractPaytmRequest {
 
     private String bin;
 
@@ -40,7 +40,7 @@ public class BinDetailRequest extends AbstractPaytmRequest {
         return body;
     }
 
-    public BinDetailRequest setBin(String bin) {
+    public FetchBinDetailsRequest setBin(String bin) {
         this.bin = bin;
         return this;
     }
