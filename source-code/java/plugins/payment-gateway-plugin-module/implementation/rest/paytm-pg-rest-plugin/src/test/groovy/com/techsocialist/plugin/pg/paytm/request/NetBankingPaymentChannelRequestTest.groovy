@@ -6,7 +6,7 @@ class NetBankingPaymentChannelRequestTest extends Specification{
 
     def "test data head"() {
         setup:
-        NetBankingPaymentChannelRequest paytmRequest = new NetBankingPaymentChannelRequest()
+        FetchNBPaymentChannelRequest paytmRequest = new FetchNBPaymentChannelRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -22,7 +22,7 @@ class NetBankingPaymentChannelRequestTest extends Specification{
 
     def "test data body"() {
         setup:
-        NetBankingPaymentChannelRequest paytmRequest = new NetBankingPaymentChannelRequest()
+        FetchNBPaymentChannelRequest paytmRequest = new FetchNBPaymentChannelRequest()
 
         when:
         paytmRequest.setType("test")
@@ -34,7 +34,7 @@ class NetBankingPaymentChannelRequestTest extends Specification{
 
     def "test staging url construction"() {
         setup:
-        NetBankingPaymentChannelRequest paytmRequest = new NetBankingPaymentChannelRequest()
+        FetchNBPaymentChannelRequest paytmRequest = new FetchNBPaymentChannelRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")
@@ -51,7 +51,7 @@ class NetBankingPaymentChannelRequestTest extends Specification{
 
     def "test production url construction"() {
         setup:
-        NetBankingPaymentChannelRequest paytmRequest = new NetBankingPaymentChannelRequest()
+        FetchNBPaymentChannelRequest paytmRequest = new FetchNBPaymentChannelRequest()
 
         when:
         paytmRequest.setMerchantId("mer-001")

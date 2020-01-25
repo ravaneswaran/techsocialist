@@ -2,7 +2,7 @@ package com.techsocialist.plugin.pg.paytm.request;
 
 import org.json.JSONObject;
 
-public class NetBankingPaymentChannelRequest extends AbstractPaytmRequest {
+public class FetchNBPaymentChannelRequest extends AbstractPaytmRequest {
 
     private String type;
 
@@ -32,7 +32,7 @@ public class NetBankingPaymentChannelRequest extends AbstractPaytmRequest {
         return body;
     }
 
-    public NetBankingPaymentChannelRequest setType(String type) {
+    public FetchNBPaymentChannelRequest setType(String type) {
         this.type = type;
         return this;
     }

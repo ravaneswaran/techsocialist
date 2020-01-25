@@ -14,9 +14,6 @@ public class InitiateTransactionResponseBody extends AbstractPaytmResponseBody{
     @SerializedName("authenticated")
     private boolean authenticated;
 
-    @SerializedName("extraParamsMap")
-    private String extraParamsMap;
-
     public String getTransactionToken() {
         return transactionToken;
     }
@@ -28,8 +25,5 @@ public class InitiateTransactionResponseBody extends AbstractPaytmResponseBody{
     public boolean isAuthenticated() {
         return authenticated;
     }
-
-    public String getExtraParamsMap() {
-        return extraParamsMap;
-    }
+    
 }
