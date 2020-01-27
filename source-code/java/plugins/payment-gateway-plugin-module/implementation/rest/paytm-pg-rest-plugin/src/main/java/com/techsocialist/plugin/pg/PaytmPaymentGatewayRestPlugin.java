@@ -12,6 +12,7 @@ import com.techsocialist.plugin.pg.paytm.request.PaymentStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.ProcessTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundStatusRequest;
+import com.techsocialist.plugin.pg.paytm.request.SendOTPRequest;
 import com.techsocialist.plugin.pg.paytm.request.TransactionStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.UpdateTransactionRequest;
 
@@ -281,10 +282,34 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("fetchEMIDetail[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("fetchEMIDetail[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String sendOTP(String merchantId, String merchantKey, String version, String channelId, String requestTimestamp, String transactionToken, String mobileNumber) throws Exception {
+
+        SendOTPRequest paytmRequest = new SendOTPRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setVersion(version);
+        paytmRequest.setChannelId(channelId);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setTransactionToken(transactionToken);
+
+        paytmRequest.setMobileNumber(mobileNumber);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("sendOTP[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
         return jsonResponse;
+
     }
 }
