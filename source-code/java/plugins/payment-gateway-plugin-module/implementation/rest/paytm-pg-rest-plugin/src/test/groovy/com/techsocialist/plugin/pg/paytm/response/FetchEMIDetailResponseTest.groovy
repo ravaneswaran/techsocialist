@@ -330,4 +330,31 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         "System error" == fetchEMIDetailResponse.getFetchEMIDetailResponseBody().getResultInfo().getResultMessage()
     }
 
+    def "test FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> emiDetail"(){
+
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        String[] channelCodes = "12345 67890".split()
+        def version = "v1"
+        def channelId = "CHANNEL_ID"
+        def requestTimestamp = String.valueOf(new Date().getTime())
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+        String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.fetchEMIDetail(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, channelCodes, String.valueOf(amount))
+        FetchEMIDetailResponse fetchEMIDetailResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, FetchEMIDetailResponse.class)
+
+        then:
+        null == fetchEMIDetailResponse.getFetchEMIDetailResponseBody().getEmiDetail()
+    }
+
 }
