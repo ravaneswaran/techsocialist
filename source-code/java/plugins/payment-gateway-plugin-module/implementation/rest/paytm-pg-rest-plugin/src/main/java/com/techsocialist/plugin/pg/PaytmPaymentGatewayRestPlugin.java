@@ -3,6 +3,7 @@ package com.techsocialist.plugin.pg;
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBinDetailsRequest;
+import com.techsocialist.plugin.pg.paytm.request.FetchEMIDetailRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchNBPaymentChannelRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchPaymentOptionsRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateSubscriptionRequest;
@@ -257,7 +258,30 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("fetchNBPaymentChannel[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("fetchNBPaymentChannel[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String fetchEMIDetail(String merchantId, String merchantKey, String version, String channelId, String requestTimestamp, String transactionToken, String[] channelCodes, String amount) throws Exception {
+
+        FetchEMIDetailRequest paytmRequest = new FetchEMIDetailRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setVersion(version);
+        paytmRequest.setChannelId(channelId);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setTransactionToken(transactionToken);
+
+        paytmRequest.setChannelCodes(channelCodes).setAmount(amount);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("fetchEMIDetail[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 

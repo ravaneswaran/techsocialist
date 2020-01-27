@@ -20,6 +20,8 @@ public abstract class AbstractPaytmRequest {
 
     private String transactionToken;
 
+    private String requestTimestamp;
+
     public String dataAsJsonString() throws Exception {
         return data().toString();
     }
@@ -57,6 +59,10 @@ public abstract class AbstractPaytmRequest {
         }
 
         return paytmRequestData;
+    }
+
+    public void setRequestTimestamp(String requestTimestamp) {
+        this.requestTimestamp = requestTimestamp;
     }
 
     public String getMerchantId() {
@@ -118,7 +124,6 @@ public abstract class AbstractPaytmRequest {
     public void setMerchantKey(String merchantKey) {
         this.merchantKey = merchantKey;
     }
-
 
     public String generateChecksum(JSONObject jsonObject) {
         String checksum = null;

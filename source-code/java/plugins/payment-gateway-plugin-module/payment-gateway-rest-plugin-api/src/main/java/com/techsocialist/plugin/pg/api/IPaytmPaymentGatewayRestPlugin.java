@@ -29,4 +29,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String fetchBinDetails(String merchantId, String merchantKey, String orderId, String transactionToken, String bin) throws Exception;
 
     public String fetchNBPaymentChannel(String merchantId, String merchantKey, String version, String channelId, String requestTimestamp, String orderId, String transactionToken, String type) throws Exception;
+
+    public String fetchEMIDetail(String merchantId, String merchantKey, String version, String channelId, String requestTimestamp, String transactionToken, String[] channelCodes, String amount) throws Exception;
 }

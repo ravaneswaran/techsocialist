@@ -2,7 +2,7 @@ package com.techsocialist.plugin.pg.paytm.request
 
 import spock.lang.Specification
 
-class FetchEMIDetailsRequestTest extends Specification {
+class FetchEMIDetailRequestTest extends Specification {
 
     def "test data head"() {
         setup:
@@ -24,6 +24,25 @@ class FetchEMIDetailsRequestTest extends Specification {
         setup:
         FetchEMIDetailRequest paytmRequest = new FetchEMIDetailRequest()
         String[] channelCodes = ["channel-code-001"]
+
+        when:
+        paytmRequest.setMerchantId("mer-001")
+        paytmRequest.setOrderId("order-001")
+        paytmRequest.setClientId("client-001")
+        paytmRequest.setVersion("v1")
+        paytmRequest.setChannelId("WEB")
+        paytmRequest.setTransactionToken("txn-001")
+
+        paytmRequest.setChannelCodes(channelCodes)
+
+        then:
+        null != paytmRequest.dataBody()
+    }
+
+    def "test data body when channel code is null"() {
+        setup:
+        FetchEMIDetailRequest paytmRequest = new FetchEMIDetailRequest()
+        String[] channelCodes = null
 
         when:
         paytmRequest.setMerchantId("mer-001")

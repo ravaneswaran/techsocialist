@@ -6,6 +6,8 @@ public class FetchEMIDetailRequest extends AbstractPaytmRequest {
 
     private String[] channelCodes;
 
+    private String amount;
+
     @Override
     public String url(boolean production) {
         return String.format("%s/%s/fetchEMIDetail?mid=%s&orderId=%s", this.getUrlEndPointPrefix(production), this.getVersion(),  this.getMerchantId(), this.getOrderId());
@@ -27,17 +29,24 @@ public class FetchEMIDetailRequest extends AbstractPaytmRequest {
     public JSONObject dataBody() {
         JSONObject body = new JSONObject();
         StringBuffer channelCodesBuffer = new StringBuffer();
-        for (String channelCode : channelCodes) {
-            channelCodesBuffer.append(channelCode).append(",");
+        if(null != channelCodes) {
+            for (String channelCode : channelCodes) {
+                channelCodesBuffer.append(channelCode).append(",");
+            }
+            String channelCodeValStr = channelCodesBuffer.toString();
+            body.put("channelCode", channelCodeValStr.substring(0, channelCodeValStr.length() - 1));
         }
-        String channelCodeValStr = channelCodesBuffer.toString();
-        body.put("channelCode", channelCodeValStr.substring(0, channelCodeValStr.length() - 1));
 
         return body;
     }
 
     public FetchEMIDetailRequest setChannelCodes(String[] channelCodes) {
         this.channelCodes = channelCodes;
+        return this;
+    }
+
+    public FetchEMIDetailRequest setAmount(String amount) {
+        this.amount = amount;
         return this;
     }
 }
