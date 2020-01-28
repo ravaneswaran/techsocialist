@@ -39,4 +39,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String validateOTP(String merchantId, String  merchantKey, String version, String channelId, String requestTimestamp, String transactionToken, String otp) throws Exception;
 
     public String directBankRequest(String merchantId, String merchantKey, String orderId, String transactionToken, String requestType, String otp) throws Exception;
+
+    public String cancelSubscription(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String subscriptionId, String ssoToken) throws Exception;
 }

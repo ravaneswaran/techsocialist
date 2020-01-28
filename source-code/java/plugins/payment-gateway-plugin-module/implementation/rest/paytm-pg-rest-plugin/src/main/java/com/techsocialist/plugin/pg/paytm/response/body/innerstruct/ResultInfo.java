@@ -5,13 +5,13 @@ import com.techsocialist.plugin.pg.paytm.response.AbstractPaytmResponse;
 
 public class ResultInfo extends AbstractPaytmResponse {
 
-    @SerializedName("resultStatus")
+    @SerializedName(value = "resultStatus", alternate = "status")
     private String resultStatus;
 
-    @SerializedName("resultCode")
+    @SerializedName(value = "resultCode", alternate = "code")
     private String resultCode;
 
-    @SerializedName("resultMsg")
+    @SerializedName(value = "resultMsg", alternate = "message")
     private String resultMessage;
 
     @SerializedName("retry")

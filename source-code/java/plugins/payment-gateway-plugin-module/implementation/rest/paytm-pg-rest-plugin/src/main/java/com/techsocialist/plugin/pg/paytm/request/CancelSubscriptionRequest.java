@@ -1,12 +1,11 @@
 package com.techsocialist.plugin.pg.paytm.request;
 
+import com.paytm.pg.merchant.CheckSumServiceHelper;
 import org.json.JSONObject;
 
 public class CancelSubscriptionRequest extends AbstractPaytmRequest {
 
     private String tokenType;
-
-    private String signature;
 
     private String ssoToken;
 
@@ -28,13 +27,15 @@ public class CancelSubscriptionRequest extends AbstractPaytmRequest {
     }
 
     @Override
-    public JSONObject dataHead() {
+    public JSONObject dataHead() throws Exception {
         JSONObject head = new JSONObject();
         head.put("version", this.getVersion());
         head.put("requestTimestamp", System.currentTimeMillis());
         head.put("tokenType", tokenType);
         if ("AES".equals(tokenType)) {
-            head.put("signature", signature);
+            String checksum = CheckSumServiceHelper.getCheckSumServiceHelper()
+                    .genrateCheckSum(this.getMerchantKey(), dataBody().toString());
+            head.put("signature", checksum);
         }
 
         return head;
@@ -54,11 +55,6 @@ public class CancelSubscriptionRequest extends AbstractPaytmRequest {
 
     public CancelSubscriptionRequest setTokenType(String tokenType) {
         this.tokenType = tokenType;
-        return this;
-    }
-
-    public CancelSubscriptionRequest setSignature(String signature) {
-        this.signature = signature;
         return this;
     }
 
