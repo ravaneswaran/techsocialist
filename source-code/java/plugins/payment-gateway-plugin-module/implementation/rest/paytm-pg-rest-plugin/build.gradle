@@ -56,4 +56,7 @@ dependencies {
     testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
     testImplementation 'junit:junit:4.12'
 
+    testImplementation 'io.cucumber:cucumber-java8:5.1.1'
+    testImplementation 'io.cucumber:cucumber-junit:5.1.1'
+
 }
