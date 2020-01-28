@@ -6,12 +6,12 @@ class HeaderTest extends Specification {
 
     def "test Header -> contentType"(){
         setup:
-        Header header = new Header();
+        Header header = new Header()
 
         when:
-        String result = header.getContentType();
+        String result = header.getContentType()
 
         then:
-        null == result;
+        null == result
     }
 }

@@ -6,6 +6,7 @@ import com.techsocialist.plugin.pg.paytm.request.DirectBankRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBinDetailsRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchEMIDetailRequest;
+import com.techsocialist.plugin.pg.paytm.request.FetchInstrumentRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchNBPaymentChannelRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchPaymentOptionsRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateSubscriptionRequest;
@@ -374,7 +375,30 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("cancelSubscription[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("cancelSubscription[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String fetchInstrument(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String userToken, String transactionAmount) throws Exception {
+
+        FetchInstrumentRequest paytmRequest = new FetchInstrumentRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setChannelId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setChannelId(channelId);
+
+        paytmRequest.setUserToken(userToken).setTransactionAmount(transactionAmount);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("fetchInstrument[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
