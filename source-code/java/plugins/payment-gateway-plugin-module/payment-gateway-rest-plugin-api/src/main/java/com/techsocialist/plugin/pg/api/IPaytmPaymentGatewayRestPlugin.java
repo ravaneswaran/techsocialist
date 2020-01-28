@@ -43,4 +43,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String cancelSubscription(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String subscriptionId, String ssoToken) throws Exception;
 
     public String fetchInstrument(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String userToken, String transactionAmount) throws Exception;
+
+    public String renewSubscription(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String orderId, String transactionAmount, String currency, String subscriptionId) throws Exception;
 }

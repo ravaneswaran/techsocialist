@@ -15,6 +15,7 @@ import com.techsocialist.plugin.pg.paytm.request.PaymentStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.ProcessTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundStatusRequest;
+import com.techsocialist.plugin.pg.paytm.request.RenewSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.SendOTPRequest;
 import com.techsocialist.plugin.pg.paytm.request.TransactionStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.UpdateTransactionRequest;
@@ -398,7 +399,31 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("fetchInstrument[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("fetchInstrument[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String renewSubscription(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String orderId, String transactionAmount, String currency, String subscriptionId) throws Exception {
+
+        RenewSubscriptionRequest paytmRequest = new RenewSubscriptionRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setChannelId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setChannelId(channelId);
+        paytmRequest.setOrderId(orderId);
+
+        paytmRequest.setTransactionAmount(transactionAmount).setCurrency(currency).setSubscriptionId(subscriptionId);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("renewSubscription[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
