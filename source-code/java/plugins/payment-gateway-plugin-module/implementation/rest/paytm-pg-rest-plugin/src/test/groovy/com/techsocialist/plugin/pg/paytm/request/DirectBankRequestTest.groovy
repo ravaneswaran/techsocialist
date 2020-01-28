@@ -46,7 +46,7 @@ class DirectBankRequestTest extends Specification {
         paytmRequest.setOtp("otp-001").setRequestType("requesttype-001")
 
         then:
-        null == paytmRequest.dataAsJsonString()
+        null != paytmRequest.dataAsJsonString()
     }
 
     def "test staging url construction"() {

@@ -222,6 +222,33 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         null == validateOTPResponse.getValidateOTPResponseBody().getExtraParamsMap()
     }
 
+    def "test ValidateOTPResponse -> ValidateOTPResponseBody -> ok()"(){
+
+        setup:
+        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
+        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
+        def amount = 1000
+        def currency = "INR"
+        def websiteName = "WEBSTAGING"
+        def callbackUrl = "http://techsocialist.com/smart-video/payment"
+        def version = "v1"
+        def channelId = "CHANNEL_ID"
+        def requestTimestamp = String.valueOf(new Date().getTime())
+        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
+        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
+        String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
+        String mobileNumber = "+91 9894712345"
+
+        when:
+        jsonResponse = paymentGatewayRestPlugin.validateOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
+        ValidateOTPResponse validateOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, ValidateOTPResponse.class)
+
+        then:
+        false == validateOTPResponse.getValidateOTPResponseBody().ok()
+    }
+
     def "test ValidateOTPResponse -> ValidateOTPResponseBody -> extraParamsMap"(){
 
         setup:

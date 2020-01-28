@@ -1,6 +1,7 @@
 package com.techsocialist.plugin.pg;
 
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
+import com.techsocialist.plugin.pg.paytm.request.DirectBankRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBinDetailsRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchEMIDetailRequest;
@@ -329,7 +330,27 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("validateOTP[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("validateOTP[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String directBankRequest(String merchantId, String merchantKey, String orderId, String transactionToken, String requestType, String otp) throws Exception {
+
+        DirectBankRequest paytmRequest = new DirectBankRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setOrderId(orderId);
+        paytmRequest.setTransactionToken(transactionToken);
+        paytmRequest.setRequestType(requestType).setOtp(otp);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("directBankRequest[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 

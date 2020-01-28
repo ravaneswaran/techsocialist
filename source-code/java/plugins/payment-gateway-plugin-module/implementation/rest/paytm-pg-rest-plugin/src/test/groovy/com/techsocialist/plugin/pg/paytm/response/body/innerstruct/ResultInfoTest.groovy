@@ -19,4 +19,12 @@ class ResultInfoTest extends Specification {
         then:
         true == resultInfo.ok()
     }
+
+    def "test ResultInfo -> retry"(){
+        when:
+        ResultInfo resultInfo = new ResultInfo("S", "0000", "Success", false)
+
+        then:
+        false == resultInfo.isRetry()
+    }
 }

@@ -2,386 +2,320 @@ package com.techsocialist.plugin.pg.paytm.response
 
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
+import com.techsocialist.plugin.pg.paytm.response.body.DirectBankResponseBody
+import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.TransactionInfo
+import com.techsocialist.plugin.pg.paytm.response.head.DirectBankResponseHead
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
 import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
 
-class SendOTPResponseTest extends AbstractPaytmResponseTest{
+class DirectBankResponseTest extends AbstractPaytmResponseTest{
 
-    def "test SendOTPResponse as json string"(){
+    def "test DirectBankResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
 
         then:
         null != jsonResponse
     }
 
-    def "test SendOTPResponse as object"(){
+    def "test DirectBankResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
+        DirectBankResponse directBankResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, DirectBankResponse.class)
 
         then:
-        null != sendOTPResponse
+        null != directBankResponse
     }
 
-    def "test SendOTPResponse -> ok()"(){
+    def "test DirectBankResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
+        DirectBankResponse directBankResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, DirectBankResponse.class)
 
         then:
-        false == sendOTPResponse.ok()
+        false == directBankResponse.ok()
     }
 
-    def "test SendOTPResponse -> sendOTPResponseHead"(){
+    def "test DirectBankResponse -> directBankResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
+        DirectBankResponse directBankResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, DirectBankResponse.class)
+        DirectBankResponseHead directBankResponseHead = directBankResponse.getDirectBankResponseHead()
 
         then:
-        null != sendOTPResponse.getSendOTPResponseHead()
+        null != directBankResponseHead
     }
 
-    def "test SendOTPResponse -> SendOTPResponseHead -> requestId"(){
+    def "test DirectBankResponse -> directBankResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
+        DirectBankResponse directBankResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, DirectBankResponse.class)
+        DirectBankResponseBody directBankResponseBody = directBankResponse.getDirectBankResponseBody()
 
         then:
-        null == sendOTPResponse.getSendOTPResponseHead().getRequestId()
+        null != directBankResponseBody
     }
 
-    def "test SendOTPResponse -> SendOTPResponseHead -> responseTimestamp"(){
+    def "test DirectBankResponse -> DirectBankResponseBody -> callbackUrl"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
+        DirectBankResponse directBankResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, DirectBankResponse.class)
+        DirectBankResponseBody directBankResponseBody = directBankResponse.getDirectBankResponseBody()
 
         then:
-        null != sendOTPResponse.getSendOTPResponseHead().getResponseTimestamp()
+        null == directBankResponseBody.getCallBackUrl()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseHead -> version"(){
+    def "test DirectBankResponse -> DirectBankResponseBody -> transactionInfo"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
+        DirectBankResponse directBankResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, DirectBankResponse.class)
+        DirectBankResponseBody directBankResponseBody = directBankResponse.getDirectBankResponseBody()
+        TransactionInfo transactionInfo = directBankResponseBody.getTransactionInfo()
 
         then:
-        null != sendOTPResponse.getSendOTPResponseHead().getVersion()
+        null != transactionInfo
     }
 
-    def "test SendOTPResponse -> sendOTPResponseBody"(){
+    def "test DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> bankName"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
+        DirectBankResponse directBankResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, DirectBankResponse.class)
+        DirectBankResponseBody directBankResponseBody = directBankResponse.getDirectBankResponseBody()
+        TransactionInfo transactionInfo = directBankResponseBody.getTransactionInfo()
 
         then:
-        null == sendOTPResponse.getSendOTPResponseBody().getExtraParamsMap()
+        null == transactionInfo.getBankName()
     }
 
-    def "test SendOTPResponse -> sendOTPResponseBody -> ok()"(){
+    def "test DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> gatewayName"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
+        DirectBankResponse directBankResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, DirectBankResponse.class)
+        DirectBankResponseBody directBankResponseBody = directBankResponse.getDirectBankResponseBody()
+        TransactionInfo transactionInfo = directBankResponseBody.getTransactionInfo()
 
         then:
-        false == sendOTPResponse.getSendOTPResponseBody().ok()
+        null == transactionInfo.getGatewayName()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseBody -> extraParamsMap"(){
+    def "test DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> transactionDate"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
+        DirectBankResponse directBankResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, DirectBankResponse.class)
+        DirectBankResponseBody directBankResponseBody = directBankResponse.getDirectBankResponseBody()
+        TransactionInfo transactionInfo = directBankResponseBody.getTransactionInfo()
 
         then:
-        null == sendOTPResponse.getSendOTPResponseBody().getExtraParamsMap()
+        null == transactionInfo.getTransactionDate()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseBody -> resultInfo"(){
+    def "test DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> transactionId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
+
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
         def amount = 1000
         def currency = "INR"
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
+
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
         IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
+        String requestType = "submit"
+        String otp = "123456"
 
         when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
+        jsonResponse = paymentGatewayRestPlugin.directBankRequest(merchantId, merchantKey, orderId, transactionToken, requestType, otp)
+        DirectBankResponse directBankResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, DirectBankResponse.class)
+        DirectBankResponseBody directBankResponseBody = directBankResponse.getDirectBankResponseBody()
+        TransactionInfo transactionInfo = directBankResponseBody.getTransactionInfo()
 
         then:
-        null != sendOTPResponse.getSendOTPResponseBody().getResultInfo()
-    }
-
-    def "test SendOTPResponse -> SendOTPResponseBody -> ResultInfo -> resultStatus"(){
-
-        setup:
-        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
-        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
-        def amount = 1000
-        def currency = "INR"
-        def websiteName = "WEBSTAGING"
-        def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
-        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
-        String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
-
-        when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
-
-        then:
-        "U" == sendOTPResponse.getSendOTPResponseBody().getResultInfo().getResultStatus()
-    }
-
-    def "test SendOTPResponse -> SendOTPResponseBody -> ResultInfo -> resultCode"(){
-
-        setup:
-        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
-        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
-        def amount = 1000
-        def currency = "INR"
-        def websiteName = "WEBSTAGING"
-        def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
-        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
-        String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
-
-        when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
-
-        then:
-        "00000900" == sendOTPResponse.getSendOTPResponseBody().getResultInfo().getResultCode()
-    }
-
-    def "test SendOTPResponse -> SendOTPResponseBody -> ResultInfo -> resultMessage"(){
-
-        setup:
-        IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
-        def orderId = String.format("ORDER-ID-%s", new Date().getTime())
-        def amount = 1000
-        def currency = "INR"
-        def websiteName = "WEBSTAGING"
-        def callbackUrl = "http://techsocialist.com/smart-video/payment"
-        def version = "v1"
-        def channelId = "CHANNEL_ID"
-        def requestTimestamp = String.valueOf(new Date().getTime())
-        String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
-        InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
-        String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
-        String mobileNumber = "+91 9894712345"
-
-        when:
-        jsonResponse = paymentGatewayRestPlugin.sendOTP(merchantId, merchantKey, version, channelId, requestTimestamp, transactionToken, mobileNumber)
-        SendOTPResponse sendOTPResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, SendOTPResponse.class)
-
-        then:
-        "System error" == sendOTPResponse.getSendOTPResponseBody().getResultInfo().getResultMessage()
+        null == transactionInfo.getTransactionId()
     }
 }
-

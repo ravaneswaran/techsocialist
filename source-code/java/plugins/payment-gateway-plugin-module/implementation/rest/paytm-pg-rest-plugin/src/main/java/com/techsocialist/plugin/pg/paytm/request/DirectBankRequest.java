@@ -25,7 +25,13 @@ public class DirectBankRequest extends AbstractPaytmRequest {
 
     @Override
     public String dataAsJsonString() {
-        return null;
+        JSONObject data = new JSONObject();
+
+        data.put("txnToken", this.getTransactionToken());
+        data.put("request-type", this.requestType);
+        data.put("otp", this.otp);
+
+        return data.toString();
     }
 
     public DirectBankRequest setOtp(String otp) {

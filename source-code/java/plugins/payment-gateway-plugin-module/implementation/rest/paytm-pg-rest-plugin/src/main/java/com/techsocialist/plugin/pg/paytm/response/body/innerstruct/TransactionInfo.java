@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class TransactionInfo {
 
+    @SerializedName("BANKNAME")
+    private String bankName;
+
     @SerializedName("BANKTXNID")
     private String bankTransactionId;
 
@@ -12,6 +15,9 @@ public class TransactionInfo {
 
     @SerializedName("CURRENCY")
     private String currency;
+
+    @SerializedName("GATEWAYNAME")
+    private String gatewayName;
 
     @SerializedName("MID")
     private String merchantId;
@@ -30,6 +36,12 @@ public class TransactionInfo {
 
     @SerializedName("TXNAMOUNT")
     private String transactionAmount;
+
+    @SerializedName("TXNDATE")
+    private String transactionDate;
+
+    @SerializedName("TXNID")
+    private String transactionId;
 
     public String getBankTransactionId() {
         return bankTransactionId;
@@ -65,5 +77,21 @@ public class TransactionInfo {
 
     public String getTransactionAmount() {
         return transactionAmount;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public String getGatewayName() {
+        return gatewayName;
+    }
+
+    public String getTransactionDate() {
+        return transactionDate;
+    }
+
+    public String getTransactionId() {
+        return transactionId;
     }
 }

@@ -14,6 +14,9 @@ public class ResultInfo extends AbstractPaytmResponse {
     @SerializedName("resultMsg")
     private String resultMessage;
 
+    @SerializedName("retry")
+    private boolean retry;
+
 
     public ResultInfo(){}
 
@@ -21,6 +24,13 @@ public class ResultInfo extends AbstractPaytmResponse {
         this.resultCode = resultCode;
         this.resultMessage = resultMessage;
         this.resultStatus = resultStatus;
+    }
+
+    public ResultInfo(String resultStatus, String resultCode, String resultMessage, boolean retry){
+        this.resultCode = resultCode;
+        this.resultMessage = resultMessage;
+        this.resultStatus = resultStatus;
+        this.retry = retry;
     }
 
     public String getResultStatus() {
@@ -33,6 +43,10 @@ public class ResultInfo extends AbstractPaytmResponse {
 
     public String getResultMessage() {
         return resultMessage;
+    }
+
+    public boolean isRetry() {
+        return retry;
     }
 
     @Override
