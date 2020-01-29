@@ -47,4 +47,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String renewSubscription(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String orderId, String transactionAmount, String currency, String subscriptionId) throws Exception;
 
     public String createLink(String merchantId, String merchantKey, String channelId, String version, String requestTimestamp, String tokenType, String merchantRequestId, String linkName, String linkDescription, String linkType, String amount, String expiryDate, boolean sendSMS, boolean sendEmail, String statusCallbackUrl, String maxPaymentsAllowed) throws Exception;
+
+    public String fetchLink(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String linkId, String linkDescription, String merchantRequestId, String pageNo, String pageSize, String customerName, String customerPhone, String customerEmail, String paymentStatus) throws Exception;
 }

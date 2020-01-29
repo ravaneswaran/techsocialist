@@ -8,6 +8,7 @@ import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBinDetailsRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchEMIDetailRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchInstrumentRequest;
+import com.techsocialist.plugin.pg.paytm.request.FetchLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchNBPaymentChannelRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchPaymentOptionsRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateSubscriptionRequest;
@@ -446,10 +447,35 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("createLink[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("createLink[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String fetchLink(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String linkId, String linkDescription, String merchantRequestId, String pageNo, String pageSize, String customerName, String customerPhone, String customerEmail, String paymentStatus) throws Exception{
+
+        FetchLinkRequest paytmRequest = new FetchLinkRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setClientId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setChannelId(channelId);
+
+        paytmRequest.setCustomerEmail(customerEmail).setCustomerName(customerName).setCustomerPhone(customerPhone).setLinkDescription(linkDescription);
+        paytmRequest.setLinkId(linkId).setMerchantRequestId(merchantRequestId).setPageNo(pageNo).setPageSize(pageSize).setTokenType(tokenType).setPaymentStatus(paymentStatus);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("fetchLink[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
         return jsonResponse;
     }
 }
+
