@@ -2,6 +2,7 @@ package com.techsocialist.plugin.pg;
 
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.CancelSubscriptionRequest;
+import com.techsocialist.plugin.pg.paytm.request.CreateLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.DirectBankRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBinDetailsRequest;
@@ -423,7 +424,29 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("renewSubscription[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("renewSubscription[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String createLink(String merchantId, String merchantKey, String channelId, String version, String requestTimestamp, String tokenType, String merchantRequestId, String linkName, String linkDescription, String linkType, String amount, String expiryDate, boolean sendSMS, boolean sendEmail, String statusCallbackUrl, String maxPaymentsAllowed) throws Exception {
+
+        CreateLinkRequest paytmRequest = new CreateLinkRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setChannelId(channelId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+
+        paytmRequest.setTokenType(tokenType).setMerchantRequestId(merchantRequestId).setLinkName(linkName).setLinkDescription(linkDescription).setLinkType(linkType).setAmount(amount).setExpiryDate(expiryDate).setSendSMS(sendSMS).setSendEmail(sendEmail).setStatusCallbackUrl(statusCallbackUrl).setMaxPaymentsAllowed(maxPaymentsAllowed);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("createLink[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
