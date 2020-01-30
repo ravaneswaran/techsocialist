@@ -11,6 +11,7 @@ import com.techsocialist.plugin.pg.paytm.request.FetchInstrumentRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchNBPaymentChannelRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchPaymentOptionsRequest;
+import com.techsocialist.plugin.pg.paytm.request.FetchTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.PaymentStatusRequest;
@@ -471,7 +472,30 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("fetchLink[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("fetchLink[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String fetchTransaction(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String linkId, String pageNo, String pageSize, String searchStartDate, String searchEndDate) throws Exception {
+
+        FetchTransactionRequest paytmRequest = new FetchTransactionRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setClientId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setChannelId(channelId);
+        paytmRequest.setTokenType(tokenType).setLinkId(linkId).setPageNo(pageNo).setPageSize(pageSize);
+        paytmRequest.setSearchEndDate(searchEndDate).setSearchStartDate(searchStartDate);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("fetchTransaction[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
