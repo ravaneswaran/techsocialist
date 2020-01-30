@@ -52,4 +52,7 @@ public interface IPaytmPaymentGatewayRestPlugin {
 
     public String fetchTransaction(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String linkId, String pageNo, String pageSize, String searchStartDate, String searchEndDate) throws Exception;
 
+    public String updateLink(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String merchantRequestId, String linkId, String linkDescription, String expiryDate, String amount) throws Exception;
+
+
 }

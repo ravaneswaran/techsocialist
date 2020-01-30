@@ -21,6 +21,7 @@ import com.techsocialist.plugin.pg.paytm.request.RefundStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.RenewSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.SendOTPRequest;
 import com.techsocialist.plugin.pg.paytm.request.TransactionStatusRequest;
+import com.techsocialist.plugin.pg.paytm.request.UpdateLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.UpdateTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.ValidateOTPRequest;
 
@@ -495,7 +496,31 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("fetchTransaction[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("fetchTransaction[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String updateLink(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String merchantRequestId, String linkId, String linkDescription, String expiryDate, String amount) throws Exception {
+
+        UpdateLinkRequest paytmRequest = new UpdateLinkRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setClientId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setChannelId(channelId);
+        paytmRequest.setTokenType(tokenType).setLinkId(linkId).setTokenType(tokenType).setMerchantRequestId(merchantRequestId);
+        paytmRequest.setLinkDescription(linkDescription).setExpiryDate(expiryDate).setAmount(amount);
+
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("updateLink[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
