@@ -25,6 +25,7 @@ import com.techsocialist.plugin.pg.paytm.request.SendOTPRequest;
 import com.techsocialist.plugin.pg.paytm.request.TransactionStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.UpdateLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.UpdateTransactionRequest;
+import com.techsocialist.plugin.pg.paytm.request.ValidateAssetRequest;
 import com.techsocialist.plugin.pg.paytm.request.ValidateOTPRequest;
 
 public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRestPlugin {
@@ -571,7 +572,31 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("resendNotificationLink[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("resendNotificationLink[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String validateAsset(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String requestId, String vpa, String customerAccountNumber, String bankIfscCode, String customerFirstName, String customerLastName, String customerMobileNumber) throws Exception {
+
+        ValidateAssetRequest paytmRequest = new ValidateAssetRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setClientId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setChannelId(channelId);
+
+        paytmRequest.setRequestId(requestId).setCustomerAccountNumber(customerAccountNumber).setBankIfscCode(bankIfscCode).setCustomerFirstName(customerFirstName);
+        paytmRequest.setCustomerLastName(customerLastName).setCustomerMobileNumber(customerMobileNumber).setVpa(vpa);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("validateAsset[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 

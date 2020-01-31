@@ -58,5 +58,5 @@ public interface IPaytmPaymentGatewayRestPlugin {
 
     public String resendNotificationLink(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String linkId, boolean sendSMS, boolean sendEmail, String customerName, String customerEmail, String customerMobileNumber) throws Exception;
 
-
+    public String validateAsset(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String requestId, String vpa, String customerAccountNumber, String bankIfscCode, String customerFirstName, String customerLastName, String customerMobileNumber) throws Exception;
 }
