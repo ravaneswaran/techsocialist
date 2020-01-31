@@ -4,6 +4,7 @@ import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.CancelSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.CreateLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.DirectBankRequest;
+import com.techsocialist.plugin.pg.paytm.request.ExpireLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBinDetailsRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchEMIDetailRequest;
@@ -514,13 +515,35 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         paytmRequest.setVersion(version);
         paytmRequest.setRequestTimestamp(requestTimestamp);
         paytmRequest.setChannelId(channelId);
-        paytmRequest.setTokenType(tokenType).setLinkId(linkId).setTokenType(tokenType).setMerchantRequestId(merchantRequestId);
+        paytmRequest.setTokenType(tokenType).setLinkId(linkId).setTimestamp(requestTimestamp).setMerchantRequestId(merchantRequestId);
         paytmRequest.setLinkDescription(linkDescription).setExpiryDate(expiryDate).setAmount(amount);
 
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("updateLink[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("updateLink[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String expireLink(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String merchantRequestId, String linkId) throws Exception {
+
+        ExpireLinkRequest paytmRequest = new ExpireLinkRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setClientId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setChannelId(channelId);
+        paytmRequest.setTokenType(tokenType).setLinkId(linkId).setTimestamp(requestTimestamp).setMerchantRequestId(merchantRequestId);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("expireLink[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
