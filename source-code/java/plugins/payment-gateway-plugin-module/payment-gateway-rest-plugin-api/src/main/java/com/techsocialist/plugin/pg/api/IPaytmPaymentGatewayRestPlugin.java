@@ -1,8 +1,13 @@
 package com.techsocialist.plugin.pg.api;
 
+import java.io.IOException;
+import java.util.Map;
+
 public interface IPaytmPaymentGatewayRestPlugin {
 
     public String processPaytmRequest(String requestUrl, String requestHttpMethod, String requestContentType, String requestData) throws Exception;
+
+    public String processPaytmRequest(String requestUrl, String requestHttpMethod, String requestContentType, Map<String, String> requestProperties, String requestData) throws Exception;
 
     public String initiateTransaction(String merchantId, String merchantKey, String customerId, String orderId, long amount, String currency, String websiteName, String callbackUrl) throws Exception;
     public String initiateTransaction(String merchantId, String merchantKey, String clientId, String channelId, String version, String orderId, String userId, long amount, String currency, String websiteName, String callbackUrl) throws Exception;
@@ -59,4 +64,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String resendNotificationLink(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String linkId, boolean sendSMS, boolean sendEmail, String customerName, String customerEmail, String customerMobileNumber) throws Exception;
 
     public String validateAsset(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String requestId, String vpa, String customerAccountNumber, String bankIfscCode, String customerFirstName, String customerLastName, String customerMobileNumber) throws Exception;
+
+    public String walletTransfer(String merchantId, String merchantKey, String version, String solution, String orderId, String subwalletGuid, String amount, String beneficiaryEmail, String beneficiaryContactNumber, boolean validateBeneficiary, String beneficiaryName, String callbackUrl, String comments) throws Exception;
 }

@@ -1,5 +1,7 @@
 package com.techsocialist.plugin.pg;
 
+import com.paytm.pg.merchant.CheckSumServiceHelper;
+import com.sun.javafx.collections.MappingChange;
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.CancelSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.CreateLinkRequest;
@@ -27,6 +29,10 @@ import com.techsocialist.plugin.pg.paytm.request.UpdateLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.UpdateTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.ValidateAssetRequest;
 import com.techsocialist.plugin.pg.paytm.request.ValidateOTPRequest;
+import com.techsocialist.plugin.pg.paytm.request.WalletTransferRequest;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRestPlugin {
 
@@ -595,6 +601,33 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         paytmRequest.setCustomerLastName(customerLastName).setCustomerMobileNumber(customerMobileNumber).setVpa(vpa);
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        //System.out.println("validateAsset[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String walletTransfer(String merchantId, String merchantKey, String version, String solution, String orderId, String subwalletGuid, String amount, String beneficiaryEmail, String beneficiaryContactNumber, boolean validateBeneficiary, String beneficiaryName, String callbackUrl, String comments) throws Exception {
+
+        WalletTransferRequest paytmRequest = new WalletTransferRequest();
+
+        paytmRequest.setOrderId(orderId);
+        paytmRequest.setVersion(version);
+
+        paytmRequest.setSubwalletGuid(subwalletGuid).setAmount(amount).setBeneficiaryName(beneficiaryName);
+        paytmRequest.setBeneficiaryEmail(beneficiaryEmail).setBeneficiaryContactNumber(beneficiaryContactNumber);
+        paytmRequest.setValidateBeneficiary(validateBeneficiary).setCallbackUrl(callbackUrl).setComments(comments);
+        paytmRequest.setSolution(solution);
+
+        String checksum = CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(merchantKey, paytmRequest.dataBody().toString());
+        Map<String, String> requestProperties = new HashMap<>();
+        requestProperties.put("x-mid", merchantId);
+        requestProperties.put("x-checksum", checksum);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
 
         System.out.println("validateAsset[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
