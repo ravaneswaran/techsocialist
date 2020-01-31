@@ -3,7 +3,7 @@ package com.techsocialist.plugin.pg.paytm.response
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class CreateLinkResponseTest extends AbstractPaytmResponseTest {
 
@@ -51,7 +51,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         String maxPaymentsAllowed = "10"
         boolean sendSMS = false
         boolean sendEmail = false
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.createLink(merchantId, merchantKey, channelId, version, requestTimestamp, tokenType, merchantRequestId, linkName, linkDescription, linkType, txnAmount, expiryDate, sendSMS, sendEmail, statusCallbackUrl, maxPaymentsAllowed)
@@ -79,7 +79,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         String maxPaymentsAllowed = "10"
         boolean sendSMS = false
         boolean sendEmail = false
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.createLink(merchantId, merchantKey, channelId, version, requestTimestamp, tokenType, merchantRequestId, linkName, linkDescription, linkType, txnAmount, expiryDate, sendSMS, sendEmail, statusCallbackUrl, maxPaymentsAllowed)
@@ -107,7 +107,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         String maxPaymentsAllowed = "10"
         boolean sendSMS = false
         boolean sendEmail = false
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.createLink(merchantId, merchantKey, channelId, version, requestTimestamp, tokenType, merchantRequestId, linkName, linkDescription, linkType, txnAmount, expiryDate, sendSMS, sendEmail, statusCallbackUrl, maxPaymentsAllowed)
@@ -135,7 +135,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         String maxPaymentsAllowed = "10"
         boolean sendSMS = false
         boolean sendEmail = false
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.createLink(merchantId, merchantKey, channelId, version, requestTimestamp, tokenType, merchantRequestId, linkName, linkDescription, linkType, txnAmount, expiryDate, sendSMS, sendEmail, statusCallbackUrl, maxPaymentsAllowed)
@@ -163,7 +163,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         String maxPaymentsAllowed = "10"
         boolean sendSMS = false
         boolean sendEmail = false
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.createLink(merchantId, merchantKey, channelId, version, requestTimestamp, tokenType, merchantRequestId, linkName, linkDescription, linkType, txnAmount, expiryDate, sendSMS, sendEmail, statusCallbackUrl, maxPaymentsAllowed)
@@ -191,7 +191,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         String maxPaymentsAllowed = "10"
         boolean sendSMS = false
         boolean sendEmail = false
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.createLink(merchantId, merchantKey, channelId, version, requestTimestamp, tokenType, merchantRequestId, linkName, linkDescription, linkType, txnAmount, expiryDate, sendSMS, sendEmail, statusCallbackUrl, maxPaymentsAllowed)
@@ -219,7 +219,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         String maxPaymentsAllowed = "10"
         boolean sendSMS = false
         boolean sendEmail = false
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.createLink(merchantId, merchantKey, channelId, version, requestTimestamp, tokenType, merchantRequestId, linkName, linkDescription, linkType, txnAmount, expiryDate, sendSMS, sendEmail, statusCallbackUrl, maxPaymentsAllowed)
@@ -247,7 +247,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         String maxPaymentsAllowed = "10"
         boolean sendSMS = false
         boolean sendEmail = false
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.createLink(merchantId, merchantKey, channelId, version, requestTimestamp, tokenType, merchantRequestId, linkName, linkDescription, linkType, txnAmount, expiryDate, sendSMS, sendEmail, statusCallbackUrl, maxPaymentsAllowed)
@@ -275,7 +275,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         String maxPaymentsAllowed = "10"
         boolean sendSMS = false
         boolean sendEmail = false
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.createLink(merchantId, merchantKey, channelId, version, requestTimestamp, tokenType, merchantRequestId, linkName, linkDescription, linkType, txnAmount, expiryDate, sendSMS, sendEmail, statusCallbackUrl, maxPaymentsAllowed)

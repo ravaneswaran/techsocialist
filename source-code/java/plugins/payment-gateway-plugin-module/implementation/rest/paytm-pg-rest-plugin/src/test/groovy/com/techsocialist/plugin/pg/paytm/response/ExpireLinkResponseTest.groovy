@@ -3,7 +3,7 @@ package com.techsocialist.plugin.pg.paytm.response
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class ExpireLinkResponseTest extends AbstractPaytmResponseTest {
 
@@ -30,7 +30,7 @@ class ExpireLinkResponseTest extends AbstractPaytmResponseTest {
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin();
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin();
         String clientId = "C11"
         String version = "v1"
         String requestTimestamp = String.valueOf(new Date().getTime())
@@ -51,7 +51,7 @@ class ExpireLinkResponseTest extends AbstractPaytmResponseTest {
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin();
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin();
         String clientId = "C11"
         String version = "v1"
         String requestTimestamp = String.valueOf(new Date().getTime())
@@ -72,7 +72,7 @@ class ExpireLinkResponseTest extends AbstractPaytmResponseTest {
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin();
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin();
         String clientId = "C11"
         String version = "v1"
         String requestTimestamp = String.valueOf(new Date().getTime())

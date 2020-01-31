@@ -5,7 +5,7 @@ import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.paytm.response.body.PaymentStatusResponseBody
 import com.techsocialist.plugin.pg.paytm.response.head.PaymentStatusResponseHead
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
 
@@ -20,7 +20,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -41,7 +41,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -63,7 +63,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -85,7 +85,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -108,7 +108,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -131,7 +131,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -154,7 +154,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -177,7 +177,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -200,7 +200,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -223,7 +223,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -246,7 +246,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -269,7 +269,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -292,7 +292,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -315,7 +315,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -338,7 +338,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -361,7 +361,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -384,7 +384,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -407,7 +407,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:
@@ -430,7 +430,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         when:

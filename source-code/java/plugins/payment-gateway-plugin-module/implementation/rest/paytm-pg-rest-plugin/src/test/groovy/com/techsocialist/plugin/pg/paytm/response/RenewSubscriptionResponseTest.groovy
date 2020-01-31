@@ -3,7 +3,7 @@ package com.techsocialist.plugin.pg.paytm.response
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
 
@@ -41,7 +41,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         String transactionAmount = "1000.00"
         String currency = "INR"
         String subscriptionId = "123"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.renewSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, orderId, transactionAmount, currency, subscriptionId)
@@ -64,7 +64,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         String transactionAmount = "1000.00"
         String currency = "INR"
         String subscriptionId = "123"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.renewSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, orderId, transactionAmount, currency, subscriptionId)
@@ -87,7 +87,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         String transactionAmount = "1000.00"
         String currency = "INR"
         String subscriptionId = "123"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.renewSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, orderId, transactionAmount, currency, subscriptionId)
@@ -110,7 +110,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         String transactionAmount = "1000.00"
         String currency = "INR"
         String subscriptionId = "123"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.renewSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, orderId, transactionAmount, currency, subscriptionId)
@@ -133,7 +133,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         String transactionAmount = "1000.00"
         String currency = "INR"
         String subscriptionId = "123"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.renewSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, orderId, transactionAmount, currency, subscriptionId)
@@ -156,7 +156,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         String transactionAmount = "1000.00"
         String currency = "INR"
         String subscriptionId = "123"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.renewSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, orderId, transactionAmount, currency, subscriptionId)
@@ -179,7 +179,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         String transactionAmount = "1000.00"
         String currency = "INR"
         String subscriptionId = "123"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.renewSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, orderId, transactionAmount, currency, subscriptionId)
@@ -202,7 +202,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         String transactionAmount = "1000.00"
         String currency = "INR"
         String subscriptionId = "123"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.renewSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, orderId, transactionAmount, currency, subscriptionId)

@@ -4,7 +4,7 @@ package com.techsocialist.plugin.pg.paytm.response
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class RefundStatusResponseTest extends AbstractPaytmResponseTest{
 
@@ -30,7 +30,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -47,7 +47,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -64,7 +64,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -81,7 +81,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -99,7 +99,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -116,7 +116,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -133,7 +133,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -150,7 +150,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -167,7 +167,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -184,7 +184,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -201,7 +201,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -218,7 +218,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -235,7 +235,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -252,7 +252,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -269,7 +269,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -286,7 +286,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -303,7 +303,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -320,7 +320,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -337,7 +337,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -354,7 +354,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)
@@ -371,7 +371,7 @@ class RefundStatusResponseTest extends AbstractPaytmResponseTest{
         def refundId = String.format("REFUND-ID-%s", new Date().getTime())
         def clientId = "C11"
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.refundStatus(merchantId, merchantKey, orderId, refundId, clientId)

@@ -56,5 +56,7 @@ public interface IPaytmPaymentGatewayRestPlugin {
 
     public String expireLink(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String merchantRequestId, String linkId) throws Exception;
 
+    public String resendNotificationLink(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String linkId, boolean sendSMS, boolean sendEmail, String customerName, String customerEmail, String customerMobileNumber) throws Exception;
+
 
 }

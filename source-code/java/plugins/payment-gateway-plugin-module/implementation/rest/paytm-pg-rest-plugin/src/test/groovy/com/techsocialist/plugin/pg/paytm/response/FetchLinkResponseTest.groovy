@@ -3,7 +3,7 @@ package com.techsocialist.plugin.pg.paytm.response
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchLinkResponseTest extends AbstractPaytmResponseTest {
 
@@ -36,7 +36,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
     def "test FetchLinkResponse as object"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String clientId = "C11"
         String version = "v1"
@@ -64,7 +64,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
     def "test FetchLinkResponse -> ok()"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String clientId = "C11"
         String version = "v1"
@@ -92,7 +92,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
     def "test FetchLinkResponse -> fetchLinkResponseHead"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String clientId = "C11"
         String version = "v1"
@@ -120,7 +120,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
     def "test FetchLinkResponse -> FetchLinkResponseHead -> timestamp"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String clientId = "C11"
         String version = "v1"
@@ -148,7 +148,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
     def "test FetchLinkResponse -> FetchLinkResponseHead -> channelId"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String clientId = "C11"
         String version = "v1"
@@ -176,7 +176,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
     def "test FetchLinkResponse -> FetchLinkResponseHead -> tokenType"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String clientId = "C11"
         String version = "v1"
@@ -204,7 +204,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
     def "test FetchLinkResponse -> FetchLinkResponseHead -> clientId"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String clientId = "C11"
         String version = "v1"

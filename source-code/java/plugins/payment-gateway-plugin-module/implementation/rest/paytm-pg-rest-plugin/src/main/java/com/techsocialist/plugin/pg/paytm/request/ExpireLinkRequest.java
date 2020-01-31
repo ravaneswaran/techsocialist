@@ -3,35 +3,7 @@ package com.techsocialist.plugin.pg.paytm.request;
 import com.paytm.pg.merchant.CheckSumServiceHelper;
 import org.json.JSONObject;
 
-public class ExpireLinkRequest extends AbstractPaytmRequest {
-
-    private String tokenType;
-
-    private String linkId;
-
-    private String merchantRequestId;
-
-    private String timestamp;
-
-    public ExpireLinkRequest setTokenType(String tokenType) {
-        this.tokenType = tokenType;
-        return this;
-    }
-
-    public ExpireLinkRequest setLinkId(String linkId) {
-        this.linkId = linkId;
-        return this;
-    }
-
-    public ExpireLinkRequest setMerchantRequestId(String merchantRequestId) {
-        this.merchantRequestId = merchantRequestId;
-        return this;
-    }
-
-    public ExpireLinkRequest setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-        return this;
-    }
+public class ExpireLinkRequest extends AbstractPaytmLinkRequest {
 
     @Override
     protected String getStagingUrlEndPointPrefix() {

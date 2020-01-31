@@ -5,7 +5,7 @@ import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.paytm.response.body.FetchInstrumentResponseBody
 import com.techsocialist.plugin.pg.paytm.response.head.FetchInstrumentResponseHead
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
 
@@ -39,7 +39,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)
@@ -60,7 +60,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)
@@ -82,7 +82,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)
@@ -104,7 +104,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)
@@ -126,7 +126,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)
@@ -148,7 +148,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)
@@ -170,7 +170,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)
@@ -192,7 +192,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)
@@ -214,7 +214,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)
@@ -236,7 +236,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)
@@ -258,7 +258,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         String channelId = "WEB"
         String userToken = "AES"
         String transactionAmount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.fetchInstrument(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, userToken, transactionAmount)

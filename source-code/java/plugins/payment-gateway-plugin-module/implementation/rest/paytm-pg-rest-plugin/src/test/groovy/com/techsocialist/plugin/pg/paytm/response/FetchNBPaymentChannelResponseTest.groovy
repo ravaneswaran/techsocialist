@@ -6,7 +6,7 @@ import com.techsocialist.plugin.pg.paytm.response.body.FetchNBPaymentChannelResp
 import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.NBPayOption
 import com.techsocialist.plugin.pg.paytm.response.head.FetchNBPaymentChannelResponseHead
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
 
@@ -24,7 +24,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -50,7 +50,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -77,7 +77,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -104,7 +104,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -132,7 +132,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -160,7 +160,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -188,7 +188,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -216,7 +216,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -244,7 +244,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -272,7 +272,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -300,7 +300,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -328,7 +328,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -357,7 +357,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -386,7 +386,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -415,7 +415,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -444,7 +444,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -473,7 +473,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -502,7 +502,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -531,7 +531,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -560,7 +560,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -589,7 +589,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"
@@ -618,7 +618,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         def requestTimestamp = String.valueOf(new Date().getTime())
 
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
         String transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
         String type = "MERCHANT"

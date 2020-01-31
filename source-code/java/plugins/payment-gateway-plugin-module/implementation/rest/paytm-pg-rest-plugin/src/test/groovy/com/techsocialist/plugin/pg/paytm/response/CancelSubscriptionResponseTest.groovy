@@ -5,7 +5,7 @@ import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.paytm.response.body.CancelSubscriptionResponseBody
 import com.techsocialist.plugin.pg.paytm.response.head.CancelSubscriptionResponseHead
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
 
@@ -42,7 +42,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         String subscriptionId = "1234557"
         String ssoToken = "ssoToken"
 
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.cancelSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, subscriptionId, ssoToken)
@@ -65,7 +65,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         String subscriptionId = "1234557"
         String ssoToken = "ssoToken"
 
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.cancelSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, subscriptionId, ssoToken)
@@ -88,7 +88,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         String subscriptionId = "1234557"
         String ssoToken = "ssoToken"
 
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.cancelSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, subscriptionId, ssoToken)
@@ -112,7 +112,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         String subscriptionId = "1234557"
         String ssoToken = "ssoToken"
 
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.cancelSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, subscriptionId, ssoToken)
@@ -136,7 +136,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         String subscriptionId = "1234557"
         String ssoToken = "ssoToken"
 
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.cancelSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, subscriptionId, ssoToken)
@@ -160,7 +160,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         String subscriptionId = "1234557"
         String ssoToken = "ssoToken"
 
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.cancelSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, subscriptionId, ssoToken)
@@ -184,7 +184,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         String subscriptionId = "1234557"
         String ssoToken = "ssoToken"
 
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.cancelSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, subscriptionId, ssoToken)
@@ -208,7 +208,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         String subscriptionId = "1234557"
         String ssoToken = "ssoToken"
 
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.cancelSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, subscriptionId, ssoToken)
@@ -232,7 +232,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         String subscriptionId = "1234557"
         String ssoToken = "ssoToken"
 
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.cancelSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, subscriptionId, ssoToken)
@@ -256,7 +256,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         String subscriptionId = "1234557"
         String ssoToken = "ssoToken"
 
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.cancelSubscription(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, subscriptionId, ssoToken)

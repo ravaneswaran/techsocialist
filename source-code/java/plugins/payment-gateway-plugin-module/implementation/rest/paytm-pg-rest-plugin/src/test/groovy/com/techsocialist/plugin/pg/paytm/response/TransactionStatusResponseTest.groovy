@@ -4,7 +4,7 @@ package com.techsocialist.plugin.pg.paytm.response
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
 
@@ -24,7 +24,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -39,7 +39,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse transaction id"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -54,7 +54,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse bank transaction id"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -69,7 +69,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse order id"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -84,7 +84,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse transaction amount"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -99,7 +99,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse status"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -114,7 +114,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse transaction type"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -129,7 +129,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse gateway name"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -144,7 +144,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse response code"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -159,7 +159,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse response message"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -174,7 +174,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse bank name"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -189,7 +189,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse merchant id"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -204,7 +204,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse payment mode"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -219,7 +219,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse refund amount"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 
@@ -234,7 +234,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
     def "test TransactionStatusResponse transaction date"(){
 
         setup:
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
 

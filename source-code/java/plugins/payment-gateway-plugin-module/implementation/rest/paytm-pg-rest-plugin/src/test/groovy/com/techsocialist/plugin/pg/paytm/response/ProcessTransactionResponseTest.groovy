@@ -8,7 +8,7 @@ import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.BankForm
 import com.techsocialist.plugin.pg.paytm.response.body.innerstruct.TransactionInfo
 import com.techsocialist.plugin.pg.paytm.response.head.ProcessTransactionResponseHead
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
 
@@ -23,7 +23,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -50,7 +50,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -78,7 +78,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -107,7 +107,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -136,7 +136,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -165,7 +165,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -194,7 +194,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -223,7 +223,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -253,7 +253,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -283,7 +283,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -313,7 +313,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -343,7 +343,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -373,7 +373,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -403,7 +403,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -433,7 +433,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -463,7 +463,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -493,7 +493,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()
@@ -523,7 +523,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         def websiteName = "WEBSTAGING"
         def callbackUrl = "http://techsocialist.com/smart-video/payment"
         String jsonResponse = paymentGatewayRestPlugin.initiateTransaction(merchantId, merchantKey, customerId, orderId, amount, currency, websiteName, callbackUrl)
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
         InitiateTransactionResponse initiateTransactionResponse = iUnmarshallerPluginAPI.unmarshall(jsonResponse, InitiateTransactionResponse.class)
 
         def transactionToken = initiateTransactionResponse.getInitiateTransactionResponseBody().getTransactionToken()

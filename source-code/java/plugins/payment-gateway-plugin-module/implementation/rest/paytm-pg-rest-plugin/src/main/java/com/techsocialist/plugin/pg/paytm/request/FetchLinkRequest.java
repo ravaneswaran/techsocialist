@@ -3,15 +3,9 @@ package com.techsocialist.plugin.pg.paytm.request;
 import com.paytm.pg.merchant.CheckSumServiceHelper;
 import org.json.JSONObject;
 
-public class FetchLinkRequest extends AbstractPaytmRequest{
-
-    private String tokenType;
-
-    private String linkId;
+public class FetchLinkRequest extends AbstractPaytmLinkRequest{
 
     private String linkDescription;
-
-    private String merchantRequestId;
 
     private String pageNo;
 
@@ -25,23 +19,8 @@ public class FetchLinkRequest extends AbstractPaytmRequest{
 
     private String paymentStatus;
 
-    public FetchLinkRequest setTokenType(String tokenType) {
-        this.tokenType = tokenType;
-        return this;
-    }
-
-    public FetchLinkRequest setLinkId(String linkId) {
-        this.linkId = linkId;
-        return this;
-    }
-
     public FetchLinkRequest setLinkDescription(String linkDescription) {
         this.linkDescription = linkDescription;
-        return this;
-    }
-
-    public FetchLinkRequest setMerchantRequestId(String merchantRequestId) {
-        this.merchantRequestId = merchantRequestId;
         return this;
     }
 

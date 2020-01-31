@@ -3,7 +3,7 @@ package com.techsocialist.plugin.pg.paytm.response
 import com.techsocialist.plugin.pg.PaytmPaymentGatewayRestPlugin
 import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
-import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPluginAPI
+import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class UpdateLinkResponseTest extends AbstractPaytmResponseTest{
 
@@ -44,7 +44,7 @@ class UpdateLinkResponseTest extends AbstractPaytmResponseTest{
         String linkDescription = "A4"
         String expiryDate = "2021-12-31"
         String amount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.updateLink(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, merchantRequestId, linkId, linkDescription, expiryDate, amount)
@@ -69,7 +69,7 @@ class UpdateLinkResponseTest extends AbstractPaytmResponseTest{
         String linkDescription = "A4"
         String expiryDate = "2021-12-31"
         String amount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.updateLink(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, merchantRequestId, linkId, linkDescription, expiryDate, amount)
@@ -94,7 +94,7 @@ class UpdateLinkResponseTest extends AbstractPaytmResponseTest{
         String linkDescription = "A4"
         String expiryDate = "2021-12-31"
         String amount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.updateLink(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, merchantRequestId, linkId, linkDescription, expiryDate, amount)
@@ -119,7 +119,7 @@ class UpdateLinkResponseTest extends AbstractPaytmResponseTest{
         String linkDescription = "A4"
         String expiryDate = "2021-12-31"
         String amount = "1000.00"
-        IUnmarshallerPluginAPI iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
+        IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.updateLink(merchantId, merchantKey, clientId, version, requestTimestamp, channelId, tokenType, merchantRequestId, linkId, linkDescription, expiryDate, amount)

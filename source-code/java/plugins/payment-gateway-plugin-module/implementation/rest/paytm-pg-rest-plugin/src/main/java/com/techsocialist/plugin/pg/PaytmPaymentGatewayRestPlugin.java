@@ -20,6 +20,7 @@ import com.techsocialist.plugin.pg.paytm.request.ProcessTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.RenewSubscriptionRequest;
+import com.techsocialist.plugin.pg.paytm.request.ResendNotificationLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.SendOTPRequest;
 import com.techsocialist.plugin.pg.paytm.request.TransactionStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.UpdateLinkRequest;
@@ -446,7 +447,8 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         paytmRequest.setVersion(version);
         paytmRequest.setRequestTimestamp(requestTimestamp);
 
-        paytmRequest.setTokenType(tokenType).setMerchantRequestId(merchantRequestId).setLinkName(linkName).setLinkDescription(linkDescription).setLinkType(linkType).setAmount(amount).setExpiryDate(expiryDate).setSendSMS(sendSMS).setSendEmail(sendEmail).setStatusCallbackUrl(statusCallbackUrl).setMaxPaymentsAllowed(maxPaymentsAllowed);
+        paytmRequest.setTokenType(tokenType).setMerchantRequestId(merchantRequestId);
+        paytmRequest.setLinkName(linkName).setLinkDescription(linkDescription).setLinkType(linkType).setAmount(amount).setExpiryDate(expiryDate).setSendSMS(sendSMS).setSendEmail(sendEmail).setStatusCallbackUrl(statusCallbackUrl).setMaxPaymentsAllowed(maxPaymentsAllowed);
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
@@ -469,8 +471,10 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         paytmRequest.setRequestTimestamp(requestTimestamp);
         paytmRequest.setChannelId(channelId);
 
-        paytmRequest.setCustomerEmail(customerEmail).setCustomerName(customerName).setCustomerPhone(customerPhone).setLinkDescription(linkDescription);
-        paytmRequest.setLinkId(linkId).setMerchantRequestId(merchantRequestId).setPageNo(pageNo).setPageSize(pageSize).setTokenType(tokenType).setPaymentStatus(paymentStatus);
+        paytmRequest.setLinkId(linkId).setMerchantRequestId(merchantRequestId).setTokenType(tokenType);
+
+        paytmRequest.setPaymentStatus(paymentStatus).setPageSize(pageSize).setPageNo(pageNo).setCustomerEmail(customerEmail).setCustomerName(customerName).setCustomerPhone(customerPhone).setLinkDescription(linkDescription);
+
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
@@ -543,7 +547,31 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
-        System.out.println("expireLink[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("expireLink[jsonResponse] ----->>>>> "+jsonResponse);
+        //System.out.println("<-------------------------------------------------------->");
+        //System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String resendNotificationLink(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String tokenType, String linkId, boolean sendSMS, boolean sendEmail, String customerName, String customerEmail, String customerMobileNumber) throws Exception {
+
+        ResendNotificationLinkRequest paytmRequest = new ResendNotificationLinkRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setMerchantKey(merchantKey);
+        paytmRequest.setClientId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setChannelId(channelId);
+
+        paytmRequest.setTokenType(tokenType).setLinkId(linkId).setTimestamp(requestTimestamp);
+        paytmRequest.setSendSMS(sendSMS).setSendEmail(sendEmail).setCustomerName(customerName).setCustomerEmail(customerEmail).setCustomerMobileNumber(customerMobileNumber);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("resendNotificationLink[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
