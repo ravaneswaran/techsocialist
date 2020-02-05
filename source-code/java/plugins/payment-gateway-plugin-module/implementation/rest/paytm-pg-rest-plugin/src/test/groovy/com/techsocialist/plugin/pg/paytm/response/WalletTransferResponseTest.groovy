@@ -57,4 +57,22 @@ class WalletTransferResponseTest extends AbstractPaytmResponseTest {
         thrown(Exception)
         null == walletTransferResponse
     }
+
+    def "test WalletTransferResponse -> head"(){
+
+        when:
+        WalletTransferResponse walletTransferResponse = new WalletTransferResponse()
+
+        then:
+        null == walletTransferResponse.getWalletTransferResponseHead()
+    }
+
+    def "test WalletTransferResponse -> body"(){
+
+        when:
+        WalletTransferResponse walletTransferResponse = new WalletTransferResponse()
+
+        then:
+        null == walletTransferResponse.getWalletTransferResponseBody()
+    }
 }
