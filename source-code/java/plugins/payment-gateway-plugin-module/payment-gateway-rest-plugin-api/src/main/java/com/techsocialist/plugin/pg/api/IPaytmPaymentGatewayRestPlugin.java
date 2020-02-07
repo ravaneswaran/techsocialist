@@ -66,4 +66,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String validateAsset(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String channelId, String requestId, String vpa, String customerAccountNumber, String bankIfscCode, String customerFirstName, String customerLastName, String customerMobileNumber) throws Exception;
 
     public String walletTransfer(String merchantId, String merchantKey, String version, String solution, String orderId, String subwalletGuid, String amount, String beneficiaryEmail, String beneficiaryContactNumber, boolean validateBeneficiary, String beneficiaryName, String callbackUrl, String comments) throws Exception;
+
+    public String bankTransfer(String merchantId, String merchantKey, String version, String orderId, String subwalletGuid, String amount, String beneficiaryAccount, String beneficiaryIFSC, String purpose, String date, String transferMode, String callbackUrl, String comments) throws Exception;
 }

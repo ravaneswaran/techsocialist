@@ -1,8 +1,8 @@
 package com.techsocialist.plugin.pg;
 
 import com.paytm.pg.merchant.CheckSumServiceHelper;
-import com.sun.javafx.collections.MappingChange;
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
+import com.techsocialist.plugin.pg.paytm.request.BankTransferRequest;
 import com.techsocialist.plugin.pg.paytm.request.CancelSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.CreateLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.DirectBankRequest;
@@ -629,7 +629,32 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
 
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
 
-        System.out.println("validateAsset[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("walletTransfer[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String bankTransfer(String merchantId, String merchantKey, String version, String orderId, String subwalletGuid, String amount, String beneficiaryAccount, String beneficiaryIFSC, String purpose, String date, String transferMode, String callbackUrl, String comments) throws Exception {
+
+        BankTransferRequest paytmRequest = new BankTransferRequest();
+
+        paytmRequest.setOrderId(orderId);
+        paytmRequest.setVersion(version);
+
+        paytmRequest.setAmount(amount).setBeneficiaryAccount(beneficiaryAccount).setBeneficiaryIFSC(beneficiaryIFSC).setSubwalletGuid(subwalletGuid);
+        paytmRequest.setPurpose(purpose).setTransferMode(transferMode).setDate(date).setCallbackUrl(callbackUrl).setComments(comments);
+
+        String checksum = CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(merchantKey, paytmRequest.dataBody().toString());
+        Map<String, String> requestProperties = new HashMap<>();
+        requestProperties.put("x-mid", merchantId);
+        requestProperties.put("x-checksum", checksum);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
+
+        System.out.println("bankTransfer[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
