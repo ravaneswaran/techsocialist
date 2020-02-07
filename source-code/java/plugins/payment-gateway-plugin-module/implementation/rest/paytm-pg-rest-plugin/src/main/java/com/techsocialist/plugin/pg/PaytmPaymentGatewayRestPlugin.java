@@ -5,6 +5,7 @@ import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.AddFundRequest;
 import com.techsocialist.plugin.pg.paytm.request.BankTransferRequest;
 import com.techsocialist.plugin.pg.paytm.request.CancelSubscriptionRequest;
+import com.techsocialist.plugin.pg.paytm.request.ClaimBackFundRequest;
 import com.techsocialist.plugin.pg.paytm.request.CreateLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.DirectBankRequest;
 import com.techsocialist.plugin.pg.paytm.request.ExpireLinkRequest;
@@ -677,6 +678,27 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
 
         System.out.println("addFund[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String claimBackFund(String merchantId, String merchantKey, String subwalletGuid, String amount) throws Exception {
+
+        ClaimBackFundRequest paytmRequest = new ClaimBackFundRequest();
+
+        paytmRequest.setAmount(amount).setSubwalletGuid(subwalletGuid);
+
+        String checksum = CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(merchantKey, paytmRequest.dataBody().toString());
+        Map<String, String> requestProperties = new HashMap<>();
+        requestProperties.put("x-mid", merchantId);
+        requestProperties.put("x-checksum", checksum);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
+
+        System.out.println("claimBackFund[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 

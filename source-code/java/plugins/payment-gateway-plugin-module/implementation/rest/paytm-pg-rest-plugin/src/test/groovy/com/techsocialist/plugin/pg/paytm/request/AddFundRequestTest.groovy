@@ -15,7 +15,7 @@ class AddFundRequestTest extends Specification {
 
     }
 
-    def "test BankTransferRequest -> productionUrlEndPointPrefix"(){
+    def "test AddFundRequest -> productionUrlEndPointPrefix"(){
 
         setup:
         AddFundRequest addFundRequest = new AddFundRequest()
