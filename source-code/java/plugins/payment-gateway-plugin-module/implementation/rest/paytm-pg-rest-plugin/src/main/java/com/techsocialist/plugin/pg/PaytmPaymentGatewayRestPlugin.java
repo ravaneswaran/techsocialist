@@ -2,6 +2,7 @@ package com.techsocialist.plugin.pg;
 
 import com.paytm.pg.merchant.CheckSumServiceHelper;
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
+import com.techsocialist.plugin.pg.paytm.request.AddFundRequest;
 import com.techsocialist.plugin.pg.paytm.request.BankTransferRequest;
 import com.techsocialist.plugin.pg.paytm.request.CancelSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.CreateLinkRequest;
@@ -655,6 +656,27 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
 
         System.out.println("bankTransfer[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String addFund(String merchantId, String merchantKey, String subwalletGuid, String amount) throws Exception {
+
+        AddFundRequest paytmRequest = new AddFundRequest();
+
+        paytmRequest.setAmount(amount).setSubwalletGuid(subwalletGuid);
+
+        String checksum = CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(merchantKey, paytmRequest.dataBody().toString());
+        Map<String, String> requestProperties = new HashMap<>();
+        requestProperties.put("x-mid", merchantId);
+        requestProperties.put("x-checksum", checksum);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
+
+        System.out.println("addFund[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 

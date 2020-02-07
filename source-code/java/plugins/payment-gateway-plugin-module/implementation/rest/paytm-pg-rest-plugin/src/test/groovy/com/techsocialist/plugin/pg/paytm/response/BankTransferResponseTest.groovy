@@ -51,7 +51,7 @@ class BankTransferResponseTest extends AbstractPaytmResponseTest{
 
         when:
         String jsonResponse = paymentGatewayRestPlugin.bankTransfer(merchantId, merchantKey, version, orderId, subwalletGuid, amount, beneficiaryAccount, beneficiaryIFSC, purpose, date, transferMode, callbackUrl, comments)
-        BankTransferResponse bankTransferResponse = iUnmarshallerPlugin.unmarshall(jsonResponse, WalletTransferResponse.class)
+        BankTransferResponse bankTransferResponse = iUnmarshallerPlugin.unmarshall(jsonResponse, BankTransferResponse.class)
 
         then:
         thrown(Exception)
