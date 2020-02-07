@@ -13,9 +13,10 @@ class AddFundResponseTest extends AbstractPaytmResponseTest{
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String subwalletGuid = UUID.randomUUID().toString()
         String amount = "1000"
+        String version = "v1"
 
         when:
-        paymentGatewayRestPlugin.addFund(merchantId, merchantKey, subwalletGuid, amount)
+        paymentGatewayRestPlugin.addFund(merchantId, merchantKey, version, subwalletGuid, amount)
 
         then:
         Exception exp = thrown()

@@ -69,7 +69,9 @@ public interface IPaytmPaymentGatewayRestPlugin {
 
     public String bankTransfer(String merchantId, String merchantKey, String version, String orderId, String subwalletGuid, String amount, String beneficiaryAccount, String beneficiaryIFSC, String purpose, String date, String transferMode, String callbackUrl, String comments) throws Exception;
 
-    public String addFund(String merchantId, String merchantKey, String subwalletGuid, String amount) throws Exception;
+    public String addFund(String merchantId, String merchantKey, String version, String subwalletGuid, String amount) throws Exception;
 
-    public String claimBackFund(String merchantId, String merchantKey, String subwalletGuid, String amount) throws Exception;
+    public String claimBackFund(String merchantId, String merchantKey, String version, String subwalletGuid, String amount) throws Exception;
+
+    public String accountList(String merchantId, String merchantKey, String version, String subwalletGuid) throws Exception;
 }

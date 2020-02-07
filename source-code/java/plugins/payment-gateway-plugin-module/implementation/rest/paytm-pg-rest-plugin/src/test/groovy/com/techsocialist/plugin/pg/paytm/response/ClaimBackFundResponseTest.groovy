@@ -13,9 +13,10 @@ class ClaimBackFundResponseTest extends AbstractPaytmResponseTest{
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String subwalletGuid = UUID.randomUUID().toString()
         String amount = "1000"
+        String version = "v1"
 
         when:
-        paymentGatewayRestPlugin.claimBackFund(merchantId, merchantKey, subwalletGuid, amount)
+        paymentGatewayRestPlugin.claimBackFund(merchantId, merchantKey, version, subwalletGuid, amount)
 
         then:
         Exception exp = thrown()
@@ -29,9 +30,10 @@ class ClaimBackFundResponseTest extends AbstractPaytmResponseTest{
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String subwalletGuid = UUID.randomUUID().toString()
         String amount = "1000"
+        String version = "v1"
 
         when:
-        String jsonResponse = paymentGatewayRestPlugin.claimBackFund(merchantId, merchantKey, subwalletGuid, amount)
+        String jsonResponse = paymentGatewayRestPlugin.claimBackFund(merchantId, merchantKey, version, subwalletGuid, amount)
         ClaimBackFundResponse claimBackFundResponse = iUnmarshallerPlugin.unmarshall(jsonResponse, ClaimBackFundResponse.class)
 
         then:

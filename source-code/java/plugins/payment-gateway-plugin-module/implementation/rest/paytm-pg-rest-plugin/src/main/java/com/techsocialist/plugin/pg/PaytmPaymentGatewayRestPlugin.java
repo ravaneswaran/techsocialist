@@ -2,6 +2,7 @@ package com.techsocialist.plugin.pg;
 
 import com.paytm.pg.merchant.CheckSumServiceHelper;
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
+import com.techsocialist.plugin.pg.paytm.request.AccountListRequest;
 import com.techsocialist.plugin.pg.paytm.request.AddFundRequest;
 import com.techsocialist.plugin.pg.paytm.request.BankTransferRequest;
 import com.techsocialist.plugin.pg.paytm.request.CancelSubscriptionRequest;
@@ -664,9 +665,12 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
     }
 
     @Override
-    public String addFund(String merchantId, String merchantKey, String subwalletGuid, String amount) throws Exception {
+    public String addFund(String merchantId, String merchantKey, String version, String subwalletGuid, String amount) throws Exception {
 
         AddFundRequest paytmRequest = new AddFundRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setVersion(version);
 
         paytmRequest.setAmount(amount).setSubwalletGuid(subwalletGuid);
 
@@ -685,9 +689,12 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
     }
 
     @Override
-    public String claimBackFund(String merchantId, String merchantKey, String subwalletGuid, String amount) throws Exception {
+    public String claimBackFund(String merchantId, String merchantKey, String version, String subwalletGuid, String amount) throws Exception {
 
         ClaimBackFundRequest paytmRequest = new ClaimBackFundRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setVersion(version);
 
         paytmRequest.setAmount(amount).setSubwalletGuid(subwalletGuid);
 
@@ -699,6 +706,29 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
 
         System.out.println("claimBackFund[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String accountList(String merchantId, String merchantKey, String version, String subwalletGuid) throws Exception {
+
+        AccountListRequest paytmRequest = new AccountListRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setSubwalletGuid(subwalletGuid);
+
+        String checksum = CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(merchantKey, paytmRequest.dataBody().toString());
+        Map<String, String> requestProperties = new HashMap<>();
+        requestProperties.put("x-mid", merchantId);
+        requestProperties.put("x-checksum", checksum);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
+
+        System.out.println("accountList[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
