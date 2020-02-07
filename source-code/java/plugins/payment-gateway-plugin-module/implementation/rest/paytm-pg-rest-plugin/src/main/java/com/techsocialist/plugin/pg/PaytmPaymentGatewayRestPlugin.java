@@ -4,6 +4,7 @@ import com.paytm.pg.merchant.CheckSumServiceHelper;
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.AccountListRequest;
 import com.techsocialist.plugin.pg.paytm.request.AddFundRequest;
+import com.techsocialist.plugin.pg.paytm.request.BankAccountValidationRequest;
 import com.techsocialist.plugin.pg.paytm.request.BankTransferRequest;
 import com.techsocialist.plugin.pg.paytm.request.CancelSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.ClaimBackFundRequest;
@@ -729,6 +730,32 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
 
         System.out.println("accountList[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String bankAccountValidation(String merchantId, String merchantKey, String version, String orderId, String subwalletGuid, String beneficiaryAccount, String beneficiaryIFSC, String beneficiaryVPA, String callbackUrl) throws Exception {
+
+        BankAccountValidationRequest paytmRequest = new BankAccountValidationRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setOrderId(orderId);
+
+        paytmRequest.setSubwalletGuid(subwalletGuid).setBeneficiaryAccount(beneficiaryAccount).setBeneficiaryIFSC(beneficiaryIFSC);
+        paytmRequest.setBeneficiaryVPA(beneficiaryVPA).setCallbackUrl(callbackUrl);
+
+        String checksum = CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(merchantKey, paytmRequest.dataBody().toString());
+        Map<String, String> requestProperties = new HashMap<>();
+        requestProperties.put("x-mid", merchantId);
+        requestProperties.put("x-checksum", checksum);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
+
+        System.out.println("bankAccountValidation[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
