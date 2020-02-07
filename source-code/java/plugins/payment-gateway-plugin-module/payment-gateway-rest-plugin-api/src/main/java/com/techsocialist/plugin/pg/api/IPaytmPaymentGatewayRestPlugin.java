@@ -76,4 +76,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String accountList(String merchantId, String merchantKey, String version, String subwalletGuid) throws Exception;
 
     public String bankAccountValidation(String merchantId, String merchantKey, String version, String orderId, String subwalletGuid, String beneficiaryAccount, String beneficiaryIFSC, String beneficiaryVPA, String callbackUrl) throws Exception;
+
+    public String disburseStatusQuery(String merchantId, String merchantKey, String version, String orderId) throws Exception;
 }

@@ -10,6 +10,7 @@ import com.techsocialist.plugin.pg.paytm.request.CancelSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.ClaimBackFundRequest;
 import com.techsocialist.plugin.pg.paytm.request.CreateLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.DirectBankRequest;
+import com.techsocialist.plugin.pg.paytm.request.DisburseStatusQueryRequest;
 import com.techsocialist.plugin.pg.paytm.request.ExpireLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBinDetailsRequest;
@@ -756,6 +757,28 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
 
         System.out.println("bankAccountValidation[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String disburseStatusQuery(String merchantId, String merchantKey, String version, String orderId) throws Exception {
+
+        DisburseStatusQueryRequest paytmRequest = new DisburseStatusQueryRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setOrderId(orderId);
+
+        String checksum = CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(merchantKey, paytmRequest.dataBody().toString());
+        Map<String, String> requestProperties = new HashMap<>();
+        requestProperties.put("x-mid", merchantId);
+        requestProperties.put("x-checksum", checksum);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", requestProperties, paytmRequest.dataAsJsonString());
+
+        System.out.println("disburseStatusQuery[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
