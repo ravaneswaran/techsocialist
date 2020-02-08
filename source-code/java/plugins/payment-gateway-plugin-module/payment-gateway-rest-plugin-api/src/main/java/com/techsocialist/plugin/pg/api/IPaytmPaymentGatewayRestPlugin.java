@@ -80,4 +80,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String disburseStatusQuery(String merchantId, String merchantKey, String version, String orderId) throws Exception;
 
     public String mandateFormDownload(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String subscriptionId) throws Exception;
+
+    public String mandateFormUpload(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String subscriptionId) throws Exception;
 }

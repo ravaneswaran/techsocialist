@@ -23,6 +23,7 @@ import com.techsocialist.plugin.pg.paytm.request.FetchTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.MandateFormDownloadRequest;
+import com.techsocialist.plugin.pg.paytm.request.MandateFormUploadRequest;
 import com.techsocialist.plugin.pg.paytm.request.PaymentStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.ProcessTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.RefundRequest;
@@ -806,6 +807,30 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         System.out.println();
 
         return jsonResponse;
+    }
+
+    @Override
+    public String mandateFormUpload(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String subscriptionId) throws Exception {
+
+        MandateFormUploadRequest paytmRequest = new MandateFormUploadRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setClientId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setMerchantKey(merchantKey);
+
+        paytmRequest.setTokenType(tokenType).setSubscriptionId(subscriptionId);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("mandateFormUpload[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+
+
     }
 }
 
