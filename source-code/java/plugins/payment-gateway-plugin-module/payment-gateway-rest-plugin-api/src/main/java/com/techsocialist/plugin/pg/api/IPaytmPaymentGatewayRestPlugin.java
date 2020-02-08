@@ -1,6 +1,5 @@
 package com.techsocialist.plugin.pg.api;
 
-import java.io.IOException;
 import java.util.Map;
 
 public interface IPaytmPaymentGatewayRestPlugin {
@@ -82,4 +81,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String mandateFormDownload(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String subscriptionId) throws Exception;
 
     public String mandateFormUpload(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String subscriptionId) throws Exception;
+
+    public String mandateFormNotify(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String subscriptionId) throws Exception;
 }

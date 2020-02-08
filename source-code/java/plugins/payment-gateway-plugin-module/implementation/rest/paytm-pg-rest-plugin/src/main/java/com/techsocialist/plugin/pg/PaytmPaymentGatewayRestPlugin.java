@@ -23,6 +23,7 @@ import com.techsocialist.plugin.pg.paytm.request.FetchTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.MandateFormDownloadRequest;
+import com.techsocialist.plugin.pg.paytm.request.MandateFormNotifyRequest;
 import com.techsocialist.plugin.pg.paytm.request.MandateFormUploadRequest;
 import com.techsocialist.plugin.pg.paytm.request.PaymentStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.ProcessTransactionRequest;
@@ -831,6 +832,28 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         return jsonResponse;
 
 
+    }
+
+    @Override
+    public String mandateFormNotify(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String subscriptionId) throws Exception {
+
+        MandateFormNotifyRequest paytmRequest = new MandateFormNotifyRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setClientId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setMerchantKey(merchantKey);
+
+        paytmRequest.setTokenType(tokenType).setSubscriptionId(subscriptionId);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("mandateFormNotify[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
     }
 }
 
