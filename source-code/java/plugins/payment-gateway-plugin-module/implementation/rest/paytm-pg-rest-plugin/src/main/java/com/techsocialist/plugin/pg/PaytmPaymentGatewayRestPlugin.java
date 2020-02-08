@@ -12,6 +12,7 @@ import com.techsocialist.plugin.pg.paytm.request.CreateLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.DirectBankRequest;
 import com.techsocialist.plugin.pg.paytm.request.DisburseStatusQueryRequest;
 import com.techsocialist.plugin.pg.paytm.request.ExpireLinkRequest;
+import com.techsocialist.plugin.pg.paytm.request.FetchAllOffersRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBalanceInfoRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchBinDetailsRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchEMIDetailRequest;
@@ -873,6 +874,29 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
         System.out.println("fetchSubscriptionStatus[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String fetchAllOffers(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String token, String channelId, String requestId) throws Exception {
+
+        FetchAllOffersRequest paytmRequest = new FetchAllOffersRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setClientId(clientId);
+        paytmRequest.setChannelId(channelId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setMerchantKey(merchantKey);
+
+        paytmRequest.setRequestId(requestId).setToken(token).setTokenType(tokenType);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("fetchAllOffers[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 

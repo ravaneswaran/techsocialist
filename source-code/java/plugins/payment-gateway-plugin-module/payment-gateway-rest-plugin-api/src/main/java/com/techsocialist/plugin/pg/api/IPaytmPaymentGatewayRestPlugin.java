@@ -85,4 +85,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String mandateFormNotify(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String subscriptionId) throws Exception;
 
     public String fetchSubscriptionStatus(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String token, String customerId, String subscriptionId) throws Exception;
+
+    public String fetchAllOffers(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String token, String channelId, String requestId) throws Exception;
 }
