@@ -19,6 +19,7 @@ import com.techsocialist.plugin.pg.paytm.request.FetchInstrumentRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchNBPaymentChannelRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchPaymentOptionsRequest;
+import com.techsocialist.plugin.pg.paytm.request.FetchSubscriptionStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.FetchTransactionRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.InitiateTransactionRequest;
@@ -850,6 +851,28 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
         System.out.println("mandateFormNotify[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String fetchSubscriptionStatus(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String token, String customerId, String subscriptionId) throws Exception {
+
+        FetchSubscriptionStatusRequest paytmRequest = new FetchSubscriptionStatusRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setClientId(clientId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setMerchantKey(merchantKey);
+
+        paytmRequest.setCustomerId(customerId).setSubscriptionId(subscriptionId).setTokenType(tokenType);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("fetchSubscriptionStatus[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
