@@ -87,4 +87,6 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String fetchSubscriptionStatus(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String token, String customerId, String subscriptionId) throws Exception;
 
     public String fetchAllOffers(String merchantId, String merchantKey, String clientId, String version, String requestTimestamp, String tokenType, String token, String channelId, String requestId) throws Exception;
+
+    public String applyPromo(String merchantId, String merchantKey, String version, String requestId, String requestTimestamp, String channelId, String tokenType, String token, String customerId, String promoCode, String transactionAmount, String payMethod, String bankCode, String cardNo, String savedCardId, String vpa, String totalTransactionAmount) throws Exception;
 }

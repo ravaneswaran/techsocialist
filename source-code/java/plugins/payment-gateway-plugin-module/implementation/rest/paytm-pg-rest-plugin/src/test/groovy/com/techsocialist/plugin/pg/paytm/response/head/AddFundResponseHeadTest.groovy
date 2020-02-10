@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class AddFundResponseHeadTest extends Specification {
 
-    def "test BankTransferResponseHeadTest instance"(){
+    def "test AddFundResponseHead instance"(){
         when:
         AddFundResponseHead addFundResponseHead = new AddFundResponseHead()
 

@@ -4,6 +4,7 @@ import com.paytm.pg.merchant.CheckSumServiceHelper;
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.AccountListRequest;
 import com.techsocialist.plugin.pg.paytm.request.AddFundRequest;
+import com.techsocialist.plugin.pg.paytm.request.ApplyPromoRequest;
 import com.techsocialist.plugin.pg.paytm.request.BankAccountValidationRequest;
 import com.techsocialist.plugin.pg.paytm.request.BankTransferRequest;
 import com.techsocialist.plugin.pg.paytm.request.CancelSubscriptionRequest;
@@ -897,6 +898,30 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
         System.out.println("fetchAllOffers[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String applyPromo(String merchantId, String merchantKey, String version, String requestId, String requestTimestamp, String channelId, String tokenType, String token, String customerId, String promoCode, String transactionAmount, String payMethod, String bankCode, String cardNo, String savedCardId, String vpa, String totalTransactionAmount) throws Exception {
+
+        ApplyPromoRequest paytmRequest = new ApplyPromoRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setChannelId(channelId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setMerchantKey(merchantKey);
+
+        paytmRequest.setBankCode(bankCode).setCardNo(cardNo).setCustomerId(customerId);
+        paytmRequest.setPayMethod(payMethod).setPromoCode(promoCode).setTransactionAmount(transactionAmount).setTotalTransactionAmount(totalTransactionAmount);
+        paytmRequest.setVpa(vpa).setTokenType(tokenType).setToken(token).setSavedCardId(savedCardId);
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("applyPromo[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
