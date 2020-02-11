@@ -1,5 +1,6 @@
 package com.techsocialist.plugin.pg.api;
 
+import com.techsocialist.plugin.pg.api.request.paytm.innerstruct.IFilter;
 import com.techsocialist.plugin.pg.api.request.paytm.innerstruct.IItem;
 
 import java.util.Map;
@@ -93,6 +94,8 @@ public interface IPaytmPaymentGatewayRestPlugin {
     public String applyPromo(String merchantId, String merchantKey, String version, String requestId, String requestTimestamp, String channelId, String tokenType, String token, String customerId, String promoCode, String transactionAmount, String payMethod, String bankCode, String cardNo, String savedCardId, String vpa, String totalTransactionAmount) throws Exception;
 
     public String banksEMISubvention(String merchantId, String merchantKey, String version, String requestId, String requestTimestamp, String channelId, String tokenType, String token, String itemId, String productId, String brandId, String quantity, String price, String verticalId, String isEmiEnabled, IItem[] items)throws Exception;
+
+    public String tenuresEMISubvention(String merchantId, String merchantKey, String version, String requestId, String requestTimestamp, String channelId, String tokenType, String token, String itemId, String productId, String brandId, String quantity, String price, String verticalId, String isEmiEnabled, IItem[] items, IFilter filter) throws Exception;
 
 
 }

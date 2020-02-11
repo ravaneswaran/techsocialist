@@ -1,6 +1,7 @@
 package com.techsocialist.plugin.pg;
 
 import com.paytm.pg.merchant.CheckSumServiceHelper;
+import com.techsocialist.plugin.pg.api.request.paytm.innerstruct.IFilter;
 import com.techsocialist.plugin.pg.api.request.paytm.innerstruct.IItem;
 import com.techsocialist.plugin.pg.impl.AbstractPaytmPaymentGatewayRestPlugin;
 import com.techsocialist.plugin.pg.paytm.request.AccountListRequest;
@@ -37,6 +38,7 @@ import com.techsocialist.plugin.pg.paytm.request.RefundStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.RenewSubscriptionRequest;
 import com.techsocialist.plugin.pg.paytm.request.ResendNotificationLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.SendOTPRequest;
+import com.techsocialist.plugin.pg.paytm.request.TenuresEMISubventionRequest;
 import com.techsocialist.plugin.pg.paytm.request.TransactionStatusRequest;
 import com.techsocialist.plugin.pg.paytm.request.UpdateLinkRequest;
 import com.techsocialist.plugin.pg.paytm.request.UpdateTransactionRequest;
@@ -947,6 +949,30 @@ public class PaytmPaymentGatewayRestPlugin extends AbstractPaytmPaymentGatewayRe
         String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
 
         System.out.println("banksEMISubvention[jsonResponse] ----->>>>> "+jsonResponse);
+        System.out.println("<-------------------------------------------------------->");
+        System.out.println();
+
+        return jsonResponse;
+    }
+
+    @Override
+    public String tenuresEMISubvention(String merchantId, String merchantKey, String version, String requestId, String requestTimestamp, String channelId, String tokenType, String token, String itemId, String productId, String brandId, String quantity, String price, String verticalId, String isEmiEnabled, IItem[] items, IFilter filter) throws Exception {
+
+        TenuresEMISubventionRequest paytmRequest = new TenuresEMISubventionRequest();
+
+        paytmRequest.setMerchantId(merchantId);
+        paytmRequest.setChannelId(channelId);
+        paytmRequest.setVersion(version);
+        paytmRequest.setRequestTimestamp(requestTimestamp);
+        paytmRequest.setMerchantKey(merchantKey);
+
+        paytmRequest.setToken(token).setTokenType(tokenType).setRequestId(requestId).setItemId(itemId);
+        paytmRequest.setBrandId(brandId).setIsEmiEnabled(isEmiEnabled).setPrice(price).setQuantity(quantity);
+        paytmRequest.setProductId(productId).setVerticalId(verticalId).setItems(items).setBankCode(filter.getBankCode()).setCardType(filter.getCardType());
+
+        String jsonResponse = processPaytmRequest(paytmRequest.url(false), "POST", "application/json", paytmRequest.dataAsJsonString());
+
+        System.out.println("tenuresEMISubvention[jsonResponse] ----->>>>> "+jsonResponse);
         System.out.println("<-------------------------------------------------------->");
         System.out.println();
 
