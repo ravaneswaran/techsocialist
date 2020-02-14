@@ -18,7 +18,7 @@ jacocoTestReport {
     }
 }
 
-jar.archiveName = String.format("techsocialist-paytm-%s-plugin-%s.jar", project.name, version)
+jar.archiveName = String.format("techsocialist-paytm-rest-%s-%s.jar", project.name, version)
 
 repositories {
     maven {
