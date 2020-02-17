@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.DirectBankResponseHead;
 
 public class DirectBankResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private DirectBankResponseHead directBankResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private DirectBankResponseBody directBankResponseBody;
 
     public DirectBankResponseHead getDirectBankResponseHead() {

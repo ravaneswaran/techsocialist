@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.ApplyPromoResponseHead;
 
 public class ApplyPromoResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private ApplyPromoResponseHead applyPromoResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private ApplyPromoResponseBody applyPromoResponseBody;
 
     public ApplyPromoResponseHead getApplyPromoResponseHead() {

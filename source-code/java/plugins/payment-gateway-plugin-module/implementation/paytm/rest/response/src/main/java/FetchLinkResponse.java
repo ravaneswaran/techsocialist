@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.FetchLinkResponseHead;
 
 public class FetchLinkResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("ead")
     private FetchLinkResponseHead fetchLinkResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private FetchLinkResponseBody fetchLinkResponseBody;
 
     public FetchLinkResponseHead getFetchLinkResponseHead() {

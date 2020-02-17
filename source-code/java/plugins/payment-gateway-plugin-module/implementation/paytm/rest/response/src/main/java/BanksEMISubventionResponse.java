@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.BanksEMISubventionRespons
 
 public class BanksEMISubventionResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private BanksEMISubventionResponseHead banksEMISubventionResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private BanksEMISubventionResponseBody banksEMISubventionResponseBody;
 
     public BanksEMISubventionResponseHead getBanksEMISubventionResponseHead() {

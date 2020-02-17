@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.WalletTransferResponseHea
 
 public class WalletTransferResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private WalletTransferResponseHead walletTransferResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private WalletTransferResponseBody walletTransferResponseBody;
 
     public WalletTransferResponseHead getWalletTransferResponseHead() {

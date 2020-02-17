@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.UpdateLinkResponseHead;
 
 public class UpdateLinkResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private UpdateLinkResponseHead updateLinkResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private UpdateLinkResponseBody updateLinkResponseBody;
 
     public UpdateLinkResponseHead getUpdateLinkResponseHead() {

@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.BankAccountValidationResp
 
 public class BankAccountValidationResponse extends AbstractPaytmResponse{
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private BankAccountValidationResponseHead bankAccountValidationResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private BankAccountValidationResponseBody bankAccountValidationResponseBody;
 
     public BankAccountValidationResponseHead getBankAccountValidationResponseHead() {

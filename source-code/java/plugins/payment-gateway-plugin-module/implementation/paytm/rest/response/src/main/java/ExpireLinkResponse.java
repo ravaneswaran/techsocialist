@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.ExpireLinkResponseHead;
 
 public class ExpireLinkResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private ExpireLinkResponseHead expireLinkResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private ExpireLinkResponseBody expireLinkResponseBody;
 
     public ExpireLinkResponseHead getExpireLinkResponseHead() {

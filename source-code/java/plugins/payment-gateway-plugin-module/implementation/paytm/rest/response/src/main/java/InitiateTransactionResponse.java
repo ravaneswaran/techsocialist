@@ -5,10 +5,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.InitiateTransactionRespon
 
 public class InitiateTransactionResponse extends AbstractPaytmResponse{
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private InitiateTransactionResponseHead initiateTransactionResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private InitiateTransactionResponseBody initiateTransactionResponseBody;
 
     public InitiateTransactionResponseHead getInitiateTransactionResponseHead() {

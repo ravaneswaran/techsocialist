@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.MandateFormNotifyResponse
 
 public class MandateFormNotifyResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("ead")
     private MandateFormNotifyResponseHead mandateFormNotifyResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private MandateFormNotifyResponseBody mandateFormNotifyResponseBody;
 
     public MandateFormNotifyResponseHead getMandateFormNotifyResponseHead() {

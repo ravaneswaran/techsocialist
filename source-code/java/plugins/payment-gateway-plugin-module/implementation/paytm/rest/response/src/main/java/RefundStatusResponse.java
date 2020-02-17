@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.RefundStatusResponseHead;
 
 public class RefundStatusResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private RefundStatusResponseHead refundStatusResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private RefundStatusResponseBody refundStatusResponseBody;
 
     public RefundStatusResponseHead getRefundStatusResponseHead() {

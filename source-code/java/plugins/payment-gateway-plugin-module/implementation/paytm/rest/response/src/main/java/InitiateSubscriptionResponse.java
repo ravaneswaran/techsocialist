@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.InitiateSubscriptionRespo
 
 public class InitiateSubscriptionResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private InitiateSubscriptionResponseHead initiateSubscriptionResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private InitiateSubscriptionResponseBody initiateSubscriptionResponseBody;
 
     public InitiateSubscriptionResponseHead getInitiateSubscriptionResponseHead() {

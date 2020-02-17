@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.ValidateOTPResponseHead;
 
 public class ValidateOTPResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private ValidateOTPResponseHead validateOTPResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("ody")
     private ValidateOTPResponseBody validateOTPResponseBody;
 
     public ValidateOTPResponseHead getValidateOTPResponseHead() {

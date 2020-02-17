@@ -1,9 +1,8 @@
 package com.techsocialist.plugin.pg.paytm.response.body.innerstruct;
 
 import com.google.gson.annotations.SerializedName;
-import com.techsocialist.plugin.pg.paytm.response.AbstractPaytmResponse;
 
-public class ResultInfo extends AbstractPaytmResponse {
+public class ResultInfo {
 
     @SerializedName(value = "resultStatus", alternate = "status")
     private String resultStatus;
@@ -49,7 +48,6 @@ public class ResultInfo extends AbstractPaytmResponse {
         return retry;
     }
 
-    @Override
     public boolean ok(){
         return 0 == Integer.parseInt(this.getResultCode());
         //return "S".equals(this.getResultStatus()) && 0 == Integer.parseInt(this.getResultCode()) && "Success".equals(this.getResultMessage());

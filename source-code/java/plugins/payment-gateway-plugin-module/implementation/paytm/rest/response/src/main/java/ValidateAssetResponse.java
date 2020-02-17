@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.ValidateAssetResponseHead
 
 public class ValidateAssetResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private ValidateAssetResponseHead validateAssetResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private ValidateAssetResponseBody validateAssetResponseBody;
 
     public ValidateAssetResponseHead getValidateAssetResponseHead() {

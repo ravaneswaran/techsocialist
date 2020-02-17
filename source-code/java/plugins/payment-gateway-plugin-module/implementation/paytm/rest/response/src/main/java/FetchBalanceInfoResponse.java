@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.FetchBalanceInfoResponseH
 
 public class FetchBalanceInfoResponse extends AbstractPaytmResponse{
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private FetchBalanceInfoResponseHead fetchBalanceInfoResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private FetchBalanceInfoResponseBody fetchBalanceInfoResponseBody;
 
     public FetchBalanceInfoResponseHead getFetchBalanceInfoResponseHead() {

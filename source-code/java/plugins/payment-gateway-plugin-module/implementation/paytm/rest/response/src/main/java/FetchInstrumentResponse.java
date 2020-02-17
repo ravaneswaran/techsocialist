@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.FetchInstrumentResponseHe
 
 public class FetchInstrumentResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private FetchInstrumentResponseHead fetchInstrumentResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private FetchInstrumentResponseBody fetchInstrumentResponseBody;
 
     public FetchInstrumentResponseHead getFetchInstrumentResponseHead() {

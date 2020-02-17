@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.TenuresEMISubventionRespo
 
 public class TenuresEMISubventionResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private TenuresEMISubventionResponseHead tenuresEMISubventionResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private TenuresEMISubventionResponseBody tenuresEMISubventionResponseBody;
 
     public TenuresEMISubventionResponseHead getTenuresEMISubventionResponseHead() {

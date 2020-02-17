@@ -4,10 +4,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.ResendNotificationLinkRes
 
 public class ResendNotificationLinkResponse extends AbstractPaytmResponse {
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/head")
+    @SerializedName("head")
     private ResendNotificationLinkResponseHead resendNotificationLinkResponseHead;
 
-    @SerializedName("com/techsocialist/plugin/pg/paytm/response/body")
+    @SerializedName("body")
     private ResendNotificationLinkResponseBody resendNotificationLinkResponseBody;
 
     public ResendNotificationLinkResponseHead getResendNotificationLinkResponseHead() {
