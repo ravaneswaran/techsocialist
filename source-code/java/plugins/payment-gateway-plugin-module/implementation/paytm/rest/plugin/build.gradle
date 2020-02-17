@@ -39,6 +39,8 @@ dependencies {
 
     compileOnly project(":unmarshaller-plugin-module:unmarshaller-plugin-api")
     compileOnly project(":unmarshaller-plugin-module:implementation:json:google-unmarshaller-plugin")
+
+    compileOnly project(":payment-gateway-plugin-module:implementation:paytm:rest:request")
     compileOnly project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
 
     testCompile project(":unmarshaller-plugin-module:unmarshaller-plugin-api")

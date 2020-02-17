@@ -28,9 +28,13 @@ repositories {
 
 dependencies {
 
+    compile group: 'org.json', name: 'json', version: '20180813'
+
     compileOnly project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
 
     testCompile project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
+
+    implementation files('lib/paytm-checksum-2.0.0.jar')
 
     implementation 'org.scala-lang:scala-library:2.11.12'
     testImplementation 'org.scalatest:scalatest_2.11:3.0.0'

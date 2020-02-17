@@ -1,9 +1,10 @@
 package com.techsocialist.plugin.pg.paytm.request
 
-import com.techsocialist.plugin.pg.AbstractPaytmPaymentGatewayTest
-import org.json.JSONObject
 
-class TransactionStatusRequestTest extends AbstractPaytmPaymentGatewayTest {
+import org.json.JSONObject
+import spock.lang.Specification
+
+class TransactionStatusRequestTest extends Specification {
 
     def "test TransactionStatusRequest data com.techsocialist.plugin.pg.paytm.response.head"(){
         setup:
@@ -31,8 +32,8 @@ class TransactionStatusRequestTest extends AbstractPaytmPaymentGatewayTest {
         setup:
         String orderId = String.format("ORDER-ID-%s", new Date().getTime())
         TransactionStatusRequest transactionStatusRequest = new TransactionStatusRequest()
-        transactionStatusRequest.setMerchantId(merchantId)
-        transactionStatusRequest.setMerchantKey(merchantKey)
+        transactionStatusRequest.setMerchantId("mer-id-001")
+        transactionStatusRequest.setMerchantKey("1111111111111111")
         transactionStatusRequest.setOrderId(orderId)
 
         when:
