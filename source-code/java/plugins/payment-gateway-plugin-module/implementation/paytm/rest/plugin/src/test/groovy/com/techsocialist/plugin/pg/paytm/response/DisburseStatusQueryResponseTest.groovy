@@ -39,7 +39,7 @@ class DisburseStatusQueryResponseTest extends AbstractPaytmResponseTest{
         null == disburseStatusQueryResponse
     }
 
-    def "test DisburseStatusQueryResponse -> head"(){
+    def "test DisburseStatusQueryResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         DisburseStatusQueryResponse disburseStatusQueryResponse = new DisburseStatusQueryResponse()
@@ -48,7 +48,7 @@ class DisburseStatusQueryResponseTest extends AbstractPaytmResponseTest{
         null == disburseStatusQueryResponse.getDisburseStatusQueryResponseHead()
     }
 
-    def "test DisburseStatusQueryResponse -> body"(){
+    def "test DisburseStatusQueryResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
 
         when:
         DisburseStatusQueryResponse disburseStatusQueryResponse = new DisburseStatusQueryResponse()

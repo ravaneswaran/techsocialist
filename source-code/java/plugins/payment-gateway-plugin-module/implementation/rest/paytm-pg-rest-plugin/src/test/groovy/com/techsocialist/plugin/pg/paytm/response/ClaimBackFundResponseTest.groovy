@@ -41,7 +41,7 @@ class ClaimBackFundResponseTest extends AbstractPaytmResponseTest{
         null == claimBackFundResponse
     }
 
-    def "test ClaimBackFundResponse -> head"(){
+    def "test ClaimBackFundResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         ClaimBackFundResponse claimBackFundResponse = new ClaimBackFundResponse()
@@ -50,7 +50,7 @@ class ClaimBackFundResponseTest extends AbstractPaytmResponseTest{
         null == claimBackFundResponse.getClaimBackFundResponseHead()
     }
 
-    def "test ClaimBackFundResponse -> body"(){
+    def "test ClaimBackFundResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
 
         when:
         ClaimBackFundResponse claimBackFundResponse = new ClaimBackFundResponse()

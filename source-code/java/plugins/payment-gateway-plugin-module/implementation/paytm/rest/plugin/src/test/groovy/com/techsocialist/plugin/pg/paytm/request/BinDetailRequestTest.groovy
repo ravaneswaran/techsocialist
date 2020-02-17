@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class BinDetailRequestTest extends Specification {
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         FetchBinDetailsRequest paytmRequest = new FetchBinDetailsRequest()
 
@@ -19,7 +19,7 @@ class BinDetailRequestTest extends Specification {
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         FetchBinDetailsRequest paytmRequest = new FetchBinDetailsRequest()
 

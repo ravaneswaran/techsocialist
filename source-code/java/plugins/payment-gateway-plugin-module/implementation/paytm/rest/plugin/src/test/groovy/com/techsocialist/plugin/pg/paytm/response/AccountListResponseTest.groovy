@@ -39,7 +39,7 @@ class AccountListResponseTest extends AbstractPaytmResponseTest {
         null == accountListResponse
     }
 
-    def "test AccountListResponse -> head"(){
+    def "test AccountListResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         AccountListResponse accountListResponse = new AccountListResponse()
@@ -48,7 +48,7 @@ class AccountListResponseTest extends AbstractPaytmResponseTest {
         null == accountListResponse.getAccountListResponseHead()
     }
 
-    def "test AccountListResponse -> body"(){
+    def "test AccountListResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
 
         when:
         AccountListResponse accountListResponse = new AccountListResponse()

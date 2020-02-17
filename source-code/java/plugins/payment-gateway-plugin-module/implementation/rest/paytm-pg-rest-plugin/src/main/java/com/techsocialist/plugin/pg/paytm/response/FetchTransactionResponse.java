@@ -6,10 +6,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.FetchTransactionResponseH
 
 public class FetchTransactionResponse extends AbstractPaytmResponse {
 
-    @SerializedName("head")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.head")
     private FetchTransactionResponseHead fetchTransactionResponseHead;
 
-    @SerializedName("body")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.body")
     private FetchTransactionResponseBody fetchTransactionResponseBody;
 
     public FetchTransactionResponseHead getFetchTransactionResponseHead() {

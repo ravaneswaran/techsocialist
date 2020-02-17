@@ -74,7 +74,7 @@ class FetchPaymentOptionsResponseTest extends AbstractPaytmResponseTest{
         true == fetchPaymentOptionsResponse.ok()
     }
 
-    def "test fetch payment options response head"(){
+    def "test fetch payment options response com.techsocialist.plugin.pg.paytm.response.head"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -96,7 +96,7 @@ class FetchPaymentOptionsResponseTest extends AbstractPaytmResponseTest{
         null == fetchPaymentOptionsResponseHead.getRequestId() && null != fetchPaymentOptionsResponseHead.getResponseTimestamp() && null != fetchPaymentOptionsResponseHead.getVersion()
     }
 
-    def "test fetch payment options response head for values"(){
+    def "test fetch payment options response com.techsocialist.plugin.pg.paytm.response.head for values"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -118,7 +118,7 @@ class FetchPaymentOptionsResponseTest extends AbstractPaytmResponseTest{
         null == fetchPaymentOptionsResponseHead.getRequestId() && fetchPaymentOptionsResponseHead.getResponseTimestamp().length() > 0 && "v1" == fetchPaymentOptionsResponseHead.getVersion()
     }
 
-    def "test fetch payment options response body"(){
+    def "test fetch payment options response com.techsocialist.plugin.pg.paytm.response.body"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())

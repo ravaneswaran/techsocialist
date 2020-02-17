@@ -6,10 +6,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.RenewSubscriptionResponse
 
 public class RenewSubscriptionResponse extends AbstractPaytmResponse {
 
-    @SerializedName("head")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.head")
     private RenewSubscriptionResponseHead renewSubscriptionResponseHead;
 
-    @SerializedName("body")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.body")
     private RenewSubscriptionResponseBody renewSubscriptionResponseBody;
 
     public RenewSubscriptionResponseHead getRenewSubscriptionResponseHead() {

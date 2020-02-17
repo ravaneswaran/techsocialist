@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class DisburseStatusQueryRequestTest extends Specification {
 
-    def "test DisburseStatusQueryRequest -> head"(){
+    def "test DisburseStatusQueryRequest -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         DisburseStatusQueryRequest disburseStatusQueryRequest = new DisburseStatusQueryRequest()

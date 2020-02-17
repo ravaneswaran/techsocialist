@@ -6,10 +6,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.ClaimBackFundResponseHead
 
 public class ClaimBackFundResponse extends AbstractPaytmResponse {
 
-    @SerializedName("head")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.head")
     private ClaimBackFundResponseHead claimBackFundResponseHead;
 
-    @SerializedName("body")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.body")
     private ClaimBackFundResponseBody claimBackFundResponseBody;
 
     public ClaimBackFundResponseHead getClaimBackFundResponseHead() {

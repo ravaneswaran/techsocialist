@@ -24,8 +24,8 @@ public class FetchBalanceInfoRequest extends AbstractPaytmRequest {
     @Override
     public JSONObject dataHead() {
         JSONObject head = new JSONObject();
-        //head.put("clientId", this.getClientId());
-        //head.put("version", this.getVersion());
+        //com.techsocialist.plugin.pg.paytm.response.head.put("clientId", this.getClientId());
+        //com.techsocialist.plugin.pg.paytm.response.head.put("version", this.getVersion());
         head.put("requestTimestamp", this.getRequestTimestamp());
         head.put("channelId", this.getChannelId());
         head.put("txnToken", this.getTransactionToken());

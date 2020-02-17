@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class FetchEMIDetailRequestTest extends Specification {
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         FetchEMIDetailRequest paytmRequest = new FetchEMIDetailRequest()
 
@@ -20,7 +20,7 @@ class FetchEMIDetailRequestTest extends Specification {
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         FetchEMIDetailRequest paytmRequest = new FetchEMIDetailRequest()
         String[] channelCodes = ["channel-code-001"]
@@ -39,7 +39,7 @@ class FetchEMIDetailRequestTest extends Specification {
         null != paytmRequest.dataBody()
     }
 
-    def "test data body when channel code is null"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body when channel code is null"() {
         setup:
         FetchEMIDetailRequest paytmRequest = new FetchEMIDetailRequest()
         String[] channelCodes = null

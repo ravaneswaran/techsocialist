@@ -51,11 +51,11 @@ public abstract class AbstractPaytmRequest {
         JSONObject body = dataBody();
 
         if(null != head){
-            paytmRequestData.put("head", head);
+            paytmRequestData.put("com.techsocialist.plugin.pg.paytm.response.head", head);
         }
 
         if(null != body){
-            paytmRequestData.put("body", body);
+            paytmRequestData.put("com.techsocialist.plugin.pg.paytm.response.body", body);
         }
 
         return paytmRequestData;

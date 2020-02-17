@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class NetBankingPaymentChannelRequestTest extends Specification{
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         FetchNBPaymentChannelRequest paytmRequest = new FetchNBPaymentChannelRequest()
 
@@ -20,7 +20,7 @@ class NetBankingPaymentChannelRequestTest extends Specification{
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         FetchNBPaymentChannelRequest paytmRequest = new FetchNBPaymentChannelRequest()
 

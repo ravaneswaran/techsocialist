@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class BalanceInfoRequestTest extends Specification {
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         FetchBalanceInfoRequest paytmRequest = new FetchBalanceInfoRequest()
 
@@ -21,7 +21,7 @@ class BalanceInfoRequestTest extends Specification {
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         FetchBalanceInfoRequest paytmRequest = new FetchBalanceInfoRequest()
 

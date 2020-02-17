@@ -6,10 +6,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.SendOTPResponseHead;
 
 public class SendOTPResponse extends AbstractPaytmResponse {
 
-    @SerializedName("head")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.head")
     private SendOTPResponseHead sendOTPResponseHead;
 
-    @SerializedName("body")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.body")
     private SendOTPResponseBody sendOTPResponseBody;
 
     public SendOTPResponseHead getSendOTPResponseHead() {

@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class WalletTransferRequestTest extends Specification {
 
-    def "test WalletTransferRequest -> head"(){
+    def "test WalletTransferRequest -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         WalletTransferRequest walletTransferRequest = new WalletTransferRequest()

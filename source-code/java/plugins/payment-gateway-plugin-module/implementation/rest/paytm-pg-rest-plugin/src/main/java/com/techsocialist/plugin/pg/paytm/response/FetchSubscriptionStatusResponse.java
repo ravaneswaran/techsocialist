@@ -6,10 +6,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.FetchSubscriptionStatusRe
 
 public class FetchSubscriptionStatusResponse extends AbstractPaytmResponse {
 
-    @SerializedName("head")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.head")
     private FetchSubscriptionStatusResponseHead fetchSubscriptionStatusResponseHead;
 
-    @SerializedName("body")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.body")
     private FetchSubscriptionStatusResponseBody fetchSubscriptionStatusResponseBody;
 
     public FetchSubscriptionStatusResponseHead getFetchSubscriptionStatusResponseHead() {

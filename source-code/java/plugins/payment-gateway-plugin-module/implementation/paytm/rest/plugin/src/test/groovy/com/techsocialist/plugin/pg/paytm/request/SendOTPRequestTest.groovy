@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class SendOTPRequestTest extends Specification{
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         SendOTPRequest paytmRequest = new SendOTPRequest()
 
@@ -19,7 +19,7 @@ class SendOTPRequestTest extends Specification{
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         SendOTPRequest paytmRequest = new SendOTPRequest()
 

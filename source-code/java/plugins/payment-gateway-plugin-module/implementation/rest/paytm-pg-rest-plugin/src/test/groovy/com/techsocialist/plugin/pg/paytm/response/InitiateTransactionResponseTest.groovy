@@ -47,7 +47,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmResponseTest{
         null != initiateTransactionResponse && null != initiateTransactionResponse.getInitiateTransactionResponseHead() && null != initiateTransactionResponse.getInitiateTransactionResponseBody()
     }
 
-    def "test initiate transaction unmarshall to check head"(){
+    def "test initiate transaction unmarshall to check com.techsocialist.plugin.pg.paytm.response.head"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -67,7 +67,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmResponseTest{
         null != initiateTransactionResponseHead.getResponseTimestamp() && null != initiateTransactionResponseHead.getVersion() && null != initiateTransactionResponseHead.getSignature()
     }
 
-    def "test initiate transaction unmarshall to check body"(){
+    def "test initiate transaction unmarshall to check com.techsocialist.plugin.pg.paytm.response.body"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -87,7 +87,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmResponseTest{
         null != initiateTransactionResponseBody.getResultInfo() && null != initiateTransactionResponseBody.getTransactionToken() && false == initiateTransactionResponseBody.isPromoCodeValid() && false == initiateTransactionResponseBody.isAuthenticated()
     }
 
-    def "test initiate transaction unmarshall to check result info in body"(){
+    def "test initiate transaction unmarshall to check result info in com.techsocialist.plugin.pg.paytm.response.body"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -107,7 +107,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmResponseTest{
         null != resultInfo && null != resultInfo.getResultStatus() && null != resultInfo.getResultCode() && null != resultInfo.getResultMessage()
     }
 
-    def "test initiate transaction unmarshall to check result info in body for values"(){
+    def "test initiate transaction unmarshall to check result info in com.techsocialist.plugin.pg.paytm.response.body for values"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -184,7 +184,7 @@ class InitiateTransactionResponseTest extends AbstractPaytmResponseTest{
         false == initiateTransactionResponse.ok()
     }
 
-    def "test result info in body when initiate transaction is erroneous"(){
+    def "test result info in com.techsocialist.plugin.pg.paytm.response.body when initiate transaction is erroneous"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())

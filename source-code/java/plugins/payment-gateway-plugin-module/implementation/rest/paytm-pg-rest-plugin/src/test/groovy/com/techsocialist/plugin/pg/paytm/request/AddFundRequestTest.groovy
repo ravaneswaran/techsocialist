@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class AddFundRequestTest extends Specification {
 
-    def "test AddFundRequest -> head"(){
+    def "test AddFundRequest -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         AddFundRequest addFundRequest = new AddFundRequest()

@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class BankAccountValidationRequestTest extends Specification{
 
-    def "test BankAccountValidationRequest -> head"(){
+    def "test BankAccountValidationRequest -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         BankAccountValidationRequest bankAccountValidationRequest = new BankAccountValidationRequest()

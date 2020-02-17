@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class InitiateTransactionResponseRequestTest extends Specification{
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         InitiateTransactionRequest paytmRequest = new InitiateTransactionRequest()
 
@@ -20,7 +20,7 @@ class InitiateTransactionResponseRequestTest extends Specification{
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         InitiateTransactionRequest paytmRequest = new InitiateTransactionRequest()
 

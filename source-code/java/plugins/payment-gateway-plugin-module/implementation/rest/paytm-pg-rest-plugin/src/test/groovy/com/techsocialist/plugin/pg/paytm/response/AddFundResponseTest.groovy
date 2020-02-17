@@ -40,7 +40,7 @@ class AddFundResponseTest extends AbstractPaytmResponseTest{
         null == addFundResponse
     }
 
-    def "test AddFundResponse -> head"(){
+    def "test AddFundResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         AddFundResponse addFundResponse = new AddFundResponse()
@@ -49,7 +49,7 @@ class AddFundResponseTest extends AbstractPaytmResponseTest{
         null == addFundResponse.getAddFundResponseHead()
     }
 
-    def "test AddFundResponse -> body"(){
+    def "test AddFundResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
 
         when:
         AddFundResponse addFundResponse = new AddFundResponse()

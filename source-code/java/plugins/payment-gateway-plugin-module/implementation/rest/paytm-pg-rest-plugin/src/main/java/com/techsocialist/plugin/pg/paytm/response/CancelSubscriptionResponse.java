@@ -6,10 +6,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.CancelSubscriptionRespons
 
 public class CancelSubscriptionResponse extends AbstractPaytmResponse{
 
-    @SerializedName("head")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.head")
     private CancelSubscriptionResponseHead cancelSubscriptionResponseHead;
 
-    @SerializedName("body")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.body")
     private CancelSubscriptionResponseBody cancelSubscriptionResponseBody;
 
     public CancelSubscriptionResponseHead getCancelSubscriptionResponseHead() {

@@ -39,16 +39,16 @@ public class ProcessTransactionRequest extends AbstractPaytmRequest{
     public JSONObject dataBody() {
         JSONObject body = new JSONObject();
 
-        //body.put("requestType", "NATIVE");
+        //com.techsocialist.plugin.pg.paytm.response.body.put("requestType", "NATIVE");
         body.put("requestType", this.requestType);
         body.put("mid", this.getMerchantId());
         body.put("orderId", this.getOrderId());
         body.put("paymentMode", this.paymentMode);
         body.put("authMode", this.authMode);
         body.put("cardInfo", this.cardInfo);
-        //body.put("paymentFlow", "NONE");
+        //com.techsocialist.plugin.pg.paytm.response.body.put("paymentFlow", "NONE");
         body.put("paymentFlow", this.paymentFlow);
-        //body.put("storeInstrument", "0");
+        //com.techsocialist.plugin.pg.paytm.response.body.put("storeInstrument", "0");
         body.put("storeInstrument", this.storeInstrument);
 
         return body;

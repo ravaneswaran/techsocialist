@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class InitiateSubscriptionTest extends Specification{
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         InitiateSubscriptionRequest paytmRequest = new InitiateSubscriptionRequest()
 
@@ -20,7 +20,7 @@ class InitiateSubscriptionTest extends Specification{
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         InitiateSubscriptionRequest paytmRequest = new InitiateSubscriptionRequest()
 

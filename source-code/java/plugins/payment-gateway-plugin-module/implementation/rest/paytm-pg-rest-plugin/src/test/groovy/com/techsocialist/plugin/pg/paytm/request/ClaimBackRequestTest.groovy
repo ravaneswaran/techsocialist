@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class ClaimBackRequestTest extends Specification {
 
-    def "test AddFundRequest -> head"(){
+    def "test AddFundRequest -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         ClaimBackFundRequest claimBackFundRequest = new ClaimBackFundRequest()

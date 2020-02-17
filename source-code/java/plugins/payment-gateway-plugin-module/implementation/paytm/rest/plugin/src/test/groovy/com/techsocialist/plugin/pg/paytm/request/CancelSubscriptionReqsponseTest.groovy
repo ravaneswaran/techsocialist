@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class CancelSubscriptionReqsponseTest extends Specification{
 
-    def "test data head with token type AES"(){
+    def "test data com.techsocialist.plugin.pg.paytm.response.head with token type AES"(){
         setup:
         CancelSubscriptionRequest paytmRequest = new CancelSubscriptionRequest()
 
@@ -19,7 +19,7 @@ class CancelSubscriptionReqsponseTest extends Specification{
         null != paytmRequest.dataHead()
     }
 
-    def "test data head with token type SSO"(){
+    def "test data com.techsocialist.plugin.pg.paytm.response.head with token type SSO"(){
         setup:
         CancelSubscriptionRequest paytmRequest = new CancelSubscriptionRequest()
 
@@ -33,7 +33,7 @@ class CancelSubscriptionReqsponseTest extends Specification{
         null != paytmRequest.dataHead()
     }
 
-    def "test data body with token type AES"(){
+    def "test data com.techsocialist.plugin.pg.paytm.response.body with token type AES"(){
         setup:
         CancelSubscriptionRequest paytmRequest = new CancelSubscriptionRequest()
 
@@ -47,7 +47,7 @@ class CancelSubscriptionReqsponseTest extends Specification{
         null != paytmRequest.dataBody()
     }
 
-    def "test data body with with token type SSO"(){
+    def "test data com.techsocialist.plugin.pg.paytm.response.body with with token type SSO"(){
         setup:
         CancelSubscriptionRequest paytmRequest = new CancelSubscriptionRequest()
 

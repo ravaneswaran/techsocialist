@@ -6,10 +6,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.CreateLinkResponseHead;
 
 public class CreateLinkResponse extends AbstractPaytmResponse {
 
-    @SerializedName("head")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.head")
     private CreateLinkResponseHead createLinkResponseHead;
 
-    @SerializedName("body")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.body")
     private CreateLinkResponseBody createLinkResponseBody;
 
     public CreateLinkResponseHead getCreateLinkResponseHead() {

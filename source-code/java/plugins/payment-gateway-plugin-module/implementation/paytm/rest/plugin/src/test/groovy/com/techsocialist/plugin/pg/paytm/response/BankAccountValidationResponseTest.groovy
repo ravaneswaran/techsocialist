@@ -49,7 +49,7 @@ class BankAccountValidationResponseTest extends AbstractPaytmResponseTest {
         null == bankAccountValidationResponse
     }
 
-    def "test BankAccountValidationResponse -> head"(){
+    def "test BankAccountValidationResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         BankAccountValidationResponse bankAccountValidationResponse = new BankAccountValidationResponse()
@@ -58,7 +58,7 @@ class BankAccountValidationResponseTest extends AbstractPaytmResponseTest {
         null == bankAccountValidationResponse.getBankAccountValidationResponseHead()
     }
 
-    def "test BankAccountValidationResponse -> body"(){
+    def "test BankAccountValidationResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
 
         when:
         BankAccountValidationResponse bankAccountValidationResponse = new BankAccountValidationResponse()

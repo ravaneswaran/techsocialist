@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class RefundStatusRequestTest extends Specification{
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         RefundStatusRequest paytmRequest = new RefundStatusRequest()
 
@@ -19,7 +19,7 @@ class RefundStatusRequestTest extends Specification{
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         RefundStatusRequest paytmRequest = new RefundStatusRequest()
 

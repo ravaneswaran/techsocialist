@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class AccountListRequestTest extends Specification {
 
-    def "test AccountListRequest -> head"() {
+    def "test AccountListRequest -> com.techsocialist.plugin.pg.paytm.response.head"() {
 
         when:
         AccountListRequest accountListRequest = new AccountListRequest()

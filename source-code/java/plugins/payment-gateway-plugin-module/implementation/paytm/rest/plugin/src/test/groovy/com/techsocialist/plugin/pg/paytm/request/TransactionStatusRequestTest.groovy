@@ -5,7 +5,7 @@ import org.json.JSONObject
 
 class TransactionStatusRequestTest extends AbstractPaytmPaymentGatewayTest {
 
-    def "test TransactionStatusRequest data head"(){
+    def "test TransactionStatusRequest data com.techsocialist.plugin.pg.paytm.response.head"(){
         setup:
         TransactionStatusRequest transactionStatusRequest = new TransactionStatusRequest()
 
@@ -16,7 +16,7 @@ class TransactionStatusRequestTest extends AbstractPaytmPaymentGatewayTest {
         null == dataHead
     }
 
-    def "test TransactionStatusRequest data body"(){
+    def "test TransactionStatusRequest data com.techsocialist.plugin.pg.paytm.response.body"(){
         setup:
         TransactionStatusRequest transactionStatusRequest = new TransactionStatusRequest()
 

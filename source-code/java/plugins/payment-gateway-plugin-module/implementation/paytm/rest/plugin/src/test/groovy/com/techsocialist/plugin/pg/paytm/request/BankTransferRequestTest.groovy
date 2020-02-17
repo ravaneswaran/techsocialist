@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class BankTransferRequestTest extends Specification {
 
-    def "test BankTransferRequest -> head"(){
+    def "test BankTransferRequest -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         BankTransferRequest bankTransferRequest = new BankTransferRequest()

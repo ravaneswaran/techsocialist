@@ -6,10 +6,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.AccountListResponseHead;
 
 public class AccountListResponse extends AbstractPaytmResponse {
 
-    @SerializedName("head")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.head")
     private AccountListResponseHead accountListResponseHead;
 
-    @SerializedName("body")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.body")
     private AccountListResponseBody accountListResponseBody;
 
     public AccountListResponseHead getAccountListResponseHead() {

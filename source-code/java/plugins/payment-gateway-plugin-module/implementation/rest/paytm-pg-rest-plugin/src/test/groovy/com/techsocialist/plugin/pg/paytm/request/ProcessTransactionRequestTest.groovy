@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class ProcessTransactionRequestTest extends Specification{
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         ProcessTransactionRequest paytmRequest = new ProcessTransactionRequest()
 
@@ -19,7 +19,7 @@ class ProcessTransactionRequestTest extends Specification{
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         ProcessTransactionRequest paytmRequest = new ProcessTransactionRequest()
 

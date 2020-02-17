@@ -58,7 +58,7 @@ class WalletTransferResponseTest extends AbstractPaytmResponseTest {
         null == walletTransferResponse
     }
 
-    def "test WalletTransferResponse -> head"(){
+    def "test WalletTransferResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         WalletTransferResponse walletTransferResponse = new WalletTransferResponse()
@@ -67,7 +67,7 @@ class WalletTransferResponseTest extends AbstractPaytmResponseTest {
         null == walletTransferResponse.getWalletTransferResponseHead()
     }
 
-    def "test WalletTransferResponse -> body"(){
+    def "test WalletTransferResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
 
         when:
         WalletTransferResponse walletTransferResponse = new WalletTransferResponse()

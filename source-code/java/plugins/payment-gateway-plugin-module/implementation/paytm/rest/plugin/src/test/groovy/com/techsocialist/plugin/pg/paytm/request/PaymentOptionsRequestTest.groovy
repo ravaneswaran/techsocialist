@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class PaymentOptionsRequestTest extends Specification{
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         FetchPaymentOptionsRequest paytmRequest = new FetchPaymentOptionsRequest()
 
@@ -20,7 +20,7 @@ class PaymentOptionsRequestTest extends Specification{
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         FetchPaymentOptionsRequest paytmRequest = new FetchPaymentOptionsRequest()
 

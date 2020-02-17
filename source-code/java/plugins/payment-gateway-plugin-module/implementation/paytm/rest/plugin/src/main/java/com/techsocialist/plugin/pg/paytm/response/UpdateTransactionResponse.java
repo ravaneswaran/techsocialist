@@ -6,10 +6,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.UpdateTransactionResponse
 
 public class UpdateTransactionResponse extends AbstractPaytmResponse {
 
-    @SerializedName("head")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.head")
     private UpdateTransactionResponseHead updateTransactionResponseHead;
 
-    @SerializedName("body")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.body")
     private UpdateTransactionResponseBody updateTransactionResponseBody;
 
     public UpdateTransactionResponseHead getUpdateTransactionResponseHead() {

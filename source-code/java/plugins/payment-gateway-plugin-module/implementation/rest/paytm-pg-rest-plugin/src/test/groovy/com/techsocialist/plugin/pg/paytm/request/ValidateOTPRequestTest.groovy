@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class ValidateOTPRequestTest extends Specification{
 
-    def "test data head"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.head"() {
         setup:
         ValidateOTPRequest paytmRequest = new ValidateOTPRequest()
 
@@ -19,7 +19,7 @@ class ValidateOTPRequestTest extends Specification{
         null != paytmRequest.dataHead()
     }
 
-    def "test data body"() {
+    def "test data com.techsocialist.plugin.pg.paytm.response.body"() {
         setup:
         ValidateOTPRequest paytmRequest = new ValidateOTPRequest()
 

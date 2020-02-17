@@ -6,10 +6,10 @@ import com.techsocialist.plugin.pg.paytm.response.head.FetchEMIDetailResponseHea
 
 public class FetchEMIDetailResponse extends AbstractPaytmResponse {
 
-    @SerializedName("head")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.head")
     private FetchEMIDetailResponseHead fetchEMIDetailResponseHead;
 
-    @SerializedName("body")
+    @SerializedName("com.techsocialist.plugin.pg.paytm.response.body")
     private FetchEMIDetailResponseBody fetchEMIDetailResponseBody;
 
     public FetchEMIDetailResponseHead getFetchEMIDetailResponseHead() {
