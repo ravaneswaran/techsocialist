@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class ApplyPromoResponseTest extends AbstractPaytmResponseTest{
 
-    def "test ApplyPromoResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ApplyPromoResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -34,7 +34,7 @@ class ApplyPromoResponseTest extends AbstractPaytmResponseTest{
         null != jsonString
     }
 
-    def "test ApplyPromoResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ApplyPromoResponse as object"(){
 
         setup:
         IUnmarshallerPlugin unmarshallerPlugin = new GoogleUnmarshallerPlugin()
@@ -63,7 +63,7 @@ class ApplyPromoResponseTest extends AbstractPaytmResponseTest{
         null != applyPromoResponse
     }
 
-    def "test ApplyPromoResponse -> applyPromoResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ApplyPromoResponse -> applyPromoResponseHead"(){
 
         setup:
         IUnmarshallerPlugin unmarshallerPlugin = new GoogleUnmarshallerPlugin()
@@ -92,7 +92,7 @@ class ApplyPromoResponseTest extends AbstractPaytmResponseTest{
         null != applyPromoResponse.getApplyPromoResponseHead()
     }
 
-    def "test ApplyPromoResponse -> applyPromoResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ApplyPromoResponse -> applyPromoResponseBody"(){
 
         setup:
         IUnmarshallerPlugin unmarshallerPlugin = new GoogleUnmarshallerPlugin()

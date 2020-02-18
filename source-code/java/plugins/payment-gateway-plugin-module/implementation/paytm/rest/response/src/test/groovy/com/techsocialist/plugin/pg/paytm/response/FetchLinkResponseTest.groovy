@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchLinkResponseTest extends AbstractPaytmResponseTest {
 
-    def "test FetchLinkResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchLinkResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -33,7 +33,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
         null != jsonResponse
     }
 
-    def "test FetchLinkResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchLinkResponse as object"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -61,7 +61,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
         null != response
     }
 
-    def "test FetchLinkResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchLinkResponse -> ok()"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -89,7 +89,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
         true == response.ok()
     }
 
-    def "test FetchLinkResponse -> fetchLinkResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchLinkResponse -> fetchLinkResponseHead"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -117,7 +117,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
         null != response.getFetchLinkResponseHead()
     }
 
-    def "test FetchLinkResponse -> FetchLinkResponseHead -> timestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchLinkResponse -> FetchLinkResponseHead -> timestamp"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -145,7 +145,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
         null != response.getFetchLinkResponseHead().getTimestamp()
     }
 
-    def "test FetchLinkResponse -> FetchLinkResponseHead -> channelId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchLinkResponse -> FetchLinkResponseHead -> channelId"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -173,7 +173,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
         null == response.getFetchLinkResponseHead().getChannelId()
     }
 
-    def "test FetchLinkResponse -> FetchLinkResponseHead -> tokenType"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchLinkResponse -> FetchLinkResponseHead -> tokenType"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -201,7 +201,7 @@ class FetchLinkResponseTest extends AbstractPaytmResponseTest {
         null != response.getFetchLinkResponseHead().getTokenType()
     }
 
-    def "test FetchLinkResponse -> FetchLinkResponseHead -> clientId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchLinkResponse -> FetchLinkResponseHead -> clientId"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()

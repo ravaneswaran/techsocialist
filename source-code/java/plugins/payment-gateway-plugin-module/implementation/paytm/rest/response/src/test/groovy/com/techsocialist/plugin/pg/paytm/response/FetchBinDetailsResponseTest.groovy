@@ -11,7 +11,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
 
-    def "test FetchBinDetailsResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -34,7 +34,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
 
     }
 
-    def "test FetchBinDetailsResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -58,7 +58,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
 
     }
 
-    def "test FetchBinDetailsResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -82,7 +82,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
 
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -107,7 +107,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
 
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseHead -> requestId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseHead -> requestId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -131,7 +131,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null == fetchBinDetailsResponseHead.getRequestId()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseHead -> responseTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseHead -> responseTimestamp"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -155,7 +155,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != fetchBinDetailsResponseHead.getResponseTimestamp()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseHead -> version"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -179,7 +179,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         "v1" ==  fetchBinDetailsResponseHead.getVersion()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -203,7 +203,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != fetchBinDetailsResponseBody
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> isEmiAvailable"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> isEmiAvailable"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -227,7 +227,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         false == fetchBinDetailsResponseBody.isEmiAvailable()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> iconUrl"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> iconUrl"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -251,7 +251,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != fetchBinDetailsResponseBody.getIconUrl()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> errorMessage"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> errorMessage"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -275,7 +275,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != fetchBinDetailsResponseBody.getErrorMessage()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> isHybridDisabled"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> isHybridDisabled"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -299,7 +299,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         false == fetchBinDetailsResponseBody.isHybridDisabled()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> oneClickSupported"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> oneClickSupported"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -323,7 +323,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         false == fetchBinDetailsResponseBody.isOneClickSupported()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> oneClickMaxAmount"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> oneClickMaxAmount"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -347,7 +347,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         "2000" == fetchBinDetailsResponseBody.getOneClickMaxAmount()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> authModes"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> authModes"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -371,7 +371,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != fetchBinDetailsResponseBody.getAuthModes() && fetchBinDetailsResponseBody.getAuthModes().size() > 0 && "otp" == fetchBinDetailsResponseBody.getAuthModes().get(0)
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> hasLowSuccessRate"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> hasLowSuccessRate"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -395,7 +395,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != fetchBinDetailsResponseBody.getHasLowSuccessRate()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> HasLowSuccess -> status"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> HasLowSuccess -> status"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -420,7 +420,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         "false" == hasLowSuccess.getStatus()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> HasLowSuccess -> msg"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> HasLowSuccess -> msg"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -445,7 +445,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         "" == hasLowSuccess.getMessage()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> binDetail"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> binDetail"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -470,7 +470,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> bin"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> bin"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -495,7 +495,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         "123456" == binDetail.getBin()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> issuingBank"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> issuingBank"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -520,7 +520,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail.getIssuingBank()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> issuingBankCode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> issuingBankCode"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -545,7 +545,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail.getIssuingBankCode()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> paymentMode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> paymentMode"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -570,7 +570,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail.getPaymentMode()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> channelName"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> channelName"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -595,7 +595,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail.getChannelName()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> channelCode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> channelCode"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -620,7 +620,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail.getChannelCode()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> cnMin"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> cnMin"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -645,7 +645,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail.getCnMin()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> cnMax"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> cnMax"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -670,7 +670,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail.getCnMax()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> cvvR"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> cvvR"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -695,7 +695,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail.getCvvR()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> cvvL"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> cvvL"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -720,7 +720,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail.getCvvL()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> expR"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> expR"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -745,7 +745,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         null != binDetail.getExpR()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> isActive"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> isActive"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -770,7 +770,7 @@ class FetchBinDetailsResponseTest extends AbstractPaytmResponseTest {
         "true" == binDetail.getIsActive()
     }
 
-    def "test FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> isIndian"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBinDetailsResponse -> FetchBinDetailsResponseBody -> BinDetail -> isIndian"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

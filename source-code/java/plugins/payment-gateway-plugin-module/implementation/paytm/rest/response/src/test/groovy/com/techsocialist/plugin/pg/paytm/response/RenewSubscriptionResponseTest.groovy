@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
 
-    def "test RenewSubscriptionResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RenewSubscriptionResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -28,7 +28,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         null != jsonResponse
     }
 
-    def "test RenewSubscriptionResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RenewSubscriptionResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -51,7 +51,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         null != renewSubscriptionResponse
     }
 
-    def "test RenewSubscriptionResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RenewSubscriptionResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -74,7 +74,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         false == renewSubscriptionResponse.ok()
     }
 
-    def "test RenewSubscriptionResponse -> renewSubscriptionResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RenewSubscriptionResponse -> renewSubscriptionResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -97,7 +97,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         null != renewSubscriptionResponse.getRenewSubscriptionResponseHead()
     }
 
-    def "test RenewSubscriptionResponse -> RenewSubscriptionResponseHead -> responseTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RenewSubscriptionResponse -> RenewSubscriptionResponseHead -> responseTimestamp"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -120,7 +120,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         null != renewSubscriptionResponse.getRenewSubscriptionResponseHead().getResponseTimestamp()
     }
 
-    def "test RenewSubscriptionResponse -> RenewSubscriptionResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RenewSubscriptionResponse -> RenewSubscriptionResponseHead -> version"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -143,7 +143,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         null != renewSubscriptionResponse.getRenewSubscriptionResponseHead().getVersion()
     }
 
-    def "test RenewSubscriptionResponse -> RenewSubscriptionResponseHead -> signature"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RenewSubscriptionResponse -> RenewSubscriptionResponseHead -> signature"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -166,7 +166,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         null == renewSubscriptionResponse.getRenewSubscriptionResponseHead().getSignature()
     }
 
-    def "test RenewSubscriptionResponse -> renewSubscriptionResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RenewSubscriptionResponse -> renewSubscriptionResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -189,7 +189,7 @@ class RenewSubscriptionResponseTest extends AbstractPaytmResponseTest {
         null != renewSubscriptionResponse.getRenewSubscriptionResponseBody()
     }
 
-    def "test RenewSubscriptionResponse -> RenewSubscriptionResponseBody -> transactionId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RenewSubscriptionResponse -> RenewSubscriptionResponseBody -> transactionId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

@@ -10,7 +10,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class UpdateTransactionResponseTest extends AbstractPaytmResponseTest{
 
-    def "test UpdateTransactionResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.UpdateTransactionResponse as json string"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -33,7 +33,7 @@ class UpdateTransactionResponseTest extends AbstractPaytmResponseTest{
 
     }
 
-    def "test UpdateTransactionResponse as an object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.UpdateTransactionResponse as an object"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -57,7 +57,7 @@ class UpdateTransactionResponseTest extends AbstractPaytmResponseTest{
 
     }
 
-    def "test UpdateTransactionResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.UpdateTransactionResponse -> ok()"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -81,7 +81,7 @@ class UpdateTransactionResponseTest extends AbstractPaytmResponseTest{
 
     }
 
-    def "test UpdateTransactionResponse -> UpdateTransactionResponseHead -> signature"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.UpdateTransactionResponse -> UpdateTransactionResponseHead -> signature"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -106,7 +106,7 @@ class UpdateTransactionResponseTest extends AbstractPaytmResponseTest{
 
     }
 
-    def "test UpdateTransactionResponse -> UpdateTransactionResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.UpdateTransactionResponse -> UpdateTransactionResponseBody"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())

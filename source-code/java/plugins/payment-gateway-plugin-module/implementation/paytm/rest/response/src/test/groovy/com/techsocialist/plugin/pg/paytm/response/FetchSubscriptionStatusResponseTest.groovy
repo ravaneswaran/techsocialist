@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchSubscriptionStatusResponseTest extends AbstractPaytmResponseTest{
 
-    def "test FetchSubscriptionStatusResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchSubscriptionStatusResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -26,7 +26,7 @@ class FetchSubscriptionStatusResponseTest extends AbstractPaytmResponseTest{
         null != jsonString
     }
 
-    def "test FetchSubscriptionStatusResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchSubscriptionStatusResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -47,7 +47,7 @@ class FetchSubscriptionStatusResponseTest extends AbstractPaytmResponseTest{
         null != fetchSubscriptionStatusResponse
     }
 
-    def "test FetchSubscriptionStatusResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchSubscriptionStatusResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -68,7 +68,7 @@ class FetchSubscriptionStatusResponseTest extends AbstractPaytmResponseTest{
         null != fetchSubscriptionStatusResponse.ok()
     }
 
-    def "test FetchSubscriptionStatusResponse -> fetchSubscriptionStatusResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchSubscriptionStatusResponse -> fetchSubscriptionStatusResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -89,7 +89,7 @@ class FetchSubscriptionStatusResponseTest extends AbstractPaytmResponseTest{
         null != fetchSubscriptionStatusResponse.getFetchSubscriptionStatusResponseHead()
     }
 
-    def "test FetchSubscriptionStatusResponse -> FetchSubscriptionStatusResponseHead -> timestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchSubscriptionStatusResponse -> FetchSubscriptionStatusResponseHead -> timestamp"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -110,7 +110,7 @@ class FetchSubscriptionStatusResponseTest extends AbstractPaytmResponseTest{
         null != fetchSubscriptionStatusResponse.getFetchSubscriptionStatusResponseHead().getTimestamp()
     }
 
-    def "test FetchSubscriptionStatusResponse -> FetchSubscriptionStatusResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchSubscriptionStatusResponse -> FetchSubscriptionStatusResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

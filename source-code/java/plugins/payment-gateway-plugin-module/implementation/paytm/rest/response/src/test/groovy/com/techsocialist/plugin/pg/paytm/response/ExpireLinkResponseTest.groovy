@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class ExpireLinkResponseTest extends AbstractPaytmResponseTest {
 
-    def "test ExpireLinkResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ExpireLinkResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -26,7 +26,7 @@ class ExpireLinkResponseTest extends AbstractPaytmResponseTest {
         null != jsonResponse
     }
 
-    def "test ExpireLinkResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ExpireLinkResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -47,7 +47,7 @@ class ExpireLinkResponseTest extends AbstractPaytmResponseTest {
         null != expireLinkResponse
     }
 
-    def "test ExpireLinkResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ExpireLinkResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -68,7 +68,7 @@ class ExpireLinkResponseTest extends AbstractPaytmResponseTest {
         false == expireLinkResponse.ok()
     }
 
-    def "test ExpireLinkResponse -> expireLinkResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ExpireLinkResponse -> expireLinkResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

@@ -5,9 +5,10 @@ import com.techsocialist.plugin.pg.api.IPaymentGatewayRestPlugin
 import com.techsocialist.plugin.unmarshaller.GoogleUnmarshallerPlugin
 import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
+
 class AccountListResponseTest extends AbstractPaytmResponseTest {
 
-    def "test AccountListResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.AccountListResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -23,7 +24,7 @@ class AccountListResponseTest extends AbstractPaytmResponseTest {
         "Server returned HTTP response code: 401 for URL: https://staging-dashboard.paytm.com/bpay/api/v1/account/list" == exp.getMessage()
     }
 
-    def "test AccountListResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.AccountListResponse as object"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin()
@@ -39,7 +40,7 @@ class AccountListResponseTest extends AbstractPaytmResponseTest {
         null == accountListResponse
     }
 
-    def "test AccountListResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.AccountListResponse -> head"(){
 
         when:
         AccountListResponse accountListResponse = new AccountListResponse()
@@ -48,7 +49,7 @@ class AccountListResponseTest extends AbstractPaytmResponseTest {
         null == accountListResponse.getAccountListResponseHead()
     }
 
-    def "test AccountListResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.AccountListResponse -> body"(){
 
         when:
         AccountListResponse accountListResponse = new AccountListResponse()

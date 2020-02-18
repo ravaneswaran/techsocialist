@@ -11,7 +11,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class BanksEMISubventionResponseTest extends AbstractPaytmResponseTest {
 
-    def "test BanksEMISubventionResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.BanksEMISubventionResponse as json string"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String requestId = String.valueOf(new Date().getTime())
@@ -51,7 +51,7 @@ class BanksEMISubventionResponseTest extends AbstractPaytmResponseTest {
         null != jsonString
     }
 
-    def "test BanksEMISubventionResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.BanksEMISubventionResponse as object"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         IUnmarshallerPlugin unmarshallerPlugin = new GoogleUnmarshallerPlugin()
@@ -87,7 +87,7 @@ class BanksEMISubventionResponseTest extends AbstractPaytmResponseTest {
         null != banksEMISubventionResponse
     }
 
-    def "test BanksEMISubventionResponse -> banksEMISubventionResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.BanksEMISubventionResponse -> banksEMISubventionResponseHead"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         IUnmarshallerPlugin unmarshallerPlugin = new GoogleUnmarshallerPlugin()
@@ -123,7 +123,7 @@ class BanksEMISubventionResponseTest extends AbstractPaytmResponseTest {
         null != banksEMISubventionResponse.getBanksEMISubventionResponseHead()
     }
 
-    def "test BanksEMISubventionResponse -> banksEMISubventionResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.BanksEMISubventionResponse -> banksEMISubventionResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

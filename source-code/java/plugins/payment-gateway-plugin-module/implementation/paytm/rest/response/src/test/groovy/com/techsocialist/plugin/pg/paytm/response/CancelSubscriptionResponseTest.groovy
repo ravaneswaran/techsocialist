@@ -9,7 +9,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
 
-    def "test CancelSubscriptionResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -29,7 +29,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null != jsonResponse
     }
 
-    def "test CancelSubscriptionResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -52,7 +52,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null != cancelSubscriptionResponse
     }
 
-    def "test CancelSubscriptionResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -75,7 +75,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         true == cancelSubscriptionResponse.ok()
     }
 
-    def "test CancelSubscriptionResponse -> cancelSubscriptionResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse -> cancelSubscriptionResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -99,7 +99,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null != cancelSubscriptionResponseHead
     }
 
-    def "test CancelSubscriptionResponse -> cancelSubscriptionResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse -> cancelSubscriptionResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -123,7 +123,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null != cancelSubscriptionResponseBody
     }
 
-    def "test CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -147,7 +147,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         true == cancelSubscriptionResponseBody.ok()
     }
 
-    def "test CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> merchantId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> merchantId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -171,7 +171,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null == cancelSubscriptionResponseBody.getMerchantId()
     }
 
-    def "test CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> subscriptionId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> subscriptionId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -195,7 +195,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null == cancelSubscriptionResponseBody.getSubscriptionId()
     }
 
-    def "test CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> customerId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> customerId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -219,7 +219,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null == cancelSubscriptionResponseBody.getCustomerId()
     }
 
-    def "test CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> createdDate"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> createdDate"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -243,7 +243,7 @@ class CancelSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null == cancelSubscriptionResponseBody.getCreatedDate()
     }
 
-    def "test CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> expiryDate"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CancelSubscriptionResponse -> CancelSubscriptionResponseBody -> expiryDate"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

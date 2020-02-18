@@ -10,7 +10,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class TenuresEMISubventionResponseTest extends AbstractPaytmResponseTest{
 
-    def "test TenuresEMISubventionResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TenuresEMISubventionResponse as json string"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         String requestId = String.valueOf(new Date().getTime())
@@ -51,7 +51,7 @@ class TenuresEMISubventionResponseTest extends AbstractPaytmResponseTest{
         null != jsonString
     }
 
-    def "test TenuresEMISubventionResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TenuresEMISubventionResponse as object"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         IUnmarshallerPlugin unmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -93,7 +93,7 @@ class TenuresEMISubventionResponseTest extends AbstractPaytmResponseTest{
         null != tenuresEMISubventionResponse
     }
 
-    def "test TenuresEMISubventionResponse -> tenuresEMISubventionResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TenuresEMISubventionResponse -> tenuresEMISubventionResponseHead"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         IUnmarshallerPlugin unmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -135,7 +135,7 @@ class TenuresEMISubventionResponseTest extends AbstractPaytmResponseTest{
         null != tenuresEMISubventionResponse.getTenuresEMISubventionResponseHead()
     }
 
-    def "test TenuresEMISubventionResponse ->  -> tenuresEMISubventionResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TenuresEMISubventionResponse ->  -> tenuresEMISubventionResponseBody"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         IUnmarshallerPlugin unmarshallerPlugin = new GoogleUnmarshallerPlugin();

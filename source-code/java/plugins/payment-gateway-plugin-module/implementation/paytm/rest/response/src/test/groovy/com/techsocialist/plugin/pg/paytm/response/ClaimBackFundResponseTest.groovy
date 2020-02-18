@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class ClaimBackFundResponseTest extends AbstractPaytmResponseTest{
 
-    def "test ClaimBackFundResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ClaimBackFundResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -23,7 +23,7 @@ class ClaimBackFundResponseTest extends AbstractPaytmResponseTest{
         "Server returned HTTP response code: 401 for URL: https://staging-dashboard.paytm.com/bpay/api/v1/account/debit" == exp.getMessage()
     }
 
-    def "test ClaimBackFundResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ClaimBackFundResponse as object"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin()
@@ -41,7 +41,7 @@ class ClaimBackFundResponseTest extends AbstractPaytmResponseTest{
         null == claimBackFundResponse
     }
 
-    def "test ClaimBackFundResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ClaimBackFundResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         ClaimBackFundResponse claimBackFundResponse = new ClaimBackFundResponse()
@@ -50,7 +50,7 @@ class ClaimBackFundResponseTest extends AbstractPaytmResponseTest{
         null == claimBackFundResponse.getClaimBackFundResponseHead()
     }
 
-    def "test ClaimBackFundResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ClaimBackFundResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
 
         when:
         ClaimBackFundResponse claimBackFundResponse = new ClaimBackFundResponse()

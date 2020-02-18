@@ -8,7 +8,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 class FetchAllOffersResponseTest extends AbstractPaytmResponseTest{
 
 
-    def "test FetchAllOffersResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchAllOffersResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -27,7 +27,7 @@ class FetchAllOffersResponseTest extends AbstractPaytmResponseTest{
         null != jsonString
     }
 
-    def "test FetchAllOffersResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchAllOffersResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -48,7 +48,7 @@ class FetchAllOffersResponseTest extends AbstractPaytmResponseTest{
         null != fetchSubscriptionStatusResponse
     }
 
-    def "test FetchAllOffersResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchAllOffersResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -69,7 +69,7 @@ class FetchAllOffersResponseTest extends AbstractPaytmResponseTest{
         true == fetchSubscriptionStatusResponse.ok()
     }
 
-    def "test FetchAllOffersResponse -> fetchAllOffersResponse"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchAllOffersResponse -> fetchAllOffersResponse"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

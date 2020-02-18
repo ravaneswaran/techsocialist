@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class ResendNotificationLinkResponseTest extends AbstractPaytmResponseTest {
 
-    def "test ResendNotificationLinkResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ResendNotificationLinkResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -30,7 +30,7 @@ class ResendNotificationLinkResponseTest extends AbstractPaytmResponseTest {
         null != jsonResponse
     }
 
-    def "test ResendNotificationLinkResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ResendNotificationLinkResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -55,7 +55,7 @@ class ResendNotificationLinkResponseTest extends AbstractPaytmResponseTest {
         null != resendNotificationLinkResponse
     }
 
-    def "test ResendNotificationLinkResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ResendNotificationLinkResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -80,7 +80,7 @@ class ResendNotificationLinkResponseTest extends AbstractPaytmResponseTest {
         true == resendNotificationLinkResponse.ok()
     }
 
-    def "test ResendNotificationLinkResponse -> resendNotificationLinkResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ResendNotificationLinkResponse -> resendNotificationLinkResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

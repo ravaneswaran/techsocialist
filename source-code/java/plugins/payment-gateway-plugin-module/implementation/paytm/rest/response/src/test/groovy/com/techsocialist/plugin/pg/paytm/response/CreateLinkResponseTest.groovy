@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class CreateLinkResponseTest extends AbstractPaytmResponseTest {
 
-    def "test CreateLinkResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CreateLinkResponse as json string"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
 
@@ -33,7 +33,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         null != jsonResponse
     }
 
-    def "test CreateLinkResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CreateLinkResponse as object"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
 
@@ -61,7 +61,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         null != createLinkResponse
     }
 
-    def "test CreateLinkResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CreateLinkResponse -> ok()"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
 
@@ -89,7 +89,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         false == createLinkResponse.ok()
     }
 
-    def "test CreateLinkResponse -> createLinkResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CreateLinkResponse -> createLinkResponseHead"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
 
@@ -117,7 +117,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         null != createLinkResponse.getCreateLinkResponseHead()
     }
 
-    def "test CreateLinkResponse -> CreateLinkResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CreateLinkResponse -> CreateLinkResponseHead -> version"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
 
@@ -145,7 +145,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         null != createLinkResponse.getCreateLinkResponseHead().getVersion()
     }
 
-    def "test CreateLinkResponse -> CreateLinkResponseHead -> timestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CreateLinkResponse -> CreateLinkResponseHead -> timestamp"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
 
@@ -173,7 +173,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         null != createLinkResponse.getCreateLinkResponseHead().getTimestamp()
     }
 
-    def "test CreateLinkResponse -> CreateLinkResponseHead -> channelId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CreateLinkResponse -> CreateLinkResponseHead -> channelId"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
 
@@ -201,7 +201,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         null == createLinkResponse.getCreateLinkResponseHead().getChannelId()
     }
 
-    def "test CreateLinkResponse -> CreateLinkResponseHead -> signature"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CreateLinkResponse -> CreateLinkResponseHead -> signature"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
 
@@ -229,7 +229,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         null == createLinkResponse.getCreateLinkResponseHead().getSignature()
     }
 
-    def "test CreateLinkResponse -> CreateLinkResponseHead -> tokenType"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CreateLinkResponse -> CreateLinkResponseHead -> tokenType"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
 
@@ -257,7 +257,7 @@ class CreateLinkResponseTest extends AbstractPaytmResponseTest {
         null == createLinkResponse.getCreateLinkResponseHead().getTokenType()
     }
 
-    def "test CreateLinkResponse -> CreateLinkResponseHead -> clientId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.CreateLinkResponse -> CreateLinkResponseHead -> clientId"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
 

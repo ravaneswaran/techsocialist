@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
 
-    def "test ValidateOTPResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -33,7 +33,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         null != jsonResponse
     }
 
-    def "test ValidateOTPResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -60,7 +60,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         null != validateOTPResponse
     }
 
-    def "test ValidateOTPResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -87,7 +87,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         false == validateOTPResponse.ok()
     }
 
-    def "test ValidateOTPResponse -> validateOTPResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> validateOTPResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -114,7 +114,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         null != validateOTPResponse.getValidateOTPResponseHead()
     }
 
-    def "test ValidateOTPResponse -> ValidateOTPResponseHead -> requestId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ValidateOTPResponseHead -> requestId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -141,7 +141,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         null == validateOTPResponse.getValidateOTPResponseHead().getRequestId()
     }
 
-    def "test ValidateOTPResponse -> ValidateOTPResponseHead -> responseTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ValidateOTPResponseHead -> responseTimestamp"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -168,7 +168,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         null != validateOTPResponse.getValidateOTPResponseHead().getResponseTimestamp()
     }
 
-    def "test ValidateOTPResponse -> ValidateOTPResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ValidateOTPResponseHead -> version"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -195,7 +195,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         null != validateOTPResponse.getValidateOTPResponseHead().getVersion()
     }
 
-    def "test ValidateOTPResponse -> validateOTPResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> validateOTPResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -222,7 +222,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         null == validateOTPResponse.getValidateOTPResponseBody().getExtraParamsMap()
     }
 
-    def "test ValidateOTPResponse -> ValidateOTPResponseBody -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ValidateOTPResponseBody -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -249,7 +249,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         false == validateOTPResponse.getValidateOTPResponseBody().ok()
     }
 
-    def "test ValidateOTPResponse -> ValidateOTPResponseBody -> extraParamsMap"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ValidateOTPResponseBody -> extraParamsMap"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -276,7 +276,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         null == validateOTPResponse.getValidateOTPResponseBody().getExtraParamsMap()
     }
 
-    def "test ValidateOTPResponse -> ValidateOTPResponseBody -> authenticated"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ValidateOTPResponseBody -> authenticated"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -303,7 +303,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         false == validateOTPResponse.getValidateOTPResponseBody().isAuthenticated()
     }
 
-    def "test ValidateOTPResponse -> ValidateOTPResponseBody -> resultInfo"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ValidateOTPResponseBody -> resultInfo"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -330,7 +330,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         null != validateOTPResponse.getValidateOTPResponseBody().getResultInfo()
     }
 
-    def "test ValidateOTPResponse -> ValidateOTPResponseBody -> ResultInfo -> resultStatus"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ValidateOTPResponseBody -> ResultInfo -> resultStatus"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -357,7 +357,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         "U" == validateOTPResponse.getValidateOTPResponseBody().getResultInfo().getResultStatus()
     }
 
-    def "test ValidateOTPResponse -> ValidateOTPResponseBody -> ResultInfo -> resultCode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ValidateOTPResponseBody -> ResultInfo -> resultCode"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -384,7 +384,7 @@ class ValidateOTPResponseTest extends AbstractPaytmResponseTest{
         "00000900" == validateOTPResponse.getValidateOTPResponseBody().getResultInfo().getResultCode()
     }
 
-    def "test ValidateOTPResponse -> ValidateOTPResponseBody -> ResultInfo -> resultMessage"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateOTPResponse -> ValidateOTPResponseBody -> ResultInfo -> resultMessage"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

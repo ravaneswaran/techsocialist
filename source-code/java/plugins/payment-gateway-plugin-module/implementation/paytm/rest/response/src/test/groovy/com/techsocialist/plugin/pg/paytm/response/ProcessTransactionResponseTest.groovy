@@ -12,7 +12,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
 
-    def "test ProcessTransactionResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse as json string"(){
         setup:
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -39,7 +39,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != jsonResponse && jsonResponse.length() > 0
     }
 
-    def "test ProcessTransactionResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse as object"(){
         setup:
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -67,7 +67,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != processTransactionResponse
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseHead"(){
         setup:
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -96,7 +96,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != processTransactionResponseHead
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseHead -> responseTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseHead -> responseTimestamp"(){
         setup:
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -125,7 +125,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != processTransactionResponseHead.getResponseTimestamp() && processTransactionResponseHead.getResponseTimestamp().length() > 0
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseHead -> version"(){
         setup:
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -154,7 +154,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != processTransactionResponseHead.getVersion() && "v1" == processTransactionResponseHead.getVersion()
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -183,7 +183,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != processTransactionResponseBody
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> callBackUrl"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> callBackUrl"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -212,7 +212,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != processTransactionResponseBody.getCallBackUrl() && processTransactionResponseBody.getCallBackUrl().length() > 0
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> bankForm"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> bankForm"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -242,7 +242,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null == bankForm
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> txnInfo"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> txnInfo"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -272,7 +272,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != transactionInfo
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> bankTransactionId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> bankTransactionId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -302,7 +302,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != transactionInfo.getBankTransactionId() && "".equals(transactionInfo.getBankTransactionId())
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> checkSumHash"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> checkSumHash"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -332,7 +332,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != transactionInfo.getCheckSumHash() && transactionInfo.getCheckSumHash().length() > 0
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> currency"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> currency"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -362,7 +362,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != transactionInfo.getCurrency() && "INR".equals(transactionInfo.getCurrency())
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> merchantId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> merchantId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -392,7 +392,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != transactionInfo.getMerchantId() && merchantId == transactionInfo.getMerchantId()
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> orderId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> orderId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -422,7 +422,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != transactionInfo.getOrderId() && orderId == transactionInfo.getOrderId()
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> responseCode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> responseCode"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -452,7 +452,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != transactionInfo.getResponseCode() && transactionInfo.getResponseCode().length() > 0
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> responseMessage"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> responseMessage"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -482,7 +482,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != transactionInfo.getResponseMessage() && "Payment failed due to a technical error. Please try after some time." == transactionInfo.getResponseMessage()
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> status"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> status"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -512,7 +512,7 @@ class ProcessTransactionResponseTest extends AbstractPaytmResponseTest {
         null != transactionInfo.getStatus() && "TXN_FAILURE" == transactionInfo.getStatus()
     }
 
-    def "test ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> transactionAmount"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ProcessTransactionResponse -> ProcessTransactionResponseBody -> TransactionInfo -> transactionAmount"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

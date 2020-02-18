@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class BankAccountValidationResponseTest extends AbstractPaytmResponseTest {
 
-    def "test BankAccountValidationResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.BankAccountValidationResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -27,7 +27,7 @@ class BankAccountValidationResponseTest extends AbstractPaytmResponseTest {
         "Server returned HTTP response code: 401 for URL: https://staging-dashboard.paytm.com/bpay/api/v1/beneficiary/validate" == exp.getMessage()
     }
 
-    def "test BankAccountValidationResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.BankAccountValidationResponse as object"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin()
@@ -49,7 +49,7 @@ class BankAccountValidationResponseTest extends AbstractPaytmResponseTest {
         null == bankAccountValidationResponse
     }
 
-    def "test BankAccountValidationResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.BankAccountValidationResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         BankAccountValidationResponse bankAccountValidationResponse = new BankAccountValidationResponse()
@@ -58,7 +58,7 @@ class BankAccountValidationResponseTest extends AbstractPaytmResponseTest {
         null == bankAccountValidationResponse.getBankAccountValidationResponseHead()
     }
 
-    def "test BankAccountValidationResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.BankAccountValidationResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
 
         when:
         BankAccountValidationResponse bankAccountValidationResponse = new BankAccountValidationResponse()

@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class SendOTPResponseTest extends AbstractPaytmResponseTest{
 
-    def "test SendOTPResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -33,7 +33,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         null != jsonResponse
     }
 
-    def "test SendOTPResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -60,7 +60,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         null != sendOTPResponse
     }
 
-    def "test SendOTPResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -87,7 +87,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         false == sendOTPResponse.ok()
     }
 
-    def "test SendOTPResponse -> sendOTPResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> sendOTPResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -114,7 +114,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         null != sendOTPResponse.getSendOTPResponseHead()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseHead -> requestId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> SendOTPResponseHead -> requestId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -141,7 +141,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         null == sendOTPResponse.getSendOTPResponseHead().getRequestId()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseHead -> responseTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> SendOTPResponseHead -> responseTimestamp"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -168,7 +168,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         null != sendOTPResponse.getSendOTPResponseHead().getResponseTimestamp()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> SendOTPResponseHead -> version"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -195,7 +195,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         null != sendOTPResponse.getSendOTPResponseHead().getVersion()
     }
 
-    def "test SendOTPResponse -> sendOTPResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> sendOTPResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -222,7 +222,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         null == sendOTPResponse.getSendOTPResponseBody().getExtraParamsMap()
     }
 
-    def "test SendOTPResponse -> sendOTPResponseBody -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> sendOTPResponseBody -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -249,7 +249,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         false == sendOTPResponse.getSendOTPResponseBody().ok()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseBody -> extraParamsMap"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> SendOTPResponseBody -> extraParamsMap"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -276,7 +276,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         null == sendOTPResponse.getSendOTPResponseBody().getExtraParamsMap()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseBody -> resultInfo"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> SendOTPResponseBody -> resultInfo"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -303,7 +303,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         null != sendOTPResponse.getSendOTPResponseBody().getResultInfo()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseBody -> ResultInfo -> resultStatus"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> SendOTPResponseBody -> ResultInfo -> resultStatus"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -330,7 +330,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         "U" == sendOTPResponse.getSendOTPResponseBody().getResultInfo().getResultStatus()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseBody -> ResultInfo -> resultCode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> SendOTPResponseBody -> ResultInfo -> resultCode"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -357,7 +357,7 @@ class SendOTPResponseTest extends AbstractPaytmResponseTest{
         "00000900" == sendOTPResponse.getSendOTPResponseBody().getResultInfo().getResultCode()
     }
 
-    def "test SendOTPResponse -> SendOTPResponseBody -> ResultInfo -> resultMessage"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.SendOTPResponse -> SendOTPResponseBody -> ResultInfo -> resultMessage"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

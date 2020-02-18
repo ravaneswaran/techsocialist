@@ -9,7 +9,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
 
-    def "test PaymentStatusResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -30,7 +30,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null != jsonResponse
     }
 
-    def "test PaymentStatusResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -52,7 +52,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null != paymentStatusResponse
     }
 
-    def "test PaymentStatusResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -74,7 +74,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         false == paymentStatusResponse.ok()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -97,7 +97,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null != paymentStatusResponseHead
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseHead -> responseTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseHead -> responseTimestamp"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -120,7 +120,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null != paymentStatusResponseHead.getResponseTimestamp() && paymentStatusResponseHead.getResponseTimestamp().length() > 0
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseHead -> version"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -143,7 +143,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null != paymentStatusResponseHead.getVersion() && "v1" == paymentStatusResponseHead.getVersion()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseHead -> signature"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseHead -> signature"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -166,7 +166,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null != paymentStatusResponseHead.getSignature() && paymentStatusResponseHead.getSignature().length() > 0
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -189,7 +189,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null != paymentStatusResponseBody
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> transactionId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> transactionId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -212,7 +212,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null == paymentStatusResponseBody.getTransactionId()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> bankTransactionId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> bankTransactionId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -235,7 +235,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null == paymentStatusResponseBody.getBankTransactionId()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> orderId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> orderId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -258,7 +258,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         orderId == paymentStatusResponseBody.getOrderId()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> transactionAmount"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> transactionAmount"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -281,7 +281,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null == paymentStatusResponseBody.getTransactionAmount()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> transactionType"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> transactionType"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -304,7 +304,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null == paymentStatusResponseBody.getTransactionType()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> gatewayName"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> gatewayName"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -327,7 +327,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null == paymentStatusResponseBody.getGatewayName()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> bankName"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> bankName"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -350,7 +350,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null == paymentStatusResponseBody.getBankName()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> merchantId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> merchantId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -373,7 +373,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         merchantId == paymentStatusResponseBody.getMerchantId()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> paymentMode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> paymentMode"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -396,7 +396,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null == paymentStatusResponseBody.getPaymentMode()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> refundAmount"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> refundAmount"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -419,7 +419,7 @@ class PaymentStatusResponseTest extends AbstractPaytmResponseTest{
         null == paymentStatusResponseBody.getRefundAmount()
     }
 
-    def "test PaymentStatusResponse -> PaymentStatusResponseBody -> transactionDate"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.PaymentStatusResponse -> PaymentStatusResponseBody -> transactionDate"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

@@ -10,7 +10,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class DirectBankResponseTest extends AbstractPaytmResponseTest{
 
-    def "test DirectBankResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -36,7 +36,7 @@ class DirectBankResponseTest extends AbstractPaytmResponseTest{
         null != jsonResponse
     }
 
-    def "test DirectBankResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -63,7 +63,7 @@ class DirectBankResponseTest extends AbstractPaytmResponseTest{
         null != directBankResponse
     }
 
-    def "test DirectBankResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -90,7 +90,7 @@ class DirectBankResponseTest extends AbstractPaytmResponseTest{
         false == directBankResponse.ok()
     }
 
-    def "test DirectBankResponse -> directBankResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse -> directBankResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -118,7 +118,7 @@ class DirectBankResponseTest extends AbstractPaytmResponseTest{
         null != directBankResponseHead
     }
 
-    def "test DirectBankResponse -> directBankResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse -> directBankResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -146,7 +146,7 @@ class DirectBankResponseTest extends AbstractPaytmResponseTest{
         null != directBankResponseBody
     }
 
-    def "test DirectBankResponse -> DirectBankResponseBody -> callbackUrl"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse -> DirectBankResponseBody -> callbackUrl"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -174,7 +174,7 @@ class DirectBankResponseTest extends AbstractPaytmResponseTest{
         null == directBankResponseBody.getCallBackUrl()
     }
 
-    def "test DirectBankResponse -> DirectBankResponseBody -> transactionInfo"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse -> DirectBankResponseBody -> transactionInfo"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -203,7 +203,7 @@ class DirectBankResponseTest extends AbstractPaytmResponseTest{
         null != transactionInfo
     }
 
-    def "test DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> bankName"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> bankName"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -232,7 +232,7 @@ class DirectBankResponseTest extends AbstractPaytmResponseTest{
         null == transactionInfo.getBankName()
     }
 
-    def "test DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> gatewayName"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> gatewayName"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -261,7 +261,7 @@ class DirectBankResponseTest extends AbstractPaytmResponseTest{
         null == transactionInfo.getGatewayName()
     }
 
-    def "test DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> transactionDate"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> transactionDate"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -290,7 +290,7 @@ class DirectBankResponseTest extends AbstractPaytmResponseTest{
         null == transactionInfo.getTransactionDate()
     }
 
-    def "test DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> transactionId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DirectBankResponse -> DirectBankResponseBody -> TransactionInfo -> transactionId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

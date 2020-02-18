@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class DisburseStatusQueryResponseTest extends AbstractPaytmResponseTest{
 
-    def "test DisburseStatusQueryResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DisburseStatusQueryResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -22,7 +22,7 @@ class DisburseStatusQueryResponseTest extends AbstractPaytmResponseTest{
         "Server returned HTTP response code: 401 for URL: https://staging-dashboard.paytm.com/bpay/api/v1/disburse/order/query" == exp.getMessage()
     }
 
-    def "test DisburseStatusQueryResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DisburseStatusQueryResponse as object"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin()
@@ -39,7 +39,7 @@ class DisburseStatusQueryResponseTest extends AbstractPaytmResponseTest{
         null == disburseStatusQueryResponse
     }
 
-    def "test DisburseStatusQueryResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DisburseStatusQueryResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         DisburseStatusQueryResponse disburseStatusQueryResponse = new DisburseStatusQueryResponse()
@@ -48,7 +48,7 @@ class DisburseStatusQueryResponseTest extends AbstractPaytmResponseTest{
         null == disburseStatusQueryResponse.getDisburseStatusQueryResponseHead()
     }
 
-    def "test DisburseStatusQueryResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.DisburseStatusQueryResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
 
         when:
         DisburseStatusQueryResponse disburseStatusQueryResponse = new DisburseStatusQueryResponse()

@@ -32,7 +32,6 @@ dependencies {
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.1'
     compile group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.moxy', version: '2.5.2'
     compile group: 'com.paytm.pg', name: 'paytm-pg', version: '0.0.1'
-    //compile group: 'com.paytm.pg', name: 'pg-checksum', version: '1.0'
     compile group: 'joda-time', name: 'joda-time', version: '2.10.5'
 
     implementation files('lib/paytm-checksum-2.0.0.jar')
@@ -40,10 +39,13 @@ dependencies {
     compileOnly project(":unmarshaller-plugin-module:unmarshaller-plugin-api")
     compileOnly project(":unmarshaller-plugin-module:implementation:json:google-unmarshaller-plugin")
     compileOnly project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
+    compileOnly project(":payment-gateway-plugin-module:implementation:paytm:rest:request")
+    compileOnly project(":payment-gateway-plugin-module:implementation:paytm:rest:plugin")
 
     testCompile project(":unmarshaller-plugin-module:unmarshaller-plugin-api")
     testCompile project(":unmarshaller-plugin-module:implementation:json:google-unmarshaller-plugin")
     testCompile project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
+    testCompile project(":payment-gateway-plugin-module:implementation:paytm:rest:request")
     testCompile project(":payment-gateway-plugin-module:implementation:paytm:rest:plugin")
 
     implementation 'org.scala-lang:scala-library:2.11.12'

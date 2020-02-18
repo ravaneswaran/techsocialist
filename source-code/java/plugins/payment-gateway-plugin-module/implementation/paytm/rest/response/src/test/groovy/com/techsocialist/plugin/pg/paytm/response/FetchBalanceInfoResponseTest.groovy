@@ -10,7 +10,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchBalanceInfoResponseTest extends AbstractPaytmResponseTest{
 
-    def "test FetchBalanceInfoResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBalanceInfoResponse as json string"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -30,7 +30,7 @@ class FetchBalanceInfoResponseTest extends AbstractPaytmResponseTest{
         null != jsonResponse
     }
 
-    def "test FetchBalanceInfoResponse when merchant id is wrong"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBalanceInfoResponse when merchant id is wrong"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -51,7 +51,7 @@ class FetchBalanceInfoResponseTest extends AbstractPaytmResponseTest{
         false == fetchBalanceInfoResponse.ok()
     }
 
-    def "test FetchBalanceInfoResponse when all the required/valid parameters are given"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBalanceInfoResponse when all the required/valid parameters are given"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -72,7 +72,7 @@ class FetchBalanceInfoResponseTest extends AbstractPaytmResponseTest{
         false == fetchBalanceInfoResponse.ok()
     }
 
-    def "test FetchBalanceInfoResponse -> FetchBalanceInfoResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBalanceInfoResponse -> FetchBalanceInfoResponseHead"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -94,7 +94,7 @@ class FetchBalanceInfoResponseTest extends AbstractPaytmResponseTest{
         null != fetchBalanceInfoResponseHead
     }
 
-    def "test FetchBalanceInfoResponse -> FetchBalanceInfoResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchBalanceInfoResponse -> FetchBalanceInfoResponseBody"(){
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())

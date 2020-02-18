@@ -9,7 +9,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
 
-    def "test InitiateSubscriptionResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -44,7 +44,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null != jsonResponse
     }
 
-    def "test InitiateSubscriptionResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -80,7 +80,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null != initiateSubscriptionResponse
     }
 
-    def "test InitiateSubscriptionResponse -> InitiateSubscriptionResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse -> InitiateSubscriptionResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -117,7 +117,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null != initiateSubscriptionResponseHead
     }
 
-    def "test InitiateSubscriptionResponse -> InitiateSubscriptionResponseHead -> requestId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse -> InitiateSubscriptionResponseHead -> requestId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -154,7 +154,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null == initiateSubscriptionResponseHead.getRequestId()
     }
 
-    def "test InitiateSubscriptionResponse -> InitiateSubscriptionResponseHead -> responseTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse -> InitiateSubscriptionResponseHead -> responseTimestamp"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -191,7 +191,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null != initiateSubscriptionResponseHead.getResponseTimestamp()
     }
 
-    def "test InitiateSubscriptionResponse -> InitiateSubscriptionResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse -> InitiateSubscriptionResponseHead -> version"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -228,7 +228,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         "v1" == initiateSubscriptionResponseHead.getVersion()
     }
 
-    def "test InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -265,7 +265,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null != initiateSubscriptionResponseBody
     }
 
-    def "test InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody -> extraParamsMap"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody -> extraParamsMap"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -302,7 +302,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null == initiateSubscriptionResponseBody.getExtraParamsMap()
     }
 
-    def "test InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody -> resultInfo"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody -> resultInfo"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -339,7 +339,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         null != initiateSubscriptionResponseBody.getResultInfo()
     }
 
-    def "test InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody -> ResultInfo -> resultStatus"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody -> ResultInfo -> resultStatus"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -376,7 +376,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         "U" == initiateSubscriptionResponseBody.getResultInfo().getResultStatus()
     }
 
-    def "test InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody -> ResultInfo -> resultCode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody -> ResultInfo -> resultCode"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -413,7 +413,7 @@ class InitiateSubscriptionResponseTest extends AbstractPaytmResponseTest{
         "00000900" == initiateSubscriptionResponseBody.getResultInfo().getResultCode()
     }
 
-    def "test InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody -> ResultInfo -> resultMessage"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.InitiateSubscriptionResponse -> InitiateSubscriptionResponseBody -> ResultInfo -> resultMessage"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

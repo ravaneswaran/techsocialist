@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class MandateFormNotifyResponseTest extends AbstractPaytmResponseTest {
 
-    def "test MandateFormNotifyResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormNotifyResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -24,7 +24,7 @@ class MandateFormNotifyResponseTest extends AbstractPaytmResponseTest {
         null != jsonString
     }
 
-    def "test MandateFormNotifyResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormNotifyResponse as object"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -43,7 +43,7 @@ class MandateFormNotifyResponseTest extends AbstractPaytmResponseTest {
         null != mandateFormNotifyResponse
     }
 
-    def "test MandateFormNotifyResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormNotifyResponse -> ok()"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -62,7 +62,7 @@ class MandateFormNotifyResponseTest extends AbstractPaytmResponseTest {
         false == mandateFormNotifyResponse.ok()
     }
 
-    def "test MandateFormNotifyResponse -> mandateFormNotifyResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormNotifyResponse -> mandateFormNotifyResponseHead"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -81,7 +81,7 @@ class MandateFormNotifyResponseTest extends AbstractPaytmResponseTest {
         null != mandateFormNotifyResponse.getMandateFormNotifyResponseHead()
     }
 
-    def "test MandateFormNotifyResponse -> MandateFormNotifyResponseHead -> timestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormNotifyResponse -> MandateFormNotifyResponseHead -> timestamp"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -100,7 +100,7 @@ class MandateFormNotifyResponseTest extends AbstractPaytmResponseTest {
         null != mandateFormNotifyResponse.getMandateFormNotifyResponseHead().getTimestamp()
     }
 
-    def "test MandateFormNotifyResponse -> mandateFormNotifyResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormNotifyResponse -> mandateFormNotifyResponseBody"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();

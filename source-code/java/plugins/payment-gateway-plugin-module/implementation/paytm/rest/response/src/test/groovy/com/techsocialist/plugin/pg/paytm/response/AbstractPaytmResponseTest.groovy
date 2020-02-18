@@ -25,9 +25,9 @@ class AbstractPaytmResponseTest extends Specification {
     def walletPassword = "Paytm12345"
     def walletOTP = "489871"
 
-    /*def "test ok of AbstractPaytmResponse"(){
+    /*def "test ok of com.techsocialist.plugin.pg.paytm.response.AbstractPaytmResponse"(){
         setup:
-        def paytmResponse = new AbstractPaytmResponse() {
+        def paytmResponse = new com.techsocialist.plugin.pg.paytm.response.AbstractPaytmResponse() {
             @Override
             boolean ok() {
                 return super.ok()

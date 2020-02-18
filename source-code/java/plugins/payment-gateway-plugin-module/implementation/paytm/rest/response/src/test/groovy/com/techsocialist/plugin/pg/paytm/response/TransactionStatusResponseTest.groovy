@@ -8,7 +8,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
 
-    def "test TransactionStatusResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -21,7 +21,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         null != jsonResponse
     }
 
-    def "test TransactionStatusResponse"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -36,7 +36,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         null != transactionStatusResponse
     }
 
-    def "test TransactionStatusResponse transaction id"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse transaction id"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -51,7 +51,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "" == transactionStatusResponse.getTransactionId()
     }
 
-    def "test TransactionStatusResponse bank transaction id"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse bank transaction id"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -66,7 +66,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "" == transactionStatusResponse.getBankTransactionId()
     }
 
-    def "test TransactionStatusResponse order id"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse order id"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -81,7 +81,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         orderId == transactionStatusResponse.getOrderId()
     }
 
-    def "test TransactionStatusResponse transaction amount"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse transaction amount"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -96,7 +96,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "" == transactionStatusResponse.getTransactionAmount()
     }
 
-    def "test TransactionStatusResponse status"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse status"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -111,7 +111,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "TXN_FAILURE" == transactionStatusResponse.getStatus()
     }
 
-    def "test TransactionStatusResponse transaction type"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse transaction type"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -126,7 +126,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "" == transactionStatusResponse.getTransactionType()
     }
 
-    def "test TransactionStatusResponse gateway name"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse gateway name"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -141,7 +141,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "" == transactionStatusResponse.getGatewayName()
     }
 
-    def "test TransactionStatusResponse response code"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse response code"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -156,7 +156,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "334" == transactionStatusResponse.getResponseCode()
     }
 
-    def "test TransactionStatusResponse response message"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse response message"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -171,7 +171,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "Invalid Order Id." == transactionStatusResponse.getResponseMessage()
     }
 
-    def "test TransactionStatusResponse bank name"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse bank name"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -186,7 +186,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "" == transactionStatusResponse.getBankName()
     }
 
-    def "test TransactionStatusResponse merchant id"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse merchant id"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -201,7 +201,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         merchantId == transactionStatusResponse.getMerchantId()
     }
 
-    def "test TransactionStatusResponse payment mode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse payment mode"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -216,7 +216,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "" == transactionStatusResponse.getPaymentMode()
     }
 
-    def "test TransactionStatusResponse refund amount"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse refund amount"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()
@@ -231,7 +231,7 @@ class TransactionStatusResponseTest extends AbstractPaytmResponseTest {
         "" == transactionStatusResponse.getRefundAmount()
     }
 
-    def "test TransactionStatusResponse transaction date"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.TransactionStatusResponse transaction date"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPluginAPI = new GoogleUnmarshallerPlugin()

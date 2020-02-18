@@ -23,7 +23,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         null != jsonResponse
     }
 
-    def "test RefundResponse"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -40,7 +40,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         null != refundResponse
     }
 
-    def "test RefundResponse ok"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse ok"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -57,7 +57,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         false == refundResponse.ok()
     }
 
-    def "test RefundResponse -> RefundResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse -> RefundResponseHead"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -74,7 +74,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         null != refundResponse.getRefundResponseHead()
     }
 
-    def "test RefundResponse -> RefundResponseHead -> signature"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse -> RefundResponseHead -> signature"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -92,7 +92,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         null != signature && signature.length() > 0
     }
 
-    def "test RefundResponse -> RefundResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse -> RefundResponseBody"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -109,7 +109,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         null != refundResponse.getRefundResponseBody()
     }
 
-    def "test RefundResponse -> RefundResponseBody -> orderId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse -> RefundResponseBody -> orderId"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -126,7 +126,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         orderId == refundResponse.getRefundResponseBody().getOrderId()
     }
 
-    def "test RefundResponse -> RefundResponseBody -> mid"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse -> RefundResponseBody -> mid"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -143,7 +143,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         merchantId == refundResponse.getRefundResponseBody().getMerchantId()
     }
 
-    def "test RefundResponse -> RefundResponseBody -> txnId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse -> RefundResponseBody -> txnId"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -160,7 +160,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         transactionId == refundResponse.getRefundResponseBody().getTransactionId()
     }
 
-    def "test RefundResponse -> RefundResponseBody -> refundAmount"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse -> RefundResponseBody -> refundAmount"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -177,7 +177,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         "1000" == refundResponse.getRefundResponseBody().getRefundAmount()
     }
 
-    def "test RefundResponse -> RefundResponseBody -> transactionTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse -> RefundResponseBody -> transactionTimestamp"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -194,7 +194,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         null == refundResponse.getRefundResponseBody().getTransactionTimestamp()
     }
 
-    def "test RefundResponse -> RefundResponseBody -> uniqueRefundId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse -> RefundResponseBody -> uniqueRefundId"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())
@@ -211,7 +211,7 @@ class RefundResponseTest extends AbstractPaytmResponseTest{
         null == refundResponse.getRefundResponseBody().getUniqueRefundId()
     }
 
-    def "test RefundResponse -> RefundResponseBody -> paytmRefundId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.RefundResponse -> RefundResponseBody -> paytmRefundId"(){
 
         setup:
         def orderId = String.format("ORDER-ID-%s", new Date().getTime())

@@ -48,7 +48,9 @@ include ':docs',
         ':sms-plugin-module:implementation:rest:twilio-sms-rest-plugin',
 
         ':payment-gateway-plugin-module:payment-gateway-rest-plugin-api',
-        
+
+        ':payment-gateway-plugin-module:implementation:paytm:checkout:plugin',
+
         ':payment-gateway-plugin-module:implementation:paytm:rest:plugin',
         ':payment-gateway-plugin-module:implementation:paytm:rest:request',
         ':payment-gateway-plugin-module:implementation:paytm:rest:response',

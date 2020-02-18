@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'scala'
+    id 'jacoco'
+}
+
+jacoco {
+    toolVersion = "0.8.5"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/reports/jacoco")
+    }
+}
+
+jar.archiveName = String.format("techsocialist-paytm-checkout-%s-%s.jar", project.name, version)

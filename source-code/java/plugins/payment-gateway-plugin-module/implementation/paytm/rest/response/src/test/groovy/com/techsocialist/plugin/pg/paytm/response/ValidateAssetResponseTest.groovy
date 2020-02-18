@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class ValidateAssetResponseTest extends AbstractPaytmResponseTest {
 
-    def "test ValidateAssetResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateAssetResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -30,7 +30,7 @@ class ValidateAssetResponseTest extends AbstractPaytmResponseTest {
         null != jsonResponse
     }
 
-    def "test ValidateAssetResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateAssetResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -55,7 +55,7 @@ class ValidateAssetResponseTest extends AbstractPaytmResponseTest {
         null != validateAssetResponse
     }
 
-    def "test ValidateAssetResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateAssetResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -80,7 +80,7 @@ class ValidateAssetResponseTest extends AbstractPaytmResponseTest {
         false == validateAssetResponse.ok()
     }
 
-    def "test ValidateAssetResponse -> validateAssetResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.ValidateAssetResponse -> validateAssetResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

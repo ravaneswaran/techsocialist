@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class MandateFormDownloadResponseTest extends AbstractPaytmResponseTest{
 
-    def "test MandateFormDownloadResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormDownloadResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -24,7 +24,7 @@ class MandateFormDownloadResponseTest extends AbstractPaytmResponseTest{
         null != jsonString
     }
 
-    def "test MandateFormDownloadResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormDownloadResponse as object"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -43,7 +43,7 @@ class MandateFormDownloadResponseTest extends AbstractPaytmResponseTest{
         null != mandateFormDownloadResponse
     }
 
-    def "test MandateFormDownloadResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormDownloadResponse -> ok()"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -62,7 +62,7 @@ class MandateFormDownloadResponseTest extends AbstractPaytmResponseTest{
         false == mandateFormDownloadResponse.ok()
     }
 
-    def "test MandateFormDownloadResponse -> mandateFormDownloadResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormDownloadResponse -> mandateFormDownloadResponseHead"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -81,7 +81,7 @@ class MandateFormDownloadResponseTest extends AbstractPaytmResponseTest{
         null != mandateFormDownloadResponse.getMandateFormDownloadResponseHead()
     }
 
-    def "test MandateFormDownloadResponse -> MandateFormDownloadResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormDownloadResponse -> MandateFormDownloadResponseHead -> version"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -100,7 +100,7 @@ class MandateFormDownloadResponseTest extends AbstractPaytmResponseTest{
         "v1" == mandateFormDownloadResponse.getMandateFormDownloadResponseHead().getVersion()
     }
 
-    def "test MandateFormDownloadResponse -> MandateFormDownloadResponseHead -> timestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormDownloadResponse -> MandateFormDownloadResponseHead -> timestamp"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -119,7 +119,7 @@ class MandateFormDownloadResponseTest extends AbstractPaytmResponseTest{
         null != mandateFormDownloadResponse.getMandateFormDownloadResponseHead().getTimestamp()
     }
 
-    def "test MandateFormDownloadResponse -> MandateFormDownloadResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormDownloadResponse -> MandateFormDownloadResponseBody"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();
@@ -138,7 +138,7 @@ class MandateFormDownloadResponseTest extends AbstractPaytmResponseTest{
         null != mandateFormDownloadResponse.getMandateFormDownloadResponseBody()
     }
 
-    def "test MandateFormDownloadResponse -> MandateFormDownloadResponseBody -> resultInfo"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.MandateFormDownloadResponse -> MandateFormDownloadResponseBody -> resultInfo"(){
 
         setup:
         IUnmarshallerPlugin iUnmarshallerPlugin = new GoogleUnmarshallerPlugin();

@@ -10,7 +10,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
 
-    def "test FetchNBPaymentChannelResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse as json string"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -36,7 +36,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null != jsonResponse
     }
 
-    def "test FetchNBPaymentChannelResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse as object"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -63,7 +63,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null != fetchNBPaymentChannelResponse
     }
 
-    def "test FetchNBPaymentChannelResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> ok()"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -90,7 +90,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         true == fetchNBPaymentChannelResponse.ok()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseHead -> requestId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseHead -> requestId"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -118,7 +118,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null == fetchNBPaymentChannelResponseHead.getRequestId()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseHead -> responseTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseHead -> responseTimestamp"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -146,7 +146,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null != fetchNBPaymentChannelResponseHead.getResponseTimestamp()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseHead -> version"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -174,7 +174,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         "v1" == fetchNBPaymentChannelResponseHead.getVersion()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> extraParamsMap"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> extraParamsMap"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -202,7 +202,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null == fetchNBPaymentChannelResponseBody.getExtraParamsMap()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> resultInfo"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> resultInfo"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -230,7 +230,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null != fetchNBPaymentChannelResponseBody.getResultInfo()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> ResultInfo -> resultCode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> ResultInfo -> resultCode"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -258,7 +258,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         "0000" == fetchNBPaymentChannelResponseBody.getResultInfo().getResultCode()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> ResultInfo -> resultStatus"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> ResultInfo -> resultStatus"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -286,7 +286,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         "S" == fetchNBPaymentChannelResponseBody.getResultInfo().getResultStatus()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> ResultInfo -> resultMsg"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> ResultInfo -> resultMsg"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -314,7 +314,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         "Success" == fetchNBPaymentChannelResponseBody.getResultInfo().getResultMessage()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> nbPayOption"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> nbPayOption"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -343,7 +343,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null != nbPayOption
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> displayName"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> displayName"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -372,7 +372,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         "Net Banking" == nbPayOption.getDisplayName()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> feeAmount"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> feeAmount"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -401,7 +401,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null == nbPayOption.getFeeAmount()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> taxAmount"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> taxAmount"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -430,7 +430,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null == nbPayOption.getTaxAmount()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> totalTransactionAmount"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> totalTransactionAmount"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -459,7 +459,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null == nbPayOption.getTotalTransactionAmount()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> priority"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> priority"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -488,7 +488,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null == nbPayOption.getPriority()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> onboarding"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> onboarding"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -517,7 +517,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         false == nbPayOption.isOnboarding()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> paymentMode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> paymentMode"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -546,7 +546,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         "NET_BANKING" == nbPayOption.getPaymentMode()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> isHybridDisabled"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> isHybridDisabled"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -575,7 +575,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         false == nbPayOption.isHybridDisabled()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> isDisabled"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> isDisabled"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())
@@ -604,7 +604,7 @@ class FetchNBPaymentChannelResponseTest extends AbstractPaytmResponseTest {
         null != nbPayOption.getIsDisabled()
     }
 
-    def "test FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> payChannelOptions"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchNBPaymentChannelResponse -> FetchNBPaymentChannelResponseBody -> NBayOption -> payChannelOptions"(){
 
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
         def customerId = String.format("CUSTOMER-ID-%s", new Date().getTime())

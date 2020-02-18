@@ -9,7 +9,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
 
-    def "test FetchInstrumentResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -28,7 +28,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != jsonResponse
     }
 
-    def "test FetchInstrumentResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -49,7 +49,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != fetchInstrumentResponse
     }
 
-    def "test FetchInstrumentResponse -> fetchInstrumentResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse -> fetchInstrumentResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -71,7 +71,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != fetchInstrumentResponseHead
     }
 
-    def "test FetchInstrumentResponse -> FetchInstrumentResponseHead -> responseTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse -> FetchInstrumentResponseHead -> responseTimestamp"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -93,7 +93,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != fetchInstrumentResponseHead.getResponseTimestamp()
     }
 
-    def "test FetchInstrumentResponse -> FetchInstrumentResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse -> FetchInstrumentResponseHead -> version"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -115,7 +115,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != fetchInstrumentResponseHead.getVersion()
     }
 
-    def "test FetchInstrumentResponse -> FetchInstrumentResponseHead -> clientId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse -> FetchInstrumentResponseHead -> clientId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -137,7 +137,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != fetchInstrumentResponseHead.getClientId()
     }
 
-    def "test FetchInstrumentResponse -> fetchInstrumentResponseBody"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse -> fetchInstrumentResponseBody"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -159,7 +159,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != fetchInstrumentResponseBody
     }
 
-    def "test FetchInstrumentResponse -> FetchInstrumentResponseBody -> resultInfo"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse -> FetchInstrumentResponseBody -> resultInfo"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -181,7 +181,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != fetchInstrumentResponseBody.getResultInfo()
     }
 
-    def "test FetchInstrumentResponse -> FetchInstrumentResponseBody -> ResultInfo -> resultStatus"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse -> FetchInstrumentResponseBody -> ResultInfo -> resultStatus"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -203,7 +203,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != fetchInstrumentResponseBody.getResultInfo().getResultStatus()
     }
 
-    def "test FetchInstrumentResponse -> FetchInstrumentResponseBody -> ResultInfo -> resultCode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse -> FetchInstrumentResponseBody -> ResultInfo -> resultCode"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -225,7 +225,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != fetchInstrumentResponseBody.getResultInfo().getResultCode()
     }
 
-    def "test FetchInstrumentResponse -> FetchInstrumentResponseBody -> ResultInfo -> resultMessage"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse -> FetchInstrumentResponseBody -> ResultInfo -> resultMessage"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -247,7 +247,7 @@ class FetchInstrumentResponseTest extends AbstractPaytmResponseTest {
         null != fetchInstrumentResponseBody.getResultInfo().getResultMessage()
     }
 
-    def "test FetchInstrumentResponse -> FetchInstrumentResponseBody -> payOptions"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchInstrumentResponse -> FetchInstrumentResponseBody -> payOptions"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

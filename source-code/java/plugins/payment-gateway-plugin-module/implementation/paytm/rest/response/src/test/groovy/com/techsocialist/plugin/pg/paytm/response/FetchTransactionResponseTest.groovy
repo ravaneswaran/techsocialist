@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchTransactionResponseTest extends AbstractPaytmResponseTest{
 
-    def "test FetchTransactionResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchTransactionResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -29,7 +29,7 @@ class FetchTransactionResponseTest extends AbstractPaytmResponseTest{
         null != jsonResponse
     }
 
-    def "test FetchTransactionResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchTransactionResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -53,7 +53,7 @@ class FetchTransactionResponseTest extends AbstractPaytmResponseTest{
         null != fetchTransactionResponse
     }
 
-    def "test FetchTransactionResponse -> ok"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchTransactionResponse -> ok"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -77,7 +77,7 @@ class FetchTransactionResponseTest extends AbstractPaytmResponseTest{
         false == fetchTransactionResponse.ok()
     }
 
-    def "test FetchTransactionResponse -> fetchTransactionResponseHead"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchTransactionResponse -> fetchTransactionResponseHead"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

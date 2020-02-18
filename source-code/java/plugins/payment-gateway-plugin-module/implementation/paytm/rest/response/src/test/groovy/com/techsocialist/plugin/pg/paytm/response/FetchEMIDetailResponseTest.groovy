@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
 
-    def "test FetchEMIDetailResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -33,7 +33,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         null != jsonResponse
     }
 
-    def "test FetchEMIDetailResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -60,7 +60,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         null != fetchEMIDetailResponse
     }
 
-    def "test FetchEMIDetailResponse -> ok()"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> ok()"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -87,7 +87,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         false == fetchEMIDetailResponse.ok()
     }
 
-    def "test FetchEMIDetailResponse -> FetchEMIDetailResponse"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -114,7 +114,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         null != fetchEMIDetailResponse.getFetchEMIDetailResponseHead()
     }
 
-    def "test FetchEMIDetailResponse -> FetchEMIDetailResponseHead -> requestId"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> FetchEMIDetailResponseHead -> requestId"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -141,7 +141,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         null == fetchEMIDetailResponse.getFetchEMIDetailResponseHead().getRequestId()
     }
 
-    def "test FetchEMIDetailResponse -> FetchEMIDetailResponseHead -> responseTimestamp"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> FetchEMIDetailResponseHead -> responseTimestamp"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -168,7 +168,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         null != fetchEMIDetailResponse.getFetchEMIDetailResponseHead().getResponseTimestamp()
     }
 
-    def "test FetchEMIDetailResponse -> FetchEMIDetailResponseHead -> version"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> FetchEMIDetailResponseHead -> version"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -195,7 +195,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         null != fetchEMIDetailResponse.getFetchEMIDetailResponseHead().getVersion()
     }
 
-    def "test FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> extraParamsMap"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> extraParamsMap"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -222,7 +222,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         null == fetchEMIDetailResponse.getFetchEMIDetailResponseBody().getExtraParamsMap()
     }
 
-    def "test FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> resultInfo"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> resultInfo"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -249,7 +249,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         null != fetchEMIDetailResponse.getFetchEMIDetailResponseBody().getResultInfo()
     }
 
-    def "test FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> ResultInfo -> resultStatus"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> ResultInfo -> resultStatus"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -276,7 +276,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         "U" == fetchEMIDetailResponse.getFetchEMIDetailResponseBody().getResultInfo().getResultStatus()
     }
 
-    def "test FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> ResultInfo -> resultCode"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> ResultInfo -> resultCode"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -303,7 +303,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         "00000900" == fetchEMIDetailResponse.getFetchEMIDetailResponseBody().getResultInfo().getResultCode()
     }
 
-    def "test FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> ResultInfo -> resultMessage"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> ResultInfo -> resultMessage"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -330,7 +330,7 @@ class FetchEMIDetailResponseTest extends AbstractPaytmResponseTest{
         "System error" == fetchEMIDetailResponse.getFetchEMIDetailResponseBody().getResultInfo().getResultMessage()
     }
 
-    def "test FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> emiDetail"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.FetchEMIDetailResponse -> FetchEMIDetailResponseBody -> emiDetail"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()

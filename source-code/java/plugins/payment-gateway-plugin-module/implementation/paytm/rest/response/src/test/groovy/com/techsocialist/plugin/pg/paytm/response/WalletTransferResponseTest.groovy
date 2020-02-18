@@ -7,7 +7,7 @@ import com.techsocialist.plugin.unmarshaller.api.IUnmarshallerPlugin
 
 class WalletTransferResponseTest extends AbstractPaytmResponseTest {
 
-    def "test WalletTransferResponse as json string"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.WalletTransferResponse as json string"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -32,7 +32,7 @@ class WalletTransferResponseTest extends AbstractPaytmResponseTest {
 
     }
 
-    def "test WalletTransferResponse as object"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.WalletTransferResponse as object"(){
 
         setup:
         IPaymentGatewayRestPlugin paymentGatewayRestPlugin = new PaytmPaymentGatewayRestPlugin()
@@ -58,7 +58,7 @@ class WalletTransferResponseTest extends AbstractPaytmResponseTest {
         null == walletTransferResponse
     }
 
-    def "test WalletTransferResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.WalletTransferResponse -> com.techsocialist.plugin.pg.paytm.response.head"(){
 
         when:
         WalletTransferResponse walletTransferResponse = new WalletTransferResponse()
@@ -67,7 +67,7 @@ class WalletTransferResponseTest extends AbstractPaytmResponseTest {
         null == walletTransferResponse.getWalletTransferResponseHead()
     }
 
-    def "test WalletTransferResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
+    def "test com.techsocialist.plugin.pg.paytm.response.WalletTransferResponse -> com.techsocialist.plugin.pg.paytm.response.body"(){
 
         when:
         WalletTransferResponse walletTransferResponse = new WalletTransferResponse()
