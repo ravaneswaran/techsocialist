@@ -19,3 +19,26 @@ jacocoTestReport {
 }
 
 jar.archiveName = String.format("techsocialist-paytm-checkout-%s-%s.jar", project.name, version)
+
+
+dependencies{
+
+    implementation 'org.scala-lang:scala-library:2.11.12'
+    implementation 'com.google.guava:guava:26.0-jre'
+
+    implementation files('lib/paytm-checksum-2.0.0.jar')
+
+    testImplementation 'org.scalatest:scalatest_2.11:3.0.0'
+    testImplementation 'org.scala-lang:scala-library:2.11.1'
+
+    testImplementation 'org.codehaus.groovy:groovy-all:2.5.4'
+    testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
+    testImplementation 'junit:junit:4.12'
+
+    testImplementation 'io.cucumber:cucumber-java8:5.1.1'
+    testImplementation 'io.cucumber:cucumber-junit:5.1.1'
+
+    compileOnly project(":payment-gateway-plugin-module:payment-gateway-checkout-plugin-api")
+    testCompile project(":payment-gateway-plugin-module:payment-gateway-checkout-plugin-api")
+
+}
