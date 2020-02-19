@@ -31,7 +31,7 @@ public class PaytmPaymentGatewayCheckoutPlugin implements IPaytmPaymentGatewayCh
     private String callbackUrl;
 
     @Override
-    public String renderCheckoutForm(boolean production) throws Exception  {
+    public String renderStandardCheckoutForm(boolean production) throws Exception  {
 
         if(null == this.merchantId || this.merchantId.isEmpty()){
             throw new RuntimeException("MERCHANT ID cannot be null or empty...");

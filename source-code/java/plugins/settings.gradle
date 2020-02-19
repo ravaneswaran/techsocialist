@@ -51,6 +51,7 @@ include ':docs',
         ':payment-gateway-plugin-module:payment-gateway-checkout-plugin-api',
 
         ':payment-gateway-plugin-module:implementation:paytm:checkout:plugin',
+        ':payment-gateway-plugin-module:implementation:razorpay:checkout:plugin',
 
         ':payment-gateway-plugin-module:implementation:paytm:rest:plugin',
         ':payment-gateway-plugin-module:implementation:paytm:rest:request',

@@ -23,7 +23,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        String checkoutForm = paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        String checkoutForm = paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         null != checkoutForm && checkoutForm.length() > 0
@@ -38,7 +38,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId(null).setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -54,7 +54,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -70,7 +70,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey(null).setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -86,7 +86,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -102,7 +102,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId(null).setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -118,7 +118,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -134,7 +134,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId(null)
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -150,7 +150,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -166,7 +166,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId(null).setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -182,7 +182,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -198,7 +198,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber(null).setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -214,7 +214,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -230,7 +230,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail(null).setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -246,7 +246,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -262,7 +262,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount(null)
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -278,7 +278,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -294,7 +294,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType(null).setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -310,7 +310,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("").setWebsite("https://olabolabola.com").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -326,7 +326,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite(null).setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -342,7 +342,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("").setCallbackUrl("https://olabolabola.com/payment-gateway/response")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -358,7 +358,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl(null)
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
@@ -374,7 +374,7 @@ class PaytmPaymentGatewayCheckoutPluginTest extends Specification{
         paymentGatewayCheckoutPlugin.setMerchantId("somemerchant").setMerchantKey("1111111111111111").setOrderId("222222").setChannelId("C11")
         paymentGatewayCheckoutPlugin.setCustomerId("1234").setMobileNumber("987654321").setEmail("test@test.com").setTransactionAmount("1000.00")
         paymentGatewayCheckoutPlugin.setIndustryType("Education").setWebsite("https://olabolabola.com").setCallbackUrl("")
-        paymentGatewayCheckoutPlugin.renderCheckoutForm(false)
+        paymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
 
         then:
         Exception exception = thrown()
