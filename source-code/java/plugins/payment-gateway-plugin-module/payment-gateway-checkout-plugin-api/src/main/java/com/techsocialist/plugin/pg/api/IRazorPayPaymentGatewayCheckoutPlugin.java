@@ -2,7 +2,7 @@ package com.techsocialist.plugin.pg.api;
 
 public interface IRazorPayPaymentGatewayCheckoutPlugin extends IPaymentGatewayCheckoutPlugin{
 
-    public String renderManualCheckoutForm(boolean production) throws Exception;
+    public String renderManualCheckout(boolean production) throws Exception;
 
     public IRazorPayPaymentGatewayCheckoutPlugin setMerchantId(String merchantId);
 

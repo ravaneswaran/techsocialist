@@ -86,7 +86,7 @@ public class RazorPayPaymentGatewayCheckoutPlugin implements IRazorPayPaymentGat
     }
 
     @Override
-    public String renderStandardCheckoutForm(boolean production) throws Exception {
+    public String renderStandardCheckout(boolean production) throws Exception {
 
         validate();
 
@@ -116,7 +116,7 @@ public class RazorPayPaymentGatewayCheckoutPlugin implements IRazorPayPaymentGat
     }
 
     @Override
-    public String renderManualCheckoutForm(boolean production) throws Exception {
+    public String renderManualCheckout(boolean production) throws Exception {
 
         validate();
 

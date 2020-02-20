@@ -26,7 +26,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         null != checkoutForm && checkoutForm.length() > 0
@@ -44,7 +44,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -63,7 +63,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -82,7 +82,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -101,7 +101,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -120,7 +120,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -139,7 +139,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -158,7 +158,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -177,7 +177,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -196,7 +196,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         null != checkoutForm
@@ -214,7 +214,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         null != checkoutForm
@@ -232,7 +232,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -251,7 +251,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -270,7 +270,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -289,7 +289,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -308,7 +308,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -327,7 +327,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -346,7 +346,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail(null).setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -365,7 +365,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -384,7 +384,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact(null)
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -403,7 +403,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -422,7 +422,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl(null)
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -441,7 +441,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("")
 
-        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         Exception exception = thrown()
@@ -460,7 +460,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("#fdfd88f").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         null != checkoutForm
@@ -478,7 +478,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor(null).setCallbackUrl("http://localhost:8080/olabolabola")
 
-        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         null != checkoutForm
@@ -496,7 +496,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckoutForm(false)
+        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderStandardCheckout(false)
 
         then:
         null != checkoutForm
@@ -514,7 +514,7 @@ class RazorPayPaymentGatewayCheckoutPluginTest extends Specification{
         razorPayPaymentGatewayCheckoutPlugin.setPrefillEmail("ravaneswaran@gmail.com").setPrefillContact("987654321")
         razorPayPaymentGatewayCheckoutPlugin.setThemeColor("").setCallbackUrl("http://localhost:8080/olabolabola")
 
-        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderManualCheckoutForm(false)
+        String checkoutForm = razorPayPaymentGatewayCheckoutPlugin.renderManualCheckout(false)
 
         then:
         System.out.println(checkoutForm)
