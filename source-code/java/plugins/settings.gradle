@@ -30,6 +30,9 @@ include ':docs',
         ':mail-plugin-module:implementation:curl-mail-plugin',
         ':mail-plugin-module:implementation:java-mail-plugin',
 
+        ':marshaller-plugin-module:marshaller-plugin-api',
+        ':marshaller-plugin-module:implementation:google-marshaller-plugin',
+
         ':os-command-exec-plugin-module:os-command-exec-plugin-api',
         ':os-command-exec-plugin-module:implementation:linux-command-exec-plugin',
 
