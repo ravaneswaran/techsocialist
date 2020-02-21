@@ -20,12 +20,6 @@ jacocoTestReport {
 
 jar.archiveName = String.format("techsocialist-razorpay-rest-%s-%s.jar", project.name, version)
 
-repositories {
-    maven {
-        url "http://artifactorypg.paytm.in/artifactory/libs-release"
-    }
-}
-
 dependencies {
 
     implementation 'org.scala-lang:scala-library:2.11.12'
