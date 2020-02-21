@@ -19,12 +19,4 @@ public class RazorPayNote {
         this.location = location;
         return this;
     }
-
-    public String getLandmark() {
-        return landmark;
-    }
-
-    public String getLocation() {
-        return location;
-    }
 }

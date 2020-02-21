@@ -4,6 +4,8 @@ public interface IRazorPayEntity {
 
     public static final String CUSTOMER_ENTITY = "Customer";
     public static final String ORDER_ENTITY = "Order";
+    public static final String PAYMENT_ENTITY = "Payment";
+
 
     public IRazorPayEntity setId(String id);
 
