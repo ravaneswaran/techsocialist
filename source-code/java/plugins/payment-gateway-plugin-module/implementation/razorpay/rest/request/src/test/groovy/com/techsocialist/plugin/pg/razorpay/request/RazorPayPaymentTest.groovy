@@ -33,7 +33,7 @@ class RazorPayPaymentTest extends Specification {
         String jsonString = marshallerPlugin.marshall(razorPayPayment)
 
         then:
-         "{\"amount\":1000,\"currency\":\"INR\",\"status\":\"created\",\"method\":\"card\",\"order_id\":\"222222\",\"description\":\"test description\",\"amount_refunded\":0,\"refund_status\":\"refund yet to\",\"email\":\"test@test.com\",\"contact\":\"+91 1234567890\",\"fee\":100,\"tax\":100,\"error_code\":\"\",\"error_description\":\"\",\"id\":\"1111\",\"enitity\":\"Payment\",\"created_at\":"+createdAt+"}" == jsonString
+         "{\"amount\":1000,\"currency\":\"INR\",\"status\":\"created\",\"method\":\"card\",\"order_id\":\"222222\",\"description\":\"test description\",\"amount_refunded\":0,\"refund_status\":\"refund yet to\",\"email\":\"test@test.com\",\"contact\":\"+91 1234567890\",\"fee\":100,\"tax\":100,\"error_code\":\"\",\"error_description\":\"\",\"id\":\"1111\",\"enitity\":\"payment\",\"created_at\":"+createdAt+"}" == jsonString
 
     }
 
