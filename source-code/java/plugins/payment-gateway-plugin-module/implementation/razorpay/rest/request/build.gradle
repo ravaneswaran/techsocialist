@@ -42,4 +42,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     testCompile project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
+    testCompile project(":marshaller-plugin-module:marshaller-plugin-api")
+    testCompile project(":marshaller-plugin-module:implementation:google-marshaller-plugin")
 }

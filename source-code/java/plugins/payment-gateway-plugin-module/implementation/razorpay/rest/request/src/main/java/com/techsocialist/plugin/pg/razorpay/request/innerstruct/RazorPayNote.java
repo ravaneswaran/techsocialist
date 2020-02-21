@@ -1,9 +1,8 @@
 package com.techsocialist.plugin.pg.razorpay.request.innerstruct;
 
 import com.google.gson.annotations.SerializedName;
-import com.techsocialist.plugin.pg.api.request.IRazorPayEntity;
 
-public class RazorPayNote implements IRazorPayEntity {
+public class RazorPayNote {
 
     @SerializedName("landmark")
     private String landmark;
