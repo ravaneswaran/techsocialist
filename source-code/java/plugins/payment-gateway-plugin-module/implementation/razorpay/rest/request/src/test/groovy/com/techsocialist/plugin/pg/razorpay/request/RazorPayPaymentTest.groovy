@@ -21,7 +21,7 @@ class RazorPayPaymentTest extends Specification {
 
         setup:
         RazorPayPayment razorPayPayment = new RazorPayPayment()
-        IMarshallerPlugin marshallerPlugin = new GoogleMarshallerPlugin();
+        IMarshallerPlugin marshallerPlugin = new GoogleMarshallerPlugin()
         long createdAt = new Date().getTime()
 
         when:
