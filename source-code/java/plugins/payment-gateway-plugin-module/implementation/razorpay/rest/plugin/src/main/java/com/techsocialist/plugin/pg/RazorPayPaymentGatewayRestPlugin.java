@@ -21,4 +21,9 @@ public class RazorPayPaymentGatewayRestPlugin extends AbstractRazorPayPaymentGat
 
         return customer.toJson().toString();
     }
+
+    @Override
+    public String fetchAllCustomers(String apiKey, String apiSecret) throws Exception {
+        return "";
+    }
 }

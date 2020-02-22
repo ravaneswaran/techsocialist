@@ -29,4 +29,17 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
         "{\"notes\":[],\"contact\":\"+91 9876543210\",\"name\":\"Ravaneswaran Chinnasamy\",\"created_at\":1582351323,\"id\":\"cust_EJgNdD15xjPO8g\",\"gstin\":null,\"entity\":\"customer\",\"email\":\"test@test.com\"}" == jsonString
 
     }
+
+    def "test RazorPayPaymentGatewayRestPlugin -> fetchAllCustomers"(){
+
+        setup:
+        RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+
+        when:
+        String jsonString = razorPayPaymentGatewayRestPlugin.fetchAllCustomers(apiKey, apiSecret)
+
+        then:
+        "" == jsonString
+
+    }
 }
