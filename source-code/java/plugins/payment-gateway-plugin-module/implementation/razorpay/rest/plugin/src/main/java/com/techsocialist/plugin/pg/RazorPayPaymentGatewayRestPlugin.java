@@ -6,6 +6,9 @@ import com.razorpay.RazorpayClient;
 import com.techsocialist.plugin.pg.impl.AbstractRazorPayPaymentGatewayRestPlugin;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RazorPayPaymentGatewayRestPlugin extends AbstractRazorPayPaymentGatewayRestPlugin {
 
     @Override
@@ -64,5 +67,23 @@ public class RazorPayPaymentGatewayRestPlugin extends AbstractRazorPayPaymentGat
         Order newOrder = razorpayClient.Orders.create(jsonObject);
 
         return newOrder.toJson().toString();
+    }
+
+    @Override
+    public String fetchAllOrders() throws Exception {
+        RazorpayClient razorpayClient = new RazorpayClient(this.apiKey, this.apiSecret);
+        List<Order> orders = razorpayClient.Orders.fetchAll();
+
+        List<JSONObject> items = new ArrayList<>();
+        for(Order order : orders){
+            items.add(order.toJson());
+        }
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("entity", "collection");
+        jsonObject.put("count", orders.size());
+        jsonObject.put("items", items);
+
+        return jsonObject.toString();
     }
 }

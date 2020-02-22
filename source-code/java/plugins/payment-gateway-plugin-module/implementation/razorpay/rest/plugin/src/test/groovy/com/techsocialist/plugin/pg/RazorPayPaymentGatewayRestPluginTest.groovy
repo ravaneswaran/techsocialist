@@ -106,4 +106,18 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
         null != jsonString
 
     }
+
+    def "test RazorPayPaymentGatewayRestPlugin -> fetchAllOrders"(){
+
+        setup:
+        RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+        razorPayPaymentGatewayRestPlugin.setApiKey(apiKey).setApiSecret(apiSecret)
+
+        when:
+        String jsonString = razorPayPaymentGatewayRestPlugin.fetchAllOrders()
+
+        then:
+        null != jsonString
+    }
+
 }
