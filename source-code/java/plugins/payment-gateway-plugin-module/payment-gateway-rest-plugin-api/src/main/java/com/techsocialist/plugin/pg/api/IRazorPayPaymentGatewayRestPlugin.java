@@ -7,4 +7,6 @@ public interface IRazorPayPaymentGatewayRestPlugin {
     public String createCustomer(String apiKey, String apiSecret, String name, String email, String contact, String failExisting) throws Exception;
 
     public String fetchAllCustomers(String apiKey, String apiSecret) throws Exception;
+
+    public String fetchCustomer(String apiKey, String apiSecret, String customerId) throws Exception;
 }

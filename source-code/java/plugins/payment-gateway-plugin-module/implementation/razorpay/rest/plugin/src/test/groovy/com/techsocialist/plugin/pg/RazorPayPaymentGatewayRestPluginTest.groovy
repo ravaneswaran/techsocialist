@@ -1,6 +1,7 @@
 package com.techsocialist.plugin.pg
 
 import com.techsocialist.plugin.pg.api.IRazorPayPaymentGatewayRestPlugin
+import org.json.JSONObject
 
 class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification{
 
@@ -40,6 +41,26 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
 
         then:
         "" == jsonString
+
+    }
+
+    def "test RazorPayPaymentGatewayRestPlugin -> fetchCustomer"(){
+
+        setup:
+        RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+        String name = "Ravaneswaran Chinnasamy"
+        String email = "test@test.com"
+        String contact = "+91 9876543210"
+        String failExisting = "0"
+        String jsonString = razorPayPaymentGatewayRestPlugin.createCustomer(apiKey, apiSecret, name, email, contact, failExisting)
+        JSONObject jsonObject = new JSONObject(jsonString)
+        String customerId = jsonObject.get("id")
+
+        when:
+        jsonString = razorPayPaymentGatewayRestPlugin.fetchCustomer(apiKey, apiSecret, customerId)
+
+        then:
+        "{\"notes\":[],\"contact\":\"+91 9876543210\",\"name\":\"Ravaneswaran Chinnasamy\",\"created_at\":1582351323,\"id\":\"cust_EJgNdD15xjPO8g\",\"gstin\":null,\"entity\":\"customer\",\"email\":\"test@test.com\"}" == jsonString
 
     }
 }
