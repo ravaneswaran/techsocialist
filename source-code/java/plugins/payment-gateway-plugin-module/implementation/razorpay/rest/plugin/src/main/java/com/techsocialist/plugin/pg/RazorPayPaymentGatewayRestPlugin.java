@@ -2,6 +2,7 @@ package com.techsocialist.plugin.pg;
 
 import com.razorpay.Customer;
 import com.razorpay.Order;
+import com.razorpay.Payment;
 import com.razorpay.RazorpayClient;
 import com.techsocialist.plugin.pg.impl.AbstractRazorPayPaymentGatewayRestPlugin;
 import org.json.JSONObject;
@@ -82,6 +83,31 @@ public class RazorPayPaymentGatewayRestPlugin extends AbstractRazorPayPaymentGat
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("entity", "collection");
         jsonObject.put("count", orders.size());
+        jsonObject.put("items", items);
+
+        return jsonObject.toString();
+    }
+
+    @Override
+    public String fetchOrder(String orderId) throws Exception {
+        RazorpayClient razorpayClient = new RazorpayClient(this.apiKey, this.apiSecret);
+        Order order = razorpayClient.Orders.fetch(orderId);
+        return order.toJson().toString();
+    }
+
+    @Override
+    public String fetchPaymentsForAnOrder(String orderId) throws Exception {
+        RazorpayClient razorpayClient = new RazorpayClient(this.apiKey, this.apiSecret);
+        List<Payment> payments = razorpayClient.Orders.fetchPayments(orderId);
+
+        List<JSONObject> items = new ArrayList<>();
+        for(Payment payment : payments){
+            items.add(payment.toJson());
+        }
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("entity", "collection");
+        jsonObject.put("count", payments.size());
         jsonObject.put("items", items);
 
         return jsonObject.toString();

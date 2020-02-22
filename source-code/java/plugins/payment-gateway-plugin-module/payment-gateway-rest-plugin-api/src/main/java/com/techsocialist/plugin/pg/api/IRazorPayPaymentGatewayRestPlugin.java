@@ -19,4 +19,8 @@ public interface IRazorPayPaymentGatewayRestPlugin {
     public String createOrder(long amount, String currency, String receipt, boolean paymentCapture) throws Exception;
 
     public String fetchAllOrders() throws Exception;
+
+    public String fetchOrder(String orderId) throws Exception;
+
+    public String fetchPaymentsForAnOrder(String orderId) throws Exception;
 }

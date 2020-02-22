@@ -93,9 +93,10 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
         setup:
         RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
         razorPayPaymentGatewayRestPlugin.setApiKey(apiKey).setApiSecret(apiSecret)
+
         long amount = 5000
         String currency = "INR"
-        long receiptId = new Date().getTime();
+        long receiptId = new Date().getTime()
         String receipt = String.format("order_rcptid_%s", receiptId)
         boolean paymentCapture = true
 
@@ -115,6 +116,52 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
 
         when:
         String jsonString = razorPayPaymentGatewayRestPlugin.fetchAllOrders()
+
+        then:
+        null != jsonString
+    }
+
+    def "test RazorPayPaymentGatewayRestPlugin -> fetchOrder"(){
+
+        setup:
+        RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+        razorPayPaymentGatewayRestPlugin.setApiKey(apiKey).setApiSecret(apiSecret)
+
+        long amount = 5000
+        String currency = "INR"
+        long receiptId = new Date().getTime()
+        String receipt = String.format("order_rcptid_%s", receiptId)
+        boolean paymentCapture = true
+
+        String newOrderJsonString = razorPayPaymentGatewayRestPlugin.createOrder(amount, currency, receipt, paymentCapture)
+        JSONObject jsonObject = new JSONObject(newOrderJsonString)
+        String orderId = jsonObject.get("id")
+
+        when:
+        String jsonString = razorPayPaymentGatewayRestPlugin.fetchOrder(orderId)
+
+        then:
+        newOrderJsonString == jsonString
+    }
+
+    def "test RazorPayPaymentGatewayRestPlugin -> fetchPaymentsForAnOrder"(){
+
+        setup:
+        RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+        razorPayPaymentGatewayRestPlugin.setApiKey(apiKey).setApiSecret(apiSecret)
+
+        long amount = 5000
+        String currency = "INR"
+        long receiptId = new Date().getTime()
+        String receipt = String.format("order_rcptid_%s", receiptId)
+        boolean paymentCapture = true
+
+        String newOrderJsonString = razorPayPaymentGatewayRestPlugin.createOrder(amount, currency, receipt, paymentCapture)
+        JSONObject jsonObject = new JSONObject(newOrderJsonString)
+        String orderId = jsonObject.get("id")
+
+        when:
+        String jsonString = razorPayPaymentGatewayRestPlugin.fetchPaymentsForAnOrder(orderId)
 
         then:
         null != jsonString
