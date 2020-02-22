@@ -37,15 +37,8 @@ dependencies {
     compile group: 'com.razorpay', name: 'razorpay-java', version: '1.3.8'
     compile group: 'org.json', name: 'json', version: '20180813'
 
-    compileOnly project(":unmarshaller-plugin-module:unmarshaller-plugin-api")
-    compileOnly project(":unmarshaller-plugin-module:implementation:json:google-unmarshaller-plugin")
-
-    compileOnly project(":payment-gateway-plugin-module:implementation:razorpay:rest:request")
-    compileOnly project(":payment-gateway-plugin-module:implementation:razorpay:rest:response")
     compileOnly project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
 
-    testCompile project(":unmarshaller-plugin-module:unmarshaller-plugin-api")
-    testCompile project(":unmarshaller-plugin-module:implementation:json:google-unmarshaller-plugin")
     testCompile project(":payment-gateway-plugin-module:payment-gateway-rest-plugin-api")
 
 }

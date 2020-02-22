@@ -63,8 +63,6 @@ include ':docs',
         ':payment-gateway-plugin-module:implementation:paytm:rest:response',
 
         ':payment-gateway-plugin-module:implementation:razorpay:rest:plugin',
-        ':payment-gateway-plugin-module:implementation:razorpay:rest:request',
-        ':payment-gateway-plugin-module:implementation:razorpay:rest:response',
         
         ':payment-gateway-plugin-module:implementation:rest:paytm-pg-rest-plugin',
         ':payment-gateway-plugin-module:implementation:rest:razorpay-rest-pg-plugin',
