@@ -1,6 +1,7 @@
 package com.techsocialist.plugin.pg;
 
 import com.razorpay.Customer;
+import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
 import com.techsocialist.plugin.pg.impl.AbstractRazorPayPaymentGatewayRestPlugin;
 import org.json.JSONObject;
@@ -47,5 +48,21 @@ public class RazorPayPaymentGatewayRestPlugin extends AbstractRazorPayPaymentGat
         Customer customer = razorpayClient.Customers.edit(customerId, jsonObject);
 
         return customer.toJson().toString();
+    }
+
+    @Override
+    public String createOrder(long amount, String currency, String receipt, boolean paymentCapture) throws Exception {
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("amount", amount);
+        jsonObject.put("currency", currency);
+        jsonObject.put("receipt", receipt);
+        jsonObject.put("payment_capture", paymentCapture);
+
+        RazorpayClient razorpayClient = new RazorpayClient(this.apiKey, this.apiSecret);
+
+        Order newOrder = razorpayClient.Orders.create(jsonObject);
+
+        return newOrder.toJson().toString();
     }
 }

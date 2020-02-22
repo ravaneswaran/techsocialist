@@ -15,4 +15,6 @@ public interface IRazorPayPaymentGatewayRestPlugin {
     public String fetchCustomer(String customerId) throws Exception;
 
     public String editCustomer(String customerId, String name, String email, String mobileNumber) throws Exception;
+
+    public String createOrder(long amount, String currency, String receipt, boolean paymentCapture) throws Exception;
 }
