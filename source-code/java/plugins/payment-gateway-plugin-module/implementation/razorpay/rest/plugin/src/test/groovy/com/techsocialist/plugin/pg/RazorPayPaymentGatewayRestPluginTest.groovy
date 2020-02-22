@@ -190,4 +190,20 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
         "" == jsonString
     }
 
+    def "test RazorPayPaymentGatewayRestPlugin -> capturePayment"(){
+
+        setup:
+        RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+        razorPayPaymentGatewayRestPlugin.setApiKey(apiKey).setApiSecret(apiSecret)
+
+        long amount = 5000
+        String currency = "INR"
+
+        when:
+        String jsonString = razorPayPaymentGatewayRestPlugin.capturePayment(amount, currency)
+
+        then:
+        "" == jsonString
+    }
+
 }

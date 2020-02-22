@@ -8,6 +8,7 @@ import com.techsocialist.plugin.pg.impl.AbstractRazorPayPaymentGatewayRestPlugin
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RazorPayPaymentGatewayRestPlugin extends AbstractRazorPayPaymentGatewayRestPlugin {
@@ -116,5 +117,20 @@ public class RazorPayPaymentGatewayRestPlugin extends AbstractRazorPayPaymentGat
     @Override
     public String updateOrder(String orderId) throws Exception {
         return "";
+    }
+
+    @Override
+    public String capturePayment(long amount, String currency) throws Exception {
+
+        RazorpayClient razorpayClient = new RazorpayClient(this.apiKey, this.apiSecret);
+        String paymentId = String.format("pay_%s", new Date().getTime());
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("amount", amount);
+        jsonObject.put("currency", currency);
+
+        Payment payment = razorpayClient.Payments.capture(paymentId, jsonObject);
+
+        return payment.toJson().toString();
     }
 }
