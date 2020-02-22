@@ -18,13 +18,14 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
 
         setup:
         RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+        razorPayPaymentGatewayRestPlugin.setApiKey(apiKey).setApiSecret(apiSecret)
         String name = "Ravaneswaran Chinnasamy"
         String email = "test@test.com"
         String mobileNumber = "+91 9876543210"
         String failExisting = "0"
 
         when:
-        String jsonString = razorPayPaymentGatewayRestPlugin.createCustomer(apiKey, apiSecret, name, email, mobileNumber, failExisting)
+        String jsonString = razorPayPaymentGatewayRestPlugin.createCustomer(name, email, mobileNumber, failExisting)
 
         then:
         "{\"notes\":[],\"contact\":\"+91 9876543210\",\"name\":\"Ravaneswaran Chinnasamy\",\"created_at\":1582351323,\"id\":\"cust_EJgNdD15xjPO8g\",\"gstin\":null,\"entity\":\"customer\",\"email\":\"test@test.com\"}" == jsonString
@@ -35,9 +36,10 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
 
         setup:
         RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+        razorPayPaymentGatewayRestPlugin.setApiKey(apiKey).setApiSecret(apiSecret)
 
         when:
-        String jsonString = razorPayPaymentGatewayRestPlugin.fetchAllCustomers(apiKey, apiSecret)
+        String jsonString = razorPayPaymentGatewayRestPlugin.fetchAllCustomers()
 
         then:
         "" == jsonString
@@ -48,16 +50,17 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
 
         setup:
         RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+        razorPayPaymentGatewayRestPlugin.setApiKey(apiKey).setApiSecret(apiSecret)
         String name = "Ravaneswaran Chinnasamy"
         String email = "test@test.com"
         String mobileNumber = "+91 9876543210"
         String failExisting = "0"
-        String jsonString = razorPayPaymentGatewayRestPlugin.createCustomer(apiKey, apiSecret, name, email, mobileNumber, failExisting)
+        String jsonString = razorPayPaymentGatewayRestPlugin.createCustomer(name, email, mobileNumber, failExisting)
         JSONObject jsonObject = new JSONObject(jsonString)
         String customerId = jsonObject.get("id")
 
         when:
-        jsonString = razorPayPaymentGatewayRestPlugin.fetchCustomer(apiKey, apiSecret, customerId)
+        jsonString = razorPayPaymentGatewayRestPlugin.fetchCustomer(customerId)
 
         then:
         "{\"notes\":[],\"contact\":\"+91 9876543210\",\"name\":\"Ravaneswaran Chinnasamy\",\"created_at\":1582351323,\"id\":\"cust_EJgNdD15xjPO8g\",\"gstin\":null,\"entity\":\"customer\",\"email\":\"test@test.com\"}" == jsonString
@@ -68,16 +71,17 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
 
         setup:
         RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+        razorPayPaymentGatewayRestPlugin.setApiKey(apiKey).setApiSecret(apiSecret)
         String name = "Ravaneswaran Chinnasamy"
         String email = "test@test.com"
         String mobileNumber = "+91 11111111111"
         String failExisting = "0"
-        String jsonString = razorPayPaymentGatewayRestPlugin.createCustomer(apiKey, apiSecret, name, email, mobileNumber, failExisting)
+        String jsonString = razorPayPaymentGatewayRestPlugin.createCustomer(name, email, mobileNumber, failExisting)
         JSONObject jsonObject = new JSONObject(jsonString)
         String customerId = jsonObject.get("id")
 
         when:
-        jsonString = razorPayPaymentGatewayRestPlugin.editCustomer(apiKey, apiSecret, customerId, name, email, mobileNumber)
+        jsonString = razorPayPaymentGatewayRestPlugin.editCustomer(customerId, name, email, mobileNumber)
 
         then:
         "{\"notes\":[],\"contact\":\"+91 11111111111\",\"name\":\"Ravaneswaran Chinnasamy\",\"created_at\":1582357865,\"id\":\"cust_EJiEnaZl30KR1x\",\"gstin\":null,\"entity\":\"customer\",\"email\":\"test@test.com\"}" == jsonString
