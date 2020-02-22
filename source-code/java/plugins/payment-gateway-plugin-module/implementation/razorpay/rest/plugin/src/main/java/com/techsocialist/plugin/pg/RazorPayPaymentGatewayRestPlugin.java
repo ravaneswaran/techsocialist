@@ -112,4 +112,9 @@ public class RazorPayPaymentGatewayRestPlugin extends AbstractRazorPayPaymentGat
 
         return jsonObject.toString();
     }
+
+    @Override
+    public String updateOrder(String orderId) throws Exception {
+        return "";
+    }
 }

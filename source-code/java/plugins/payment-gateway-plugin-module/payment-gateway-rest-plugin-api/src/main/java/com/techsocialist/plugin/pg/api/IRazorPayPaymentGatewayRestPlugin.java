@@ -23,4 +23,6 @@ public interface IRazorPayPaymentGatewayRestPlugin {
     public String fetchOrder(String orderId) throws Exception;
 
     public String fetchPaymentsForAnOrder(String orderId) throws Exception;
+
+    public String updateOrder(String orderId) throws Exception;
 }

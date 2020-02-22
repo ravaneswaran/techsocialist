@@ -167,4 +167,27 @@ class RazorPayPaymentGatewayRestPluginTest extends AbstractRazorPaySpecification
         null != jsonString
     }
 
+    def "test RazorPayPaymentGatewayRestPlugin -> updateOrder"(){
+
+        setup:
+        RazorPayPaymentGatewayRestPlugin razorPayPaymentGatewayRestPlugin = new RazorPayPaymentGatewayRestPlugin()
+        razorPayPaymentGatewayRestPlugin.setApiKey(apiKey).setApiSecret(apiSecret)
+
+        long amount = 5000
+        String currency = "INR"
+        long receiptId = new Date().getTime()
+        String receipt = String.format("order_rcptid_%s", receiptId)
+        boolean paymentCapture = true
+
+        String newOrderJsonString = razorPayPaymentGatewayRestPlugin.createOrder(amount, currency, receipt, paymentCapture)
+        JSONObject jsonObject = new JSONObject(newOrderJsonString)
+        String orderId = jsonObject.get("id")
+
+        when:
+        String jsonString = razorPayPaymentGatewayRestPlugin.updateOrder(orderId)
+
+        then:
+        "" == jsonString
+    }
+
 }
