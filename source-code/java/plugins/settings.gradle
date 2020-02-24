@@ -68,6 +68,9 @@ include ':docs',
         ':payment-gateway-plugin-module:implementation:rest:razorpay-rest-pg-plugin',
         ':payment-gateway-plugin-module:implementation:rest:paypal-rest-pg-plugin',
 
+        ':pdf-plugin-module:pdf-plugin-api',
+        ':pdf-plugin-module:implementation:itext-pdf-plugin',
+
         ':unmarshaller-plugin-module:unmarshaller-plugin-api',
         ':unmarshaller-plugin-module:implementation:json:google-unmarshaller-plugin',
         ':unmarshaller-plugin-module:implementation:xml:jaxb-unmarshaller-plugin'
