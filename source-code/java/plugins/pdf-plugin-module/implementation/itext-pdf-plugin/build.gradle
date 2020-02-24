@@ -19,3 +19,9 @@ jacocoTestReport {
 }
 
 jar.archiveName = String.format("techsocialist-%s-%s.jar", project.name, version)
+
+dependencies{
+
+    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
+
+}
