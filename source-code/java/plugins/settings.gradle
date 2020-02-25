@@ -33,6 +33,9 @@ include ':docs',
         ':marshaller-plugin-module:marshaller-plugin-api',
         ':marshaller-plugin-module:implementation:google-marshaller-plugin',
 
+        ':media-plugin-module:image-plugin-module:image-plugin-api',
+        ':media-plugin-module:image-plugin-module:implementation:image-plugin',
+
         ':os-command-exec-plugin-module:os-command-exec-plugin-api',
         ':os-command-exec-plugin-module:implementation:linux-command-exec-plugin',
 
