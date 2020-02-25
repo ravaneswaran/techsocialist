@@ -24,7 +24,7 @@ class ImagePluginTest extends Specification{
         IImagePlugin imagePlugin = new ImagePlugin()
 
         when:
-        URL url = this.getClass().getResource("/images/sample-image.jpg")
+        URL url = this.getClass().getResource("/images/server-image.png")
         BufferedImage bufferedImage = imagePlugin.setFile(url).createThumnail()
 
         then:
@@ -37,7 +37,7 @@ class ImagePluginTest extends Specification{
         IImagePlugin imagePlugin = new ImagePlugin()
 
         when:
-        URL url = this.getClass().getResource("/images/sample-image.jpg")
+        URL url = this.getClass().getResource("/images/server-image.png")
         BufferedImage bufferedImage = imagePlugin.setFile(url).createThumnail()
         File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
 
@@ -51,7 +51,7 @@ class ImagePluginTest extends Specification{
         IImagePlugin imagePlugin = new ImagePlugin()
 
         when:
-        URL url = this.getClass().getResource("/images/sample-image.jpg")
+        URL url = this.getClass().getResource("/images/client-image.jpg")
         BufferedImage bufferedImage = imagePlugin.setFile(url).clearBackground()
         File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
 
