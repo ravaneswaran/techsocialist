@@ -13,7 +13,7 @@ public interface IImagePlugin {
 
     public IImagePlugin setFile(File file);
 
-    public File saveImage(BufferedImage image) throws IOException;
+    public File saveImage(ImageType imageType, BufferedImage image) throws IOException;
 
     public BufferedImage createThumnail() throws IOException;
 

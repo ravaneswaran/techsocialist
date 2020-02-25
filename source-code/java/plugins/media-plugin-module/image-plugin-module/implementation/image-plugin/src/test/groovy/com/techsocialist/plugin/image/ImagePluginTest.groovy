@@ -1,6 +1,7 @@
 package com.techsocialist.plugin.image
 
 import com.techsocialist.plugin.image.api.IImagePlugin
+import com.techsocialist.plugin.image.api.ImageType
 import spock.lang.Specification
 
 import java.awt.image.BufferedImage
@@ -38,7 +39,7 @@ class ImagePluginTest extends Specification{
         when:
         URL url = this.getClass().getResource("/images/sample-image.jpg")
         BufferedImage bufferedImage = imagePlugin.setFile(url).createThumnail()
-        File imageFile = imagePlugin.saveImage(bufferedImage)
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
 
         then:
         true == imageFile.exists()
@@ -52,7 +53,7 @@ class ImagePluginTest extends Specification{
         when:
         URL url = this.getClass().getResource("/images/sample-image.jpg")
         BufferedImage bufferedImage = imagePlugin.setFile(url).clearBackground()
-        File imageFile = imagePlugin.saveImage(bufferedImage)
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
 
         then:
         true == imageFile.exists()

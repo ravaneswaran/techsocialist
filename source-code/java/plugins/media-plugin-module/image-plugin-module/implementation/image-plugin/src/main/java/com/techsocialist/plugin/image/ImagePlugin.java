@@ -1,6 +1,8 @@
 package com.techsocialist.plugin.image;
 
 import com.techsocialist.plugin.image.api.IImagePlugin;
+import com.techsocialist.plugin.image.api.ImageFormat;
+import com.techsocialist.plugin.image.api.ImageType;
 import org.apache.commons.io.FileUtils;
 
 import javax.imageio.ImageIO;
@@ -18,19 +20,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Date;
 
 public class ImagePlugin implements IImagePlugin {
-
-    private static final String SUFFIX = "png";
-    private static final String THUMBNAIL = "thumbnail";
 
     private File imageFile;
 
     private byte[] toByteArray(InputStream inputStream) throws IOException {
         BufferedImage originalImage = ImageIO.read(inputStream);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write( originalImage, SUFFIX, baos );
+        ImageIO.write( originalImage, ImageFormat.PNG.toString().toLowerCase(), baos );
         baos.flush();
         byte[] imageAsBytes = baos.toByteArray();
         baos.close();
@@ -46,13 +44,13 @@ public class ImagePlugin implements IImagePlugin {
     }
 
     @Override
-    public File saveImage(BufferedImage image) throws IOException {
+    public File saveImage(ImageType imageType, BufferedImage image) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write( image, SUFFIX, baos );
+        ImageIO.write( image, ImageFormat.PNG.toString().toLowerCase(), baos );
         baos.flush();
         byte[] byteArray = baos.toByteArray();
         baos.close();
-        File tempFile = File.createTempFile(THUMBNAIL+"-"+String.valueOf(new Date().getTime()), SUFFIX, null);
+        File tempFile = File.createTempFile(String.format("%s-", imageType.toString().toLowerCase()), null, null);
         FileUtils.writeByteArrayToFile(tempFile, byteArray);
 
         return tempFile;
