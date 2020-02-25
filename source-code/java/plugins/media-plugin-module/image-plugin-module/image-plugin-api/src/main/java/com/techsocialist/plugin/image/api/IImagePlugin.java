@@ -7,13 +7,15 @@ import java.net.URL;
 
 public interface IImagePlugin {
 
-    public IImagePlugin setFile(String filePath);
+    public IImagePlugin setImage(String filePath);
 
-    public IImagePlugin setFile(URL url);
+    public IImagePlugin setImage(URL url);
 
-    public IImagePlugin setFile(File file);
+    public IImagePlugin setImage(File file);
 
     public File saveImage(ImageType imageType, BufferedImage image) throws IOException;
+
+    public String getImageResolution() throws IOException;
 
     public BufferedImage createThumnail() throws IOException;
 

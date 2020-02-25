@@ -25,7 +25,7 @@ class ImagePluginTest extends Specification{
 
         when:
         URL url = this.getClass().getResource("/images/server-image.png")
-        BufferedImage bufferedImage = imagePlugin.setFile(url).createThumnail()
+        BufferedImage bufferedImage = imagePlugin.setImage(url).createThumnail()
 
         then:
         null != bufferedImage
@@ -38,7 +38,7 @@ class ImagePluginTest extends Specification{
 
         when:
         URL url = this.getClass().getResource("/images/server-image.png")
-        BufferedImage bufferedImage = imagePlugin.setFile(url).createThumnail()
+        BufferedImage bufferedImage = imagePlugin.setImage(url).createThumnail()
         File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
 
         then:
@@ -52,10 +52,23 @@ class ImagePluginTest extends Specification{
 
         when:
         URL url = this.getClass().getResource("/images/client-image.jpg")
-        BufferedImage bufferedImage = imagePlugin.setFile(url).clearBackground()
+        BufferedImage bufferedImage = imagePlugin.setImage(url).clearBackground()
         File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
 
         then:
         true == imageFile.exists()
+    }
+
+    def "test ImagePlugin -> getImageResolution"(){
+
+        setup:
+        IImagePlugin imagePlugin = new ImagePlugin()
+
+        when:
+        URL url = this.getClass().getResource("/images/client-image.jpg")
+        String resolution = imagePlugin.setImage(url).getImageResolution()
+
+        then:
+        null != resolution
     }
 }

@@ -57,19 +57,19 @@ public class ImagePlugin implements IImagePlugin {
     }
 
     @Override
-    public IImagePlugin setFile(String filePath) {
-        this.setFile(new File(filePath));
+    public IImagePlugin setImage(String filePath) {
+        this.setImage(new File(filePath));
         return this;
     }
 
     @Override
-    public IImagePlugin setFile(URL url) {
-        this.setFile(url.getFile());
+    public IImagePlugin setImage(URL url) {
+        this.setImage(url.getFile());
         return this;
     }
 
     @Override
-    public IImagePlugin setFile(File file) {
+    public IImagePlugin setImage(File file) {
         this.imageFile = file;
         return this;
     }
@@ -148,5 +148,15 @@ public class ImagePlugin implements IImagePlugin {
                 (int[]) pg.getPixels(), 0, pg.getWidth());
 
         return bufferedImage;
+    }
+
+    @Override
+    public String getImageResolution() throws IOException{
+
+        BufferedImage bufferedImage = ImageIO.read(this.imageFile);
+        int width = bufferedImage.getWidth();
+        int height = bufferedImage.getHeight();
+
+        return String.format("%s x %s", width, height);
     }
 }
