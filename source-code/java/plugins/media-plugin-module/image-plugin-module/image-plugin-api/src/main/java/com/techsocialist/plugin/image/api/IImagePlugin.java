@@ -23,4 +23,8 @@ public interface IImagePlugin {
 
     public BufferedImage clearBackground() throws IOException, InterruptedException;
 
+    public BufferedImage applyGreyScaleFilter() throws IOException;
+
+
+
 }

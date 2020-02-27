@@ -7,12 +7,19 @@ import org.apache.commons.io.FileUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorConvertOp;
+import java.awt.image.DataBuffer;
+import java.awt.image.DataBufferByte;
+import java.awt.image.DataBufferInt;
 import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageFilter;
 import java.awt.image.ImageProducer;
 import java.awt.image.PixelGrabber;
 import java.awt.image.RGBImageFilter;
+import java.awt.image.Raster;
+import java.awt.image.WritableRaster;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -148,6 +155,42 @@ public class ImagePlugin implements IImagePlugin {
                 (int[]) pg.getPixels(), 0, pg.getWidth());
 
         return bufferedImage;
+    }
+
+    @Override
+    public BufferedImage applyGreyScaleFilter() throws IOException {
+
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        final int threshold = 100;
+        final int imageType = bufferedImage.getColorModel().getColorSpace().getType();
+
+        if (imageType != ColorSpace.TYPE_RGB) {
+            throw new IllegalArgumentException();
+        }
+
+        final int width = bufferedImage.getWidth();
+        final int height = bufferedImage.getHeight();
+        final int upperLimit = width * height;
+
+        final DataBuffer buffer = bufferedImage.getRaster().getDataBuffer();
+        final byte[] source = ((DataBufferByte) buffer).getData();
+
+        byte[] destination = new byte[upperLimit];
+
+        for (int i = 0; i < upperLimit; i++) {
+            int red = (source[i] >> 16) & 0x000000FF;
+            if (red > threshold) {
+                destination[i] = -1;
+            }
+        }
+
+        WritableRaster raster = Raster.createPackedRaster(DataBuffer.TYPE_BYTE, width, height, 1, 2, null);
+        raster.setDataElements(0, 0, width, height, destination);
+
+        BufferedImage destinationImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_BINARY);
+        destinationImage.setData(raster);
+        return destinationImage;
     }
 
     @Override

@@ -71,4 +71,18 @@ class ImagePluginTest extends Specification{
         then:
         null != resolution
     }
+
+    def "test ImagePlugin -> applyGreyScalaFilter"(){
+
+        setup:
+        IImagePlugin imagePlugin = new ImagePlugin()
+
+        when:
+        URL url = this.getClass().getResource("/images/color-image.jpg")
+        BufferedImage bufferedImage = imagePlugin.setImage(url).applyGreyScaleFilter()
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
+
+        then:
+        true == imageFile.exists()
+    }
 }
