@@ -80,7 +80,7 @@ public class ImagePlugin implements IImagePlugin {
     }
 
     @Override
-    public BufferedImage createThumnail() throws IOException {
+    public BufferedImage createThumbnail() throws IOException {
         BufferedImage originalBufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
         int thumbnailWidth = 150;
         int widthToScale = 0;

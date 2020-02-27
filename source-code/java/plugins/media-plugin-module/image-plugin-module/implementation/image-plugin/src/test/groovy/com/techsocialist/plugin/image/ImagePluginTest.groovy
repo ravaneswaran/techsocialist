@@ -25,7 +25,7 @@ class ImagePluginTest extends Specification{
 
         when:
         URL url = this.getClass().getResource("/images/server-image.png")
-        BufferedImage bufferedImage = imagePlugin.setImage(url).createThumnail()
+        BufferedImage bufferedImage = imagePlugin.setImage(url).createThumbnail()
 
         then:
         null != bufferedImage
@@ -38,7 +38,7 @@ class ImagePluginTest extends Specification{
 
         when:
         URL url = this.getClass().getResource("/images/server-image.png")
-        BufferedImage bufferedImage = imagePlugin.setImage(url).createThumnail()
+        BufferedImage bufferedImage = imagePlugin.setImage(url).createThumbnail()
         File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
 
         then:

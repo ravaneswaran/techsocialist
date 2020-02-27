@@ -17,7 +17,7 @@ public interface IImagePlugin {
 
     public String getImageResolution() throws IOException;
 
-    public BufferedImage createThumnail() throws IOException;
+    public BufferedImage createThumbnail() throws IOException;
 
     public BufferedImage createIcon();
 
