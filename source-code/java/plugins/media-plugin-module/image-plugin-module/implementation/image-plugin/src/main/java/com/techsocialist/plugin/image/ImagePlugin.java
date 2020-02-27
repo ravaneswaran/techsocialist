@@ -152,6 +152,7 @@ public class ImagePlugin implements IImagePlugin {
                 (int[]) pg.getPixels(), 0, pg.getWidth());
 
         return bufferedImage;
+
     }
 
     @Override
@@ -388,13 +389,23 @@ public class ImagePlugin implements IImagePlugin {
     }
 
     @Override
-    public BufferedImage applyBlurFilter(String waterMark) throws IOException {
+    public BufferedImage applyBlurFilter() throws IOException {
         BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
 
         Kernel kernel = new Kernel(3, 3, new float[] { 1f / 9f, 1f / 9f, 1f / 9f,
                 1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f });
         BufferedImageOp op = new ConvolveOp(kernel);
         return  op.filter(bufferedImage, null);
+    }
+
+    @Override
+    public BufferedImage applySharpBlurFilter() throws IOException {
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        Kernel kernel = new Kernel(3, 3, new float[] { -1, -1, -1, -1, 9, -1, -1,
+                -1, -1 });
+        BufferedImageOp op = new ConvolveOp(kernel);
+        return op.filter(bufferedImage, null);
     }
 
     @Override

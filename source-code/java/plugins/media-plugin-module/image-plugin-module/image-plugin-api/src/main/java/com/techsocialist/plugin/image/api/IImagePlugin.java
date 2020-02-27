@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.Buffer;
 
 public interface IImagePlugin {
 
@@ -48,7 +49,9 @@ public interface IImagePlugin {
     public BufferedImage applyWaterMark(String waterMark) throws IOException;
 
     //source : http://www.java2s.com/Code/Java/2D-Graphics-GUI/BlurringaBufferedImage.htm
-    public BufferedImage applyBlurFilter(String waterMark) throws IOException;
+    public BufferedImage applyBlurFilter() throws IOException;
+
+    public BufferedImage applySharpBlurFilter() throws IOException;
 
 
 
