@@ -160,7 +160,7 @@ public class ImagePlugin implements IImagePlugin {
 
         BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
 
-        final int threshold = 100;
+        final int threshold = 110;
         final int imageType = bufferedImage.getColorModel().getColorSpace().getType();
 
         if (imageType != ColorSpace.TYPE_RGB) {
@@ -177,8 +177,13 @@ public class ImagePlugin implements IImagePlugin {
         byte[] destination = new byte[upperLimit];
 
         for (int i = 0; i < upperLimit; i++) {
-            int red = (source[i] >> 16) & 0x000000FF;
-            if (red > threshold) {
+
+            int red   = (source[i] >> 16) & 0xFF;
+            int green = (source[i] >>  8) & 0xFF;
+            int blue  = (source[i])       & 0xFF;
+            int gray  = red*3 + green*6 + blue;
+
+            if (gray > threshold) {
                 destination[i] = -1;
             }
         }
