@@ -25,6 +25,4 @@ public interface IImagePlugin {
 
     public BufferedImage applyGreyScaleFilter() throws IOException;
 
-
-
 }
