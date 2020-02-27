@@ -47,4 +47,9 @@ public interface IImagePlugin {
     //source : https://data-flair.training/blogs/convert-colored-image/
     public BufferedImage applyWaterMark(String waterMark) throws IOException;
 
+    //source : http://www.java2s.com/Code/Java/2D-Graphics-GUI/BlurringaBufferedImage.htm
+    public BufferedImage applyBlurFilter(String waterMark) throws IOException;
+
+
+
 }

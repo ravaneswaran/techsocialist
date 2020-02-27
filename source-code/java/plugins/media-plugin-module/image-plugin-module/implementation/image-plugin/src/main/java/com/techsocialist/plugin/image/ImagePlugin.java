@@ -9,9 +9,12 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
+import java.awt.image.ConvolveOp;
 import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageFilter;
 import java.awt.image.ImageProducer;
+import java.awt.image.Kernel;
 import java.awt.image.PixelGrabber;
 import java.awt.image.RGBImageFilter;
 import java.io.ByteArrayInputStream;
@@ -382,6 +385,16 @@ public class ImagePlugin implements IImagePlugin {
         graphics.dispose();
 
         return resultImage;
+    }
+
+    @Override
+    public BufferedImage applyBlurFilter(String waterMark) throws IOException {
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        Kernel kernel = new Kernel(3, 3, new float[] { 1f / 9f, 1f / 9f, 1f / 9f,
+                1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f });
+        BufferedImageOp op = new ConvolveOp(kernel);
+        return  op.filter(bufferedImage, null);
     }
 
     @Override
