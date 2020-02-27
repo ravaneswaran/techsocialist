@@ -155,4 +155,32 @@ class ImagePluginTest extends Specification{
         then:
         true == imageFile.exists()
     }
+
+    def "test ImagePlugin -> applySelfieFilter"(){
+
+        setup:
+        IImagePlugin imagePlugin = new ImagePlugin()
+
+        when:
+        URL url = this.getClass().getResource("/images/color-image.jpg")
+        BufferedImage bufferedImage = imagePlugin.setImage(url).applySelfieFilter()
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
+
+        then:
+        true == imageFile.exists()
+    }
+
+    def "test ImagePlugin -> applyWateMark"(){
+
+        setup:
+        IImagePlugin imagePlugin = new ImagePlugin()
+
+        when:
+        URL url = this.getClass().getResource("/images/color-image.jpg")
+        BufferedImage bufferedImage = imagePlugin.setImage(url).applyWaterMark("Tech Socialist")
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
+
+        then:
+        true == imageFile.exists()
+    }
 }

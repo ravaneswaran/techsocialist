@@ -238,9 +238,9 @@ public class ImagePlugin implements IImagePlugin {
                 int green = (p >> 8) & 0xff;
                 int blue = p & 0xff;
 
-                int newRed = (int)(0.393*red + 0.769*green + 0.189*blue);
-                int newGreen = (int)(0.349*red + 0.686*green + 0.168*blue);
-                int newBlue = (int)(0.272*red + 0.534*green + 0.131*blue);
+                int newRed = (int) (0.393 * red + 0.769 * green + 0.189 * blue);
+                int newGreen = (int) (0.349 * red + 0.686 * green + 0.168 * blue);
+                int newBlue = (int) (0.272 * red + 0.534 * green + 0.131 * blue);
 
                 red = (newRed > 255) ? 255 : newRed;
                 green = (newGreen > 255) ? 255 : newGreen;
@@ -337,6 +337,51 @@ public class ImagePlugin implements IImagePlugin {
         }
 
         return bufferedImage;
+    }
+
+    @Override
+    public BufferedImage applySelfieFilter() throws IOException {
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        final int imageType = bufferedImage.getColorModel().getColorSpace().getType();
+
+        if (imageType != ColorSpace.TYPE_RGB) {
+            throw new IllegalArgumentException();
+        }
+
+        final int width = bufferedImage.getWidth();
+        final int height = bufferedImage.getHeight();
+
+        BufferedImage resultBufferedImage = new BufferedImage(width, height,
+                BufferedImage.TYPE_INT_ARGB);
+
+        for (int y = 0; y < height; y++) {
+            for (int lx = 0, rx = width - 1; lx < width; lx++, rx--) {
+                int p = bufferedImage.getRGB(lx, y);
+                resultBufferedImage.setRGB(rx, y, p);
+            }
+        }
+
+        return resultBufferedImage;
+    }
+
+    @Override
+    public BufferedImage applyWaterMark(String waterMark) throws IOException {
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        BufferedImage resultImage = new BufferedImage(bufferedImage.getWidth(),
+                bufferedImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+
+        Graphics graphics = resultImage.getGraphics();
+        graphics.drawImage(bufferedImage, 0, 0, null);
+        graphics.setFont(new Font("Arial", Font.PLAIN, 80));
+        graphics.setColor(new Color(255, 0, 0, 40));
+        graphics.drawString(waterMark, bufferedImage.getWidth()/5,
+                bufferedImage.getHeight()/3);
+
+        graphics.dispose();
+
+        return resultImage;
     }
 
     @Override

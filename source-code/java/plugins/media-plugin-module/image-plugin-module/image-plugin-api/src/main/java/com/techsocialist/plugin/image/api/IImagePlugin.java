@@ -41,4 +41,10 @@ public interface IImagePlugin {
     //source : https://data-flair.training/blogs/convert-colored-image/
     public BufferedImage applyBlueFilter() throws IOException;
 
+    //source : https://data-flair.training/blogs/convert-colored-image/
+    public BufferedImage applySelfieFilter() throws IOException;
+
+    //source : https://data-flair.training/blogs/convert-colored-image/
+    public BufferedImage applyWaterMark(String waterMark) throws IOException;
+
 }
