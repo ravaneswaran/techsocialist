@@ -23,6 +23,22 @@ public interface IImagePlugin {
 
     public BufferedImage clearBackground() throws IOException, InterruptedException;
 
+    //source : https://data-flair.training/blogs/convert-colored-image/
     public BufferedImage applyGreyScaleFilter() throws IOException;
+
+    //source : https://data-flair.training/blogs/convert-colored-image/
+    public BufferedImage applyNegativeFilter() throws IOException;
+
+    //source : https://data-flair.training/blogs/convert-colored-image/
+    public BufferedImage applySepiaFilter() throws IOException;
+
+    //source : https://data-flair.training/blogs/convert-colored-image/
+    public BufferedImage applyRedFilter() throws IOException;
+
+    //source : https://data-flair.training/blogs/convert-colored-image/
+    public BufferedImage applyGreenFilter() throws IOException;
+
+    //source : https://data-flair.training/blogs/convert-colored-image/
+    public BufferedImage applyBlueFilter() throws IOException;
 
 }

@@ -85,4 +85,74 @@ class ImagePluginTest extends Specification{
         then:
         true == imageFile.exists()
     }
+
+    def "test ImagePlugin -> applyNegativeFilter"(){
+
+        setup:
+        IImagePlugin imagePlugin = new ImagePlugin()
+
+        when:
+        URL url = this.getClass().getResource("/images/color-image.jpg")
+        BufferedImage bufferedImage = imagePlugin.setImage(url).applyNegativeFilter()
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
+
+        then:
+        true == imageFile.exists()
+    }
+
+    def "test ImagePlugin -> applySepiaFilter"(){
+
+        setup:
+        IImagePlugin imagePlugin = new ImagePlugin()
+
+        when:
+        URL url = this.getClass().getResource("/images/color-image.jpg")
+        BufferedImage bufferedImage = imagePlugin.setImage(url).applySepiaFilter()
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
+
+        then:
+        true == imageFile.exists()
+    }
+
+    def "test ImagePlugin -> applyRedFilter"(){
+
+        setup:
+        IImagePlugin imagePlugin = new ImagePlugin()
+
+        when:
+        URL url = this.getClass().getResource("/images/color-image.jpg")
+        BufferedImage bufferedImage = imagePlugin.setImage(url).applyRedFilter()
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
+
+        then:
+        true == imageFile.exists()
+    }
+
+    def "test ImagePlugin -> applyGreenFilter"(){
+
+        setup:
+        IImagePlugin imagePlugin = new ImagePlugin()
+
+        when:
+        URL url = this.getClass().getResource("/images/color-image.jpg")
+        BufferedImage bufferedImage = imagePlugin.setImage(url).applyGreenFilter()
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
+
+        then:
+        true == imageFile.exists()
+    }
+
+    def "test ImagePlugin -> applyBlueFilter"(){
+
+        setup:
+        IImagePlugin imagePlugin = new ImagePlugin()
+
+        when:
+        URL url = this.getClass().getResource("/images/color-image.jpg")
+        BufferedImage bufferedImage = imagePlugin.setImage(url).applyBlueFilter()
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
+
+        then:
+        true == imageFile.exists()
+    }
 }

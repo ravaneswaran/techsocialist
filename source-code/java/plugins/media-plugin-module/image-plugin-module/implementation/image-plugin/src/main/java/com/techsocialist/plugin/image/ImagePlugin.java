@@ -9,15 +9,11 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBuffer;
-import java.awt.image.DataBufferByte;
 import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageFilter;
 import java.awt.image.ImageProducer;
 import java.awt.image.PixelGrabber;
 import java.awt.image.RGBImageFilter;
-import java.awt.image.Raster;
-import java.awt.image.WritableRaster;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -33,7 +29,7 @@ public class ImagePlugin implements IImagePlugin {
     private byte[] toByteArray(InputStream inputStream) throws IOException {
         BufferedImage originalImage = ImageIO.read(inputStream);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write( originalImage, ImageFormat.PNG.toString().toLowerCase(), baos );
+        ImageIO.write(originalImage, ImageFormat.PNG.toString().toLowerCase(), baos);
         baos.flush();
         byte[] imageAsBytes = baos.toByteArray();
         baos.close();
@@ -51,7 +47,7 @@ public class ImagePlugin implements IImagePlugin {
     @Override
     public File saveImage(ImageType imageType, BufferedImage image) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write( image, ImageFormat.PNG.toString().toLowerCase(), baos );
+        ImageIO.write(image, ImageFormat.PNG.toString().toLowerCase(), baos);
         baos.flush();
         byte[] byteArray = baos.toByteArray();
         baos.close();
@@ -86,12 +82,12 @@ public class ImagePlugin implements IImagePlugin {
         int widthToScale = 0;
         int heightToScale = 0;
         if (originalBufferedImage.getWidth() > originalBufferedImage.getHeight()) {
-            heightToScale = (int)(1.1 * thumbnailWidth);
-            widthToScale = (int)((heightToScale * 1.0) / originalBufferedImage.getHeight()
+            heightToScale = (int) (1.1 * thumbnailWidth);
+            widthToScale = (int) ((heightToScale * 1.0) / originalBufferedImage.getHeight()
                     * originalBufferedImage.getWidth());
         } else {
-            widthToScale = (int)(1.1 * thumbnailWidth);
-            heightToScale = (int)((widthToScale * 1.0) / originalBufferedImage.getWidth()
+            widthToScale = (int) (1.1 * thumbnailWidth);
+            heightToScale = (int) ((widthToScale * 1.0) / originalBufferedImage.getWidth()
                     * originalBufferedImage.getHeight());
         }
 
@@ -160,7 +156,6 @@ public class ImagePlugin implements IImagePlugin {
 
         BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
 
-        final int threshold = 110;
         final int imageType = bufferedImage.getColorModel().getColorSpace().getType();
 
         if (imageType != ColorSpace.TYPE_RGB) {
@@ -169,35 +164,183 @@ public class ImagePlugin implements IImagePlugin {
 
         final int width = bufferedImage.getWidth();
         final int height = bufferedImage.getHeight();
-        final int upperLimit = width * height;
 
-        final DataBuffer buffer = bufferedImage.getRaster().getDataBuffer();
-        final byte[] source = ((DataBufferByte) buffer).getData();
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int p = bufferedImage.getRGB(x, y);
+                int alpha = (p >> 24) & 0xff;
+                int red = (p >> 16) & 0xff;
+                int green = (p >> 8) & 0xff;
+                int blue = p & 0xff;
+                int avg = (red + green + blue) / 3;
+                p = (alpha << 24) | (avg << 16) | (avg << 8) | avg;
 
-        byte[] destination = new byte[upperLimit];
-
-        for (int i = 0; i < upperLimit; i++) {
-
-            int red   = (source[i] >> 16) & 0xFF;
-            int green = (source[i] >>  8) & 0xFF;
-            int blue  = (source[i])       & 0xFF;
-            int gray  = red*3 + green*6 + blue;
-
-            if (gray > threshold) {
-                destination[i] = -1;
+                bufferedImage.setRGB(x, y, p);
             }
         }
 
-        WritableRaster raster = Raster.createPackedRaster(DataBuffer.TYPE_BYTE, width, height, 1, 2, null);
-        raster.setDataElements(0, 0, width, height, destination);
-
-        BufferedImage destinationImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_BINARY);
-        destinationImage.setData(raster);
-        return destinationImage;
+        return bufferedImage;
     }
 
     @Override
-    public String getImageResolution() throws IOException{
+    public BufferedImage applyNegativeFilter() throws IOException {
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        final int imageType = bufferedImage.getColorModel().getColorSpace().getType();
+
+        if (imageType != ColorSpace.TYPE_RGB) {
+            throw new IllegalArgumentException();
+        }
+
+        final int width = bufferedImage.getWidth();
+        final int height = bufferedImage.getHeight();
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int p = bufferedImage.getRGB(x, y);
+                int alpha = (p >> 24) & 0xff;
+                int red = (p >> 16) & 0xff;
+                int green = (p >> 8) & 0xff;
+                int blue = p & 0xff;
+
+                red = 255 - red;
+                green = 255 - green;
+                blue = 255 - blue;
+
+
+                p = (alpha << 24) | (red << 16) | (green << 8) | blue;
+
+                bufferedImage.setRGB(x, y, p);
+            }
+        }
+
+        return bufferedImage;
+    }
+
+    @Override
+    public BufferedImage applySepiaFilter() throws IOException {
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        final int imageType = bufferedImage.getColorModel().getColorSpace().getType();
+
+        if (imageType != ColorSpace.TYPE_RGB) {
+            throw new IllegalArgumentException();
+        }
+
+        final int width = bufferedImage.getWidth();
+        final int height = bufferedImage.getHeight();
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int p = bufferedImage.getRGB(x, y);
+                int alpha = (p >> 24) & 0xff;
+                int red = (p >> 16) & 0xff;
+                int green = (p >> 8) & 0xff;
+                int blue = p & 0xff;
+
+                int newRed = (int)(0.393*red + 0.769*green + 0.189*blue);
+                int newGreen = (int)(0.349*red + 0.686*green + 0.168*blue);
+                int newBlue = (int)(0.272*red + 0.534*green + 0.131*blue);
+
+                red = (newRed > 255) ? 255 : newRed;
+                green = (newGreen > 255) ? 255 : newGreen;
+                blue = (newBlue > 255) ? 255 : newBlue;
+
+                p = (alpha << 24) | (red << 16) | (green << 8) | blue;
+
+                bufferedImage.setRGB(x, y, p);
+            }
+        }
+
+        return bufferedImage;
+    }
+
+    @Override
+    public BufferedImage applyRedFilter() throws IOException {
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        final int imageType = bufferedImage.getColorModel().getColorSpace().getType();
+
+        if (imageType != ColorSpace.TYPE_RGB) {
+            throw new IllegalArgumentException();
+        }
+
+        final int width = bufferedImage.getWidth();
+        final int height = bufferedImage.getHeight();
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int p = bufferedImage.getRGB(x, y);
+                int alpha = (p >> 24) & 0xff;
+                int red = (p >> 16) & 0xff;
+
+                p = (alpha << 24) | (red << 16) | (0 << 8) | 0;
+
+                bufferedImage.setRGB(x, y, p);
+            }
+        }
+
+        return bufferedImage;
+    }
+
+    @Override
+    public BufferedImage applyGreenFilter() throws IOException {
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        final int imageType = bufferedImage.getColorModel().getColorSpace().getType();
+
+        if (imageType != ColorSpace.TYPE_RGB) {
+            throw new IllegalArgumentException();
+        }
+
+        final int width = bufferedImage.getWidth();
+        final int height = bufferedImage.getHeight();
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int p = bufferedImage.getRGB(x, y);
+                int alpha = (p >> 24) & 0xff;
+                int red = (p >> 16) & 0xff;
+
+                p = (alpha << 24) | (red << 8) | (0 << 8) | 0;
+
+                bufferedImage.setRGB(x, y, p);
+            }
+        }
+
+        return bufferedImage;
+    }
+
+    @Override
+    public BufferedImage applyBlueFilter() throws IOException {
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        final int imageType = bufferedImage.getColorModel().getColorSpace().getType();
+
+        if (imageType != ColorSpace.TYPE_RGB) {
+            throw new IllegalArgumentException();
+        }
+
+        final int width = bufferedImage.getWidth();
+        final int height = bufferedImage.getHeight();
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int p = bufferedImage.getRGB(x, y);
+                int alpha = (p >> 24) & 0xff;
+                int red = (p >> 16) & 0xff;
+
+                p = (alpha << 24) | (red << 0) | (0 << 0) | 0;
+
+                bufferedImage.setRGB(x, y, p);
+            }
+        }
+
+        return bufferedImage;
+    }
+
+    @Override
+    public String getImageResolution() throws IOException {
 
         BufferedImage bufferedImage = ImageIO.read(this.imageFile);
         int width = bufferedImage.getWidth();
