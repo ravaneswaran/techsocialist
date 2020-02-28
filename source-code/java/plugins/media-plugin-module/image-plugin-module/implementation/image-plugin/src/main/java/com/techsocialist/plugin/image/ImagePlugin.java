@@ -380,8 +380,8 @@ public class ImagePlugin implements IImagePlugin {
         graphics.drawImage(bufferedImage, 0, 0, null);
         graphics.setFont(new Font("Arial", Font.PLAIN, 80));
         graphics.setColor(new Color(255, 0, 0, 40));
-        graphics.drawString(waterMark, bufferedImage.getWidth()/5,
-                bufferedImage.getHeight()/3);
+        graphics.drawString(waterMark, bufferedImage.getWidth() / 5,
+                bufferedImage.getHeight() / 3);
 
         graphics.dispose();
 
@@ -392,21 +392,57 @@ public class ImagePlugin implements IImagePlugin {
     public BufferedImage applyBlurFilter() throws IOException {
         BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
 
-        Kernel kernel = new Kernel(3, 3, new float[] { 1f / 9f, 1f / 9f, 1f / 9f,
-                1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f });
+        Kernel kernel = new Kernel(3, 3, new float[]{1f / 9f, 1f / 9f, 1f / 9f,
+                1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f, 1f / 9f});
         BufferedImageOp op = new ConvolveOp(kernel);
-        return  op.filter(bufferedImage, null);
+        return op.filter(bufferedImage, null);
     }
 
     @Override
     public BufferedImage applySharpBlurFilter() throws IOException {
         BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
 
-        Kernel kernel = new Kernel(3, 3, new float[] { -1, -1, -1, -1, 9, -1, -1,
-                -1, -1 });
+        Kernel kernel = new Kernel(3, 3, new float[]{-1, -1, -1, -1, 9, -1, -1,
+                -1, -1});
         BufferedImageOp op = new ConvolveOp(kernel);
         return op.filter(bufferedImage, null);
     }
+
+    @Override
+    public BufferedImage applyEmbossFilter() throws IOException {
+
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        final int width = bufferedImage.getWidth();
+        final int height = bufferedImage.getHeight();
+
+        // Create a buffered image from the source image with a format that's compatible with the screen
+        GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice graphicsDevice = graphicsEnvironment.getDefaultScreenDevice();
+        GraphicsConfiguration graphicsConfiguration = graphicsDevice.getDefaultConfiguration();
+
+        // If the source image has no alpha info use Transparency.OPAQUE instead
+        BufferedImage image = graphicsConfiguration.createCompatibleImage(width, height, Transparency.BITMASK);
+
+        // Copy image to buffered image
+        Graphics graphics = image.createGraphics();
+
+        // Paint the image onto the buffered image
+        graphics.drawImage(bufferedImage, 0, 0, null);
+        graphics.dispose();
+
+        // A 3x3 kernel that embosses an image
+        Kernel kernel = new Kernel(3, 3,
+                new float[]{
+                        -2, 0, 0,
+                        0, 1, 0,
+                        0, 0, 2});
+
+        BufferedImageOp op = new ConvolveOp(kernel);
+
+        return op.filter(image, null);
+    }
+
 
     @Override
     public String getImageResolution() throws IOException {

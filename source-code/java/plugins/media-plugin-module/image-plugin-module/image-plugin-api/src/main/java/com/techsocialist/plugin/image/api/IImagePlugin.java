@@ -53,6 +53,7 @@ public interface IImagePlugin {
 
     public BufferedImage applySharpBlurFilter() throws IOException;
 
-
+    // source : https://examples.javacodegeeks.com/desktop-java/awt/image/embossing-a-buffered-image/
+    public BufferedImage applyEmbossFilter() throws IOException;
 
 }
