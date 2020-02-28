@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.Buffer;
 
 public interface IImagePlugin {
 
@@ -62,6 +61,7 @@ public interface IImagePlugin {
     // source : https://gist.github.com/SavvasStephanides/8936308
     public BufferedImage applyPixelateFilter() throws IOException;
 
+    // source : https://github.com/praserocking/MedianFilter/blob/master/MedianFilter.java
     public BufferedImage applyMedianFilter() throws IOException;
 
 }

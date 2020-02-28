@@ -162,7 +162,7 @@ class ImagePluginTest extends Specification{
         IImagePlugin imagePlugin = new ImagePlugin()
 
         when:
-        URL url = this.getClass().getResource("/images/color-image.jpg")
+        URL url = this.getClass().getResource("/images/ravaneswaran-chinnasamy-logo.png")
         BufferedImage bufferedImage = imagePlugin.setImage(url).applySelfieFilter()
         File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
 
