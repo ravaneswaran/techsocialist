@@ -267,4 +267,18 @@ class ImagePluginTest extends Specification{
         then:
         true == imageFile.exists()
     }
+
+    def "test ImagePlugin -> applyPixelValueilter"(){
+
+        setup:
+        IImagePlugin imagePlugin = new ImagePlugin()
+
+        when:
+        URL url = this.getClass().getResource("/images/color-image.jpg")
+        BufferedImage bufferedImage = imagePlugin.setImage(url).applyPixelValueFilter()
+        File imageFile = imagePlugin.saveImage(ImageType.THUMBNAIL, bufferedImage)
+
+        then:
+        true == imageFile.exists()
+    }
 }

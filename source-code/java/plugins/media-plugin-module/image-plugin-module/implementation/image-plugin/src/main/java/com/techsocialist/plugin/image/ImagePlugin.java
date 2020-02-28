@@ -555,6 +555,22 @@ public class ImagePlugin implements IImagePlugin {
         return bufferedImage;
     }
 
+    @Override
+    public BufferedImage applyPixelValueFilter() throws IOException {
+        BufferedImage bufferedImage = ImageIO.read(this.imageFile);
+
+        int alpha = 255;
+        int red = 100;
+        int green = 150;
+        int blue = 200;
+
+        int p = (alpha << 24) | (red << 16) | (green << 8) | blue;
+
+        bufferedImage.setRGB(0, 0, p);
+
+        return bufferedImage;
+    }
+
 
     @Override
     public String getImageResolution() throws IOException {

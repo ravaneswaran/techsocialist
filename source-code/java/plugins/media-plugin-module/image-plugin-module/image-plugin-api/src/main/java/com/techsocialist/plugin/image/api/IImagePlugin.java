@@ -64,4 +64,6 @@ public interface IImagePlugin {
     // source : https://github.com/praserocking/MedianFilter/blob/master/MedianFilter.java
     public BufferedImage applyMedianFilter() throws IOException;
 
+    public BufferedImage applyPixelValueFilter() throws IOException;
+
 }
