@@ -24,6 +24,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class ImagePlugin implements IImagePlugin {
@@ -511,6 +512,45 @@ public class ImagePlugin implements IImagePlugin {
                 graphics.fillRect(width, height, pixelSize, pixelSize);
             }
         }
+
+        return bufferedImage;
+    }
+
+    @Override
+    public BufferedImage applyMedianFilter() throws IOException {
+        BufferedImage bufferedImage = ImageIO.read(this.imageFile);
+
+        Color[] pixel = new Color[9];
+        int[] red = new int[9];
+        int[] blue = new int[9];
+        int[] green = new int[9];
+
+        for (int width = 1; width < bufferedImage.getWidth() - 1; width++)
+
+            for (int height = 1; height < bufferedImage.getHeight() - 1; height++) {
+
+                pixel[0] = new Color(bufferedImage.getRGB(width - 1, height - 1));
+                pixel[1] = new Color(bufferedImage.getRGB(width - 1, height));
+                pixel[2] = new Color(bufferedImage.getRGB(width - 1, height + 1));
+                pixel[3] = new Color(bufferedImage.getRGB(width, height + 1));
+                pixel[4] = new Color(bufferedImage.getRGB(width + 1, height + 1));
+                pixel[5] = new Color(bufferedImage.getRGB(width + 1, height));
+                pixel[6] = new Color(bufferedImage.getRGB(width + 1, height - 1));
+                pixel[7] = new Color(bufferedImage.getRGB(width, height - 1));
+                pixel[8] = new Color(bufferedImage.getRGB(width, height));
+
+                for (int k = 0; k < 9; k++) {
+                    red[k] = pixel[k].getRed();
+                    blue[k] = pixel[k].getBlue();
+                    green[k] = pixel[k].getGreen();
+                }
+
+                Arrays.sort(red);
+                Arrays.sort(green);
+                Arrays.sort(blue);
+
+                bufferedImage.setRGB(width, height, new Color(red[4], blue[4], green[4]).getRGB());
+            }
 
         return bufferedImage;
     }

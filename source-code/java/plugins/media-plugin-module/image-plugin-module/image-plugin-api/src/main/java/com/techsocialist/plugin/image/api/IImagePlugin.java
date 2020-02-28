@@ -62,4 +62,6 @@ public interface IImagePlugin {
     // source : https://gist.github.com/SavvasStephanides/8936308
     public BufferedImage applyPixelateFilter() throws IOException;
 
+    public BufferedImage applyMedianFilter() throws IOException;
+
 }
