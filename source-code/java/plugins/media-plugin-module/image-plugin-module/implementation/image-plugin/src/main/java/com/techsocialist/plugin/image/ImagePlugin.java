@@ -443,6 +443,26 @@ public class ImagePlugin implements IImagePlugin {
         return op.filter(image, null);
     }
 
+    @Override
+    public BufferedImage applyPixelateFilter() throws IOException {
+
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        final int pixelSize = 2;
+
+        for (int width = 0; width < bufferedImage.getWidth(); width += pixelSize) {
+            for (int height = 0; height < bufferedImage.getHeight(); height += pixelSize) {
+                Color pixelColor = new Color(bufferedImage.getRGB(width, height));
+
+                Graphics graphics = bufferedImage.getGraphics();
+                graphics.setColor(pixelColor);
+                graphics.fillRect(width, height, pixelSize, pixelSize);
+            }
+        }
+
+        return bufferedImage;
+    }
+
 
     @Override
     public String getImageResolution() throws IOException {

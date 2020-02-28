@@ -56,4 +56,6 @@ public interface IImagePlugin {
     // source : https://examples.javacodegeeks.com/desktop-java/awt/image/embossing-a-buffered-image/
     public BufferedImage applyEmbossFilter() throws IOException;
 
+    public BufferedImage applyPixelateFilter() throws IOException;
+
 }
