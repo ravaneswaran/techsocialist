@@ -53,6 +53,9 @@ public interface IImagePlugin {
 
     public BufferedImage applySharpBlurFilter() throws IOException;
 
+    // source : https://stackoverflow.com/questions/39684820/java-implementation-of-gaussian-blur
+    public BufferedImage applyGaussianBlurFilter() throws IOException;
+
     // source : https://examples.javacodegeeks.com/desktop-java/awt/image/embossing-a-buffered-image/
     public BufferedImage applyEmbossFilter() throws IOException;
 

@@ -24,6 +24,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.stream.IntStream;
 
 public class ImagePlugin implements IImagePlugin {
 
@@ -406,6 +407,57 @@ public class ImagePlugin implements IImagePlugin {
                 -1, -1});
         BufferedImageOp op = new ConvolveOp(kernel);
         return op.filter(bufferedImage, null);
+    }
+
+    @Override
+    public BufferedImage applyGaussianBlurFilter() throws IOException {
+
+        BufferedImage bufferedImage = this.toBufferedImage(this.toByteArray(this.imageFile));
+
+        int[] filter = {1, 2, 1, 2, 4, 2, 1, 2, 1};
+        int filterWidth = 9;
+
+        final int width = bufferedImage.getWidth();
+        final int height = bufferedImage.getHeight();
+        final int sum = IntStream.of(filter).sum();
+
+        int[] input = bufferedImage.getRGB(0, 0, width, height, null, 0, width);
+        int[] output = new int[input.length];
+
+        final int pixelIndexOffset = width - filterWidth;
+        final int centerOffsetX = filterWidth / 2;
+        final int centerOffsetY = filter.length / filterWidth / 2;
+
+        // apply filter
+        for (int h = height - filter.length / filterWidth + 1, w = width - filterWidth + 1, y = 0; y < h; y++) {
+            for (int x = 0; x < w; x++) {
+                int red = 0;
+                int green = 0;
+                int blue = 0;
+                for (int filterIndex = 0, pixelIndex = y * width + x;
+                     filterIndex < filter.length;
+                     pixelIndex += pixelIndexOffset) {
+                    for (int fx = 0; fx < filterWidth; fx++, pixelIndex++, filterIndex++) {
+                        int col = input[pixelIndex];
+                        int factor = filter[filterIndex];
+
+                        // sum up color channels seperately
+                        red += ((col >>> 16) & 0xFF) * factor;
+                        green += ((col >>> 8) & 0xFF) * factor;
+                        blue += (col & 0xFF) * factor;
+                    }
+                }
+                red /= sum;
+                green /= sum;
+                blue /= sum;
+                // combine channels with full opacity
+                output[x + centerOffsetX + (y + centerOffsetY) * width] = (red << 16) | (green << 8) | blue | 0xFF000000;
+            }
+        }
+
+        BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        result.setRGB(0, 0, width, height, output, 0, width);
+        return result;
     }
 
     @Override
