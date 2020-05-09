@@ -15,7 +15,6 @@
 package com.techsocialist.core.service.util;
 
 import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.configuration.Configuration;
 import com.liferay.portal.kernel.configuration.ConfigurationFactoryUtil;
 import com.liferay.portal.kernel.configuration.Filter;
