@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <arquillian xmlns="http://jboss.org/schema/arquillian"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
 
-    <extension qualifier="webdriver">
-        <property name="browser">chrome</property>
-    </extension>
+	<extension qualifier="webdriver">
+		<property name="browser">chrome</property>
+		<property name="chrome.binary">/usr/bin/google-chrome</property>
+		<property name="chromeDriverBinary">/home/ravaneswaran/projects/techsocialist/source-code/liferay/chromedriver</property>
+	</extension>
 
-    <extension qualifier="graphene">
-        <property name="url">http://localhost:8080</property>
-    </extension>
+	<extension qualifier="graphene">
+		<property name="url">http://localhost:8080</property>
+	</extension>
 
-    <!--<engine>
-        <property name="deploymentExportPath">build/deployments</property>
-    </engine>-->
+	<extension qualifier="jacoco">
+		<!--<property name="excludes">com.liferay.arquillian.test</property>-->
+		<property name="includes">com.techsocialist.foundation.*</property>
+	</extension>
+
+	<!--<engine>
+		<property name="deploymentExportPath">build/deployments</property>
+	</engine>-->
 
 </arquillian>

@@ -1,13 +1,19 @@
 package com.techsocialist.foundation;
 
 import com.google.common.io.Files;
+import com.liferay.arquillian.containter.remote.enricher.Inject;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.techsocialist.foundation.services.HelloWorldService;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Assert;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.io.File;
+import java.io.IOException;
 
 @RunWith(Arquillian.class)
 public class HelloWorldPortletIntegrationTest {
@@ -34,4 +40,14 @@ public class HelloWorldPortletIntegrationTest {
                         "/techsocialist-foundation-module-1.0.0.jar");
         return ShrinkWrap.createFromZipFile(JavaArchive.class, jarFile);
     }
+
+    @Test
+    public void testAdd() throws IOException, PortalException {
+        final long result = _helloWorldService.add(1, 3);
+
+        Assert.assertEquals(4, result);
+    }
+
+    @Inject
+    private HelloWorldService _helloWorldService;
 }
