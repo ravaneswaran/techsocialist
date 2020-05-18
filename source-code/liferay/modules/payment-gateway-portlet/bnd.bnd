@@ -1,0 +1,4 @@
+Bundle-Name: payment-gateway-portlet
+Bundle-SymbolicName: com.techsocialist.pg
+Bundle-Version: 1.0.0
+Export-Package: com.techsocialist.pg.constants

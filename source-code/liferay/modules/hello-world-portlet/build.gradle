@@ -1,0 +1,69 @@
+import javax.management.remote.JMXConnectorFactory
+import javax.management.remote.JMXServiceURL
+
+apply plugin: 'jacoco'
+
+jacoco {
+	toolVersion = '0.7.9'
+}
+
+dependencies {
+	compileOnly group: "com.liferay", name: "com.liferay.asset.taglib"
+	compileOnly group: "com.liferay", name: "com.liferay.comment.taglib"
+	compileOnly group: "com.liferay", name: "com.liferay.frontend.taglib"
+	compileOnly group: "com.liferay", name: "com.liferay.frontend.taglib.dynamic.section"
+	compileOnly group: "com.liferay", name: "com.liferay.frontend.taglib.form.navigator"
+	compileOnly group: "com.liferay", name: "com.liferay.frontend.taglib.util"
+	compileOnly group: "com.liferay", name: "com.liferay.journal.taglib"
+	compileOnly group: "com.liferay", name: "com.liferay.layout.taglib"
+	compileOnly group: "com.liferay", name: "com.liferay.site.taglib"
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel"
+	compileOnly group: "com.liferay.portal", name: "com.liferay.util.taglib"
+	compileOnly group: "javax.portlet", name: "portlet-api"
+	compileOnly group: "javax.servlet", name: "javax.servlet-api"
+	compileOnly group: "jstl", name: "jstl"
+	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
+
+	cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.0.2"
+
+	testIntegrationCompile group: "com.liferay.arquillian", name: "com.liferay.arquillian.arquillian-container-liferay", version: "1.0.6"
+	testIntegrationCompile group: "junit", name: "junit", version: "4.12"
+	testIntegrationCompile group: "org.jboss.arquillian.junit", name: "arquillian-junit-container", version: "1.1.11.Final"
+
+	testIntegrationCompile group: 'org.jboss.arquillian.graphene', name: 'graphene-webdriver', version: '2.3.2'
+}
+
+task copyJacocoAgent(type: Copy) {
+	println configurations.jacocoAgent
+
+	configurations.jacocoAgent.asFileTree.each {
+		from(zipTree(it))
+	}
+
+	into "${rootDir}/build/jacoco"
+}
+
+task dumpJacoco {
+	doLast {
+		def serverUrl = 'service:jmx:rmi:///jndi/rmi://localhost:8099/jmxrmi'
+		String beanName = "org.jacoco:type=Runtime"
+		def jmxServiceUrl = new JMXServiceURL(serverUrl)
+		def server = JMXConnectorFactory.connect(new JMXConnectorFactory(jmxServiceUrl)).MBeanServerConnection
+		def gmxb = new GroovyMBean(server, beanName)
+
+		println "Connected to:\n$gmxb\n"
+		println "Executing dump()"
+		gmxb.dump(true)
+	}
+}
+
+jacocoTestReport {
+	dependsOn dumpJacoco
+	group = "Reporting"
+	reports {
+		xml.enabled true
+		csv.enabled false
+		//html.destination "${buildDir}/reports/coverage"
+	}
+	executionData = files("${rootDir}/build/jacoco/testIntegration.exec")
+}

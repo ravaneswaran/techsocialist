@@ -1,0 +1,4 @@
+Bundle-Name: video-player-portlet
+Bundle-SymbolicName: com.techsocialist.videoplayer
+Bundle-Version: 1.0.0
+Export-Package: com.techsocialist.videoplayer.constants

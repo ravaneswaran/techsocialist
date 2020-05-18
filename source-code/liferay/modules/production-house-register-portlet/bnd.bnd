@@ -1,0 +1,4 @@
+Bundle-Name: production-house-register-portlet
+Bundle-SymbolicName: com.techsocialist.productionhouse.register
+Bundle-Version: 1.0.0
+Export-Package: com.techsocialist.productionhouse.register.constants
