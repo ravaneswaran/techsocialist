@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <model-hints>
-	<model name="com.techsocialis.servicebuilder.model.ProductionHouseRegister">
+	<model name="com.techsocialis.servicebuilder.model.ProductionHouseRegisterEntry">
 		<field name="id" type="long" />
 		<field name="name" type="String" />
 		<field name="cin" type="String" />

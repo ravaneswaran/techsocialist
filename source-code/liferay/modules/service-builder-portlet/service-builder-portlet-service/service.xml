@@ -4,7 +4,7 @@
 <service-builder dependency-injector="ds" package-path="com.techsocialis.servicebuilder">
 	<namespace>TS</namespace>
 
-	<entity  local-service="true" name="ProductionHouseRegister" remote-service="false" uuid="false" table="production_house_register">
+	<entity  local-service="true" name="ProductionHouseRegisterEntry" remote-service="false" uuid="false" table="production_house_register">
 
 		<column name="id" primary="true" type="long" />
 
