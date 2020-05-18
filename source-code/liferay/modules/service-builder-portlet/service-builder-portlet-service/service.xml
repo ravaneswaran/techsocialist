@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
 
-<service-builder dependency-injector="ds" package-path="com.techsocialis.servicebuilder">
+<service-builder dependency-injector="ds" package-path="com.techsocialist.servicebuilder">
 	<namespace>TS</namespace>
 
 	<entity  local-service="true" name="ProductionHouseRegisterEntry" remote-service="false" uuid="false" table="production_house_register">

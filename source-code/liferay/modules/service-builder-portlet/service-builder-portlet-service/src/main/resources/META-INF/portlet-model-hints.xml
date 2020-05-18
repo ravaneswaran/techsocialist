@@ -25,4 +25,28 @@
 		<field name="createdDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 	</model>
+	<model name="com.techsocialist.servicebuilder.model.ProductionHouseRegisterEntry">
+		<field name="id" type="long" />
+		<field name="name" type="String" />
+		<field name="cin" type="String" />
+		<field name="landline" type="String" />
+		<field name="websiteUrl" type="String" />
+		<field name="addressLine1" type="String" />
+		<field name="addressLine2" type="String" />
+		<field name="addressLine3" type="String" />
+		<field name="place" type="String" />
+		<field name="state" type="String" />
+		<field name="country" type="String" />
+		<field name="pincode" type="String" />
+		<field name="status" type="String" />
+		<field name="contactPersonName" type="String" />
+		<field name="contactPersonMobile" type="String" />
+		<field name="contactPersonEmail" type="String" />
+		<field name="userName" type="String" />
+		<field name="password" type="String" />
+		<field name="createdBy" type="String" />
+		<field name="modifiedBy" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
 </model-hints>
