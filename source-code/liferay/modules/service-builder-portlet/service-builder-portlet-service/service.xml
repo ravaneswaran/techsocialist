@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.techsocialis.servicebuilder">
+	<namespace>TS</namespace>
+
+	<entity  local-service="true" name="ProductionHouseRegister" remote-service="false" uuid="false" table="production_house_register">
+
+		<column name="id" primary="true" type="long" />
+
+		<column name="name" type="String" />
+		<column name="cin" type="String" />
+
+		<column name="landline" type="String" />
+
+		<column name="websiteUrl" type="String" />
+
+		<column name="addressLine1" type="String" />
+		<column name="addressLine2" type="String" />
+		<column name="addressLine3" type="String" />
+		<column name="place" type="String" />
+		<column name="state" type="String" />
+		<column name="country" type="String" />
+		<column name="pincode" type="String" />
+
+		<column name="status" type="String" />
+
+		<column name="contactPersonName" type="String" />
+		<column name="contactPersonMobile" type="String" />
+		<column name="contactPersonEmail" type="String" />
+
+		<column name="userName" type="String" />
+		<column name="password" type="String" />
+
+		<column name="createdBy" type="String" />
+		<column name="modifiedBy" type="String" />
+		<column name="createdDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+	</entity>
+
+</service-builder>

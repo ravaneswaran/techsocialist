@@ -1,0 +1,10 @@
+Bundle-Name: service-builder-portlet-api
+Bundle-SymbolicName: com.techsocialis.servicebuilder.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.techsocialis.servicebuilder.exception,\
+	com.techsocialis.servicebuilder.model,\
+	com.techsocialis.servicebuilder.service,\
+	com.techsocialis.servicebuilder.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../service-builder-portlet-service/service.xml
