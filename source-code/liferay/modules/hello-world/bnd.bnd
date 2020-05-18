@@ -1,4 +1,0 @@
-Bundle-Name: hello-world
-Bundle-SymbolicName: com.techsocialist.helloworld
-Bundle-Version: 1.0.0
-Export-Package: com.techsocialist.helloworld.constants
