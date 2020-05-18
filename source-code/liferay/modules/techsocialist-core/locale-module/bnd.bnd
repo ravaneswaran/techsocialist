@@ -1,4 +1,0 @@
-Bundle-Name: techsocialist-locale-module
-Bundle-SymbolicName: techsocialist-locale-module
-Bundle-Version: 1.0.0
-Export-Package: com.techsocialist.locale

@@ -1,8 +1,0 @@
-dependencies {
-
-	testCompile group: "info.cukes", name: "cucumber-java",     version: "1.2.5"
-	testCompile group: "info.cukes", name: "cucumber-jvm-deps", version: "1.0.5"
-	testCompile group: "info.cukes", name: "cucumber-junit",    version: "1.2.5"
-	
-	compileOnly project(":modules:techsocialist-core:foundation-module")
-}

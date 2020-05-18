@@ -1,4 +1,0 @@
-Bundle-Name: techsocialist-scheduler-module
-Bundle-SymbolicName: techsocialist-scheduler-module
-Bundle-Version: 1.0.0
-Export-Package: com.techsocialist.scheduler
