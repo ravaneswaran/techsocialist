@@ -26,13 +26,12 @@ import java.util.List;
  * @author Brian Wing Shun Chan
  * @generated
  */
-public class ProductionHouseRegisterEntrySoap implements Serializable {
+public class ProductionHouseEntrySoap implements Serializable {
 
-	public static ProductionHouseRegisterEntrySoap toSoapModel(
-		ProductionHouseRegisterEntry model) {
+	public static ProductionHouseEntrySoap toSoapModel(
+		ProductionHouseEntry model) {
 
-		ProductionHouseRegisterEntrySoap soapModel =
-			new ProductionHouseRegisterEntrySoap();
+		ProductionHouseEntrySoap soapModel = new ProductionHouseEntrySoap();
 
 		soapModel.setId(model.getId());
 		soapModel.setUserId(model.getUserId());
@@ -63,11 +62,11 @@ public class ProductionHouseRegisterEntrySoap implements Serializable {
 		return soapModel;
 	}
 
-	public static ProductionHouseRegisterEntrySoap[] toSoapModels(
-		ProductionHouseRegisterEntry[] models) {
+	public static ProductionHouseEntrySoap[] toSoapModels(
+		ProductionHouseEntry[] models) {
 
-		ProductionHouseRegisterEntrySoap[] soapModels =
-			new ProductionHouseRegisterEntrySoap[models.length];
+		ProductionHouseEntrySoap[] soapModels =
+			new ProductionHouseEntrySoap[models.length];
 
 		for (int i = 0; i < models.length; i++) {
 			soapModels[i] = toSoapModel(models[i]);
@@ -76,17 +75,17 @@ public class ProductionHouseRegisterEntrySoap implements Serializable {
 		return soapModels;
 	}
 
-	public static ProductionHouseRegisterEntrySoap[][] toSoapModels(
-		ProductionHouseRegisterEntry[][] models) {
+	public static ProductionHouseEntrySoap[][] toSoapModels(
+		ProductionHouseEntry[][] models) {
 
-		ProductionHouseRegisterEntrySoap[][] soapModels = null;
+		ProductionHouseEntrySoap[][] soapModels = null;
 
 		if (models.length > 0) {
-			soapModels = new ProductionHouseRegisterEntrySoap
-				[models.length][models[0].length];
+			soapModels =
+				new ProductionHouseEntrySoap[models.length][models[0].length];
 		}
 		else {
-			soapModels = new ProductionHouseRegisterEntrySoap[0][0];
+			soapModels = new ProductionHouseEntrySoap[0][0];
 		}
 
 		for (int i = 0; i < models.length; i++) {
@@ -96,21 +95,21 @@ public class ProductionHouseRegisterEntrySoap implements Serializable {
 		return soapModels;
 	}
 
-	public static ProductionHouseRegisterEntrySoap[] toSoapModels(
-		List<ProductionHouseRegisterEntry> models) {
+	public static ProductionHouseEntrySoap[] toSoapModels(
+		List<ProductionHouseEntry> models) {
 
-		List<ProductionHouseRegisterEntrySoap> soapModels =
-			new ArrayList<ProductionHouseRegisterEntrySoap>(models.size());
+		List<ProductionHouseEntrySoap> soapModels =
+			new ArrayList<ProductionHouseEntrySoap>(models.size());
 
-		for (ProductionHouseRegisterEntry model : models) {
+		for (ProductionHouseEntry model : models) {
 			soapModels.add(toSoapModel(model));
 		}
 
 		return soapModels.toArray(
-			new ProductionHouseRegisterEntrySoap[soapModels.size()]);
+			new ProductionHouseEntrySoap[soapModels.size()]);
 	}
 
-	public ProductionHouseRegisterEntrySoap() {
+	public ProductionHouseEntrySoap() {
 	}
 
 	public long getPrimaryKey() {

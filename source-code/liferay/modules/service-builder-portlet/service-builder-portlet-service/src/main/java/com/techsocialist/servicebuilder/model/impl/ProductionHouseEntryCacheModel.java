@@ -18,7 +18,7 @@ import com.liferay.petra.lang.HashUtil;
 import com.liferay.petra.string.StringBundler;
 import com.liferay.portal.kernel.model.CacheModel;
 
-import com.techsocialist.servicebuilder.model.ProductionHouseRegisterEntry;
+import com.techsocialist.servicebuilder.model.ProductionHouseEntry;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -28,13 +28,13 @@ import java.io.ObjectOutput;
 import java.util.Date;
 
 /**
- * The cache model class for representing ProductionHouseRegisterEntry in entity cache.
+ * The cache model class for representing ProductionHouseEntry in entity cache.
  *
  * @author Brian Wing Shun Chan
  * @generated
  */
-public class ProductionHouseRegisterEntryCacheModel
-	implements CacheModel<ProductionHouseRegisterEntry>, Externalizable {
+public class ProductionHouseEntryCacheModel
+	implements CacheModel<ProductionHouseEntry>, Externalizable {
 
 	@Override
 	public boolean equals(Object obj) {
@@ -42,15 +42,14 @@ public class ProductionHouseRegisterEntryCacheModel
 			return true;
 		}
 
-		if (!(obj instanceof ProductionHouseRegisterEntryCacheModel)) {
+		if (!(obj instanceof ProductionHouseEntryCacheModel)) {
 			return false;
 		}
 
-		ProductionHouseRegisterEntryCacheModel
-			productionHouseRegisterEntryCacheModel =
-				(ProductionHouseRegisterEntryCacheModel)obj;
+		ProductionHouseEntryCacheModel productionHouseEntryCacheModel =
+			(ProductionHouseEntryCacheModel)obj;
 
-		if (id == productionHouseRegisterEntryCacheModel.id) {
+		if (id == productionHouseEntryCacheModel.id) {
 			return true;
 		}
 
@@ -120,176 +119,173 @@ public class ProductionHouseRegisterEntryCacheModel
 	}
 
 	@Override
-	public ProductionHouseRegisterEntry toEntityModel() {
-		ProductionHouseRegisterEntryImpl productionHouseRegisterEntryImpl =
-			new ProductionHouseRegisterEntryImpl();
+	public ProductionHouseEntry toEntityModel() {
+		ProductionHouseEntryImpl productionHouseEntryImpl =
+			new ProductionHouseEntryImpl();
 
-		productionHouseRegisterEntryImpl.setId(id);
-		productionHouseRegisterEntryImpl.setUserId(userId);
+		productionHouseEntryImpl.setId(id);
+		productionHouseEntryImpl.setUserId(userId);
 
 		if (name == null) {
-			productionHouseRegisterEntryImpl.setName("");
+			productionHouseEntryImpl.setName("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setName(name);
+			productionHouseEntryImpl.setName(name);
 		}
 
 		if (cin == null) {
-			productionHouseRegisterEntryImpl.setCin("");
+			productionHouseEntryImpl.setCin("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setCin(cin);
+			productionHouseEntryImpl.setCin(cin);
 		}
 
 		if (landline == null) {
-			productionHouseRegisterEntryImpl.setLandline("");
+			productionHouseEntryImpl.setLandline("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setLandline(landline);
+			productionHouseEntryImpl.setLandline(landline);
 		}
 
 		if (websiteUrl == null) {
-			productionHouseRegisterEntryImpl.setWebsiteUrl("");
+			productionHouseEntryImpl.setWebsiteUrl("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setWebsiteUrl(websiteUrl);
+			productionHouseEntryImpl.setWebsiteUrl(websiteUrl);
 		}
 
 		if (addressLine1 == null) {
-			productionHouseRegisterEntryImpl.setAddressLine1("");
+			productionHouseEntryImpl.setAddressLine1("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setAddressLine1(addressLine1);
+			productionHouseEntryImpl.setAddressLine1(addressLine1);
 		}
 
 		if (addressLine2 == null) {
-			productionHouseRegisterEntryImpl.setAddressLine2("");
+			productionHouseEntryImpl.setAddressLine2("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setAddressLine2(addressLine2);
+			productionHouseEntryImpl.setAddressLine2(addressLine2);
 		}
 
 		if (addressLine3 == null) {
-			productionHouseRegisterEntryImpl.setAddressLine3("");
+			productionHouseEntryImpl.setAddressLine3("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setAddressLine3(addressLine3);
+			productionHouseEntryImpl.setAddressLine3(addressLine3);
 		}
 
 		if (place == null) {
-			productionHouseRegisterEntryImpl.setPlace("");
+			productionHouseEntryImpl.setPlace("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setPlace(place);
+			productionHouseEntryImpl.setPlace(place);
 		}
 
 		if (state == null) {
-			productionHouseRegisterEntryImpl.setState("");
+			productionHouseEntryImpl.setState("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setState(state);
+			productionHouseEntryImpl.setState(state);
 		}
 
 		if (country == null) {
-			productionHouseRegisterEntryImpl.setCountry("");
+			productionHouseEntryImpl.setCountry("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setCountry(country);
+			productionHouseEntryImpl.setCountry(country);
 		}
 
 		if (pincode == null) {
-			productionHouseRegisterEntryImpl.setPincode("");
+			productionHouseEntryImpl.setPincode("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setPincode(pincode);
+			productionHouseEntryImpl.setPincode(pincode);
 		}
 
 		if (status == null) {
-			productionHouseRegisterEntryImpl.setStatus("");
+			productionHouseEntryImpl.setStatus("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setStatus(status);
+			productionHouseEntryImpl.setStatus(status);
 		}
 
 		if (contactPersonFirstName == null) {
-			productionHouseRegisterEntryImpl.setContactPersonFirstName("");
+			productionHouseEntryImpl.setContactPersonFirstName("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setContactPersonFirstName(
+			productionHouseEntryImpl.setContactPersonFirstName(
 				contactPersonFirstName);
 		}
 
 		if (contactPersonLastNameName == null) {
-			productionHouseRegisterEntryImpl.setContactPersonLastNameName("");
+			productionHouseEntryImpl.setContactPersonLastNameName("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setContactPersonLastNameName(
+			productionHouseEntryImpl.setContactPersonLastNameName(
 				contactPersonLastNameName);
 		}
 
 		if (contactPersonMobile == null) {
-			productionHouseRegisterEntryImpl.setContactPersonMobile("");
+			productionHouseEntryImpl.setContactPersonMobile("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setContactPersonMobile(
+			productionHouseEntryImpl.setContactPersonMobile(
 				contactPersonMobile);
 		}
 
 		if (contactPersonEmail == null) {
-			productionHouseRegisterEntryImpl.setContactPersonEmail("");
+			productionHouseEntryImpl.setContactPersonEmail("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setContactPersonEmail(
-				contactPersonEmail);
+			productionHouseEntryImpl.setContactPersonEmail(contactPersonEmail);
 		}
 
 		if (userName == null) {
-			productionHouseRegisterEntryImpl.setUserName("");
+			productionHouseEntryImpl.setUserName("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setUserName(userName);
+			productionHouseEntryImpl.setUserName(userName);
 		}
 
 		if (password == null) {
-			productionHouseRegisterEntryImpl.setPassword("");
+			productionHouseEntryImpl.setPassword("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setPassword(password);
+			productionHouseEntryImpl.setPassword(password);
 		}
 
 		if (createdBy == null) {
-			productionHouseRegisterEntryImpl.setCreatedBy("");
+			productionHouseEntryImpl.setCreatedBy("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setCreatedBy(createdBy);
+			productionHouseEntryImpl.setCreatedBy(createdBy);
 		}
 
 		if (modifiedBy == null) {
-			productionHouseRegisterEntryImpl.setModifiedBy("");
+			productionHouseEntryImpl.setModifiedBy("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setModifiedBy(modifiedBy);
+			productionHouseEntryImpl.setModifiedBy(modifiedBy);
 		}
 
 		if (createdDate == Long.MIN_VALUE) {
-			productionHouseRegisterEntryImpl.setCreatedDate(null);
+			productionHouseEntryImpl.setCreatedDate(null);
 		}
 		else {
-			productionHouseRegisterEntryImpl.setCreatedDate(
-				new Date(createdDate));
+			productionHouseEntryImpl.setCreatedDate(new Date(createdDate));
 		}
 
 		if (modifiedDate == Long.MIN_VALUE) {
-			productionHouseRegisterEntryImpl.setModifiedDate(null);
+			productionHouseEntryImpl.setModifiedDate(null);
 		}
 		else {
-			productionHouseRegisterEntryImpl.setModifiedDate(
-				new Date(modifiedDate));
+			productionHouseEntryImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
-		productionHouseRegisterEntryImpl.resetOriginalValues();
+		productionHouseEntryImpl.resetOriginalValues();
 
-		return productionHouseRegisterEntryImpl;
+		return productionHouseEntryImpl;
 	}
 
 	@Override

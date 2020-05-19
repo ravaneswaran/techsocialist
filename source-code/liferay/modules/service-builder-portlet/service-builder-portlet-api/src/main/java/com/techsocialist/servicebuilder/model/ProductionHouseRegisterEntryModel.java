@@ -71,6 +71,34 @@ public interface ProductionHouseRegisterEntryModel
 	public void setId(long id);
 
 	/**
+	 * Returns the user ID of this production house register entry.
+	 *
+	 * @return the user ID of this production house register entry
+	 */
+	public long getUserId();
+
+	/**
+	 * Sets the user ID of this production house register entry.
+	 *
+	 * @param userId the user ID of this production house register entry
+	 */
+	public void setUserId(long userId);
+
+	/**
+	 * Returns the user uuid of this production house register entry.
+	 *
+	 * @return the user uuid of this production house register entry
+	 */
+	public String getUserUuid();
+
+	/**
+	 * Sets the user uuid of this production house register entry.
+	 *
+	 * @param userUuid the user uuid of this production house register entry
+	 */
+	public void setUserUuid(String userUuid);
+
+	/**
 	 * Returns the name of this production house register entry.
 	 *
 	 * @return the name of this production house register entry

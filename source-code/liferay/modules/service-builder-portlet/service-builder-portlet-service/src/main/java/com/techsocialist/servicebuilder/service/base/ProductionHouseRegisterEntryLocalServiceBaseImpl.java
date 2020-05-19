@@ -40,6 +40,7 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.techsocialist.servicebuilder.model.ProductionHouseRegisterEntry;
 import com.techsocialist.servicebuilder.service.ProductionHouseRegisterEntryLocalService;
 import com.techsocialist.servicebuilder.service.persistence.ProductionHouseRegisterEntryPersistence;
+import com.techsocialist.servicebuilder.service.persistence.VideoRegisterEntryPersistence;
 
 import java.io.Serializable;
 
@@ -428,6 +429,9 @@ public abstract class ProductionHouseRegisterEntryLocalServiceBaseImpl
 	@Reference
 	protected ProductionHouseRegisterEntryPersistence
 		productionHouseRegisterEntryPersistence;
+
+	@Reference
+	protected VideoRegisterEntryPersistence videoRegisterEntryPersistence;
 
 	@Reference
 	protected com.liferay.counter.kernel.service.CounterLocalService

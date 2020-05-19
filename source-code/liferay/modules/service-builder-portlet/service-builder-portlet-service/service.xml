@@ -4,9 +4,10 @@
 <service-builder dependency-injector="ds" package-path="com.techsocialist.servicebuilder">
 	<namespace>TS</namespace>
 
-	<entity  local-service="true" name="ProductionHouseRegisterEntry" remote-service="false" uuid="false" table="production_house_register">
+	<entity  local-service="true" name="ProductionHouseEntry" remote-service="false" uuid="false" table="production_house_register">
 
 		<column name="id" primary="true" type="long" />
+		<column name="userId" type="long" />
 
 		<column name="name" type="String" />
 		<column name="cin" type="String" />
@@ -38,5 +39,23 @@
 		<column name="modifiedDate" type="Date" />
 
 	</entity>
+
+	<entity  local-service="true" name="VideoEntry" remote-service="false" uuid="false" table="video_register">
+
+		<column name="id" primary="true" type="long" />
+		<column name="productionHouseEntryId" type="long" />
+		<column name="content" type="Blob" />
+
+		<column name="type" type="String" />
+		<column name="status" type="String" />
+
+		<column name="createdBy" type="String" />
+		<column name="modifiedBy" type="String" />
+		<column name="createdDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+	</entity>
+
+
 
 </service-builder>

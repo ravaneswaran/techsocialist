@@ -1,5 +1,6 @@
 create table production_house_register (
 	id_ LONG not null primary key,
+	userId LONG,
 	name VARCHAR(75) null,
 	cin VARCHAR(75) null,
 	landline VARCHAR(75) null,
@@ -18,6 +19,18 @@ create table production_house_register (
 	contactPersonEmail VARCHAR(75) null,
 	userName VARCHAR(75) null,
 	password_ VARCHAR(75) null,
+	createdBy VARCHAR(75) null,
+	modifiedBy VARCHAR(75) null,
+	createdDate DATE null,
+	modifiedDate DATE null
+);
+
+create table video_register (
+	id_ LONG not null primary key,
+	productionHouseEntryId LONG,
+	content BLOB,
+	type_ VARCHAR(75) null,
+	status VARCHAR(75) null,
 	createdBy VARCHAR(75) null,
 	modifiedBy VARCHAR(75) null,
 	createdDate DATE null,

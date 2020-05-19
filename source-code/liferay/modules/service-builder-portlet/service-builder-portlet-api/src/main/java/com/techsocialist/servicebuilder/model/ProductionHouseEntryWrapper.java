@@ -23,22 +23,21 @@ import java.util.Map;
 
 /**
  * <p>
- * This class is a wrapper for {@link ProductionHouseRegisterEntry}.
+ * This class is a wrapper for {@link ProductionHouseEntry}.
  * </p>
  *
  * @author Brian Wing Shun Chan
- * @see ProductionHouseRegisterEntry
+ * @see ProductionHouseEntry
  * @generated
  */
-public class ProductionHouseRegisterEntryWrapper
-	extends BaseModelWrapper<ProductionHouseRegisterEntry>
-	implements ModelWrapper<ProductionHouseRegisterEntry>,
-			   ProductionHouseRegisterEntry {
+public class ProductionHouseEntryWrapper
+	extends BaseModelWrapper<ProductionHouseEntry>
+	implements ModelWrapper<ProductionHouseEntry>, ProductionHouseEntry {
 
-	public ProductionHouseRegisterEntryWrapper(
-		ProductionHouseRegisterEntry productionHouseRegisterEntry) {
+	public ProductionHouseEntryWrapper(
+		ProductionHouseEntry productionHouseEntry) {
 
-		super(productionHouseRegisterEntry);
+		super(productionHouseEntry);
 	}
 
 	@Override
@@ -226,9 +225,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the address line1 of this production house register entry.
+	 * Returns the address line1 of this production house entry.
 	 *
-	 * @return the address line1 of this production house register entry
+	 * @return the address line1 of this production house entry
 	 */
 	@Override
 	public String getAddressLine1() {
@@ -236,9 +235,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the address line2 of this production house register entry.
+	 * Returns the address line2 of this production house entry.
 	 *
-	 * @return the address line2 of this production house register entry
+	 * @return the address line2 of this production house entry
 	 */
 	@Override
 	public String getAddressLine2() {
@@ -246,9 +245,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the address line3 of this production house register entry.
+	 * Returns the address line3 of this production house entry.
 	 *
-	 * @return the address line3 of this production house register entry
+	 * @return the address line3 of this production house entry
 	 */
 	@Override
 	public String getAddressLine3() {
@@ -256,9 +255,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the cin of this production house register entry.
+	 * Returns the cin of this production house entry.
 	 *
-	 * @return the cin of this production house register entry
+	 * @return the cin of this production house entry
 	 */
 	@Override
 	public String getCin() {
@@ -266,9 +265,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the contact person email of this production house register entry.
+	 * Returns the contact person email of this production house entry.
 	 *
-	 * @return the contact person email of this production house register entry
+	 * @return the contact person email of this production house entry
 	 */
 	@Override
 	public String getContactPersonEmail() {
@@ -276,9 +275,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the contact person first name of this production house register entry.
+	 * Returns the contact person first name of this production house entry.
 	 *
-	 * @return the contact person first name of this production house register entry
+	 * @return the contact person first name of this production house entry
 	 */
 	@Override
 	public String getContactPersonFirstName() {
@@ -286,9 +285,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the contact person last name name of this production house register entry.
+	 * Returns the contact person last name name of this production house entry.
 	 *
-	 * @return the contact person last name name of this production house register entry
+	 * @return the contact person last name name of this production house entry
 	 */
 	@Override
 	public String getContactPersonLastNameName() {
@@ -296,9 +295,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the contact person mobile of this production house register entry.
+	 * Returns the contact person mobile of this production house entry.
 	 *
-	 * @return the contact person mobile of this production house register entry
+	 * @return the contact person mobile of this production house entry
 	 */
 	@Override
 	public String getContactPersonMobile() {
@@ -306,9 +305,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the country of this production house register entry.
+	 * Returns the country of this production house entry.
 	 *
-	 * @return the country of this production house register entry
+	 * @return the country of this production house entry
 	 */
 	@Override
 	public String getCountry() {
@@ -316,9 +315,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the created by of this production house register entry.
+	 * Returns the created by of this production house entry.
 	 *
-	 * @return the created by of this production house register entry
+	 * @return the created by of this production house entry
 	 */
 	@Override
 	public String getCreatedBy() {
@@ -326,9 +325,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the created date of this production house register entry.
+	 * Returns the created date of this production house entry.
 	 *
-	 * @return the created date of this production house register entry
+	 * @return the created date of this production house entry
 	 */
 	@Override
 	public Date getCreatedDate() {
@@ -336,9 +335,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the ID of this production house register entry.
+	 * Returns the ID of this production house entry.
 	 *
-	 * @return the ID of this production house register entry
+	 * @return the ID of this production house entry
 	 */
 	@Override
 	public long getId() {
@@ -346,9 +345,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the landline of this production house register entry.
+	 * Returns the landline of this production house entry.
 	 *
-	 * @return the landline of this production house register entry
+	 * @return the landline of this production house entry
 	 */
 	@Override
 	public String getLandline() {
@@ -356,9 +355,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the modified by of this production house register entry.
+	 * Returns the modified by of this production house entry.
 	 *
-	 * @return the modified by of this production house register entry
+	 * @return the modified by of this production house entry
 	 */
 	@Override
 	public String getModifiedBy() {
@@ -366,9 +365,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the modified date of this production house register entry.
+	 * Returns the modified date of this production house entry.
 	 *
-	 * @return the modified date of this production house register entry
+	 * @return the modified date of this production house entry
 	 */
 	@Override
 	public Date getModifiedDate() {
@@ -376,9 +375,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the name of this production house register entry.
+	 * Returns the name of this production house entry.
 	 *
-	 * @return the name of this production house register entry
+	 * @return the name of this production house entry
 	 */
 	@Override
 	public String getName() {
@@ -386,9 +385,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the password of this production house register entry.
+	 * Returns the password of this production house entry.
 	 *
-	 * @return the password of this production house register entry
+	 * @return the password of this production house entry
 	 */
 	@Override
 	public String getPassword() {
@@ -396,9 +395,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the pincode of this production house register entry.
+	 * Returns the pincode of this production house entry.
 	 *
-	 * @return the pincode of this production house register entry
+	 * @return the pincode of this production house entry
 	 */
 	@Override
 	public String getPincode() {
@@ -406,9 +405,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the place of this production house register entry.
+	 * Returns the place of this production house entry.
 	 *
-	 * @return the place of this production house register entry
+	 * @return the place of this production house entry
 	 */
 	@Override
 	public String getPlace() {
@@ -416,9 +415,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the primary key of this production house register entry.
+	 * Returns the primary key of this production house entry.
 	 *
-	 * @return the primary key of this production house register entry
+	 * @return the primary key of this production house entry
 	 */
 	@Override
 	public long getPrimaryKey() {
@@ -426,9 +425,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the state of this production house register entry.
+	 * Returns the state of this production house entry.
 	 *
-	 * @return the state of this production house register entry
+	 * @return the state of this production house entry
 	 */
 	@Override
 	public String getState() {
@@ -436,9 +435,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the status of this production house register entry.
+	 * Returns the status of this production house entry.
 	 *
-	 * @return the status of this production house register entry
+	 * @return the status of this production house entry
 	 */
 	@Override
 	public String getStatus() {
@@ -446,9 +445,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the user ID of this production house register entry.
+	 * Returns the user ID of this production house entry.
 	 *
-	 * @return the user ID of this production house register entry
+	 * @return the user ID of this production house entry
 	 */
 	@Override
 	public long getUserId() {
@@ -456,9 +455,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the user name of this production house register entry.
+	 * Returns the user name of this production house entry.
 	 *
-	 * @return the user name of this production house register entry
+	 * @return the user name of this production house entry
 	 */
 	@Override
 	public String getUserName() {
@@ -466,9 +465,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the user uuid of this production house register entry.
+	 * Returns the user uuid of this production house entry.
 	 *
-	 * @return the user uuid of this production house register entry
+	 * @return the user uuid of this production house entry
 	 */
 	@Override
 	public String getUserUuid() {
@@ -476,9 +475,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Returns the website url of this production house register entry.
+	 * Returns the website url of this production house entry.
 	 *
-	 * @return the website url of this production house register entry
+	 * @return the website url of this production house entry
 	 */
 	@Override
 	public String getWebsiteUrl() {
@@ -491,9 +490,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the address line1 of this production house register entry.
+	 * Sets the address line1 of this production house entry.
 	 *
-	 * @param addressLine1 the address line1 of this production house register entry
+	 * @param addressLine1 the address line1 of this production house entry
 	 */
 	@Override
 	public void setAddressLine1(String addressLine1) {
@@ -501,9 +500,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the address line2 of this production house register entry.
+	 * Sets the address line2 of this production house entry.
 	 *
-	 * @param addressLine2 the address line2 of this production house register entry
+	 * @param addressLine2 the address line2 of this production house entry
 	 */
 	@Override
 	public void setAddressLine2(String addressLine2) {
@@ -511,9 +510,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the address line3 of this production house register entry.
+	 * Sets the address line3 of this production house entry.
 	 *
-	 * @param addressLine3 the address line3 of this production house register entry
+	 * @param addressLine3 the address line3 of this production house entry
 	 */
 	@Override
 	public void setAddressLine3(String addressLine3) {
@@ -521,9 +520,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the cin of this production house register entry.
+	 * Sets the cin of this production house entry.
 	 *
-	 * @param cin the cin of this production house register entry
+	 * @param cin the cin of this production house entry
 	 */
 	@Override
 	public void setCin(String cin) {
@@ -531,9 +530,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the contact person email of this production house register entry.
+	 * Sets the contact person email of this production house entry.
 	 *
-	 * @param contactPersonEmail the contact person email of this production house register entry
+	 * @param contactPersonEmail the contact person email of this production house entry
 	 */
 	@Override
 	public void setContactPersonEmail(String contactPersonEmail) {
@@ -541,9 +540,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the contact person first name of this production house register entry.
+	 * Sets the contact person first name of this production house entry.
 	 *
-	 * @param contactPersonFirstName the contact person first name of this production house register entry
+	 * @param contactPersonFirstName the contact person first name of this production house entry
 	 */
 	@Override
 	public void setContactPersonFirstName(String contactPersonFirstName) {
@@ -551,9 +550,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the contact person last name name of this production house register entry.
+	 * Sets the contact person last name name of this production house entry.
 	 *
-	 * @param contactPersonLastNameName the contact person last name name of this production house register entry
+	 * @param contactPersonLastNameName the contact person last name name of this production house entry
 	 */
 	@Override
 	public void setContactPersonLastNameName(String contactPersonLastNameName) {
@@ -561,9 +560,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the contact person mobile of this production house register entry.
+	 * Sets the contact person mobile of this production house entry.
 	 *
-	 * @param contactPersonMobile the contact person mobile of this production house register entry
+	 * @param contactPersonMobile the contact person mobile of this production house entry
 	 */
 	@Override
 	public void setContactPersonMobile(String contactPersonMobile) {
@@ -571,9 +570,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the country of this production house register entry.
+	 * Sets the country of this production house entry.
 	 *
-	 * @param country the country of this production house register entry
+	 * @param country the country of this production house entry
 	 */
 	@Override
 	public void setCountry(String country) {
@@ -581,9 +580,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the created by of this production house register entry.
+	 * Sets the created by of this production house entry.
 	 *
-	 * @param createdBy the created by of this production house register entry
+	 * @param createdBy the created by of this production house entry
 	 */
 	@Override
 	public void setCreatedBy(String createdBy) {
@@ -591,9 +590,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the created date of this production house register entry.
+	 * Sets the created date of this production house entry.
 	 *
-	 * @param createdDate the created date of this production house register entry
+	 * @param createdDate the created date of this production house entry
 	 */
 	@Override
 	public void setCreatedDate(Date createdDate) {
@@ -601,9 +600,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the ID of this production house register entry.
+	 * Sets the ID of this production house entry.
 	 *
-	 * @param id the ID of this production house register entry
+	 * @param id the ID of this production house entry
 	 */
 	@Override
 	public void setId(long id) {
@@ -611,9 +610,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the landline of this production house register entry.
+	 * Sets the landline of this production house entry.
 	 *
-	 * @param landline the landline of this production house register entry
+	 * @param landline the landline of this production house entry
 	 */
 	@Override
 	public void setLandline(String landline) {
@@ -621,9 +620,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the modified by of this production house register entry.
+	 * Sets the modified by of this production house entry.
 	 *
-	 * @param modifiedBy the modified by of this production house register entry
+	 * @param modifiedBy the modified by of this production house entry
 	 */
 	@Override
 	public void setModifiedBy(String modifiedBy) {
@@ -631,9 +630,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the modified date of this production house register entry.
+	 * Sets the modified date of this production house entry.
 	 *
-	 * @param modifiedDate the modified date of this production house register entry
+	 * @param modifiedDate the modified date of this production house entry
 	 */
 	@Override
 	public void setModifiedDate(Date modifiedDate) {
@@ -641,9 +640,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the name of this production house register entry.
+	 * Sets the name of this production house entry.
 	 *
-	 * @param name the name of this production house register entry
+	 * @param name the name of this production house entry
 	 */
 	@Override
 	public void setName(String name) {
@@ -651,9 +650,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the password of this production house register entry.
+	 * Sets the password of this production house entry.
 	 *
-	 * @param password the password of this production house register entry
+	 * @param password the password of this production house entry
 	 */
 	@Override
 	public void setPassword(String password) {
@@ -661,9 +660,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the pincode of this production house register entry.
+	 * Sets the pincode of this production house entry.
 	 *
-	 * @param pincode the pincode of this production house register entry
+	 * @param pincode the pincode of this production house entry
 	 */
 	@Override
 	public void setPincode(String pincode) {
@@ -671,9 +670,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the place of this production house register entry.
+	 * Sets the place of this production house entry.
 	 *
-	 * @param place the place of this production house register entry
+	 * @param place the place of this production house entry
 	 */
 	@Override
 	public void setPlace(String place) {
@@ -681,9 +680,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the primary key of this production house register entry.
+	 * Sets the primary key of this production house entry.
 	 *
-	 * @param primaryKey the primary key of this production house register entry
+	 * @param primaryKey the primary key of this production house entry
 	 */
 	@Override
 	public void setPrimaryKey(long primaryKey) {
@@ -691,9 +690,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the state of this production house register entry.
+	 * Sets the state of this production house entry.
 	 *
-	 * @param state the state of this production house register entry
+	 * @param state the state of this production house entry
 	 */
 	@Override
 	public void setState(String state) {
@@ -701,9 +700,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the status of this production house register entry.
+	 * Sets the status of this production house entry.
 	 *
-	 * @param status the status of this production house register entry
+	 * @param status the status of this production house entry
 	 */
 	@Override
 	public void setStatus(String status) {
@@ -711,9 +710,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the user ID of this production house register entry.
+	 * Sets the user ID of this production house entry.
 	 *
-	 * @param userId the user ID of this production house register entry
+	 * @param userId the user ID of this production house entry
 	 */
 	@Override
 	public void setUserId(long userId) {
@@ -721,9 +720,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the user name of this production house register entry.
+	 * Sets the user name of this production house entry.
 	 *
-	 * @param userName the user name of this production house register entry
+	 * @param userName the user name of this production house entry
 	 */
 	@Override
 	public void setUserName(String userName) {
@@ -731,9 +730,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the user uuid of this production house register entry.
+	 * Sets the user uuid of this production house entry.
 	 *
-	 * @param userUuid the user uuid of this production house register entry
+	 * @param userUuid the user uuid of this production house entry
 	 */
 	@Override
 	public void setUserUuid(String userUuid) {
@@ -741,9 +740,9 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
-	 * Sets the website url of this production house register entry.
+	 * Sets the website url of this production house entry.
 	 *
-	 * @param websiteUrl the website url of this production house register entry
+	 * @param websiteUrl the website url of this production house entry
 	 */
 	@Override
 	public void setWebsiteUrl(String websiteUrl) {
@@ -751,11 +750,10 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	@Override
-	protected ProductionHouseRegisterEntryWrapper wrap(
-		ProductionHouseRegisterEntry productionHouseRegisterEntry) {
+	protected ProductionHouseEntryWrapper wrap(
+		ProductionHouseEntry productionHouseEntry) {
 
-		return new ProductionHouseRegisterEntryWrapper(
-			productionHouseRegisterEntry);
+		return new ProductionHouseEntryWrapper(productionHouseEntry);
 	}
 
 }
