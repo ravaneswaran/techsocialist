@@ -28,13 +28,17 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 
 import com.techsocialist.servicebuilder.model.ProductionHouseEntry;
+import com.techsocialist.servicebuilder.model.ProductionHouseEntryBannerBlobModel;
+import com.techsocialist.servicebuilder.model.ProductionHouseEntryLogoBlobModel;
 import com.techsocialist.servicebuilder.model.ProductionHouseEntryModel;
+import com.techsocialist.servicebuilder.service.ProductionHouseEntryLocalServiceUtil;
 
 import java.io.Serializable;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
 
+import java.sql.Blob;
 import java.sql.Types;
 
 import java.util.Collections;
@@ -69,13 +73,13 @@ public class ProductionHouseEntryModelImpl
 
 	public static final Object[][] TABLE_COLUMNS = {
 		{"id_", Types.BIGINT}, {"userId", Types.BIGINT},
-		{"name", Types.VARCHAR}, {"cin", Types.VARCHAR},
-		{"landline", Types.VARCHAR}, {"websiteUrl", Types.VARCHAR},
-		{"addressLine1", Types.VARCHAR}, {"addressLine2", Types.VARCHAR},
-		{"addressLine3", Types.VARCHAR}, {"place", Types.VARCHAR},
-		{"state_", Types.VARCHAR}, {"country", Types.VARCHAR},
-		{"pincode", Types.VARCHAR}, {"status", Types.VARCHAR},
-		{"contactPersonFirstName", Types.VARCHAR},
+		{"name", Types.VARCHAR}, {"cin", Types.VARCHAR}, {"logo", Types.BLOB},
+		{"banner", Types.BLOB}, {"landline", Types.VARCHAR},
+		{"websiteUrl", Types.VARCHAR}, {"addressLine1", Types.VARCHAR},
+		{"addressLine2", Types.VARCHAR}, {"addressLine3", Types.VARCHAR},
+		{"place", Types.VARCHAR}, {"state_", Types.VARCHAR},
+		{"country", Types.VARCHAR}, {"pincode", Types.VARCHAR},
+		{"status", Types.VARCHAR}, {"contactPersonFirstName", Types.VARCHAR},
 		{"contactPersonLastNameName", Types.VARCHAR},
 		{"contactPersonMobile", Types.VARCHAR},
 		{"contactPersonEmail", Types.VARCHAR}, {"userName", Types.VARCHAR},
@@ -92,6 +96,8 @@ public class ProductionHouseEntryModelImpl
 		TABLE_COLUMNS_MAP.put("userId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("name", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("cin", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("logo", Types.BLOB);
+		TABLE_COLUMNS_MAP.put("banner", Types.BLOB);
 		TABLE_COLUMNS_MAP.put("landline", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("websiteUrl", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("addressLine1", Types.VARCHAR);
@@ -115,7 +121,7 @@ public class ProductionHouseEntryModelImpl
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table production_house_register (id_ LONG not null primary key,userId LONG,name VARCHAR(75) null,cin VARCHAR(75) null,landline VARCHAR(75) null,websiteUrl VARCHAR(75) null,addressLine1 VARCHAR(75) null,addressLine2 VARCHAR(75) null,addressLine3 VARCHAR(75) null,place VARCHAR(75) null,state_ VARCHAR(75) null,country VARCHAR(75) null,pincode VARCHAR(75) null,status VARCHAR(75) null,contactPersonFirstName VARCHAR(75) null,contactPersonLastNameName VARCHAR(75) null,contactPersonMobile VARCHAR(75) null,contactPersonEmail VARCHAR(75) null,userName VARCHAR(75) null,password_ VARCHAR(75) null,createdBy VARCHAR(75) null,modifiedBy VARCHAR(75) null,createdDate DATE null,modifiedDate DATE null)";
+		"create table production_house_register (id_ LONG not null primary key,userId LONG,name VARCHAR(75) null,cin VARCHAR(75) null,logo BLOB,banner BLOB,landline VARCHAR(75) null,websiteUrl VARCHAR(75) null,addressLine1 VARCHAR(75) null,addressLine2 VARCHAR(75) null,addressLine3 VARCHAR(75) null,place VARCHAR(75) null,state_ VARCHAR(75) null,country VARCHAR(75) null,pincode VARCHAR(75) null,status VARCHAR(75) null,contactPersonFirstName VARCHAR(75) null,contactPersonLastNameName VARCHAR(75) null,contactPersonMobile VARCHAR(75) null,contactPersonEmail VARCHAR(75) null,userName VARCHAR(75) null,password_ VARCHAR(75) null,createdBy VARCHAR(75) null,modifiedBy VARCHAR(75) null,createdDate DATE null,modifiedDate DATE null)";
 
 	public static final String TABLE_SQL_DROP =
 		"drop table production_house_register";
@@ -291,6 +297,16 @@ public class ProductionHouseEntryModelImpl
 			"cin",
 			(BiConsumer<ProductionHouseEntry, String>)
 				ProductionHouseEntry::setCin);
+		attributeGetterFunctions.put("logo", ProductionHouseEntry::getLogo);
+		attributeSetterBiConsumers.put(
+			"logo",
+			(BiConsumer<ProductionHouseEntry, Blob>)
+				ProductionHouseEntry::setLogo);
+		attributeGetterFunctions.put("banner", ProductionHouseEntry::getBanner);
+		attributeSetterBiConsumers.put(
+			"banner",
+			(BiConsumer<ProductionHouseEntry, Blob>)
+				ProductionHouseEntry::setBanner);
 		attributeGetterFunctions.put(
 			"landline", ProductionHouseEntry::getLandline);
 		attributeSetterBiConsumers.put(
@@ -482,6 +498,70 @@ public class ProductionHouseEntryModelImpl
 	@Override
 	public void setCin(String cin) {
 		_cin = cin;
+	}
+
+	@Override
+	public Blob getLogo() {
+		if (_logoBlobModel == null) {
+			try {
+				_logoBlobModel =
+					ProductionHouseEntryLocalServiceUtil.getLogoBlobModel(
+						getPrimaryKey());
+			}
+			catch (Exception exception) {
+			}
+		}
+
+		Blob blob = null;
+
+		if (_logoBlobModel != null) {
+			blob = _logoBlobModel.getLogoBlob();
+		}
+
+		return blob;
+	}
+
+	@Override
+	public void setLogo(Blob logo) {
+		if (_logoBlobModel == null) {
+			_logoBlobModel = new ProductionHouseEntryLogoBlobModel(
+				getPrimaryKey(), logo);
+		}
+		else {
+			_logoBlobModel.setLogoBlob(logo);
+		}
+	}
+
+	@Override
+	public Blob getBanner() {
+		if (_bannerBlobModel == null) {
+			try {
+				_bannerBlobModel =
+					ProductionHouseEntryLocalServiceUtil.getBannerBlobModel(
+						getPrimaryKey());
+			}
+			catch (Exception exception) {
+			}
+		}
+
+		Blob blob = null;
+
+		if (_bannerBlobModel != null) {
+			blob = _bannerBlobModel.getBannerBlob();
+		}
+
+		return blob;
+	}
+
+	@Override
+	public void setBanner(Blob banner) {
+		if (_bannerBlobModel == null) {
+			_bannerBlobModel = new ProductionHouseEntryBannerBlobModel(
+				getPrimaryKey(), banner);
+		}
+		else {
+			_bannerBlobModel.setBannerBlob(banner);
+		}
 	}
 
 	@Override
@@ -894,6 +974,11 @@ public class ProductionHouseEntryModelImpl
 
 	@Override
 	public void resetOriginalValues() {
+		ProductionHouseEntryModelImpl productionHouseEntryModelImpl = this;
+
+		productionHouseEntryModelImpl._logoBlobModel = null;
+
+		productionHouseEntryModelImpl._bannerBlobModel = null;
 	}
 
 	@Override
@@ -1105,32 +1190,56 @@ public class ProductionHouseEntryModelImpl
 
 	@Override
 	public String toString() {
-		Map<String, Function<ProductionHouseEntry, Object>>
-			attributeGetterFunctions = getAttributeGetterFunctions();
+		StringBundler sb = new StringBundler(53);
 
-		StringBundler sb = new StringBundler(
-			4 * attributeGetterFunctions.size() + 2);
-
-		sb.append("{");
-
-		for (Map.Entry<String, Function<ProductionHouseEntry, Object>> entry :
-				attributeGetterFunctions.entrySet()) {
-
-			String attributeName = entry.getKey();
-			Function<ProductionHouseEntry, Object> attributeGetterFunction =
-				entry.getValue();
-
-			sb.append(attributeName);
-			sb.append("=");
-			sb.append(
-				attributeGetterFunction.apply((ProductionHouseEntry)this));
-			sb.append(", ");
-		}
-
-		if (sb.index() > 1) {
-			sb.setIndex(sb.index() - 1);
-		}
-
+		sb.append("{id=");
+		sb.append(getId());
+		sb.append(", userId=");
+		sb.append(getUserId());
+		sb.append(", name=");
+		sb.append(getName());
+		sb.append(", cin=");
+		sb.append(getCin());
+		sb.append(", landline=");
+		sb.append(getLandline());
+		sb.append(", websiteUrl=");
+		sb.append(getWebsiteUrl());
+		sb.append(", addressLine1=");
+		sb.append(getAddressLine1());
+		sb.append(", addressLine2=");
+		sb.append(getAddressLine2());
+		sb.append(", addressLine3=");
+		sb.append(getAddressLine3());
+		sb.append(", place=");
+		sb.append(getPlace());
+		sb.append(", state=");
+		sb.append(getState());
+		sb.append(", country=");
+		sb.append(getCountry());
+		sb.append(", pincode=");
+		sb.append(getPincode());
+		sb.append(", status=");
+		sb.append(getStatus());
+		sb.append(", contactPersonFirstName=");
+		sb.append(getContactPersonFirstName());
+		sb.append(", contactPersonLastNameName=");
+		sb.append(getContactPersonLastNameName());
+		sb.append(", contactPersonMobile=");
+		sb.append(getContactPersonMobile());
+		sb.append(", contactPersonEmail=");
+		sb.append(getContactPersonEmail());
+		sb.append(", userName=");
+		sb.append(getUserName());
+		sb.append(", password=");
+		sb.append(getPassword());
+		sb.append(", createdBy=");
+		sb.append(getCreatedBy());
+		sb.append(", modifiedBy=");
+		sb.append(getModifiedBy());
+		sb.append(", createdDate=");
+		sb.append(getCreatedDate());
+		sb.append(", modifiedDate=");
+		sb.append(getModifiedDate());
 		sb.append("}");
 
 		return sb.toString();
@@ -1138,30 +1247,109 @@ public class ProductionHouseEntryModelImpl
 
 	@Override
 	public String toXmlString() {
-		Map<String, Function<ProductionHouseEntry, Object>>
-			attributeGetterFunctions = getAttributeGetterFunctions();
-
-		StringBundler sb = new StringBundler(
-			5 * attributeGetterFunctions.size() + 4);
+		StringBundler sb = new StringBundler(82);
 
 		sb.append("<model><model-name>");
-		sb.append(getModelClassName());
+		sb.append(
+			"com.techsocialist.servicebuilder.model.ProductionHouseEntry");
 		sb.append("</model-name>");
 
-		for (Map.Entry<String, Function<ProductionHouseEntry, Object>> entry :
-				attributeGetterFunctions.entrySet()) {
-
-			String attributeName = entry.getKey();
-			Function<ProductionHouseEntry, Object> attributeGetterFunction =
-				entry.getValue();
-
-			sb.append("<column><column-name>");
-			sb.append(attributeName);
-			sb.append("</column-name><column-value><![CDATA[");
-			sb.append(
-				attributeGetterFunction.apply((ProductionHouseEntry)this));
-			sb.append("]]></column-value></column>");
-		}
+		sb.append(
+			"<column><column-name>id</column-name><column-value><![CDATA[");
+		sb.append(getId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>userId</column-name><column-value><![CDATA[");
+		sb.append(getUserId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>name</column-name><column-value><![CDATA[");
+		sb.append(getName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>cin</column-name><column-value><![CDATA[");
+		sb.append(getCin());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>landline</column-name><column-value><![CDATA[");
+		sb.append(getLandline());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>websiteUrl</column-name><column-value><![CDATA[");
+		sb.append(getWebsiteUrl());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>addressLine1</column-name><column-value><![CDATA[");
+		sb.append(getAddressLine1());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>addressLine2</column-name><column-value><![CDATA[");
+		sb.append(getAddressLine2());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>addressLine3</column-name><column-value><![CDATA[");
+		sb.append(getAddressLine3());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>place</column-name><column-value><![CDATA[");
+		sb.append(getPlace());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>state</column-name><column-value><![CDATA[");
+		sb.append(getState());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>country</column-name><column-value><![CDATA[");
+		sb.append(getCountry());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>pincode</column-name><column-value><![CDATA[");
+		sb.append(getPincode());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>status</column-name><column-value><![CDATA[");
+		sb.append(getStatus());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>contactPersonFirstName</column-name><column-value><![CDATA[");
+		sb.append(getContactPersonFirstName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>contactPersonLastNameName</column-name><column-value><![CDATA[");
+		sb.append(getContactPersonLastNameName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>contactPersonMobile</column-name><column-value><![CDATA[");
+		sb.append(getContactPersonMobile());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>contactPersonEmail</column-name><column-value><![CDATA[");
+		sb.append(getContactPersonEmail());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>userName</column-name><column-value><![CDATA[");
+		sb.append(getUserName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>password</column-name><column-value><![CDATA[");
+		sb.append(getPassword());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>createdBy</column-name><column-value><![CDATA[");
+		sb.append(getCreatedBy());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>modifiedBy</column-name><column-value><![CDATA[");
+		sb.append(getModifiedBy());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>createdDate</column-name><column-value><![CDATA[");
+		sb.append(getCreatedDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>modifiedDate</column-name><column-value><![CDATA[");
+		sb.append(getModifiedDate());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -1182,6 +1370,8 @@ public class ProductionHouseEntryModelImpl
 	private long _userId;
 	private String _name;
 	private String _cin;
+	private ProductionHouseEntryLogoBlobModel _logoBlobModel;
+	private ProductionHouseEntryBannerBlobModel _bannerBlobModel;
 	private String _landline;
 	private String _websiteUrl;
 	private String _addressLine1;

@@ -211,10 +211,25 @@ public class ProductionHouseEntryLocalServiceUtil {
 	}
 
 	public static
+		com.techsocialist.servicebuilder.model.
+			ProductionHouseEntryBannerBlobModel getBannerBlobModel(
+				java.io.Serializable primaryKey) {
+
+		return getService().getBannerBlobModel(primaryKey);
+	}
+
+	public static
 		com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery
 			getIndexableActionableDynamicQuery() {
 
 		return getService().getIndexableActionableDynamicQuery();
+	}
+
+	public static
+		com.techsocialist.servicebuilder.model.ProductionHouseEntryLogoBlobModel
+			getLogoBlobModel(java.io.Serializable primaryKey) {
+
+		return getService().getLogoBlobModel(primaryKey);
 	}
 
 	/**
@@ -275,6 +290,14 @@ public class ProductionHouseEntryLocalServiceUtil {
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getProductionHouseEntry(id);
+	}
+
+	public static java.io.InputStream openBannerInputStream(long id) {
+		return getService().openBannerInputStream(id);
+	}
+
+	public static java.io.InputStream openLogoInputStream(long id) {
+		return getService().openLogoInputStream(id);
 	}
 
 	/**

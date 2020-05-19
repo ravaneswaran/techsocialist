@@ -17,6 +17,8 @@ package com.techsocialist.servicebuilder.model;
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.model.BaseModel;
 
+import java.sql.Blob;
+
 import java.util.Date;
 
 import org.osgi.annotation.versioning.ProviderType;
@@ -127,6 +129,34 @@ public interface ProductionHouseEntryModel
 	 * @param cin the cin of this production house entry
 	 */
 	public void setCin(String cin);
+
+	/**
+	 * Returns the logo of this production house entry.
+	 *
+	 * @return the logo of this production house entry
+	 */
+	public Blob getLogo();
+
+	/**
+	 * Sets the logo of this production house entry.
+	 *
+	 * @param logo the logo of this production house entry
+	 */
+	public void setLogo(Blob logo);
+
+	/**
+	 * Returns the banner of this production house entry.
+	 *
+	 * @return the banner of this production house entry
+	 */
+	public Blob getBanner();
+
+	/**
+	 * Sets the banner of this production house entry.
+	 *
+	 * @param banner the banner of this production house entry
+	 */
+	public void setBanner(Blob banner);
 
 	/**
 	 * Returns the landline of this production house entry.

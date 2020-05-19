@@ -18,7 +18,7 @@ import com.liferay.petra.lang.HashUtil;
 import com.liferay.petra.string.StringBundler;
 import com.liferay.portal.kernel.model.CacheModel;
 
-import com.techsocialist.servicebuilder.model.VideoEntry;
+import com.techsocialist.servicebuilder.model.PosterEntry;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -28,13 +28,13 @@ import java.io.ObjectOutput;
 import java.util.Date;
 
 /**
- * The cache model class for representing VideoEntry in entity cache.
+ * The cache model class for representing PosterEntry in entity cache.
  *
  * @author Brian Wing Shun Chan
  * @generated
  */
-public class VideoEntryCacheModel
-	implements CacheModel<VideoEntry>, Externalizable {
+public class PosterEntryCacheModel
+	implements CacheModel<PosterEntry>, Externalizable {
 
 	@Override
 	public boolean equals(Object obj) {
@@ -42,13 +42,14 @@ public class VideoEntryCacheModel
 			return true;
 		}
 
-		if (!(obj instanceof VideoEntryCacheModel)) {
+		if (!(obj instanceof PosterEntryCacheModel)) {
 			return false;
 		}
 
-		VideoEntryCacheModel videoEntryCacheModel = (VideoEntryCacheModel)obj;
+		PosterEntryCacheModel posterEntryCacheModel =
+			(PosterEntryCacheModel)obj;
 
-		if (id == videoEntryCacheModel.id) {
+		if (id == posterEntryCacheModel.id) {
 			return true;
 		}
 
@@ -66,8 +67,8 @@ public class VideoEntryCacheModel
 
 		sb.append("{id=");
 		sb.append(id);
-		sb.append(", productionHouseEntryId=");
-		sb.append(productionHouseEntryId);
+		sb.append(", videoEntryId=");
+		sb.append(videoEntryId);
 		sb.append(", name=");
 		sb.append(name);
 		sb.append(", type=");
@@ -80,103 +81,103 @@ public class VideoEntryCacheModel
 		sb.append(createdBy);
 		sb.append(", modifiedBy=");
 		sb.append(modifiedBy);
-		sb.append(", createdDate=");
-		sb.append(createdDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+		sb.append(", createdDate=");
+		sb.append(createdDate);
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	@Override
-	public VideoEntry toEntityModel() {
-		VideoEntryImpl videoEntryImpl = new VideoEntryImpl();
+	public PosterEntry toEntityModel() {
+		PosterEntryImpl posterEntryImpl = new PosterEntryImpl();
 
-		videoEntryImpl.setId(id);
-		videoEntryImpl.setProductionHouseEntryId(productionHouseEntryId);
+		posterEntryImpl.setId(id);
+		posterEntryImpl.setVideoEntryId(videoEntryId);
 
 		if (name == null) {
-			videoEntryImpl.setName("");
+			posterEntryImpl.setName("");
 		}
 		else {
-			videoEntryImpl.setName(name);
+			posterEntryImpl.setName(name);
 		}
 
 		if (type == null) {
-			videoEntryImpl.setType("");
+			posterEntryImpl.setType("");
 		}
 		else {
-			videoEntryImpl.setType(type);
+			posterEntryImpl.setType(type);
 		}
 
 		if (status == null) {
-			videoEntryImpl.setStatus("");
+			posterEntryImpl.setStatus("");
 		}
 		else {
-			videoEntryImpl.setStatus(status);
+			posterEntryImpl.setStatus(status);
 		}
 
 		if (publishDateTime == Long.MIN_VALUE) {
-			videoEntryImpl.setPublishDateTime(null);
+			posterEntryImpl.setPublishDateTime(null);
 		}
 		else {
-			videoEntryImpl.setPublishDateTime(new Date(publishDateTime));
+			posterEntryImpl.setPublishDateTime(new Date(publishDateTime));
 		}
 
 		if (createdBy == null) {
-			videoEntryImpl.setCreatedBy("");
+			posterEntryImpl.setCreatedBy("");
 		}
 		else {
-			videoEntryImpl.setCreatedBy(createdBy);
+			posterEntryImpl.setCreatedBy(createdBy);
 		}
 
 		if (modifiedBy == null) {
-			videoEntryImpl.setModifiedBy("");
+			posterEntryImpl.setModifiedBy("");
 		}
 		else {
-			videoEntryImpl.setModifiedBy(modifiedBy);
-		}
-
-		if (createdDate == Long.MIN_VALUE) {
-			videoEntryImpl.setCreatedDate(null);
-		}
-		else {
-			videoEntryImpl.setCreatedDate(new Date(createdDate));
+			posterEntryImpl.setModifiedBy(modifiedBy);
 		}
 
 		if (modifiedDate == Long.MIN_VALUE) {
-			videoEntryImpl.setModifiedDate(null);
+			posterEntryImpl.setModifiedDate(null);
 		}
 		else {
-			videoEntryImpl.setModifiedDate(new Date(modifiedDate));
+			posterEntryImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
-		videoEntryImpl.resetOriginalValues();
+		if (createdDate == Long.MIN_VALUE) {
+			posterEntryImpl.setCreatedDate(null);
+		}
+		else {
+			posterEntryImpl.setCreatedDate(new Date(createdDate));
+		}
 
-		return videoEntryImpl;
+		posterEntryImpl.resetOriginalValues();
+
+		return posterEntryImpl;
 	}
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		id = objectInput.readLong();
 
-		productionHouseEntryId = objectInput.readLong();
+		videoEntryId = objectInput.readLong();
 		name = objectInput.readUTF();
 		type = objectInput.readUTF();
 		status = objectInput.readUTF();
 		publishDateTime = objectInput.readLong();
 		createdBy = objectInput.readUTF();
 		modifiedBy = objectInput.readUTF();
-		createdDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+		createdDate = objectInput.readLong();
 	}
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput) throws IOException {
 		objectOutput.writeLong(id);
 
-		objectOutput.writeLong(productionHouseEntryId);
+		objectOutput.writeLong(videoEntryId);
 
 		if (name == null) {
 			objectOutput.writeUTF("");
@@ -215,19 +216,19 @@ public class VideoEntryCacheModel
 			objectOutput.writeUTF(modifiedBy);
 		}
 
-		objectOutput.writeLong(createdDate);
 		objectOutput.writeLong(modifiedDate);
+		objectOutput.writeLong(createdDate);
 	}
 
 	public long id;
-	public long productionHouseEntryId;
+	public long videoEntryId;
 	public String name;
 	public String type;
 	public String status;
 	public long publishDateTime;
 	public String createdBy;
 	public String modifiedBy;
-	public long createdDate;
 	public long modifiedDate;
+	public long createdDate;
 
 }

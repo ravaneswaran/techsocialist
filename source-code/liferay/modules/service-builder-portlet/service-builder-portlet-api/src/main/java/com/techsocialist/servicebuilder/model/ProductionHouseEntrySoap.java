@@ -16,6 +16,8 @@ package com.techsocialist.servicebuilder.model;
 
 import java.io.Serializable;
 
+import java.sql.Blob;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +39,8 @@ public class ProductionHouseEntrySoap implements Serializable {
 		soapModel.setUserId(model.getUserId());
 		soapModel.setName(model.getName());
 		soapModel.setCin(model.getCin());
+		soapModel.setLogo(model.getLogo());
+		soapModel.setBanner(model.getBanner());
 		soapModel.setLandline(model.getLandline());
 		soapModel.setWebsiteUrl(model.getWebsiteUrl());
 		soapModel.setAddressLine1(model.getAddressLine1());
@@ -150,6 +154,22 @@ public class ProductionHouseEntrySoap implements Serializable {
 
 	public void setCin(String cin) {
 		_cin = cin;
+	}
+
+	public Blob getLogo() {
+		return _logo;
+	}
+
+	public void setLogo(Blob logo) {
+		_logo = logo;
+	}
+
+	public Blob getBanner() {
+		return _banner;
+	}
+
+	public void setBanner(Blob banner) {
+		_banner = banner;
 	}
 
 	public String getLandline() {
@@ -316,6 +336,8 @@ public class ProductionHouseEntrySoap implements Serializable {
 	private long _userId;
 	private String _name;
 	private String _cin;
+	private Blob _logo;
+	private Blob _banner;
 	private String _landline;
 	private String _websiteUrl;
 	private String _addressLine1;

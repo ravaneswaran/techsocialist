@@ -30,9 +30,8 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.OrderByComparator;
 
-import com.techsocialist.servicebuilder.model.ProductionHouseEntry;
-import com.techsocialist.servicebuilder.model.ProductionHouseEntryBannerBlobModel;
-import com.techsocialist.servicebuilder.model.ProductionHouseEntryLogoBlobModel;
+import com.techsocialist.servicebuilder.model.PosterEntry;
+import com.techsocialist.servicebuilder.model.PosterEntryContentBlobModel;
 
 import java.io.InputStream;
 import java.io.Serializable;
@@ -42,13 +41,13 @@ import java.util.List;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * Provides the local service interface for ProductionHouseEntry. Methods of this
+ * Provides the local service interface for PosterEntry. Methods of this
  * service will not have security checks based on the propagated JAAS
  * credentials because this service can only be accessed from within the same
  * VM.
  *
  * @author Brian Wing Shun Chan
- * @see ProductionHouseEntryLocalServiceUtil
+ * @see PosterEntryLocalServiceUtil
  * @generated
  */
 @ProviderType
@@ -56,24 +55,23 @@ import org.osgi.annotation.versioning.ProviderType;
 	isolation = Isolation.PORTAL,
 	rollbackFor = {PortalException.class, SystemException.class}
 )
-public interface ProductionHouseEntryLocalService
+public interface PosterEntryLocalService
 	extends BaseLocalService, PersistedModelLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this interface directly. Always use {@link ProductionHouseEntryLocalServiceUtil} to access the production house entry local service. Add custom service methods to <code>com.techsocialist.servicebuilder.service.impl.ProductionHouseEntryLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify or reference this interface directly. Always use {@link PosterEntryLocalServiceUtil} to access the poster entry local service. Add custom service methods to <code>com.techsocialist.servicebuilder.service.impl.PosterEntryLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
 
 	/**
-	 * Adds the production house entry to the database. Also notifies the appropriate model listeners.
+	 * Adds the poster entry to the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param productionHouseEntry the production house entry
-	 * @return the production house entry that was added
+	 * @param posterEntry the poster entry
+	 * @return the poster entry that was added
 	 */
 	@Indexable(type = IndexableType.REINDEX)
-	public ProductionHouseEntry addProductionHouseEntry(
-		ProductionHouseEntry productionHouseEntry);
+	public PosterEntry addPosterEntry(PosterEntry posterEntry);
 
 	/**
 	 * @throws PortalException
@@ -82,13 +80,13 @@ public interface ProductionHouseEntryLocalService
 		throws PortalException;
 
 	/**
-	 * Creates a new production house entry with the primary key. Does not add the production house entry to the database.
+	 * Creates a new poster entry with the primary key. Does not add the poster entry to the database.
 	 *
-	 * @param id the primary key for the new production house entry
-	 * @return the new production house entry
+	 * @param id the primary key for the new poster entry
+	 * @return the new poster entry
 	 */
 	@Transactional(enabled = false)
-	public ProductionHouseEntry createProductionHouseEntry(long id);
+	public PosterEntry createPosterEntry(long id);
 
 	/**
 	 * @throws PortalException
@@ -98,25 +96,23 @@ public interface ProductionHouseEntryLocalService
 		throws PortalException;
 
 	/**
-	 * Deletes the production house entry with the primary key from the database. Also notifies the appropriate model listeners.
+	 * Deletes the poster entry with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param id the primary key of the production house entry
-	 * @return the production house entry that was removed
-	 * @throws PortalException if a production house entry with the primary key could not be found
+	 * @param id the primary key of the poster entry
+	 * @return the poster entry that was removed
+	 * @throws PortalException if a poster entry with the primary key could not be found
 	 */
 	@Indexable(type = IndexableType.DELETE)
-	public ProductionHouseEntry deleteProductionHouseEntry(long id)
-		throws PortalException;
+	public PosterEntry deletePosterEntry(long id) throws PortalException;
 
 	/**
-	 * Deletes the production house entry from the database. Also notifies the appropriate model listeners.
+	 * Deletes the poster entry from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param productionHouseEntry the production house entry
-	 * @return the production house entry that was removed
+	 * @param posterEntry the poster entry
+	 * @return the poster entry that was removed
 	 */
 	@Indexable(type = IndexableType.DELETE)
-	public ProductionHouseEntry deleteProductionHouseEntry(
-		ProductionHouseEntry productionHouseEntry);
+	public PosterEntry deletePosterEntry(PosterEntry posterEntry);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public DynamicQuery dynamicQuery();
@@ -134,7 +130,7 @@ public interface ProductionHouseEntryLocalService
 	 * Performs a dynamic query on the database and returns a range of the matching rows.
 	 *
 	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.techsocialist.servicebuilder.model.impl.ProductionHouseEntryModelImpl</code>.
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.techsocialist.servicebuilder.model.impl.PosterEntryModelImpl</code>.
 	 * </p>
 	 *
 	 * @param dynamicQuery the dynamic query
@@ -150,7 +146,7 @@ public interface ProductionHouseEntryLocalService
 	 * Performs a dynamic query on the database and returns an ordered range of the matching rows.
 	 *
 	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.techsocialist.servicebuilder.model.impl.ProductionHouseEntryModelImpl</code>.
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.techsocialist.servicebuilder.model.impl.PosterEntryModelImpl</code>.
 	 * </p>
 	 *
 	 * @param dynamicQuery the dynamic query
@@ -185,21 +181,17 @@ public interface ProductionHouseEntryLocalService
 		DynamicQuery dynamicQuery, Projection projection);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ProductionHouseEntry fetchProductionHouseEntry(long id);
+	public PosterEntry fetchPosterEntry(long id);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ProductionHouseEntryBannerBlobModel getBannerBlobModel(
+	public PosterEntryContentBlobModel getContentBlobModel(
 		Serializable primaryKey);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public IndexableActionableDynamicQuery getIndexableActionableDynamicQuery();
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ProductionHouseEntryLogoBlobModel getLogoBlobModel(
-		Serializable primaryKey);
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -217,53 +209,47 @@ public interface ProductionHouseEntryLocalService
 		throws PortalException;
 
 	/**
-	 * Returns a range of all the production house entries.
+	 * Returns a range of all the poster entries.
 	 *
 	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.techsocialist.servicebuilder.model.impl.ProductionHouseEntryModelImpl</code>.
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.techsocialist.servicebuilder.model.impl.PosterEntryModelImpl</code>.
 	 * </p>
 	 *
-	 * @param start the lower bound of the range of production house entries
-	 * @param end the upper bound of the range of production house entries (not inclusive)
-	 * @return the range of production house entries
+	 * @param start the lower bound of the range of poster entries
+	 * @param end the upper bound of the range of poster entries (not inclusive)
+	 * @return the range of poster entries
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<ProductionHouseEntry> getProductionHouseEntries(
-		int start, int end);
+	public List<PosterEntry> getPosterEntries(int start, int end);
 
 	/**
-	 * Returns the number of production house entries.
+	 * Returns the number of poster entries.
 	 *
-	 * @return the number of production house entries
+	 * @return the number of poster entries
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getProductionHouseEntriesCount();
+	public int getPosterEntriesCount();
 
 	/**
-	 * Returns the production house entry with the primary key.
+	 * Returns the poster entry with the primary key.
 	 *
-	 * @param id the primary key of the production house entry
-	 * @return the production house entry
-	 * @throws PortalException if a production house entry with the primary key could not be found
+	 * @param id the primary key of the poster entry
+	 * @return the poster entry
+	 * @throws PortalException if a poster entry with the primary key could not be found
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ProductionHouseEntry getProductionHouseEntry(long id)
-		throws PortalException;
+	public PosterEntry getPosterEntry(long id) throws PortalException;
 
 	@Transactional(readOnly = true)
-	public InputStream openBannerInputStream(long id);
-
-	@Transactional(readOnly = true)
-	public InputStream openLogoInputStream(long id);
+	public InputStream openContentInputStream(long id);
 
 	/**
-	 * Updates the production house entry in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	 * Updates the poster entry in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	 *
-	 * @param productionHouseEntry the production house entry
-	 * @return the production house entry that was updated
+	 * @param posterEntry the poster entry
+	 * @return the poster entry that was updated
 	 */
 	@Indexable(type = IndexableType.REINDEX)
-	public ProductionHouseEntry updateProductionHouseEntry(
-		ProductionHouseEntry productionHouseEntry);
+	public PosterEntry updatePosterEntry(PosterEntry posterEntry);
 
 }

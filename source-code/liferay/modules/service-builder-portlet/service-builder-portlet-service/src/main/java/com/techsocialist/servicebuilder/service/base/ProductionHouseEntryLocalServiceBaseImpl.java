@@ -14,9 +14,11 @@
 
 package com.techsocialist.servicebuilder.service.base;
 
+import com.liferay.petra.io.AutoDeleteFileInputStream;
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
+import com.liferay.portal.kernel.dao.db.DBType;
 import com.liferay.portal.kernel.dao.jdbc.SqlUpdate;
 import com.liferay.portal.kernel.dao.jdbc.SqlUpdateFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
@@ -25,8 +27,10 @@ import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Projection;
+import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.module.framework.service.IdentifiableOSGiService;
 import com.liferay.portal.kernel.search.Indexable;
@@ -34,20 +38,28 @@ import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalServiceImpl;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
 import com.liferay.portal.kernel.transaction.Transactional;
+import com.liferay.portal.kernel.util.File;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
 
 import com.techsocialist.servicebuilder.model.ProductionHouseEntry;
+import com.techsocialist.servicebuilder.model.ProductionHouseEntryBannerBlobModel;
+import com.techsocialist.servicebuilder.model.ProductionHouseEntryLogoBlobModel;
 import com.techsocialist.servicebuilder.service.ProductionHouseEntryLocalService;
+import com.techsocialist.servicebuilder.service.persistence.PosterEntryPersistence;
 import com.techsocialist.servicebuilder.service.persistence.ProductionHouseEntryPersistence;
 import com.techsocialist.servicebuilder.service.persistence.VideoEntryPersistence;
 
+import java.io.InputStream;
 import java.io.Serializable;
+
+import java.sql.Blob;
 
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Reference;
 
 /**
@@ -355,6 +367,113 @@ public abstract class ProductionHouseEntryLocalServiceBaseImpl
 	}
 
 	@Override
+	public ProductionHouseEntryLogoBlobModel getLogoBlobModel(
+		Serializable primaryKey) {
+
+		Session session = null;
+
+		try {
+			session = productionHouseEntryPersistence.openSession();
+
+			return (ProductionHouseEntryLogoBlobModel)session.get(
+				ProductionHouseEntryLogoBlobModel.class, primaryKey);
+		}
+		catch (Exception exception) {
+			throw productionHouseEntryPersistence.processException(exception);
+		}
+		finally {
+			productionHouseEntryPersistence.closeSession(session);
+		}
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public InputStream openLogoInputStream(long id) {
+		try {
+			ProductionHouseEntryLogoBlobModel
+				ProductionHouseEntryLogoBlobModel = getLogoBlobModel(id);
+
+			Blob blob = ProductionHouseEntryLogoBlobModel.getLogoBlob();
+
+			if (blob == null) {
+				return _EMPTY_INPUT_STREAM;
+			}
+
+			InputStream inputStream = blob.getBinaryStream();
+
+			if (_useTempFile) {
+				inputStream = new AutoDeleteFileInputStream(
+					_file.createTempFile(inputStream));
+			}
+
+			return inputStream;
+		}
+		catch (Exception exception) {
+			throw new SystemException(exception);
+		}
+	}
+
+	@Override
+	public ProductionHouseEntryBannerBlobModel getBannerBlobModel(
+		Serializable primaryKey) {
+
+		Session session = null;
+
+		try {
+			session = productionHouseEntryPersistence.openSession();
+
+			return (ProductionHouseEntryBannerBlobModel)session.get(
+				ProductionHouseEntryBannerBlobModel.class, primaryKey);
+		}
+		catch (Exception exception) {
+			throw productionHouseEntryPersistence.processException(exception);
+		}
+		finally {
+			productionHouseEntryPersistence.closeSession(session);
+		}
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public InputStream openBannerInputStream(long id) {
+		try {
+			ProductionHouseEntryBannerBlobModel
+				ProductionHouseEntryBannerBlobModel = getBannerBlobModel(id);
+
+			Blob blob = ProductionHouseEntryBannerBlobModel.getBannerBlob();
+
+			if (blob == null) {
+				return _EMPTY_INPUT_STREAM;
+			}
+
+			InputStream inputStream = blob.getBinaryStream();
+
+			if (_useTempFile) {
+				inputStream = new AutoDeleteFileInputStream(
+					_file.createTempFile(inputStream));
+			}
+
+			return inputStream;
+		}
+		catch (Exception exception) {
+			throw new SystemException(exception);
+		}
+	}
+
+	@Activate
+	protected void activate() {
+		DB db = DBManagerUtil.getDB();
+
+		if ((db.getDBType() != DBType.DB2) &&
+			(db.getDBType() != DBType.MYSQL) &&
+			(db.getDBType() != DBType.MARIADB) &&
+			(db.getDBType() != DBType.SYBASE)) {
+
+			_useTempFile = true;
+		}
+	}
+
+	@Override
 	public Class<?>[] getAopInterfaces() {
 		return new Class<?>[] {
 			ProductionHouseEntryLocalService.class,
@@ -411,6 +530,9 @@ public abstract class ProductionHouseEntryLocalServiceBaseImpl
 		}
 	}
 
+	@Reference
+	protected PosterEntryPersistence posterEntryPersistence;
+
 	protected ProductionHouseEntryLocalService productionHouseEntryLocalService;
 
 	@Reference
@@ -434,5 +556,13 @@ public abstract class ProductionHouseEntryLocalServiceBaseImpl
 	@Reference
 	protected com.liferay.portal.kernel.service.UserLocalService
 		userLocalService;
+
+	@Reference
+	protected File _file;
+
+	private static final InputStream _EMPTY_INPUT_STREAM =
+		new UnsyncByteArrayInputStream(new byte[0]);
+
+	private boolean _useTempFile;
 
 }

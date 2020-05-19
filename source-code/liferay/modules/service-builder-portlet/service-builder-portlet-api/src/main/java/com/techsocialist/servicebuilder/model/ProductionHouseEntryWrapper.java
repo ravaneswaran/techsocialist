@@ -17,6 +17,8 @@ package com.techsocialist.servicebuilder.model;
 import com.liferay.portal.kernel.model.ModelWrapper;
 import com.liferay.portal.kernel.model.wrapper.BaseModelWrapper;
 
+import java.sql.Blob;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,6 +50,8 @@ public class ProductionHouseEntryWrapper
 		attributes.put("userId", getUserId());
 		attributes.put("name", getName());
 		attributes.put("cin", getCin());
+		attributes.put("logo", getLogo());
+		attributes.put("banner", getBanner());
 		attributes.put("landline", getLandline());
 		attributes.put("websiteUrl", getWebsiteUrl());
 		attributes.put("addressLine1", getAddressLine1());
@@ -97,6 +101,18 @@ public class ProductionHouseEntryWrapper
 
 		if (cin != null) {
 			setCin(cin);
+		}
+
+		Blob logo = (Blob)attributes.get("logo");
+
+		if (logo != null) {
+			setLogo(logo);
+		}
+
+		Blob banner = (Blob)attributes.get("banner");
+
+		if (banner != null) {
+			setBanner(banner);
 		}
 
 		String landline = (String)attributes.get("landline");
@@ -255,6 +271,16 @@ public class ProductionHouseEntryWrapper
 	}
 
 	/**
+	 * Returns the banner of this production house entry.
+	 *
+	 * @return the banner of this production house entry
+	 */
+	@Override
+	public Blob getBanner() {
+		return model.getBanner();
+	}
+
+	/**
 	 * Returns the cin of this production house entry.
 	 *
 	 * @return the cin of this production house entry
@@ -352,6 +378,16 @@ public class ProductionHouseEntryWrapper
 	@Override
 	public String getLandline() {
 		return model.getLandline();
+	}
+
+	/**
+	 * Returns the logo of this production house entry.
+	 *
+	 * @return the logo of this production house entry
+	 */
+	@Override
+	public Blob getLogo() {
+		return model.getLogo();
 	}
 
 	/**
@@ -520,6 +556,16 @@ public class ProductionHouseEntryWrapper
 	}
 
 	/**
+	 * Sets the banner of this production house entry.
+	 *
+	 * @param banner the banner of this production house entry
+	 */
+	@Override
+	public void setBanner(Blob banner) {
+		model.setBanner(banner);
+	}
+
+	/**
 	 * Sets the cin of this production house entry.
 	 *
 	 * @param cin the cin of this production house entry
@@ -617,6 +663,16 @@ public class ProductionHouseEntryWrapper
 	@Override
 	public void setLandline(String landline) {
 		model.setLandline(landline);
+	}
+
+	/**
+	 * Sets the logo of this production house entry.
+	 *
+	 * @param logo the logo of this production house entry
+	 */
+	@Override
+	public void setLogo(Blob logo) {
+		model.setLogo(logo);
 	}
 
 	/**

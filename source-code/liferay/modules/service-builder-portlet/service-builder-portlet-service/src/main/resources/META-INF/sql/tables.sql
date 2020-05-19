@@ -1,8 +1,24 @@
+create table poster_register (
+	id_ LONG not null primary key,
+	videoEntryId LONG,
+	name VARCHAR(75) null,
+	content BLOB,
+	type_ VARCHAR(75) null,
+	status VARCHAR(75) null,
+	publishDateTime DATE null,
+	createdBy VARCHAR(75) null,
+	modifiedBy VARCHAR(75) null,
+	modifiedDate DATE null,
+	createdDate DATE null
+);
+
 create table production_house_register (
 	id_ LONG not null primary key,
 	userId LONG,
 	name VARCHAR(75) null,
 	cin VARCHAR(75) null,
+	logo BLOB,
+	banner BLOB,
 	landline VARCHAR(75) null,
 	websiteUrl VARCHAR(75) null,
 	addressLine1 VARCHAR(75) null,
@@ -28,9 +44,11 @@ create table production_house_register (
 create table video_register (
 	id_ LONG not null primary key,
 	productionHouseEntryId LONG,
+	name VARCHAR(75) null,
 	content BLOB,
 	type_ VARCHAR(75) null,
 	status VARCHAR(75) null,
+	publishDateTime DATE null,
 	createdBy VARCHAR(75) null,
 	modifiedBy VARCHAR(75) null,
 	createdDate DATE null,

@@ -28,13 +28,13 @@ import java.util.List;
  * @author Brian Wing Shun Chan
  * @generated
  */
-public class VideoEntrySoap implements Serializable {
+public class PosterEntrySoap implements Serializable {
 
-	public static VideoEntrySoap toSoapModel(VideoEntry model) {
-		VideoEntrySoap soapModel = new VideoEntrySoap();
+	public static PosterEntrySoap toSoapModel(PosterEntry model) {
+		PosterEntrySoap soapModel = new PosterEntrySoap();
 
 		soapModel.setId(model.getId());
-		soapModel.setProductionHouseEntryId(model.getProductionHouseEntryId());
+		soapModel.setVideoEntryId(model.getVideoEntryId());
 		soapModel.setName(model.getName());
 		soapModel.setContent(model.getContent());
 		soapModel.setType(model.getType());
@@ -42,14 +42,14 @@ public class VideoEntrySoap implements Serializable {
 		soapModel.setPublishDateTime(model.getPublishDateTime());
 		soapModel.setCreatedBy(model.getCreatedBy());
 		soapModel.setModifiedBy(model.getModifiedBy());
-		soapModel.setCreatedDate(model.getCreatedDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
+		soapModel.setCreatedDate(model.getCreatedDate());
 
 		return soapModel;
 	}
 
-	public static VideoEntrySoap[] toSoapModels(VideoEntry[] models) {
-		VideoEntrySoap[] soapModels = new VideoEntrySoap[models.length];
+	public static PosterEntrySoap[] toSoapModels(PosterEntry[] models) {
+		PosterEntrySoap[] soapModels = new PosterEntrySoap[models.length];
 
 		for (int i = 0; i < models.length; i++) {
 			soapModels[i] = toSoapModel(models[i]);
@@ -58,14 +58,14 @@ public class VideoEntrySoap implements Serializable {
 		return soapModels;
 	}
 
-	public static VideoEntrySoap[][] toSoapModels(VideoEntry[][] models) {
-		VideoEntrySoap[][] soapModels = null;
+	public static PosterEntrySoap[][] toSoapModels(PosterEntry[][] models) {
+		PosterEntrySoap[][] soapModels = null;
 
 		if (models.length > 0) {
-			soapModels = new VideoEntrySoap[models.length][models[0].length];
+			soapModels = new PosterEntrySoap[models.length][models[0].length];
 		}
 		else {
-			soapModels = new VideoEntrySoap[0][0];
+			soapModels = new PosterEntrySoap[0][0];
 		}
 
 		for (int i = 0; i < models.length; i++) {
@@ -75,18 +75,18 @@ public class VideoEntrySoap implements Serializable {
 		return soapModels;
 	}
 
-	public static VideoEntrySoap[] toSoapModels(List<VideoEntry> models) {
-		List<VideoEntrySoap> soapModels = new ArrayList<VideoEntrySoap>(
+	public static PosterEntrySoap[] toSoapModels(List<PosterEntry> models) {
+		List<PosterEntrySoap> soapModels = new ArrayList<PosterEntrySoap>(
 			models.size());
 
-		for (VideoEntry model : models) {
+		for (PosterEntry model : models) {
 			soapModels.add(toSoapModel(model));
 		}
 
-		return soapModels.toArray(new VideoEntrySoap[soapModels.size()]);
+		return soapModels.toArray(new PosterEntrySoap[soapModels.size()]);
 	}
 
-	public VideoEntrySoap() {
+	public PosterEntrySoap() {
 	}
 
 	public long getPrimaryKey() {
@@ -105,12 +105,12 @@ public class VideoEntrySoap implements Serializable {
 		_id = id;
 	}
 
-	public long getProductionHouseEntryId() {
-		return _productionHouseEntryId;
+	public long getVideoEntryId() {
+		return _videoEntryId;
 	}
 
-	public void setProductionHouseEntryId(long productionHouseEntryId) {
-		_productionHouseEntryId = productionHouseEntryId;
+	public void setVideoEntryId(long videoEntryId) {
+		_videoEntryId = videoEntryId;
 	}
 
 	public String getName() {
@@ -169,14 +169,6 @@ public class VideoEntrySoap implements Serializable {
 		_modifiedBy = modifiedBy;
 	}
 
-	public Date getCreatedDate() {
-		return _createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		_createdDate = createdDate;
-	}
-
 	public Date getModifiedDate() {
 		return _modifiedDate;
 	}
@@ -185,8 +177,16 @@ public class VideoEntrySoap implements Serializable {
 		_modifiedDate = modifiedDate;
 	}
 
+	public Date getCreatedDate() {
+		return _createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		_createdDate = createdDate;
+	}
+
 	private long _id;
-	private long _productionHouseEntryId;
+	private long _videoEntryId;
 	private String _name;
 	private Blob _content;
 	private String _type;
@@ -194,7 +194,7 @@ public class VideoEntrySoap implements Serializable {
 	private Date _publishDateTime;
 	private String _createdBy;
 	private String _modifiedBy;
-	private Date _createdDate;
 	private Date _modifiedDate;
+	private Date _createdDate;
 
 }

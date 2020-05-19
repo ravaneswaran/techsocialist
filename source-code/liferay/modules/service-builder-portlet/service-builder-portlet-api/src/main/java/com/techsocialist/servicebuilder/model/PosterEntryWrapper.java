@@ -25,19 +25,19 @@ import java.util.Map;
 
 /**
  * <p>
- * This class is a wrapper for {@link VideoEntry}.
+ * This class is a wrapper for {@link PosterEntry}.
  * </p>
  *
  * @author Brian Wing Shun Chan
- * @see VideoEntry
+ * @see PosterEntry
  * @generated
  */
-public class VideoEntryWrapper
-	extends BaseModelWrapper<VideoEntry>
-	implements ModelWrapper<VideoEntry>, VideoEntry {
+public class PosterEntryWrapper
+	extends BaseModelWrapper<PosterEntry>
+	implements ModelWrapper<PosterEntry>, PosterEntry {
 
-	public VideoEntryWrapper(VideoEntry videoEntry) {
-		super(videoEntry);
+	public PosterEntryWrapper(PosterEntry posterEntry) {
+		super(posterEntry);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class VideoEntryWrapper
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("id", getId());
-		attributes.put("productionHouseEntryId", getProductionHouseEntryId());
+		attributes.put("videoEntryId", getVideoEntryId());
 		attributes.put("name", getName());
 		attributes.put("content", getContent());
 		attributes.put("type", getType());
@@ -53,8 +53,8 @@ public class VideoEntryWrapper
 		attributes.put("publishDateTime", getPublishDateTime());
 		attributes.put("createdBy", getCreatedBy());
 		attributes.put("modifiedBy", getModifiedBy());
-		attributes.put("createdDate", getCreatedDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("createdDate", getCreatedDate());
 
 		return attributes;
 	}
@@ -67,11 +67,10 @@ public class VideoEntryWrapper
 			setId(id);
 		}
 
-		Long productionHouseEntryId = (Long)attributes.get(
-			"productionHouseEntryId");
+		Long videoEntryId = (Long)attributes.get("videoEntryId");
 
-		if (productionHouseEntryId != null) {
-			setProductionHouseEntryId(productionHouseEntryId);
+		if (videoEntryId != null) {
+			setVideoEntryId(videoEntryId);
 		}
 
 		String name = (String)attributes.get("name");
@@ -116,23 +115,23 @@ public class VideoEntryWrapper
 			setModifiedBy(modifiedBy);
 		}
 
-		Date createdDate = (Date)attributes.get("createdDate");
-
-		if (createdDate != null) {
-			setCreatedDate(createdDate);
-		}
-
 		Date modifiedDate = (Date)attributes.get("modifiedDate");
 
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
 		}
+
+		Date createdDate = (Date)attributes.get("createdDate");
+
+		if (createdDate != null) {
+			setCreatedDate(createdDate);
+		}
 	}
 
 	/**
-	 * Returns the content of this video entry.
+	 * Returns the content of this poster entry.
 	 *
-	 * @return the content of this video entry
+	 * @return the content of this poster entry
 	 */
 	@Override
 	public Blob getContent() {
@@ -140,9 +139,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Returns the created by of this video entry.
+	 * Returns the created by of this poster entry.
 	 *
-	 * @return the created by of this video entry
+	 * @return the created by of this poster entry
 	 */
 	@Override
 	public String getCreatedBy() {
@@ -150,9 +149,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Returns the created date of this video entry.
+	 * Returns the created date of this poster entry.
 	 *
-	 * @return the created date of this video entry
+	 * @return the created date of this poster entry
 	 */
 	@Override
 	public Date getCreatedDate() {
@@ -160,9 +159,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Returns the ID of this video entry.
+	 * Returns the ID of this poster entry.
 	 *
-	 * @return the ID of this video entry
+	 * @return the ID of this poster entry
 	 */
 	@Override
 	public long getId() {
@@ -170,9 +169,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Returns the modified by of this video entry.
+	 * Returns the modified by of this poster entry.
 	 *
-	 * @return the modified by of this video entry
+	 * @return the modified by of this poster entry
 	 */
 	@Override
 	public String getModifiedBy() {
@@ -180,9 +179,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Returns the modified date of this video entry.
+	 * Returns the modified date of this poster entry.
 	 *
-	 * @return the modified date of this video entry
+	 * @return the modified date of this poster entry
 	 */
 	@Override
 	public Date getModifiedDate() {
@@ -190,9 +189,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Returns the name of this video entry.
+	 * Returns the name of this poster entry.
 	 *
-	 * @return the name of this video entry
+	 * @return the name of this poster entry
 	 */
 	@Override
 	public String getName() {
@@ -200,9 +199,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Returns the primary key of this video entry.
+	 * Returns the primary key of this poster entry.
 	 *
-	 * @return the primary key of this video entry
+	 * @return the primary key of this poster entry
 	 */
 	@Override
 	public long getPrimaryKey() {
@@ -210,19 +209,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Returns the production house entry ID of this video entry.
+	 * Returns the publish date time of this poster entry.
 	 *
-	 * @return the production house entry ID of this video entry
-	 */
-	@Override
-	public long getProductionHouseEntryId() {
-		return model.getProductionHouseEntryId();
-	}
-
-	/**
-	 * Returns the publish date time of this video entry.
-	 *
-	 * @return the publish date time of this video entry
+	 * @return the publish date time of this poster entry
 	 */
 	@Override
 	public Date getPublishDateTime() {
@@ -230,9 +219,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Returns the status of this video entry.
+	 * Returns the status of this poster entry.
 	 *
-	 * @return the status of this video entry
+	 * @return the status of this poster entry
 	 */
 	@Override
 	public String getStatus() {
@@ -240,13 +229,23 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Returns the type of this video entry.
+	 * Returns the type of this poster entry.
 	 *
-	 * @return the type of this video entry
+	 * @return the type of this poster entry
 	 */
 	@Override
 	public String getType() {
 		return model.getType();
+	}
+
+	/**
+	 * Returns the video entry ID of this poster entry.
+	 *
+	 * @return the video entry ID of this poster entry
+	 */
+	@Override
+	public long getVideoEntryId() {
+		return model.getVideoEntryId();
 	}
 
 	@Override
@@ -255,9 +254,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the content of this video entry.
+	 * Sets the content of this poster entry.
 	 *
-	 * @param content the content of this video entry
+	 * @param content the content of this poster entry
 	 */
 	@Override
 	public void setContent(Blob content) {
@@ -265,9 +264,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the created by of this video entry.
+	 * Sets the created by of this poster entry.
 	 *
-	 * @param createdBy the created by of this video entry
+	 * @param createdBy the created by of this poster entry
 	 */
 	@Override
 	public void setCreatedBy(String createdBy) {
@@ -275,9 +274,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the created date of this video entry.
+	 * Sets the created date of this poster entry.
 	 *
-	 * @param createdDate the created date of this video entry
+	 * @param createdDate the created date of this poster entry
 	 */
 	@Override
 	public void setCreatedDate(Date createdDate) {
@@ -285,9 +284,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the ID of this video entry.
+	 * Sets the ID of this poster entry.
 	 *
-	 * @param id the ID of this video entry
+	 * @param id the ID of this poster entry
 	 */
 	@Override
 	public void setId(long id) {
@@ -295,9 +294,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the modified by of this video entry.
+	 * Sets the modified by of this poster entry.
 	 *
-	 * @param modifiedBy the modified by of this video entry
+	 * @param modifiedBy the modified by of this poster entry
 	 */
 	@Override
 	public void setModifiedBy(String modifiedBy) {
@@ -305,9 +304,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the modified date of this video entry.
+	 * Sets the modified date of this poster entry.
 	 *
-	 * @param modifiedDate the modified date of this video entry
+	 * @param modifiedDate the modified date of this poster entry
 	 */
 	@Override
 	public void setModifiedDate(Date modifiedDate) {
@@ -315,9 +314,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the name of this video entry.
+	 * Sets the name of this poster entry.
 	 *
-	 * @param name the name of this video entry
+	 * @param name the name of this poster entry
 	 */
 	@Override
 	public void setName(String name) {
@@ -325,9 +324,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the primary key of this video entry.
+	 * Sets the primary key of this poster entry.
 	 *
-	 * @param primaryKey the primary key of this video entry
+	 * @param primaryKey the primary key of this poster entry
 	 */
 	@Override
 	public void setPrimaryKey(long primaryKey) {
@@ -335,19 +334,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the production house entry ID of this video entry.
+	 * Sets the publish date time of this poster entry.
 	 *
-	 * @param productionHouseEntryId the production house entry ID of this video entry
-	 */
-	@Override
-	public void setProductionHouseEntryId(long productionHouseEntryId) {
-		model.setProductionHouseEntryId(productionHouseEntryId);
-	}
-
-	/**
-	 * Sets the publish date time of this video entry.
-	 *
-	 * @param publishDateTime the publish date time of this video entry
+	 * @param publishDateTime the publish date time of this poster entry
 	 */
 	@Override
 	public void setPublishDateTime(Date publishDateTime) {
@@ -355,9 +344,9 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the status of this video entry.
+	 * Sets the status of this poster entry.
 	 *
-	 * @param status the status of this video entry
+	 * @param status the status of this poster entry
 	 */
 	@Override
 	public void setStatus(String status) {
@@ -365,18 +354,28 @@ public class VideoEntryWrapper
 	}
 
 	/**
-	 * Sets the type of this video entry.
+	 * Sets the type of this poster entry.
 	 *
-	 * @param type the type of this video entry
+	 * @param type the type of this poster entry
 	 */
 	@Override
 	public void setType(String type) {
 		model.setType(type);
 	}
 
+	/**
+	 * Sets the video entry ID of this poster entry.
+	 *
+	 * @param videoEntryId the video entry ID of this poster entry
+	 */
 	@Override
-	protected VideoEntryWrapper wrap(VideoEntry videoEntry) {
-		return new VideoEntryWrapper(videoEntry);
+	public void setVideoEntryId(long videoEntryId) {
+		model.setVideoEntryId(videoEntryId);
+	}
+
+	@Override
+	protected PosterEntryWrapper wrap(PosterEntry posterEntry) {
+		return new PosterEntryWrapper(posterEntry);
 	}
 
 }

@@ -317,9 +317,12 @@ public class ProductionHouseEntryPersistenceImpl
 				productionHouseEntry.setNew(false);
 			}
 			else {
-				productionHouseEntry = (ProductionHouseEntry)session.merge(
-					productionHouseEntry);
+				session.evict(productionHouseEntry);
+				session.saveOrUpdate(productionHouseEntry);
 			}
+
+			session.flush();
+			session.clear();
 		}
 		catch (Exception exception) {
 			throw processException(exception);

@@ -1,11 +1,26 @@
 <?xml version="1.0"?>
 
 <model-hints>
+	<model name="com.techsocialist.servicebuilder.model.PosterEntry">
+		<field name="id" type="long" />
+		<field name="videoEntryId" type="long" />
+		<field name="name" type="String" />
+		<field name="content" type="Blob" />
+		<field name="type" type="String" />
+		<field name="status" type="String" />
+		<field name="publishDateTime" type="Date" />
+		<field name="createdBy" type="String" />
+		<field name="modifiedBy" type="String" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdDate" type="Date" />
+	</model>
 	<model name="com.techsocialist.servicebuilder.model.ProductionHouseEntry">
 		<field name="id" type="long" />
 		<field name="userId" type="long" />
 		<field name="name" type="String" />
 		<field name="cin" type="String" />
+		<field name="logo" type="Blob" />
+		<field name="banner" type="Blob" />
 		<field name="landline" type="String" />
 		<field name="websiteUrl" type="String" />
 		<field name="addressLine1" type="String" />
@@ -30,9 +45,11 @@
 	<model name="com.techsocialist.servicebuilder.model.VideoEntry">
 		<field name="id" type="long" />
 		<field name="productionHouseEntryId" type="long" />
+		<field name="name" type="String" />
 		<field name="content" type="Blob" />
 		<field name="type" type="String" />
 		<field name="status" type="String" />
+		<field name="publishDateTime" type="Date" />
 		<field name="createdBy" type="String" />
 		<field name="modifiedBy" type="String" />
 		<field name="createdDate" type="Date" />

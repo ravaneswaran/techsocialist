@@ -11,6 +11,8 @@
 
 		<column name="name" type="String" />
 		<column name="cin" type="String" />
+		<column name="logo" type="Blob" />
+		<column name="banner" type="Blob" />
 
 		<column name="landline" type="String" />
 
@@ -44,10 +46,13 @@
 
 		<column name="id" primary="true" type="long" />
 		<column name="productionHouseEntryId" type="long" />
+		<column name="name" type="String" />
 		<column name="content" type="Blob" />
 
 		<column name="type" type="String" />
 		<column name="status" type="String" />
+
+		<column name="publishDateTime" type="Date" />
 
 		<column name="createdBy" type="String" />
 		<column name="modifiedBy" type="String" />
@@ -56,6 +61,24 @@
 
 	</entity>
 
+	<entity  local-service="true" name="PosterEntry" remote-service="false" uuid="false" table="poster_register">
 
+		<column name="id" primary="true" type="long" />
+		<column name="videoEntryId" type="long" />
+		<column name="name" type="String" />
+
+		<column name="content" type="Blob" />
+
+		<column name="type" type="String" />
+		<column name="status" type="String" />
+
+		<column name="publishDateTime" type="Date" />
+
+		<column name="createdBy" type="String" />
+		<column name="modifiedBy" type="String" />
+		<column name="modifiedDate" type="Date" />
+		<column name="createdDate" type="Date" />
+
+	</entity>
 
 </service-builder>

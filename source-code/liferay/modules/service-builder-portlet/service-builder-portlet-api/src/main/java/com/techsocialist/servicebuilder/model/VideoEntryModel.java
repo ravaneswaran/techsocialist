@@ -86,6 +86,21 @@ public interface VideoEntryModel extends BaseModel<VideoEntry> {
 	public void setProductionHouseEntryId(long productionHouseEntryId);
 
 	/**
+	 * Returns the name of this video entry.
+	 *
+	 * @return the name of this video entry
+	 */
+	@AutoEscape
+	public String getName();
+
+	/**
+	 * Sets the name of this video entry.
+	 *
+	 * @param name the name of this video entry
+	 */
+	public void setName(String name);
+
+	/**
 	 * Returns the content of this video entry.
 	 *
 	 * @return the content of this video entry
@@ -128,6 +143,20 @@ public interface VideoEntryModel extends BaseModel<VideoEntry> {
 	 * @param status the status of this video entry
 	 */
 	public void setStatus(String status);
+
+	/**
+	 * Returns the publish date time of this video entry.
+	 *
+	 * @return the publish date time of this video entry
+	 */
+	public Date getPublishDateTime();
+
+	/**
+	 * Sets the publish date time of this video entry.
+	 *
+	 * @param publishDateTime the publish date time of this video entry
+	 */
+	public void setPublishDateTime(Date publishDateTime);
 
 	/**
 	 * Returns the created by of this video entry.
