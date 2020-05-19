@@ -4,7 +4,7 @@
 <service-builder dependency-injector="ds" package-path="com.techsocialist.servicebuilder">
 	<namespace>TS</namespace>
 
-	<entity  local-service="true" name="ProductionHouseEntry" remote-service="false" uuid="false" table="production_house_register">
+	<entity  local-service="true" name="ProductionHouse" remote-service="false" uuid="false" table="production_house_register">
 
 		<column name="id" primary="true" type="long" />
 		<column name="userId" type="long" />
@@ -42,17 +42,20 @@
 
 	</entity>
 
-	<entity  local-service="true" name="VideoEntry" remote-service="false" uuid="false" table="video_register">
+	<entity  local-service="true" name="Video" remote-service="false" uuid="false" table="video_register">
 
 		<column name="id" primary="true" type="long" />
-		<column name="productionHouseEntryId" type="long" />
+		<column name="productionHouseId" type="long" /> <!-- is applicable only when the video is of type Feature_Film -->
 		<column name="name" type="String" />
+		<column name="thumbnail" type="Blob" />
 		<column name="content" type="Blob" />
 
-		<column name="type" type="String" />
-		<column name="status" type="String" />
+		<column name="type" type="String" /> <!--Feature_Film, Short_Film, Documentry, Individual_Video -->
+		<column name="status" type="String" /> <!-- Uploaded, Published -->
 
-		<column name="publishDateTime" type="long" />
+		<column name="ticketPrice" type="double" /> <!-- is applicable only when the video is of the type Feature_Film-->
+
+		<column name="publishDateTime" type="long" /> <!-- the date and time to make the video available for the general user -->
 
 		<column name="createdBy" type="String" />
 		<column name="modifiedBy" type="String" />
@@ -61,15 +64,15 @@
 
 	</entity>
 
-	<entity  local-service="true" name="PosterEntry" remote-service="false" uuid="false" table="poster_register">
+	<entity  local-service="true" name="Poster" remote-service="false" uuid="false" table="poster_register">
 
 		<column name="id" primary="true" type="long" />
-		<column name="videoEntryId" type="long" />
+		<column name="productionHouseId" type="long" />
 		<column name="name" type="String" />
 
 		<column name="content" type="Blob" />
 
-		<column name="type" type="String" />
+		<column name="type" type="String" /> <!--Motion_Poster,  -->
 		<column name="status" type="String" />
 
 		<column name="publishDateTime" type="long" />
@@ -77,6 +80,21 @@
 		<column name="createdBy" type="String" />
 		<column name="modifiedBy" type="String" />
 		<column name="modifiedDate" type="Date" />
+		<column name="createdDate" type="Date" />
+
+	</entity>
+
+	<entity  local-service="true" name="Ticket" remote-service="false" uuid="false" table="ticket_register">
+
+		<column name="id" primary="true" type="long" />
+		<column name="userId" type="long" />
+		<column name="videoEntryId" type="long" />
+
+		<column name="status" type="String" />
+
+		<column name="purchaseTime" type="Date" />
+		<column name="soldTime" type="Date" />
+
 		<column name="createdDate" type="Date" />
 
 	</entity>

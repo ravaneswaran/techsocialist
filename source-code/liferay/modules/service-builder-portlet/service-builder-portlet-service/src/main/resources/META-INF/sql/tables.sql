@@ -1,6 +1,6 @@
 create table poster_register (
 	id_ LONG not null primary key,
-	videoEntryId LONG,
+	productionHouseId LONG,
 	name VARCHAR(75) null,
 	content BLOB,
 	type_ VARCHAR(75) null,
@@ -41,13 +41,25 @@ create table production_house_register (
 	modifiedDate DATE null
 );
 
+create table ticket_register (
+	id_ LONG not null primary key,
+	userId LONG,
+	videoEntryId LONG,
+	status VARCHAR(75) null,
+	purchaseTime DATE null,
+	soldTime DATE null,
+	createdDate DATE null
+);
+
 create table video_register (
 	id_ LONG not null primary key,
-	productionHouseEntryId LONG,
+	productionHouseId LONG,
 	name VARCHAR(75) null,
+	thumbnail BLOB,
 	content BLOB,
 	type_ VARCHAR(75) null,
 	status VARCHAR(75) null,
+	ticketPrice DOUBLE,
 	publishDateTime LONG,
 	createdBy VARCHAR(75) null,
 	modifiedBy VARCHAR(75) null,

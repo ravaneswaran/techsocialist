@@ -3,9 +3,10 @@
 
 <hibernate-mapping auto-import="false" default-lazy="false">
 	<import class="com.techsocialis.servicebuilder.model.ProductionHouseRegisterEntry" />
-	<import class="com.techsocialist.servicebuilder.model.PosterEntry" />
-	<import class="com.techsocialist.servicebuilder.model.ProductionHouseEntry" />
-	<import class="com.techsocialist.servicebuilder.model.VideoEntry" />
+	<import class="com.techsocialist.servicebuilder.model.Poster" />
+	<import class="com.techsocialist.servicebuilder.model.ProductionHouse" />
+	<import class="com.techsocialist.servicebuilder.model.Ticket" />
+	<import class="com.techsocialist.servicebuilder.model.Video" />
 	<class name="com.techsocialis.servicebuilder.model.impl.ProductionHouseRegisterEntryImpl" table="production_house_register">
 		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="id_" name="id" type="long">
 			<generator class="assigned" />
@@ -32,13 +33,13 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="createdDate" type="org.hibernate.type.TimestampType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="modifiedDate" type="org.hibernate.type.TimestampType" />
 	</class>
-	<class name="com.techsocialist.servicebuilder.model.impl.PosterEntryImpl" table="poster_register">
+	<class name="com.techsocialist.servicebuilder.model.impl.PosterImpl" table="poster_register">
 		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="id_" name="id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="videoEntryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="productionHouseId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.techsocialist.servicebuilder.model.PosterEntryContentBlobModel" constrained="true" name="contentBlobModel" outer-join="false" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.techsocialist.servicebuilder.model.PosterContentBlobModel" constrained="true" name="contentBlobModel" outer-join="false" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="type_" name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="publishDateTime" type="com.liferay.portal.dao.orm.hibernate.LongType" />
@@ -47,23 +48,23 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="modifiedDate" type="org.hibernate.type.TimestampType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="createdDate" type="org.hibernate.type.TimestampType" />
 	</class>
-	<class lazy="true" name="com.techsocialist.servicebuilder.model.PosterEntryContentBlobModel" table="poster_register">
+	<class lazy="true" name="com.techsocialist.servicebuilder.model.PosterContentBlobModel" table="poster_register">
 		<id column="id_" name="id">
 			<generator class="foreign">
-				<param name="property">com.techsocialist.servicebuilder.model.impl.PosterEntryImpl</param>
+				<param name="property">com.techsocialist.servicebuilder.model.impl.PosterImpl</param>
 			</generator>
 		</id>
 		<property column="content" name="contentBlob" type="blob" />
 	</class>
-	<class name="com.techsocialist.servicebuilder.model.impl.ProductionHouseEntryImpl" table="production_house_register">
+	<class name="com.techsocialist.servicebuilder.model.impl.ProductionHouseImpl" table="production_house_register">
 		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="id_" name="id" type="long">
 			<generator class="assigned" />
 		</id>
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="cin" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.techsocialist.servicebuilder.model.ProductionHouseEntryLogoBlobModel" constrained="true" name="logoBlobModel" outer-join="false" />
-		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.techsocialist.servicebuilder.model.ProductionHouseEntryBannerBlobModel" constrained="true" name="bannerBlobModel" outer-join="false" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.techsocialist.servicebuilder.model.ProductionHouseLogoBlobModel" constrained="true" name="logoBlobModel" outer-join="false" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.techsocialist.servicebuilder.model.ProductionHouseBannerBlobModel" constrained="true" name="bannerBlobModel" outer-join="false" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="landline" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="websiteUrl" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="addressLine1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -85,41 +86,62 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="createdDate" type="org.hibernate.type.TimestampType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="modifiedDate" type="org.hibernate.type.TimestampType" />
 	</class>
-	<class lazy="true" name="com.techsocialist.servicebuilder.model.ProductionHouseEntryLogoBlobModel" table="production_house_register">
+	<class lazy="true" name="com.techsocialist.servicebuilder.model.ProductionHouseLogoBlobModel" table="production_house_register">
 		<id column="id_" name="id">
 			<generator class="foreign">
-				<param name="property">com.techsocialist.servicebuilder.model.impl.ProductionHouseEntryImpl</param>
+				<param name="property">com.techsocialist.servicebuilder.model.impl.ProductionHouseImpl</param>
 			</generator>
 		</id>
 		<property column="logo" name="logoBlob" type="blob" />
 	</class>
-	<class lazy="true" name="com.techsocialist.servicebuilder.model.ProductionHouseEntryBannerBlobModel" table="production_house_register">
+	<class lazy="true" name="com.techsocialist.servicebuilder.model.ProductionHouseBannerBlobModel" table="production_house_register">
 		<id column="id_" name="id">
 			<generator class="foreign">
-				<param name="property">com.techsocialist.servicebuilder.model.impl.ProductionHouseEntryImpl</param>
+				<param name="property">com.techsocialist.servicebuilder.model.impl.ProductionHouseImpl</param>
 			</generator>
 		</id>
 		<property column="banner" name="bannerBlob" type="blob" />
 	</class>
-	<class name="com.techsocialist.servicebuilder.model.impl.VideoEntryImpl" table="video_register">
+	<class name="com.techsocialist.servicebuilder.model.impl.TicketImpl" table="ticket_register">
 		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="id_" name="id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="productionHouseEntryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="videoEntryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="purchaseTime" type="org.hibernate.type.TimestampType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="soldTime" type="org.hibernate.type.TimestampType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="createdDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.techsocialist.servicebuilder.model.impl.VideoImpl" table="video_register">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="productionHouseId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.techsocialist.servicebuilder.model.VideoEntryContentBlobModel" constrained="true" name="contentBlobModel" outer-join="false" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.techsocialist.servicebuilder.model.VideoThumbnailBlobModel" constrained="true" name="thumbnailBlobModel" outer-join="false" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.techsocialist.servicebuilder.model.VideoContentBlobModel" constrained="true" name="contentBlobModel" outer-join="false" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="type_" name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="ticketPrice" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="publishDateTime" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="createdBy" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="modifiedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="createdDate" type="org.hibernate.type.TimestampType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="modifiedDate" type="org.hibernate.type.TimestampType" />
 	</class>
-	<class lazy="true" name="com.techsocialist.servicebuilder.model.VideoEntryContentBlobModel" table="video_register">
+	<class lazy="true" name="com.techsocialist.servicebuilder.model.VideoThumbnailBlobModel" table="video_register">
 		<id column="id_" name="id">
 			<generator class="foreign">
-				<param name="property">com.techsocialist.servicebuilder.model.impl.VideoEntryImpl</param>
+				<param name="property">com.techsocialist.servicebuilder.model.impl.VideoImpl</param>
+			</generator>
+		</id>
+		<property column="thumbnail" name="thumbnailBlob" type="blob" />
+	</class>
+	<class lazy="true" name="com.techsocialist.servicebuilder.model.VideoContentBlobModel" table="video_register">
+		<id column="id_" name="id">
+			<generator class="foreign">
+				<param name="property">com.techsocialist.servicebuilder.model.impl.VideoImpl</param>
 			</generator>
 		</id>
 		<property column="content" name="contentBlob" type="blob" />

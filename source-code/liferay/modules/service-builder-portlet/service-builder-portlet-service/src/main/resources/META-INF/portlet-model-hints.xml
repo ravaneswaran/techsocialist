@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
 <model-hints>
-	<model name="com.techsocialist.servicebuilder.model.PosterEntry">
+	<model name="com.techsocialist.servicebuilder.model.Poster">
 		<field name="id" type="long" />
-		<field name="videoEntryId" type="long" />
+		<field name="productionHouseId" type="long" />
 		<field name="name" type="String" />
 		<field name="content" type="Blob" />
 		<field name="type" type="String" />
@@ -14,7 +14,7 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="createdDate" type="Date" />
 	</model>
-	<model name="com.techsocialist.servicebuilder.model.ProductionHouseEntry">
+	<model name="com.techsocialist.servicebuilder.model.ProductionHouse">
 		<field name="id" type="long" />
 		<field name="userId" type="long" />
 		<field name="name" type="String" />
@@ -42,13 +42,24 @@
 		<field name="createdDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 	</model>
-	<model name="com.techsocialist.servicebuilder.model.VideoEntry">
+	<model name="com.techsocialist.servicebuilder.model.Ticket">
 		<field name="id" type="long" />
-		<field name="productionHouseEntryId" type="long" />
+		<field name="userId" type="long" />
+		<field name="videoEntryId" type="long" />
+		<field name="status" type="String" />
+		<field name="purchaseTime" type="Date" />
+		<field name="soldTime" type="Date" />
+		<field name="createdDate" type="Date" />
+	</model>
+	<model name="com.techsocialist.servicebuilder.model.Video">
+		<field name="id" type="long" />
+		<field name="productionHouseId" type="long" />
 		<field name="name" type="String" />
+		<field name="thumbnail" type="Blob" />
 		<field name="content" type="Blob" />
 		<field name="type" type="String" />
 		<field name="status" type="String" />
+		<field name="ticketPrice" type="double" />
 		<field name="publishDateTime" type="long" />
 		<field name="createdBy" type="String" />
 		<field name="modifiedBy" type="String" />
