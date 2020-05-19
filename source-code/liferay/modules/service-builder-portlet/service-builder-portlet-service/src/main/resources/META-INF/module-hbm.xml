@@ -46,7 +46,8 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="country" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="pincode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="contactPersonName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="contactPersonFirstName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="contactPersonLastNameName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="contactPersonMobile" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="contactPersonEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />

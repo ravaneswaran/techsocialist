@@ -71,7 +71,8 @@ public class ProductionHouseRegisterEntryModelImpl
 		{"addressLine3", Types.VARCHAR}, {"place", Types.VARCHAR},
 		{"state_", Types.VARCHAR}, {"country", Types.VARCHAR},
 		{"pincode", Types.VARCHAR}, {"status", Types.VARCHAR},
-		{"contactPersonName", Types.VARCHAR},
+		{"contactPersonFirstName", Types.VARCHAR},
+		{"contactPersonLastNameName", Types.VARCHAR},
 		{"contactPersonMobile", Types.VARCHAR},
 		{"contactPersonEmail", Types.VARCHAR}, {"userName", Types.VARCHAR},
 		{"password_", Types.VARCHAR}, {"createdBy", Types.VARCHAR},
@@ -96,7 +97,8 @@ public class ProductionHouseRegisterEntryModelImpl
 		TABLE_COLUMNS_MAP.put("country", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("pincode", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("status", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("contactPersonName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("contactPersonFirstName", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("contactPersonLastNameName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("contactPersonMobile", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("contactPersonEmail", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("userName", Types.VARCHAR);
@@ -108,7 +110,7 @@ public class ProductionHouseRegisterEntryModelImpl
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table production_house_register (id_ LONG not null primary key,name VARCHAR(75) null,cin VARCHAR(75) null,landline VARCHAR(75) null,websiteUrl VARCHAR(75) null,addressLine1 VARCHAR(75) null,addressLine2 VARCHAR(75) null,addressLine3 VARCHAR(75) null,place VARCHAR(75) null,state_ VARCHAR(75) null,country VARCHAR(75) null,pincode VARCHAR(75) null,status VARCHAR(75) null,contactPersonName VARCHAR(75) null,contactPersonMobile VARCHAR(75) null,contactPersonEmail VARCHAR(75) null,userName VARCHAR(75) null,password_ VARCHAR(75) null,createdBy VARCHAR(75) null,modifiedBy VARCHAR(75) null,createdDate DATE null,modifiedDate DATE null)";
+		"create table production_house_register (id_ LONG not null primary key,name VARCHAR(75) null,cin VARCHAR(75) null,landline VARCHAR(75) null,websiteUrl VARCHAR(75) null,addressLine1 VARCHAR(75) null,addressLine2 VARCHAR(75) null,addressLine3 VARCHAR(75) null,place VARCHAR(75) null,state_ VARCHAR(75) null,country VARCHAR(75) null,pincode VARCHAR(75) null,status VARCHAR(75) null,contactPersonFirstName VARCHAR(75) null,contactPersonLastNameName VARCHAR(75) null,contactPersonMobile VARCHAR(75) null,contactPersonEmail VARCHAR(75) null,userName VARCHAR(75) null,password_ VARCHAR(75) null,createdBy VARCHAR(75) null,modifiedBy VARCHAR(75) null,createdDate DATE null,modifiedDate DATE null)";
 
 	public static final String TABLE_SQL_DROP =
 		"drop table production_house_register";
@@ -346,12 +348,19 @@ public class ProductionHouseRegisterEntryModelImpl
 			(BiConsumer<ProductionHouseRegisterEntry, String>)
 				ProductionHouseRegisterEntry::setStatus);
 		attributeGetterFunctions.put(
-			"contactPersonName",
-			ProductionHouseRegisterEntry::getContactPersonName);
+			"contactPersonFirstName",
+			ProductionHouseRegisterEntry::getContactPersonFirstName);
 		attributeSetterBiConsumers.put(
-			"contactPersonName",
+			"contactPersonFirstName",
 			(BiConsumer<ProductionHouseRegisterEntry, String>)
-				ProductionHouseRegisterEntry::setContactPersonName);
+				ProductionHouseRegisterEntry::setContactPersonFirstName);
+		attributeGetterFunctions.put(
+			"contactPersonLastNameName",
+			ProductionHouseRegisterEntry::getContactPersonLastNameName);
+		attributeSetterBiConsumers.put(
+			"contactPersonLastNameName",
+			(BiConsumer<ProductionHouseRegisterEntry, String>)
+				ProductionHouseRegisterEntry::setContactPersonLastNameName);
 		attributeGetterFunctions.put(
 			"contactPersonMobile",
 			ProductionHouseRegisterEntry::getContactPersonMobile);
@@ -600,18 +609,33 @@ public class ProductionHouseRegisterEntryModelImpl
 	}
 
 	@Override
-	public String getContactPersonName() {
-		if (_contactPersonName == null) {
+	public String getContactPersonFirstName() {
+		if (_contactPersonFirstName == null) {
 			return "";
 		}
 		else {
-			return _contactPersonName;
+			return _contactPersonFirstName;
 		}
 	}
 
 	@Override
-	public void setContactPersonName(String contactPersonName) {
-		_contactPersonName = contactPersonName;
+	public void setContactPersonFirstName(String contactPersonFirstName) {
+		_contactPersonFirstName = contactPersonFirstName;
+	}
+
+	@Override
+	public String getContactPersonLastNameName() {
+		if (_contactPersonLastNameName == null) {
+			return "";
+		}
+		else {
+			return _contactPersonLastNameName;
+		}
+	}
+
+	@Override
+	public void setContactPersonLastNameName(String contactPersonLastNameName) {
+		_contactPersonLastNameName = contactPersonLastNameName;
 	}
 
 	@Override
@@ -770,8 +794,10 @@ public class ProductionHouseRegisterEntryModelImpl
 		productionHouseRegisterEntryImpl.setCountry(getCountry());
 		productionHouseRegisterEntryImpl.setPincode(getPincode());
 		productionHouseRegisterEntryImpl.setStatus(getStatus());
-		productionHouseRegisterEntryImpl.setContactPersonName(
-			getContactPersonName());
+		productionHouseRegisterEntryImpl.setContactPersonFirstName(
+			getContactPersonFirstName());
+		productionHouseRegisterEntryImpl.setContactPersonLastNameName(
+			getContactPersonLastNameName());
 		productionHouseRegisterEntryImpl.setContactPersonMobile(
 			getContactPersonMobile());
 		productionHouseRegisterEntryImpl.setContactPersonEmail(
@@ -954,14 +980,30 @@ public class ProductionHouseRegisterEntryModelImpl
 			productionHouseRegisterEntryCacheModel.status = null;
 		}
 
-		productionHouseRegisterEntryCacheModel.contactPersonName =
-			getContactPersonName();
+		productionHouseRegisterEntryCacheModel.contactPersonFirstName =
+			getContactPersonFirstName();
 
-		String contactPersonName =
-			productionHouseRegisterEntryCacheModel.contactPersonName;
+		String contactPersonFirstName =
+			productionHouseRegisterEntryCacheModel.contactPersonFirstName;
 
-		if ((contactPersonName != null) && (contactPersonName.length() == 0)) {
-			productionHouseRegisterEntryCacheModel.contactPersonName = null;
+		if ((contactPersonFirstName != null) &&
+			(contactPersonFirstName.length() == 0)) {
+
+			productionHouseRegisterEntryCacheModel.contactPersonFirstName =
+				null;
+		}
+
+		productionHouseRegisterEntryCacheModel.contactPersonLastNameName =
+			getContactPersonLastNameName();
+
+		String contactPersonLastNameName =
+			productionHouseRegisterEntryCacheModel.contactPersonLastNameName;
+
+		if ((contactPersonLastNameName != null) &&
+			(contactPersonLastNameName.length() == 0)) {
+
+			productionHouseRegisterEntryCacheModel.contactPersonLastNameName =
+				null;
 		}
 
 		productionHouseRegisterEntryCacheModel.contactPersonMobile =
@@ -1136,7 +1178,8 @@ public class ProductionHouseRegisterEntryModelImpl
 	private String _country;
 	private String _pincode;
 	private String _status;
-	private String _contactPersonName;
+	private String _contactPersonFirstName;
+	private String _contactPersonLastNameName;
 	private String _contactPersonMobile;
 	private String _contactPersonEmail;
 	private String _userName;

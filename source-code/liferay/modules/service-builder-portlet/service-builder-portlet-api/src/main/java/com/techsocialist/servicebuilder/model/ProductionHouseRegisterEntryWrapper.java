@@ -58,7 +58,9 @@ public class ProductionHouseRegisterEntryWrapper
 		attributes.put("country", getCountry());
 		attributes.put("pincode", getPincode());
 		attributes.put("status", getStatus());
-		attributes.put("contactPersonName", getContactPersonName());
+		attributes.put("contactPersonFirstName", getContactPersonFirstName());
+		attributes.put(
+			"contactPersonLastNameName", getContactPersonLastNameName());
 		attributes.put("contactPersonMobile", getContactPersonMobile());
 		attributes.put("contactPersonEmail", getContactPersonEmail());
 		attributes.put("userName", getUserName());
@@ -151,10 +153,18 @@ public class ProductionHouseRegisterEntryWrapper
 			setStatus(status);
 		}
 
-		String contactPersonName = (String)attributes.get("contactPersonName");
+		String contactPersonFirstName = (String)attributes.get(
+			"contactPersonFirstName");
 
-		if (contactPersonName != null) {
-			setContactPersonName(contactPersonName);
+		if (contactPersonFirstName != null) {
+			setContactPersonFirstName(contactPersonFirstName);
+		}
+
+		String contactPersonLastNameName = (String)attributes.get(
+			"contactPersonLastNameName");
+
+		if (contactPersonLastNameName != null) {
+			setContactPersonLastNameName(contactPersonLastNameName);
 		}
 
 		String contactPersonMobile = (String)attributes.get(
@@ -259,6 +269,26 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
+	 * Returns the contact person first name of this production house register entry.
+	 *
+	 * @return the contact person first name of this production house register entry
+	 */
+	@Override
+	public String getContactPersonFirstName() {
+		return model.getContactPersonFirstName();
+	}
+
+	/**
+	 * Returns the contact person last name name of this production house register entry.
+	 *
+	 * @return the contact person last name name of this production house register entry
+	 */
+	@Override
+	public String getContactPersonLastNameName() {
+		return model.getContactPersonLastNameName();
+	}
+
+	/**
 	 * Returns the contact person mobile of this production house register entry.
 	 *
 	 * @return the contact person mobile of this production house register entry
@@ -266,16 +296,6 @@ public class ProductionHouseRegisterEntryWrapper
 	@Override
 	public String getContactPersonMobile() {
 		return model.getContactPersonMobile();
-	}
-
-	/**
-	 * Returns the contact person name of this production house register entry.
-	 *
-	 * @return the contact person name of this production house register entry
-	 */
-	@Override
-	public String getContactPersonName() {
-		return model.getContactPersonName();
 	}
 
 	/**
@@ -494,6 +514,26 @@ public class ProductionHouseRegisterEntryWrapper
 	}
 
 	/**
+	 * Sets the contact person first name of this production house register entry.
+	 *
+	 * @param contactPersonFirstName the contact person first name of this production house register entry
+	 */
+	@Override
+	public void setContactPersonFirstName(String contactPersonFirstName) {
+		model.setContactPersonFirstName(contactPersonFirstName);
+	}
+
+	/**
+	 * Sets the contact person last name name of this production house register entry.
+	 *
+	 * @param contactPersonLastNameName the contact person last name name of this production house register entry
+	 */
+	@Override
+	public void setContactPersonLastNameName(String contactPersonLastNameName) {
+		model.setContactPersonLastNameName(contactPersonLastNameName);
+	}
+
+	/**
 	 * Sets the contact person mobile of this production house register entry.
 	 *
 	 * @param contactPersonMobile the contact person mobile of this production house register entry
@@ -501,16 +541,6 @@ public class ProductionHouseRegisterEntryWrapper
 	@Override
 	public void setContactPersonMobile(String contactPersonMobile) {
 		model.setContactPersonMobile(contactPersonMobile);
-	}
-
-	/**
-	 * Sets the contact person name of this production house register entry.
-	 *
-	 * @param contactPersonName the contact person name of this production house register entry
-	 */
-	@Override
-	public void setContactPersonName(String contactPersonName) {
-		model.setContactPersonName(contactPersonName);
 	}
 
 	/**

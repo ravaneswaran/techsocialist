@@ -47,7 +47,9 @@ public class ProductionHouseRegisterEntrySoap implements Serializable {
 		soapModel.setCountry(model.getCountry());
 		soapModel.setPincode(model.getPincode());
 		soapModel.setStatus(model.getStatus());
-		soapModel.setContactPersonName(model.getContactPersonName());
+		soapModel.setContactPersonFirstName(model.getContactPersonFirstName());
+		soapModel.setContactPersonLastNameName(
+			model.getContactPersonLastNameName());
 		soapModel.setContactPersonMobile(model.getContactPersonMobile());
 		soapModel.setContactPersonEmail(model.getContactPersonEmail());
 		soapModel.setUserName(model.getUserName());
@@ -222,12 +224,20 @@ public class ProductionHouseRegisterEntrySoap implements Serializable {
 		_status = status;
 	}
 
-	public String getContactPersonName() {
-		return _contactPersonName;
+	public String getContactPersonFirstName() {
+		return _contactPersonFirstName;
 	}
 
-	public void setContactPersonName(String contactPersonName) {
-		_contactPersonName = contactPersonName;
+	public void setContactPersonFirstName(String contactPersonFirstName) {
+		_contactPersonFirstName = contactPersonFirstName;
+	}
+
+	public String getContactPersonLastNameName() {
+		return _contactPersonLastNameName;
+	}
+
+	public void setContactPersonLastNameName(String contactPersonLastNameName) {
+		_contactPersonLastNameName = contactPersonLastNameName;
 	}
 
 	public String getContactPersonMobile() {
@@ -307,7 +317,8 @@ public class ProductionHouseRegisterEntrySoap implements Serializable {
 	private String _country;
 	private String _pincode;
 	private String _status;
-	private String _contactPersonName;
+	private String _contactPersonFirstName;
+	private String _contactPersonLastNameName;
 	private String _contactPersonMobile;
 	private String _contactPersonEmail;
 	private String _userName;

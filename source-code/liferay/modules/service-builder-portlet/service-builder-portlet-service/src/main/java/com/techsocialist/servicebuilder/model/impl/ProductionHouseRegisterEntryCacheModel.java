@@ -64,7 +64,7 @@ public class ProductionHouseRegisterEntryCacheModel
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(45);
+		StringBundler sb = new StringBundler(47);
 
 		sb.append("{id=");
 		sb.append(id);
@@ -92,8 +92,10 @@ public class ProductionHouseRegisterEntryCacheModel
 		sb.append(pincode);
 		sb.append(", status=");
 		sb.append(status);
-		sb.append(", contactPersonName=");
-		sb.append(contactPersonName);
+		sb.append(", contactPersonFirstName=");
+		sb.append(contactPersonFirstName);
+		sb.append(", contactPersonLastNameName=");
+		sb.append(contactPersonLastNameName);
 		sb.append(", contactPersonMobile=");
 		sb.append(contactPersonMobile);
 		sb.append(", contactPersonEmail=");
@@ -206,12 +208,20 @@ public class ProductionHouseRegisterEntryCacheModel
 			productionHouseRegisterEntryImpl.setStatus(status);
 		}
 
-		if (contactPersonName == null) {
-			productionHouseRegisterEntryImpl.setContactPersonName("");
+		if (contactPersonFirstName == null) {
+			productionHouseRegisterEntryImpl.setContactPersonFirstName("");
 		}
 		else {
-			productionHouseRegisterEntryImpl.setContactPersonName(
-				contactPersonName);
+			productionHouseRegisterEntryImpl.setContactPersonFirstName(
+				contactPersonFirstName);
+		}
+
+		if (contactPersonLastNameName == null) {
+			productionHouseRegisterEntryImpl.setContactPersonLastNameName("");
+		}
+		else {
+			productionHouseRegisterEntryImpl.setContactPersonLastNameName(
+				contactPersonLastNameName);
 		}
 
 		if (contactPersonMobile == null) {
@@ -294,7 +304,8 @@ public class ProductionHouseRegisterEntryCacheModel
 		country = objectInput.readUTF();
 		pincode = objectInput.readUTF();
 		status = objectInput.readUTF();
-		contactPersonName = objectInput.readUTF();
+		contactPersonFirstName = objectInput.readUTF();
+		contactPersonLastNameName = objectInput.readUTF();
 		contactPersonMobile = objectInput.readUTF();
 		contactPersonEmail = objectInput.readUTF();
 		userName = objectInput.readUTF();
@@ -393,11 +404,18 @@ public class ProductionHouseRegisterEntryCacheModel
 			objectOutput.writeUTF(status);
 		}
 
-		if (contactPersonName == null) {
+		if (contactPersonFirstName == null) {
 			objectOutput.writeUTF("");
 		}
 		else {
-			objectOutput.writeUTF(contactPersonName);
+			objectOutput.writeUTF(contactPersonFirstName);
+		}
+
+		if (contactPersonLastNameName == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(contactPersonLastNameName);
 		}
 
 		if (contactPersonMobile == null) {
@@ -459,7 +477,8 @@ public class ProductionHouseRegisterEntryCacheModel
 	public String country;
 	public String pincode;
 	public String status;
-	public String contactPersonName;
+	public String contactPersonFirstName;
+	public String contactPersonLastNameName;
 	public String contactPersonMobile;
 	public String contactPersonEmail;
 	public String userName;

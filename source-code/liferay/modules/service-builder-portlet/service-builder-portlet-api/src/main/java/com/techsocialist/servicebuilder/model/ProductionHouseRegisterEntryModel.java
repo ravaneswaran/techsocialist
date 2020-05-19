@@ -251,19 +251,34 @@ public interface ProductionHouseRegisterEntryModel
 	public void setStatus(String status);
 
 	/**
-	 * Returns the contact person name of this production house register entry.
+	 * Returns the contact person first name of this production house register entry.
 	 *
-	 * @return the contact person name of this production house register entry
+	 * @return the contact person first name of this production house register entry
 	 */
 	@AutoEscape
-	public String getContactPersonName();
+	public String getContactPersonFirstName();
 
 	/**
-	 * Sets the contact person name of this production house register entry.
+	 * Sets the contact person first name of this production house register entry.
 	 *
-	 * @param contactPersonName the contact person name of this production house register entry
+	 * @param contactPersonFirstName the contact person first name of this production house register entry
 	 */
-	public void setContactPersonName(String contactPersonName);
+	public void setContactPersonFirstName(String contactPersonFirstName);
+
+	/**
+	 * Returns the contact person last name name of this production house register entry.
+	 *
+	 * @return the contact person last name name of this production house register entry
+	 */
+	@AutoEscape
+	public String getContactPersonLastNameName();
+
+	/**
+	 * Sets the contact person last name name of this production house register entry.
+	 *
+	 * @param contactPersonLastNameName the contact person last name name of this production house register entry
+	 */
+	public void setContactPersonLastNameName(String contactPersonLastNameName);
 
 	/**
 	 * Returns the contact person mobile of this production house register entry.

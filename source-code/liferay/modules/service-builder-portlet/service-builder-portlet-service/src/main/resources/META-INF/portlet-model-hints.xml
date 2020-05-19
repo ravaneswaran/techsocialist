@@ -39,7 +39,8 @@
 		<field name="country" type="String" />
 		<field name="pincode" type="String" />
 		<field name="status" type="String" />
-		<field name="contactPersonName" type="String" />
+		<field name="contactPersonFirstName" type="String" />
+		<field name="contactPersonLastNameName" type="String" />
 		<field name="contactPersonMobile" type="String" />
 		<field name="contactPersonEmail" type="String" />
 		<field name="userName" type="String" />

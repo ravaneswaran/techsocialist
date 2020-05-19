@@ -25,10 +25,10 @@
 
 		<column name="status" type="String" />
 
-		<column name="contactPersonName" type="String" />
+		<column name="contactPersonFirstName" type="String" />
+		<column name="contactPersonLastNameName" type="String" />
 		<column name="contactPersonMobile" type="String" />
 		<column name="contactPersonEmail" type="String" />
-
 		<column name="userName" type="String" />
 		<column name="password" type="String" />
 
