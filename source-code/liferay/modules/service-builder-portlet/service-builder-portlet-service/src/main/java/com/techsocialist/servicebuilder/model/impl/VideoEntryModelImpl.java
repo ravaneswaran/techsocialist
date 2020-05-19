@@ -70,7 +70,7 @@ public class VideoEntryModelImpl
 		{"id_", Types.BIGINT}, {"productionHouseEntryId", Types.BIGINT},
 		{"name", Types.VARCHAR}, {"content", Types.BLOB},
 		{"type_", Types.VARCHAR}, {"status", Types.VARCHAR},
-		{"publishDateTime", Types.TIMESTAMP}, {"createdBy", Types.VARCHAR},
+		{"publishDateTime", Types.BIGINT}, {"createdBy", Types.VARCHAR},
 		{"modifiedBy", Types.VARCHAR}, {"createdDate", Types.TIMESTAMP},
 		{"modifiedDate", Types.TIMESTAMP}
 	};
@@ -85,7 +85,7 @@ public class VideoEntryModelImpl
 		TABLE_COLUMNS_MAP.put("content", Types.BLOB);
 		TABLE_COLUMNS_MAP.put("type_", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("status", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("publishDateTime", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("publishDateTime", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("createdBy", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("modifiedBy", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("createdDate", Types.TIMESTAMP);
@@ -93,7 +93,7 @@ public class VideoEntryModelImpl
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table video_register (id_ LONG not null primary key,productionHouseEntryId LONG,name VARCHAR(75) null,content BLOB,type_ VARCHAR(75) null,status VARCHAR(75) null,publishDateTime DATE null,createdBy VARCHAR(75) null,modifiedBy VARCHAR(75) null,createdDate DATE null,modifiedDate DATE null)";
+		"create table video_register (id_ LONG not null primary key,productionHouseEntryId LONG,name VARCHAR(75) null,content BLOB,type_ VARCHAR(75) null,status VARCHAR(75) null,publishDateTime LONG,createdBy VARCHAR(75) null,modifiedBy VARCHAR(75) null,createdDate DATE null,modifiedDate DATE null)";
 
 	public static final String TABLE_SQL_DROP = "drop table video_register";
 
@@ -267,7 +267,7 @@ public class VideoEntryModelImpl
 			"publishDateTime", VideoEntry::getPublishDateTime);
 		attributeSetterBiConsumers.put(
 			"publishDateTime",
-			(BiConsumer<VideoEntry, Date>)VideoEntry::setPublishDateTime);
+			(BiConsumer<VideoEntry, Long>)VideoEntry::setPublishDateTime);
 		attributeGetterFunctions.put("createdBy", VideoEntry::getCreatedBy);
 		attributeSetterBiConsumers.put(
 			"createdBy",
@@ -390,12 +390,12 @@ public class VideoEntryModelImpl
 	}
 
 	@Override
-	public Date getPublishDateTime() {
+	public long getPublishDateTime() {
 		return _publishDateTime;
 	}
 
 	@Override
-	public void setPublishDateTime(Date publishDateTime) {
+	public void setPublishDateTime(long publishDateTime) {
 		_publishDateTime = publishDateTime;
 	}
 
@@ -589,14 +589,7 @@ public class VideoEntryModelImpl
 			videoEntryCacheModel.status = null;
 		}
 
-		Date publishDateTime = getPublishDateTime();
-
-		if (publishDateTime != null) {
-			videoEntryCacheModel.publishDateTime = publishDateTime.getTime();
-		}
-		else {
-			videoEntryCacheModel.publishDateTime = Long.MIN_VALUE;
-		}
+		videoEntryCacheModel.publishDateTime = getPublishDateTime();
 
 		videoEntryCacheModel.createdBy = getCreatedBy();
 
@@ -734,7 +727,7 @@ public class VideoEntryModelImpl
 	private VideoEntryContentBlobModel _contentBlobModel;
 	private String _type;
 	private String _status;
-	private Date _publishDateTime;
+	private long _publishDateTime;
 	private String _createdBy;
 	private String _modifiedBy;
 	private Date _createdDate;

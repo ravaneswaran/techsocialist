@@ -117,12 +117,7 @@ public class VideoEntryCacheModel
 			videoEntryImpl.setStatus(status);
 		}
 
-		if (publishDateTime == Long.MIN_VALUE) {
-			videoEntryImpl.setPublishDateTime(null);
-		}
-		else {
-			videoEntryImpl.setPublishDateTime(new Date(publishDateTime));
-		}
+		videoEntryImpl.setPublishDateTime(publishDateTime);
 
 		if (createdBy == null) {
 			videoEntryImpl.setCreatedBy("");
@@ -165,6 +160,7 @@ public class VideoEntryCacheModel
 		name = objectInput.readUTF();
 		type = objectInput.readUTF();
 		status = objectInput.readUTF();
+
 		publishDateTime = objectInput.readLong();
 		createdBy = objectInput.readUTF();
 		modifiedBy = objectInput.readUTF();

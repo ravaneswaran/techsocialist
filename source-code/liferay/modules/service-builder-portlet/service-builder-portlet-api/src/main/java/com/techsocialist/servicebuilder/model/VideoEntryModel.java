@@ -149,14 +149,14 @@ public interface VideoEntryModel extends BaseModel<VideoEntry> {
 	 *
 	 * @return the publish date time of this video entry
 	 */
-	public Date getPublishDateTime();
+	public long getPublishDateTime();
 
 	/**
 	 * Sets the publish date time of this video entry.
 	 *
 	 * @param publishDateTime the publish date time of this video entry
 	 */
-	public void setPublishDateTime(Date publishDateTime);
+	public void setPublishDateTime(long publishDateTime);
 
 	/**
 	 * Returns the created by of this video entry.

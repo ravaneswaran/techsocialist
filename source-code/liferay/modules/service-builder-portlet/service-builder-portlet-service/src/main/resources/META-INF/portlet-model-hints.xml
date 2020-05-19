@@ -8,7 +8,7 @@
 		<field name="content" type="Blob" />
 		<field name="type" type="String" />
 		<field name="status" type="String" />
-		<field name="publishDateTime" type="Date" />
+		<field name="publishDateTime" type="long" />
 		<field name="createdBy" type="String" />
 		<field name="modifiedBy" type="String" />
 		<field name="modifiedDate" type="Date" />
@@ -49,7 +49,7 @@
 		<field name="content" type="Blob" />
 		<field name="type" type="String" />
 		<field name="status" type="String" />
-		<field name="publishDateTime" type="Date" />
+		<field name="publishDateTime" type="long" />
 		<field name="createdBy" type="String" />
 		<field name="modifiedBy" type="String" />
 		<field name="createdDate" type="Date" />

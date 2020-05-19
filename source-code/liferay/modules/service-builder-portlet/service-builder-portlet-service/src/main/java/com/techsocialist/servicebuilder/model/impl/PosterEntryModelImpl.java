@@ -70,7 +70,7 @@ public class PosterEntryModelImpl
 		{"id_", Types.BIGINT}, {"videoEntryId", Types.BIGINT},
 		{"name", Types.VARCHAR}, {"content", Types.BLOB},
 		{"type_", Types.VARCHAR}, {"status", Types.VARCHAR},
-		{"publishDateTime", Types.TIMESTAMP}, {"createdBy", Types.VARCHAR},
+		{"publishDateTime", Types.BIGINT}, {"createdBy", Types.VARCHAR},
 		{"modifiedBy", Types.VARCHAR}, {"modifiedDate", Types.TIMESTAMP},
 		{"createdDate", Types.TIMESTAMP}
 	};
@@ -85,7 +85,7 @@ public class PosterEntryModelImpl
 		TABLE_COLUMNS_MAP.put("content", Types.BLOB);
 		TABLE_COLUMNS_MAP.put("type_", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("status", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("publishDateTime", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("publishDateTime", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("createdBy", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("modifiedBy", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
@@ -93,7 +93,7 @@ public class PosterEntryModelImpl
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table poster_register (id_ LONG not null primary key,videoEntryId LONG,name VARCHAR(75) null,content BLOB,type_ VARCHAR(75) null,status VARCHAR(75) null,publishDateTime DATE null,createdBy VARCHAR(75) null,modifiedBy VARCHAR(75) null,modifiedDate DATE null,createdDate DATE null)";
+		"create table poster_register (id_ LONG not null primary key,videoEntryId LONG,name VARCHAR(75) null,content BLOB,type_ VARCHAR(75) null,status VARCHAR(75) null,publishDateTime LONG,createdBy VARCHAR(75) null,modifiedBy VARCHAR(75) null,modifiedDate DATE null,createdDate DATE null)";
 
 	public static final String TABLE_SQL_DROP = "drop table poster_register";
 
@@ -267,7 +267,7 @@ public class PosterEntryModelImpl
 			"publishDateTime", PosterEntry::getPublishDateTime);
 		attributeSetterBiConsumers.put(
 			"publishDateTime",
-			(BiConsumer<PosterEntry, Date>)PosterEntry::setPublishDateTime);
+			(BiConsumer<PosterEntry, Long>)PosterEntry::setPublishDateTime);
 		attributeGetterFunctions.put("createdBy", PosterEntry::getCreatedBy);
 		attributeSetterBiConsumers.put(
 			"createdBy",
@@ -391,12 +391,12 @@ public class PosterEntryModelImpl
 	}
 
 	@Override
-	public Date getPublishDateTime() {
+	public long getPublishDateTime() {
 		return _publishDateTime;
 	}
 
 	@Override
-	public void setPublishDateTime(Date publishDateTime) {
+	public void setPublishDateTime(long publishDateTime) {
 		_publishDateTime = publishDateTime;
 	}
 
@@ -590,14 +590,7 @@ public class PosterEntryModelImpl
 			posterEntryCacheModel.status = null;
 		}
 
-		Date publishDateTime = getPublishDateTime();
-
-		if (publishDateTime != null) {
-			posterEntryCacheModel.publishDateTime = publishDateTime.getTime();
-		}
-		else {
-			posterEntryCacheModel.publishDateTime = Long.MIN_VALUE;
-		}
+		posterEntryCacheModel.publishDateTime = getPublishDateTime();
 
 		posterEntryCacheModel.createdBy = getCreatedBy();
 
@@ -735,7 +728,7 @@ public class PosterEntryModelImpl
 	private PosterEntryContentBlobModel _contentBlobModel;
 	private String _type;
 	private String _status;
-	private Date _publishDateTime;
+	private long _publishDateTime;
 	private String _createdBy;
 	private String _modifiedBy;
 	private Date _modifiedDate;

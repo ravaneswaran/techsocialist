@@ -145,11 +145,11 @@ public class PosterEntrySoap implements Serializable {
 		_status = status;
 	}
 
-	public Date getPublishDateTime() {
+	public long getPublishDateTime() {
 		return _publishDateTime;
 	}
 
-	public void setPublishDateTime(Date publishDateTime) {
+	public void setPublishDateTime(long publishDateTime) {
 		_publishDateTime = publishDateTime;
 	}
 
@@ -191,7 +191,7 @@ public class PosterEntrySoap implements Serializable {
 	private Blob _content;
 	private String _type;
 	private String _status;
-	private Date _publishDateTime;
+	private long _publishDateTime;
 	private String _createdBy;
 	private String _modifiedBy;
 	private Date _modifiedDate;

@@ -98,7 +98,7 @@ public class VideoEntryWrapper
 			setStatus(status);
 		}
 
-		Date publishDateTime = (Date)attributes.get("publishDateTime");
+		Long publishDateTime = (Long)attributes.get("publishDateTime");
 
 		if (publishDateTime != null) {
 			setPublishDateTime(publishDateTime);
@@ -225,7 +225,7 @@ public class VideoEntryWrapper
 	 * @return the publish date time of this video entry
 	 */
 	@Override
-	public Date getPublishDateTime() {
+	public long getPublishDateTime() {
 		return model.getPublishDateTime();
 	}
 
@@ -350,7 +350,7 @@ public class VideoEntryWrapper
 	 * @param publishDateTime the publish date time of this video entry
 	 */
 	@Override
-	public void setPublishDateTime(Date publishDateTime) {
+	public void setPublishDateTime(long publishDateTime) {
 		model.setPublishDateTime(publishDateTime);
 	}
 

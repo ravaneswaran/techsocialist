@@ -149,14 +149,14 @@ public interface PosterEntryModel extends BaseModel<PosterEntry> {
 	 *
 	 * @return the publish date time of this poster entry
 	 */
-	public Date getPublishDateTime();
+	public long getPublishDateTime();
 
 	/**
 	 * Sets the publish date time of this poster entry.
 	 *
 	 * @param publishDateTime the publish date time of this poster entry
 	 */
-	public void setPublishDateTime(Date publishDateTime);
+	public void setPublishDateTime(long publishDateTime);
 
 	/**
 	 * Returns the created by of this poster entry.

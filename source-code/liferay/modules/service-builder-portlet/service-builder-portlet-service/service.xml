@@ -52,7 +52,7 @@
 		<column name="type" type="String" />
 		<column name="status" type="String" />
 
-		<column name="publishDateTime" type="Date" />
+		<column name="publishDateTime" type="long" />
 
 		<column name="createdBy" type="String" />
 		<column name="modifiedBy" type="String" />
@@ -72,7 +72,7 @@
 		<column name="type" type="String" />
 		<column name="status" type="String" />
 
-		<column name="publishDateTime" type="Date" />
+		<column name="publishDateTime" type="long" />
 
 		<column name="createdBy" type="String" />
 		<column name="modifiedBy" type="String" />

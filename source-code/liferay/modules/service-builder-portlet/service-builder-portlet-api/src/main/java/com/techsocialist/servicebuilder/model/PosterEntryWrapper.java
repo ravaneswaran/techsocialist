@@ -97,7 +97,7 @@ public class PosterEntryWrapper
 			setStatus(status);
 		}
 
-		Date publishDateTime = (Date)attributes.get("publishDateTime");
+		Long publishDateTime = (Long)attributes.get("publishDateTime");
 
 		if (publishDateTime != null) {
 			setPublishDateTime(publishDateTime);
@@ -214,7 +214,7 @@ public class PosterEntryWrapper
 	 * @return the publish date time of this poster entry
 	 */
 	@Override
-	public Date getPublishDateTime() {
+	public long getPublishDateTime() {
 		return model.getPublishDateTime();
 	}
 
@@ -339,7 +339,7 @@ public class PosterEntryWrapper
 	 * @param publishDateTime the publish date time of this poster entry
 	 */
 	@Override
-	public void setPublishDateTime(Date publishDateTime) {
+	public void setPublishDateTime(long publishDateTime) {
 		model.setPublishDateTime(publishDateTime);
 	}
 

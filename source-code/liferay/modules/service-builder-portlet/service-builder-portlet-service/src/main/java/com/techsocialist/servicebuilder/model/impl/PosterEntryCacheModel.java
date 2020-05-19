@@ -118,12 +118,7 @@ public class PosterEntryCacheModel
 			posterEntryImpl.setStatus(status);
 		}
 
-		if (publishDateTime == Long.MIN_VALUE) {
-			posterEntryImpl.setPublishDateTime(null);
-		}
-		else {
-			posterEntryImpl.setPublishDateTime(new Date(publishDateTime));
-		}
+		posterEntryImpl.setPublishDateTime(publishDateTime);
 
 		if (createdBy == null) {
 			posterEntryImpl.setCreatedBy("");
@@ -166,6 +161,7 @@ public class PosterEntryCacheModel
 		name = objectInput.readUTF();
 		type = objectInput.readUTF();
 		status = objectInput.readUTF();
+
 		publishDateTime = objectInput.readLong();
 		createdBy = objectInput.readUTF();
 		modifiedBy = objectInput.readUTF();
