@@ -45,12 +45,13 @@
 	<entity  local-service="true" name="Video" remote-service="false" uuid="false" table="video_register">
 
 		<column name="id" primary="true" type="long" />
+		<column name="userId" type="long" /> <!-- should not be null -->
 		<column name="productionHouseId" type="long" /> <!-- is applicable only when the video is of type Feature_Film -->
 		<column name="name" type="String" />
 		<column name="thumbnail" type="Blob" />
 		<column name="content" type="Blob" />
 
-		<column name="type" type="String" /> <!--Feature_Film, Short_Film, Documentry, Individual_Video -->
+		<column name="type" type="String" /> <!-- Teaser, Trailer, Feature_Film, Short_Film, Documentry, Individual_Video -->
 		<column name="status" type="String" /> <!-- Uploaded, Published -->
 
 		<column name="ticketPrice" type="double" /> <!-- is applicable only when the video is of the type Feature_Film-->
@@ -88,7 +89,7 @@
 
 		<column name="id" primary="true" type="long" />
 		<column name="userId" type="long" />
-		<column name="videoEntryId" type="long" />
+		<column name="videoId" type="long" />
 
 		<column name="status" type="String" />
 
@@ -96,6 +97,20 @@
 		<column name="soldTime" type="Date" />
 
 		<column name="createdDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+	</entity>
+
+	<entity  local-service="true" name="Payment" remote-service="false" uuid="false" table="payment_register">
+
+		<column name="id" primary="true" type="long" />
+		<column name="userId" type="long" />
+
+		<column name="amount"  type="long" />
+		<column name="currency"  type="long" />
+
+		<column name="amountPaid"  type="long" />
+		<column name="amountDue"  type="long" />
 
 	</entity>
 
