@@ -1,4 +1,0 @@
-Bundle-Name: host-platform-share-configuration-portlet
-Bundle-SymbolicName: com.techsocialist.controlpanel
-Bundle-Version: 1.0.0
-Export-Package: com.techsocialist.controlpanel.constants
