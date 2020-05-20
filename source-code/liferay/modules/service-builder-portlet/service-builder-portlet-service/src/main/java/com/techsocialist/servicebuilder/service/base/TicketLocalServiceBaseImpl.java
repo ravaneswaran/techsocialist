@@ -42,6 +42,8 @@ import com.techsocialist.servicebuilder.service.TicketLocalService;
 import com.techsocialist.servicebuilder.service.persistence.PosterPersistence;
 import com.techsocialist.servicebuilder.service.persistence.ProductionHousePersistence;
 import com.techsocialist.servicebuilder.service.persistence.TicketPersistence;
+import com.techsocialist.servicebuilder.service.persistence.TicketPricePersistence;
+import com.techsocialist.servicebuilder.service.persistence.TicketTaxPersistence;
 import com.techsocialist.servicebuilder.service.persistence.VideoPersistence;
 
 import java.io.Serializable;
@@ -399,6 +401,12 @@ public abstract class TicketLocalServiceBaseImpl
 
 	@Reference
 	protected TicketPersistence ticketPersistence;
+
+	@Reference
+	protected TicketPricePersistence ticketPricePersistence;
+
+	@Reference
+	protected TicketTaxPersistence ticketTaxPersistence;
 
 	@Reference
 	protected VideoPersistence videoPersistence;

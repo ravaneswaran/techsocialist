@@ -72,6 +72,34 @@ public interface VideoModel extends BaseModel<Video> {
 	public void setId(long id);
 
 	/**
+	 * Returns the user ID of this video.
+	 *
+	 * @return the user ID of this video
+	 */
+	public long getUserId();
+
+	/**
+	 * Sets the user ID of this video.
+	 *
+	 * @param userId the user ID of this video
+	 */
+	public void setUserId(long userId);
+
+	/**
+	 * Returns the user uuid of this video.
+	 *
+	 * @return the user uuid of this video
+	 */
+	public String getUserUuid();
+
+	/**
+	 * Sets the user uuid of this video.
+	 *
+	 * @param userUuid the user uuid of this video
+	 */
+	public void setUserUuid(String userUuid);
+
+	/**
 	 * Returns the production house ID of this video.
 	 *
 	 * @return the production house ID of this video

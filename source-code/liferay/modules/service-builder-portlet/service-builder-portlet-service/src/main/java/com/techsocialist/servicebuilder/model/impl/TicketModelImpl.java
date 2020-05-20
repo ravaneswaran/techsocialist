@@ -68,9 +68,10 @@ public class TicketModelImpl
 
 	public static final Object[][] TABLE_COLUMNS = {
 		{"id_", Types.BIGINT}, {"userId", Types.BIGINT},
-		{"videoEntryId", Types.BIGINT}, {"status", Types.VARCHAR},
+		{"videoId", Types.BIGINT}, {"ticketPriceId", Types.BIGINT},
+		{"ticketTaxId", Types.BIGINT}, {"status", Types.VARCHAR},
 		{"purchaseTime", Types.TIMESTAMP}, {"soldTime", Types.TIMESTAMP},
-		{"createdDate", Types.TIMESTAMP}
+		{"createdDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -79,15 +80,18 @@ public class TicketModelImpl
 	static {
 		TABLE_COLUMNS_MAP.put("id_", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("userId", Types.BIGINT);
-		TABLE_COLUMNS_MAP.put("videoEntryId", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("videoId", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("ticketPriceId", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("ticketTaxId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("status", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("purchaseTime", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("soldTime", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("createdDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table ticket_register (id_ LONG not null primary key,userId LONG,videoEntryId LONG,status VARCHAR(75) null,purchaseTime DATE null,soldTime DATE null,createdDate DATE null)";
+		"create table ticket_register (id_ LONG not null primary key,userId LONG,videoId LONG,ticketPriceId LONG,ticketTaxId LONG,status VARCHAR(75) null,purchaseTime DATE null,soldTime DATE null,createdDate DATE null,modifiedDate DATE null)";
 
 	public static final String TABLE_SQL_DROP = "drop table ticket_register";
 
@@ -238,9 +242,16 @@ public class TicketModelImpl
 		attributeGetterFunctions.put("userId", Ticket::getUserId);
 		attributeSetterBiConsumers.put(
 			"userId", (BiConsumer<Ticket, Long>)Ticket::setUserId);
-		attributeGetterFunctions.put("videoEntryId", Ticket::getVideoEntryId);
+		attributeGetterFunctions.put("videoId", Ticket::getVideoId);
 		attributeSetterBiConsumers.put(
-			"videoEntryId", (BiConsumer<Ticket, Long>)Ticket::setVideoEntryId);
+			"videoId", (BiConsumer<Ticket, Long>)Ticket::setVideoId);
+		attributeGetterFunctions.put("ticketPriceId", Ticket::getTicketPriceId);
+		attributeSetterBiConsumers.put(
+			"ticketPriceId",
+			(BiConsumer<Ticket, Long>)Ticket::setTicketPriceId);
+		attributeGetterFunctions.put("ticketTaxId", Ticket::getTicketTaxId);
+		attributeSetterBiConsumers.put(
+			"ticketTaxId", (BiConsumer<Ticket, Long>)Ticket::setTicketTaxId);
 		attributeGetterFunctions.put("status", Ticket::getStatus);
 		attributeSetterBiConsumers.put(
 			"status", (BiConsumer<Ticket, String>)Ticket::setStatus);
@@ -253,6 +264,9 @@ public class TicketModelImpl
 		attributeGetterFunctions.put("createdDate", Ticket::getCreatedDate);
 		attributeSetterBiConsumers.put(
 			"createdDate", (BiConsumer<Ticket, Date>)Ticket::setCreatedDate);
+		attributeGetterFunctions.put("modifiedDate", Ticket::getModifiedDate);
+		attributeSetterBiConsumers.put(
+			"modifiedDate", (BiConsumer<Ticket, Date>)Ticket::setModifiedDate);
 
 		_attributeGetterFunctions = Collections.unmodifiableMap(
 			attributeGetterFunctions);
@@ -297,13 +311,33 @@ public class TicketModelImpl
 	}
 
 	@Override
-	public long getVideoEntryId() {
-		return _videoEntryId;
+	public long getVideoId() {
+		return _videoId;
 	}
 
 	@Override
-	public void setVideoEntryId(long videoEntryId) {
-		_videoEntryId = videoEntryId;
+	public void setVideoId(long videoId) {
+		_videoId = videoId;
+	}
+
+	@Override
+	public long getTicketPriceId() {
+		return _ticketPriceId;
+	}
+
+	@Override
+	public void setTicketPriceId(long ticketPriceId) {
+		_ticketPriceId = ticketPriceId;
+	}
+
+	@Override
+	public long getTicketTaxId() {
+		return _ticketTaxId;
+	}
+
+	@Override
+	public void setTicketTaxId(long ticketTaxId) {
+		_ticketTaxId = ticketTaxId;
 	}
 
 	@Override
@@ -352,6 +386,16 @@ public class TicketModelImpl
 	}
 
 	@Override
+	public Date getModifiedDate() {
+		return _modifiedDate;
+	}
+
+	@Override
+	public void setModifiedDate(Date modifiedDate) {
+		_modifiedDate = modifiedDate;
+	}
+
+	@Override
 	public ExpandoBridge getExpandoBridge() {
 		return ExpandoBridgeFactoryUtil.getExpandoBridge(
 			0, Ticket.class.getName(), getPrimaryKey());
@@ -385,11 +429,14 @@ public class TicketModelImpl
 
 		ticketImpl.setId(getId());
 		ticketImpl.setUserId(getUserId());
-		ticketImpl.setVideoEntryId(getVideoEntryId());
+		ticketImpl.setVideoId(getVideoId());
+		ticketImpl.setTicketPriceId(getTicketPriceId());
+		ticketImpl.setTicketTaxId(getTicketTaxId());
 		ticketImpl.setStatus(getStatus());
 		ticketImpl.setPurchaseTime(getPurchaseTime());
 		ticketImpl.setSoldTime(getSoldTime());
 		ticketImpl.setCreatedDate(getCreatedDate());
+		ticketImpl.setModifiedDate(getModifiedDate());
 
 		ticketImpl.resetOriginalValues();
 
@@ -460,7 +507,11 @@ public class TicketModelImpl
 
 		ticketCacheModel.userId = getUserId();
 
-		ticketCacheModel.videoEntryId = getVideoEntryId();
+		ticketCacheModel.videoId = getVideoId();
+
+		ticketCacheModel.ticketPriceId = getTicketPriceId();
+
+		ticketCacheModel.ticketTaxId = getTicketTaxId();
 
 		ticketCacheModel.status = getStatus();
 
@@ -495,6 +546,15 @@ public class TicketModelImpl
 		}
 		else {
 			ticketCacheModel.createdDate = Long.MIN_VALUE;
+		}
+
+		Date modifiedDate = getModifiedDate();
+
+		if (modifiedDate != null) {
+			ticketCacheModel.modifiedDate = modifiedDate.getTime();
+		}
+		else {
+			ticketCacheModel.modifiedDate = Long.MIN_VALUE;
 		}
 
 		return ticketCacheModel;
@@ -573,11 +633,14 @@ public class TicketModelImpl
 
 	private long _id;
 	private long _userId;
-	private long _videoEntryId;
+	private long _videoId;
+	private long _ticketPriceId;
+	private long _ticketTaxId;
 	private String _status;
 	private Date _purchaseTime;
 	private Date _soldTime;
 	private Date _createdDate;
+	private Date _modifiedDate;
 	private Ticket _escapedModel;
 
 }

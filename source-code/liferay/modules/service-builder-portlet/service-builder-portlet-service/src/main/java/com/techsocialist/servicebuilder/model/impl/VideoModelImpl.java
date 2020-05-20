@@ -18,10 +18,13 @@ import com.liferay.expando.kernel.model.ExpandoBridge;
 import com.liferay.expando.kernel.util.ExpandoBridgeFactoryUtil;
 import com.liferay.petra.string.StringBundler;
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.model.ModelWrapper;
+import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.impl.BaseModelImpl;
 import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 
 import com.techsocialist.servicebuilder.model.Video;
@@ -67,13 +70,13 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 	public static final String TABLE_NAME = "video_register";
 
 	public static final Object[][] TABLE_COLUMNS = {
-		{"id_", Types.BIGINT}, {"productionHouseId", Types.BIGINT},
-		{"name", Types.VARCHAR}, {"thumbnail", Types.BLOB},
-		{"content", Types.BLOB}, {"type_", Types.VARCHAR},
-		{"status", Types.VARCHAR}, {"ticketPrice", Types.DOUBLE},
-		{"publishDateTime", Types.BIGINT}, {"createdBy", Types.VARCHAR},
-		{"modifiedBy", Types.VARCHAR}, {"createdDate", Types.TIMESTAMP},
-		{"modifiedDate", Types.TIMESTAMP}
+		{"id_", Types.BIGINT}, {"userId", Types.BIGINT},
+		{"productionHouseId", Types.BIGINT}, {"name", Types.VARCHAR},
+		{"thumbnail", Types.BLOB}, {"content", Types.BLOB},
+		{"type_", Types.VARCHAR}, {"status", Types.VARCHAR},
+		{"ticketPrice", Types.DOUBLE}, {"publishDateTime", Types.BIGINT},
+		{"createdBy", Types.VARCHAR}, {"modifiedBy", Types.VARCHAR},
+		{"createdDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -81,6 +84,7 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 
 	static {
 		TABLE_COLUMNS_MAP.put("id_", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("userId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("productionHouseId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("name", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("thumbnail", Types.BLOB);
@@ -96,7 +100,7 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table video_register (id_ LONG not null primary key,productionHouseId LONG,name VARCHAR(75) null,thumbnail BLOB,content BLOB,type_ VARCHAR(75) null,status VARCHAR(75) null,ticketPrice DOUBLE,publishDateTime LONG,createdBy VARCHAR(75) null,modifiedBy VARCHAR(75) null,createdDate DATE null,modifiedDate DATE null)";
+		"create table video_register (id_ LONG not null primary key,userId LONG,productionHouseId LONG,name VARCHAR(75) null,thumbnail BLOB,content BLOB,type_ VARCHAR(75) null,status VARCHAR(75) null,ticketPrice DOUBLE,publishDateTime LONG,createdBy VARCHAR(75) null,modifiedBy VARCHAR(75) null,createdDate DATE null,modifiedDate DATE null)";
 
 	public static final String TABLE_SQL_DROP = "drop table video_register";
 
@@ -243,6 +247,9 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 		attributeGetterFunctions.put("id", Video::getId);
 		attributeSetterBiConsumers.put(
 			"id", (BiConsumer<Video, Long>)Video::setId);
+		attributeGetterFunctions.put("userId", Video::getUserId);
+		attributeSetterBiConsumers.put(
+			"userId", (BiConsumer<Video, Long>)Video::setUserId);
 		attributeGetterFunctions.put(
 			"productionHouseId", Video::getProductionHouseId);
 		attributeSetterBiConsumers.put(
@@ -298,6 +305,32 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 	@Override
 	public void setId(long id) {
 		_id = id;
+	}
+
+	@Override
+	public long getUserId() {
+		return _userId;
+	}
+
+	@Override
+	public void setUserId(long userId) {
+		_userId = userId;
+	}
+
+	@Override
+	public String getUserUuid() {
+		try {
+			User user = UserLocalServiceUtil.getUserById(getUserId());
+
+			return user.getUuid();
+		}
+		catch (PortalException portalException) {
+			return "";
+		}
+	}
+
+	@Override
+	public void setUserUuid(String userUuid) {
 	}
 
 	@Override
@@ -521,6 +554,7 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 		VideoImpl videoImpl = new VideoImpl();
 
 		videoImpl.setId(getId());
+		videoImpl.setUserId(getUserId());
 		videoImpl.setProductionHouseId(getProductionHouseId());
 		videoImpl.setName(getName());
 		videoImpl.setType(getType());
@@ -604,6 +638,8 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 
 		videoCacheModel.id = getId();
 
+		videoCacheModel.userId = getUserId();
+
 		videoCacheModel.productionHouseId = getProductionHouseId();
 
 		videoCacheModel.name = getName();
@@ -673,10 +709,12 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(29);
 
 		sb.append("{id=");
 		sb.append(getId());
+		sb.append(", userId=");
+		sb.append(getUserId());
 		sb.append(", productionHouseId=");
 		sb.append(getProductionHouseId());
 		sb.append(", name=");
@@ -704,7 +742,7 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(43);
+		StringBundler sb = new StringBundler(46);
 
 		sb.append("<model><model-name>");
 		sb.append("com.techsocialist.servicebuilder.model.Video");
@@ -713,6 +751,10 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 		sb.append(
 			"<column><column-name>id</column-name><column-value><![CDATA[");
 		sb.append(getId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>userId</column-name><column-value><![CDATA[");
+		sb.append(getUserId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>productionHouseId</column-name><column-value><![CDATA[");
@@ -771,6 +813,7 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 	private static boolean _finderCacheEnabled;
 
 	private long _id;
+	private long _userId;
 	private long _productionHouseId;
 	private String _name;
 	private VideoThumbnailBlobModel _thumbnailBlobModel;

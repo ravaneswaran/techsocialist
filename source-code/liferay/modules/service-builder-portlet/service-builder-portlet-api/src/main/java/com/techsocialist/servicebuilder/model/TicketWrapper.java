@@ -43,11 +43,14 @@ public class TicketWrapper
 
 		attributes.put("id", getId());
 		attributes.put("userId", getUserId());
-		attributes.put("videoEntryId", getVideoEntryId());
+		attributes.put("videoId", getVideoId());
+		attributes.put("ticketPriceId", getTicketPriceId());
+		attributes.put("ticketTaxId", getTicketTaxId());
 		attributes.put("status", getStatus());
 		attributes.put("purchaseTime", getPurchaseTime());
 		attributes.put("soldTime", getSoldTime());
 		attributes.put("createdDate", getCreatedDate());
+		attributes.put("modifiedDate", getModifiedDate());
 
 		return attributes;
 	}
@@ -66,10 +69,22 @@ public class TicketWrapper
 			setUserId(userId);
 		}
 
-		Long videoEntryId = (Long)attributes.get("videoEntryId");
+		Long videoId = (Long)attributes.get("videoId");
 
-		if (videoEntryId != null) {
-			setVideoEntryId(videoEntryId);
+		if (videoId != null) {
+			setVideoId(videoId);
+		}
+
+		Long ticketPriceId = (Long)attributes.get("ticketPriceId");
+
+		if (ticketPriceId != null) {
+			setTicketPriceId(ticketPriceId);
+		}
+
+		Long ticketTaxId = (Long)attributes.get("ticketTaxId");
+
+		if (ticketTaxId != null) {
+			setTicketTaxId(ticketTaxId);
 		}
 
 		String status = (String)attributes.get("status");
@@ -95,6 +110,12 @@ public class TicketWrapper
 		if (createdDate != null) {
 			setCreatedDate(createdDate);
 		}
+
+		Date modifiedDate = (Date)attributes.get("modifiedDate");
+
+		if (modifiedDate != null) {
+			setModifiedDate(modifiedDate);
+		}
 	}
 
 	/**
@@ -115,6 +136,16 @@ public class TicketWrapper
 	@Override
 	public long getId() {
 		return model.getId();
+	}
+
+	/**
+	 * Returns the modified date of this ticket.
+	 *
+	 * @return the modified date of this ticket
+	 */
+	@Override
+	public Date getModifiedDate() {
+		return model.getModifiedDate();
 	}
 
 	/**
@@ -158,6 +189,26 @@ public class TicketWrapper
 	}
 
 	/**
+	 * Returns the ticket price ID of this ticket.
+	 *
+	 * @return the ticket price ID of this ticket
+	 */
+	@Override
+	public long getTicketPriceId() {
+		return model.getTicketPriceId();
+	}
+
+	/**
+	 * Returns the ticket tax ID of this ticket.
+	 *
+	 * @return the ticket tax ID of this ticket
+	 */
+	@Override
+	public long getTicketTaxId() {
+		return model.getTicketTaxId();
+	}
+
+	/**
 	 * Returns the user ID of this ticket.
 	 *
 	 * @return the user ID of this ticket
@@ -178,13 +229,13 @@ public class TicketWrapper
 	}
 
 	/**
-	 * Returns the video entry ID of this ticket.
+	 * Returns the video ID of this ticket.
 	 *
-	 * @return the video entry ID of this ticket
+	 * @return the video ID of this ticket
 	 */
 	@Override
-	public long getVideoEntryId() {
-		return model.getVideoEntryId();
+	public long getVideoId() {
+		return model.getVideoId();
 	}
 
 	@Override
@@ -210,6 +261,16 @@ public class TicketWrapper
 	@Override
 	public void setId(long id) {
 		model.setId(id);
+	}
+
+	/**
+	 * Sets the modified date of this ticket.
+	 *
+	 * @param modifiedDate the modified date of this ticket
+	 */
+	@Override
+	public void setModifiedDate(Date modifiedDate) {
+		model.setModifiedDate(modifiedDate);
 	}
 
 	/**
@@ -253,6 +314,26 @@ public class TicketWrapper
 	}
 
 	/**
+	 * Sets the ticket price ID of this ticket.
+	 *
+	 * @param ticketPriceId the ticket price ID of this ticket
+	 */
+	@Override
+	public void setTicketPriceId(long ticketPriceId) {
+		model.setTicketPriceId(ticketPriceId);
+	}
+
+	/**
+	 * Sets the ticket tax ID of this ticket.
+	 *
+	 * @param ticketTaxId the ticket tax ID of this ticket
+	 */
+	@Override
+	public void setTicketTaxId(long ticketTaxId) {
+		model.setTicketTaxId(ticketTaxId);
+	}
+
+	/**
 	 * Sets the user ID of this ticket.
 	 *
 	 * @param userId the user ID of this ticket
@@ -273,13 +354,13 @@ public class TicketWrapper
 	}
 
 	/**
-	 * Sets the video entry ID of this ticket.
+	 * Sets the video ID of this ticket.
 	 *
-	 * @param videoEntryId the video entry ID of this ticket
+	 * @param videoId the video ID of this ticket
 	 */
 	@Override
-	public void setVideoEntryId(long videoEntryId) {
-		model.setVideoEntryId(videoEntryId);
+	public void setVideoId(long videoId) {
+		model.setVideoId(videoId);
 	}
 
 	@Override

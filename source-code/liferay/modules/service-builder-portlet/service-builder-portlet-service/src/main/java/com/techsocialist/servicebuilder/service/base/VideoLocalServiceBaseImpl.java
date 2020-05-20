@@ -49,6 +49,8 @@ import com.techsocialist.servicebuilder.service.VideoLocalService;
 import com.techsocialist.servicebuilder.service.persistence.PosterPersistence;
 import com.techsocialist.servicebuilder.service.persistence.ProductionHousePersistence;
 import com.techsocialist.servicebuilder.service.persistence.TicketPersistence;
+import com.techsocialist.servicebuilder.service.persistence.TicketPricePersistence;
+import com.techsocialist.servicebuilder.service.persistence.TicketTaxPersistence;
 import com.techsocialist.servicebuilder.service.persistence.VideoPersistence;
 
 import java.io.InputStream;
@@ -512,6 +514,12 @@ public abstract class VideoLocalServiceBaseImpl
 
 	@Reference
 	protected TicketPersistence ticketPersistence;
+
+	@Reference
+	protected TicketPricePersistence ticketPricePersistence;
+
+	@Reference
+	protected TicketTaxPersistence ticketTaxPersistence;
 
 	protected VideoLocalService videoLocalService;
 

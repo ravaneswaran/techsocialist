@@ -33,11 +33,14 @@ public class TicketSoap implements Serializable {
 
 		soapModel.setId(model.getId());
 		soapModel.setUserId(model.getUserId());
-		soapModel.setVideoEntryId(model.getVideoEntryId());
+		soapModel.setVideoId(model.getVideoId());
+		soapModel.setTicketPriceId(model.getTicketPriceId());
+		soapModel.setTicketTaxId(model.getTicketTaxId());
 		soapModel.setStatus(model.getStatus());
 		soapModel.setPurchaseTime(model.getPurchaseTime());
 		soapModel.setSoldTime(model.getSoldTime());
 		soapModel.setCreatedDate(model.getCreatedDate());
+		soapModel.setModifiedDate(model.getModifiedDate());
 
 		return soapModel;
 	}
@@ -106,12 +109,28 @@ public class TicketSoap implements Serializable {
 		_userId = userId;
 	}
 
-	public long getVideoEntryId() {
-		return _videoEntryId;
+	public long getVideoId() {
+		return _videoId;
 	}
 
-	public void setVideoEntryId(long videoEntryId) {
-		_videoEntryId = videoEntryId;
+	public void setVideoId(long videoId) {
+		_videoId = videoId;
+	}
+
+	public long getTicketPriceId() {
+		return _ticketPriceId;
+	}
+
+	public void setTicketPriceId(long ticketPriceId) {
+		_ticketPriceId = ticketPriceId;
+	}
+
+	public long getTicketTaxId() {
+		return _ticketTaxId;
+	}
+
+	public void setTicketTaxId(long ticketTaxId) {
+		_ticketTaxId = ticketTaxId;
 	}
 
 	public String getStatus() {
@@ -146,12 +165,23 @@ public class TicketSoap implements Serializable {
 		_createdDate = createdDate;
 	}
 
+	public Date getModifiedDate() {
+		return _modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		_modifiedDate = modifiedDate;
+	}
+
 	private long _id;
 	private long _userId;
-	private long _videoEntryId;
+	private long _videoId;
+	private long _ticketPriceId;
+	private long _ticketTaxId;
 	private String _status;
 	private Date _purchaseTime;
 	private Date _soldTime;
 	private Date _createdDate;
+	private Date _modifiedDate;
 
 }

@@ -61,14 +61,18 @@ public class TicketCacheModel implements CacheModel<Ticket>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(21);
 
 		sb.append("{id=");
 		sb.append(id);
 		sb.append(", userId=");
 		sb.append(userId);
-		sb.append(", videoEntryId=");
-		sb.append(videoEntryId);
+		sb.append(", videoId=");
+		sb.append(videoId);
+		sb.append(", ticketPriceId=");
+		sb.append(ticketPriceId);
+		sb.append(", ticketTaxId=");
+		sb.append(ticketTaxId);
 		sb.append(", status=");
 		sb.append(status);
 		sb.append(", purchaseTime=");
@@ -77,6 +81,8 @@ public class TicketCacheModel implements CacheModel<Ticket>, Externalizable {
 		sb.append(soldTime);
 		sb.append(", createdDate=");
 		sb.append(createdDate);
+		sb.append(", modifiedDate=");
+		sb.append(modifiedDate);
 		sb.append("}");
 
 		return sb.toString();
@@ -88,7 +94,9 @@ public class TicketCacheModel implements CacheModel<Ticket>, Externalizable {
 
 		ticketImpl.setId(id);
 		ticketImpl.setUserId(userId);
-		ticketImpl.setVideoEntryId(videoEntryId);
+		ticketImpl.setVideoId(videoId);
+		ticketImpl.setTicketPriceId(ticketPriceId);
+		ticketImpl.setTicketTaxId(ticketTaxId);
 
 		if (status == null) {
 			ticketImpl.setStatus("");
@@ -118,6 +126,13 @@ public class TicketCacheModel implements CacheModel<Ticket>, Externalizable {
 			ticketImpl.setCreatedDate(new Date(createdDate));
 		}
 
+		if (modifiedDate == Long.MIN_VALUE) {
+			ticketImpl.setModifiedDate(null);
+		}
+		else {
+			ticketImpl.setModifiedDate(new Date(modifiedDate));
+		}
+
 		ticketImpl.resetOriginalValues();
 
 		return ticketImpl;
@@ -129,11 +144,16 @@ public class TicketCacheModel implements CacheModel<Ticket>, Externalizable {
 
 		userId = objectInput.readLong();
 
-		videoEntryId = objectInput.readLong();
+		videoId = objectInput.readLong();
+
+		ticketPriceId = objectInput.readLong();
+
+		ticketTaxId = objectInput.readLong();
 		status = objectInput.readUTF();
 		purchaseTime = objectInput.readLong();
 		soldTime = objectInput.readLong();
 		createdDate = objectInput.readLong();
+		modifiedDate = objectInput.readLong();
 	}
 
 	@Override
@@ -142,7 +162,11 @@ public class TicketCacheModel implements CacheModel<Ticket>, Externalizable {
 
 		objectOutput.writeLong(userId);
 
-		objectOutput.writeLong(videoEntryId);
+		objectOutput.writeLong(videoId);
+
+		objectOutput.writeLong(ticketPriceId);
+
+		objectOutput.writeLong(ticketTaxId);
 
 		if (status == null) {
 			objectOutput.writeUTF("");
@@ -154,14 +178,18 @@ public class TicketCacheModel implements CacheModel<Ticket>, Externalizable {
 		objectOutput.writeLong(purchaseTime);
 		objectOutput.writeLong(soldTime);
 		objectOutput.writeLong(createdDate);
+		objectOutput.writeLong(modifiedDate);
 	}
 
 	public long id;
 	public long userId;
-	public long videoEntryId;
+	public long videoId;
+	public long ticketPriceId;
+	public long ticketTaxId;
 	public String status;
 	public long purchaseTime;
 	public long soldTime;
 	public long createdDate;
+	public long modifiedDate;
 
 }

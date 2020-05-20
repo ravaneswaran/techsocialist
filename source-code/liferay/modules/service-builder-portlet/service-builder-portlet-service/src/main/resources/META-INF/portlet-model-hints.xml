@@ -45,14 +45,35 @@
 	<model name="com.techsocialist.servicebuilder.model.Ticket">
 		<field name="id" type="long" />
 		<field name="userId" type="long" />
-		<field name="videoEntryId" type="long" />
+		<field name="videoId" type="long" />
+		<field name="ticketPriceId" type="long" />
+		<field name="ticketTaxId" type="long" />
 		<field name="status" type="String" />
 		<field name="purchaseTime" type="Date" />
 		<field name="soldTime" type="Date" />
 		<field name="createdDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.techsocialist.servicebuilder.model.TicketPrice">
+		<field name="id" type="long" />
+		<field name="price" type="long" />
+		<field name="createdBy" type="String" />
+		<field name="modifiedBy" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.techsocialist.servicebuilder.model.TicketTax">
+		<field name="id" type="long" />
+		<field name="percent" type="long" />
+		<field name="enabled" type="boolean" />
+		<field name="createdBy" type="String" />
+		<field name="modifiedBy" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
 	</model>
 	<model name="com.techsocialist.servicebuilder.model.Video">
 		<field name="id" type="long" />
+		<field name="userId" type="long" />
 		<field name="productionHouseId" type="long" />
 		<field name="name" type="String" />
 		<field name="thumbnail" type="Blob" />

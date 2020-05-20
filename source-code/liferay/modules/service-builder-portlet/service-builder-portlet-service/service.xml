@@ -90,6 +90,8 @@
 		<column name="id" primary="true" type="long" />
 		<column name="userId" type="long" />
 		<column name="videoId" type="long" />
+		<column name="ticketPriceId" type="long" /> <!-- should not be null if the video is of the type Feature Film-->
+		<column name="ticketTaxId" type="long" /> <!-- should not be null if the video is of the type Feature Film-->
 
 		<column name="status" type="String" />
 
@@ -101,17 +103,27 @@
 
 	</entity>
 
-	<entity  local-service="true" name="Payment" remote-service="false" uuid="false" table="payment_register">
-
+	<entity  local-service="true" name="TicketPrice" remote-service="false" uuid="false" table="ticket_price_register">
 		<column name="id" primary="true" type="long" />
-		<column name="userId" type="long" />
+		<column name="price"  type="long" />
 
-		<column name="amount"  type="long" />
-		<column name="currency"  type="long" />
+		<column name="createdBy" type="String" />
+		<column name="modifiedBy" type="String" />
 
-		<column name="amountPaid"  type="long" />
-		<column name="amountDue"  type="long" />
+		<column name="createdDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+	</entity>
 
+	<entity  local-service="true" name="TicketTax" remote-service="false" uuid="false" table="ticket_tax_register">
+		<column name="id" primary="true" type="long" />
+		<column name="percent"  type="long" />
+		<column name="enabled"  type="boolean" />
+
+		<column name="createdBy" type="String" />
+		<column name="modifiedBy" type="String" />
+
+		<column name="createdDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
 	</entity>
 
 </service-builder>

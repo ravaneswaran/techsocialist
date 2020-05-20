@@ -18,7 +18,7 @@ import com.liferay.petra.lang.HashUtil;
 import com.liferay.petra.string.StringBundler;
 import com.liferay.portal.kernel.model.CacheModel;
 
-import com.techsocialist.servicebuilder.model.Video;
+import com.techsocialist.servicebuilder.model.TicketPrice;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -28,12 +28,13 @@ import java.io.ObjectOutput;
 import java.util.Date;
 
 /**
- * The cache model class for representing Video in entity cache.
+ * The cache model class for representing TicketPrice in entity cache.
  *
  * @author Brian Wing Shun Chan
  * @generated
  */
-public class VideoCacheModel implements CacheModel<Video>, Externalizable {
+public class TicketPriceCacheModel
+	implements CacheModel<TicketPrice>, Externalizable {
 
 	@Override
 	public boolean equals(Object obj) {
@@ -41,13 +42,14 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 			return true;
 		}
 
-		if (!(obj instanceof VideoCacheModel)) {
+		if (!(obj instanceof TicketPriceCacheModel)) {
 			return false;
 		}
 
-		VideoCacheModel videoCacheModel = (VideoCacheModel)obj;
+		TicketPriceCacheModel ticketPriceCacheModel =
+			(TicketPriceCacheModel)obj;
 
-		if (id == videoCacheModel.id) {
+		if (id == ticketPriceCacheModel.id) {
 			return true;
 		}
 
@@ -61,24 +63,12 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("{id=");
 		sb.append(id);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", productionHouseId=");
-		sb.append(productionHouseId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append(", type=");
-		sb.append(type);
-		sb.append(", status=");
-		sb.append(status);
-		sb.append(", ticketPrice=");
-		sb.append(ticketPrice);
-		sb.append(", publishDateTime=");
-		sb.append(publishDateTime);
+		sb.append(", price=");
+		sb.append(price);
 		sb.append(", createdBy=");
 		sb.append(createdBy);
 		sb.append(", modifiedBy=");
@@ -93,84 +83,50 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 	}
 
 	@Override
-	public Video toEntityModel() {
-		VideoImpl videoImpl = new VideoImpl();
+	public TicketPrice toEntityModel() {
+		TicketPriceImpl ticketPriceImpl = new TicketPriceImpl();
 
-		videoImpl.setId(id);
-		videoImpl.setUserId(userId);
-		videoImpl.setProductionHouseId(productionHouseId);
-
-		if (name == null) {
-			videoImpl.setName("");
-		}
-		else {
-			videoImpl.setName(name);
-		}
-
-		if (type == null) {
-			videoImpl.setType("");
-		}
-		else {
-			videoImpl.setType(type);
-		}
-
-		if (status == null) {
-			videoImpl.setStatus("");
-		}
-		else {
-			videoImpl.setStatus(status);
-		}
-
-		videoImpl.setTicketPrice(ticketPrice);
-		videoImpl.setPublishDateTime(publishDateTime);
+		ticketPriceImpl.setId(id);
+		ticketPriceImpl.setPrice(price);
 
 		if (createdBy == null) {
-			videoImpl.setCreatedBy("");
+			ticketPriceImpl.setCreatedBy("");
 		}
 		else {
-			videoImpl.setCreatedBy(createdBy);
+			ticketPriceImpl.setCreatedBy(createdBy);
 		}
 
 		if (modifiedBy == null) {
-			videoImpl.setModifiedBy("");
+			ticketPriceImpl.setModifiedBy("");
 		}
 		else {
-			videoImpl.setModifiedBy(modifiedBy);
+			ticketPriceImpl.setModifiedBy(modifiedBy);
 		}
 
 		if (createdDate == Long.MIN_VALUE) {
-			videoImpl.setCreatedDate(null);
+			ticketPriceImpl.setCreatedDate(null);
 		}
 		else {
-			videoImpl.setCreatedDate(new Date(createdDate));
+			ticketPriceImpl.setCreatedDate(new Date(createdDate));
 		}
 
 		if (modifiedDate == Long.MIN_VALUE) {
-			videoImpl.setModifiedDate(null);
+			ticketPriceImpl.setModifiedDate(null);
 		}
 		else {
-			videoImpl.setModifiedDate(new Date(modifiedDate));
+			ticketPriceImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
-		videoImpl.resetOriginalValues();
+		ticketPriceImpl.resetOriginalValues();
 
-		return videoImpl;
+		return ticketPriceImpl;
 	}
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		id = objectInput.readLong();
 
-		userId = objectInput.readLong();
-
-		productionHouseId = objectInput.readLong();
-		name = objectInput.readUTF();
-		type = objectInput.readUTF();
-		status = objectInput.readUTF();
-
-		ticketPrice = objectInput.readDouble();
-
-		publishDateTime = objectInput.readLong();
+		price = objectInput.readLong();
 		createdBy = objectInput.readUTF();
 		modifiedBy = objectInput.readUTF();
 		createdDate = objectInput.readLong();
@@ -181,34 +137,7 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 	public void writeExternal(ObjectOutput objectOutput) throws IOException {
 		objectOutput.writeLong(id);
 
-		objectOutput.writeLong(userId);
-
-		objectOutput.writeLong(productionHouseId);
-
-		if (name == null) {
-			objectOutput.writeUTF("");
-		}
-		else {
-			objectOutput.writeUTF(name);
-		}
-
-		if (type == null) {
-			objectOutput.writeUTF("");
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
-
-		if (status == null) {
-			objectOutput.writeUTF("");
-		}
-		else {
-			objectOutput.writeUTF(status);
-		}
-
-		objectOutput.writeDouble(ticketPrice);
-
-		objectOutput.writeLong(publishDateTime);
+		objectOutput.writeLong(price);
 
 		if (createdBy == null) {
 			objectOutput.writeUTF("");
@@ -229,13 +158,7 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 	}
 
 	public long id;
-	public long userId;
-	public long productionHouseId;
-	public String name;
-	public String type;
-	public String status;
-	public double ticketPrice;
-	public long publishDateTime;
+	public long price;
 	public String createdBy;
 	public String modifiedBy;
 	public long createdDate;

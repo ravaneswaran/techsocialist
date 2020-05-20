@@ -44,6 +44,7 @@ public class VideoWrapper
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("id", getId());
+		attributes.put("userId", getUserId());
 		attributes.put("productionHouseId", getProductionHouseId());
 		attributes.put("name", getName());
 		attributes.put("thumbnail", getThumbnail());
@@ -66,6 +67,12 @@ public class VideoWrapper
 
 		if (id != null) {
 			setId(id);
+		}
+
+		Long userId = (Long)attributes.get("userId");
+
+		if (userId != null) {
+			setUserId(userId);
 		}
 
 		Long productionHouseId = (Long)attributes.get("productionHouseId");
@@ -281,6 +288,26 @@ public class VideoWrapper
 		return model.getType();
 	}
 
+	/**
+	 * Returns the user ID of this video.
+	 *
+	 * @return the user ID of this video
+	 */
+	@Override
+	public long getUserId() {
+		return model.getUserId();
+	}
+
+	/**
+	 * Returns the user uuid of this video.
+	 *
+	 * @return the user uuid of this video
+	 */
+	@Override
+	public String getUserUuid() {
+		return model.getUserUuid();
+	}
+
 	@Override
 	public void persist() {
 		model.persist();
@@ -424,6 +451,26 @@ public class VideoWrapper
 	@Override
 	public void setType(String type) {
 		model.setType(type);
+	}
+
+	/**
+	 * Sets the user ID of this video.
+	 *
+	 * @param userId the user ID of this video
+	 */
+	@Override
+	public void setUserId(long userId) {
+		model.setUserId(userId);
+	}
+
+	/**
+	 * Sets the user uuid of this video.
+	 *
+	 * @param userUuid the user uuid of this video
+	 */
+	@Override
+	public void setUserUuid(String userUuid) {
+		model.setUserUuid(userUuid);
 	}
 
 	@Override

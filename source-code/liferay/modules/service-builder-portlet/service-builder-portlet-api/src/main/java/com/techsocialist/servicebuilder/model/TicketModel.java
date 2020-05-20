@@ -98,18 +98,46 @@ public interface TicketModel extends BaseModel<Ticket> {
 	public void setUserUuid(String userUuid);
 
 	/**
-	 * Returns the video entry ID of this ticket.
+	 * Returns the video ID of this ticket.
 	 *
-	 * @return the video entry ID of this ticket
+	 * @return the video ID of this ticket
 	 */
-	public long getVideoEntryId();
+	public long getVideoId();
 
 	/**
-	 * Sets the video entry ID of this ticket.
+	 * Sets the video ID of this ticket.
 	 *
-	 * @param videoEntryId the video entry ID of this ticket
+	 * @param videoId the video ID of this ticket
 	 */
-	public void setVideoEntryId(long videoEntryId);
+	public void setVideoId(long videoId);
+
+	/**
+	 * Returns the ticket price ID of this ticket.
+	 *
+	 * @return the ticket price ID of this ticket
+	 */
+	public long getTicketPriceId();
+
+	/**
+	 * Sets the ticket price ID of this ticket.
+	 *
+	 * @param ticketPriceId the ticket price ID of this ticket
+	 */
+	public void setTicketPriceId(long ticketPriceId);
+
+	/**
+	 * Returns the ticket tax ID of this ticket.
+	 *
+	 * @return the ticket tax ID of this ticket
+	 */
+	public long getTicketTaxId();
+
+	/**
+	 * Sets the ticket tax ID of this ticket.
+	 *
+	 * @param ticketTaxId the ticket tax ID of this ticket
+	 */
+	public void setTicketTaxId(long ticketTaxId);
 
 	/**
 	 * Returns the status of this ticket.
@@ -167,5 +195,19 @@ public interface TicketModel extends BaseModel<Ticket> {
 	 * @param createdDate the created date of this ticket
 	 */
 	public void setCreatedDate(Date createdDate);
+
+	/**
+	 * Returns the modified date of this ticket.
+	 *
+	 * @return the modified date of this ticket
+	 */
+	public Date getModifiedDate();
+
+	/**
+	 * Sets the modified date of this ticket.
+	 *
+	 * @param modifiedDate the modified date of this ticket
+	 */
+	public void setModifiedDate(Date modifiedDate);
 
 }

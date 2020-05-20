@@ -34,6 +34,7 @@ public class VideoSoap implements Serializable {
 		VideoSoap soapModel = new VideoSoap();
 
 		soapModel.setId(model.getId());
+		soapModel.setUserId(model.getUserId());
 		soapModel.setProductionHouseId(model.getProductionHouseId());
 		soapModel.setName(model.getName());
 		soapModel.setThumbnail(model.getThumbnail());
@@ -104,6 +105,14 @@ public class VideoSoap implements Serializable {
 
 	public void setId(long id) {
 		_id = id;
+	}
+
+	public long getUserId() {
+		return _userId;
+	}
+
+	public void setUserId(long userId) {
+		_userId = userId;
 	}
 
 	public long getProductionHouseId() {
@@ -203,6 +212,7 @@ public class VideoSoap implements Serializable {
 	}
 
 	private long _id;
+	private long _userId;
 	private long _productionHouseId;
 	private String _name;
 	private Blob _thumbnail;
