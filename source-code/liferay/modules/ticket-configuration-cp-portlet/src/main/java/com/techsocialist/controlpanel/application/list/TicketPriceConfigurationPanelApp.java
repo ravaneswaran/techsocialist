@@ -1,12 +1,10 @@
 package com.techsocialist.controlpanel.application.list;
 
-import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPanelCategoryKeys;
-import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPortletKeys;
-
 import com.liferay.application.list.BasePanelApp;
 import com.liferay.application.list.PanelApp;
 import com.liferay.portal.kernel.model.Portlet;
-
+import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPanelCategoryKeys;
+import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPortletKeys;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 

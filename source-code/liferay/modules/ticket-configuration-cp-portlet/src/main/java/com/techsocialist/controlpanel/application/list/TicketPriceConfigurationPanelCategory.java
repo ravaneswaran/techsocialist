@@ -1,17 +1,15 @@
 package com.techsocialist.controlpanel.application.list;
 
-import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPanelCategoryKeys;
-
 import com.liferay.application.list.BasePanelCategory;
 import com.liferay.application.list.PanelCategory;
 import com.liferay.application.list.constants.PanelCategoryKeys;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPanelCategoryKeys;
+import org.osgi.service.component.annotations.Component;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
-
-import org.osgi.service.component.annotations.Component;
 
 /**
  * @author ravaneswaran

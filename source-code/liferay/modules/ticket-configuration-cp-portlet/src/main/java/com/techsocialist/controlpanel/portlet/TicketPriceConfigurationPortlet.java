@@ -1,12 +1,10 @@
 package com.techsocialist.controlpanel.portlet;
 
-import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPortletKeys;
-
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPortletKeys;
+import org.osgi.service.component.annotations.Component;
 
 import javax.portlet.Portlet;
-
-import org.osgi.service.component.annotations.Component;
 
 /**
  * @author ravaneswaran
