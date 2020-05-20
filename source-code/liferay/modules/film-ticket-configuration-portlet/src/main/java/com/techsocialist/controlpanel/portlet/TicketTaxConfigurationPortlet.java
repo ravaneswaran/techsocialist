@@ -1,7 +1,7 @@
 package com.techsocialist.controlpanel.portlet;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
-import com.techsocialist.controlpanel.constants.FilmTicketTaxConfigurationPortletKeys;
+import com.techsocialist.controlpanel.constants.TicketTaxConfigurationPortletKeys;
 import org.osgi.service.component.annotations.Component;
 
 import javax.portlet.Portlet;
@@ -21,12 +21,12 @@ import javax.portlet.Portlet;
                 "javax.portlet.expiration-cache=0",
                 "javax.portlet.init-param.template-path=/",
                 "javax.portlet.init-param.view-template=/jsp/film-ticket-tax/view.jsp",
-                "javax.portlet.name=" + FilmTicketTaxConfigurationPortletKeys.FILM_TICKET_TAX_CONFIGURATION,
+                "javax.portlet.name=" + TicketTaxConfigurationPortletKeys.FILM_TICKET_TAX_CONFIGURATION,
                 "javax.portlet.resource-bundle=content.Language",
                 "javax.portlet.security-role-ref=power-user,user",
 
         },
         service = Portlet.class
 )
-public class FilmTicketTaxConfigurationPortlet extends MVCPortlet {
+public class TicketTaxConfigurationPortlet extends MVCPortlet {
 }

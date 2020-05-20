@@ -1,6 +1,6 @@
 package com.techsocialist.controlpanel.application.list;
 
-import com.techsocialist.controlpanel.constants.FilmTicketPriceConfigurationPanelCategoryKeys;
+import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPanelCategoryKeys;
 
 import com.liferay.application.list.BasePanelCategory;
 import com.liferay.application.list.PanelCategory;
@@ -24,11 +24,11 @@ import org.osgi.service.component.annotations.Component;
 	},
 	service = PanelCategory.class
 )
-public class FilmTicketPriceConfigurationPanelCategory extends BasePanelCategory {
+public class TicketPriceConfigurationPanelCategory extends BasePanelCategory {
 
 	@Override
 	public String getKey() {
-		return FilmTicketPriceConfigurationPanelCategoryKeys.CONTROL_PANEL_CATEGORY;
+		return TicketPriceConfigurationPanelCategoryKeys.CONTROL_PANEL_CATEGORY;
 	}
 
 	@Override

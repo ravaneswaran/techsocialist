@@ -1,7 +1,7 @@
 package com.techsocialist.controlpanel.application.list;
 
-import com.techsocialist.controlpanel.constants.FilmTicketPriceConfigurationPanelCategoryKeys;
-import com.techsocialist.controlpanel.constants.FilmTicketPriceConfigurationPortletKeys;
+import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPanelCategoryKeys;
+import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPortletKeys;
 
 import com.liferay.application.list.BasePanelApp;
 import com.liferay.application.list.PanelApp;
@@ -17,20 +17,20 @@ import org.osgi.service.component.annotations.Reference;
 	immediate = true,
 	property = {
 		"panel.app.order:Integer=100",
-		"panel.category.key=" + FilmTicketPriceConfigurationPanelCategoryKeys.CONTROL_PANEL_CATEGORY
+		"panel.category.key=" + TicketPriceConfigurationPanelCategoryKeys.CONTROL_PANEL_CATEGORY
 	},
 	service = PanelApp.class
 )
-public class FilmTicketPriceConfigurationPanelApp extends BasePanelApp {
+public class TicketPriceConfigurationPanelApp extends BasePanelApp {
 
 	@Override
 	public String getPortletId() {
-		return FilmTicketPriceConfigurationPortletKeys.FILM_TICKET_PRICE_CONFIGURATION;
+		return TicketPriceConfigurationPortletKeys.FILM_TICKET_PRICE_CONFIGURATION;
 	}
 
 	@Override
 	@Reference(
-		target = "(javax.portlet.name=" + FilmTicketPriceConfigurationPortletKeys.FILM_TICKET_PRICE_CONFIGURATION + ")",
+		target = "(javax.portlet.name=" + TicketPriceConfigurationPortletKeys.FILM_TICKET_PRICE_CONFIGURATION + ")",
 		unbind = "-"
 	)
 	public void setPortlet(Portlet portlet) {

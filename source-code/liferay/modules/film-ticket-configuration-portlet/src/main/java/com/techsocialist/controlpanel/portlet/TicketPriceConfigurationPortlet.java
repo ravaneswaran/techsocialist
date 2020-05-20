@@ -1,6 +1,6 @@
 package com.techsocialist.controlpanel.portlet;
 
-import com.techsocialist.controlpanel.constants.FilmTicketPriceConfigurationPortletKeys;
+import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPortletKeys;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
@@ -26,12 +26,12 @@ import org.osgi.service.component.annotations.Component;
 		"javax.portlet.expiration-cache=0",
 		"javax.portlet.init-param.template-path=/",
 		"javax.portlet.init-param.view-template=/jsp/film-ticket-price/view.jsp",
-		"javax.portlet.name=" + FilmTicketPriceConfigurationPortletKeys.FILM_TICKET_PRICE_CONFIGURATION,
+		"javax.portlet.name=" + TicketPriceConfigurationPortletKeys.FILM_TICKET_PRICE_CONFIGURATION,
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=power-user,user",
 
 	},
 	service = Portlet.class
 )
-public class FilmTicketPriceConfigurationPortlet extends MVCPortlet {
+public class TicketPriceConfigurationPortlet extends MVCPortlet {
 }
