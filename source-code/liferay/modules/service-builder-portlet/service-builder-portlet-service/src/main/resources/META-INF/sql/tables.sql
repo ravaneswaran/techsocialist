@@ -39,32 +39,6 @@ create table production_house_register (
 	modifiedBy VARCHAR(75) null,
 	createdDate DATE null,
 	modifiedDate DATE null
-);,
-	userId LONG,
-	name VARCHAR(75) null,
-	cin VARCHAR(75) null,
-	logo BLOB,
-	banner BLOB,
-	landline VARCHAR(75) null,
-	websiteUrl VARCHAR(75) null,
-	addressLine1 VARCHAR(75) null,
-	addressLine2 VARCHAR(75) null,
-	addressLine3 VARCHAR(75) null,
-	place VARCHAR(75) null,
-	state_ VARCHAR(75) null,
-	country VARCHAR(75) null,
-	pincode VARCHAR(75) null,
-	status VARCHAR(75) null,
-	contactPersonFirstName VARCHAR(75) null,
-	contactPersonLastNameName VARCHAR(75) null,
-	contactPersonMobile VARCHAR(75) null,
-	contactPersonEmail VARCHAR(75) null,
-	userName VARCHAR(75) null,
-	password_ VARCHAR(75) null,
-	createdBy VARCHAR(75) null,
-	modifiedBy VARCHAR(75) null,
-	createdDate DATE null,
-	modifiedDate DATE null
 );
 
 create table ticket_price_register (
