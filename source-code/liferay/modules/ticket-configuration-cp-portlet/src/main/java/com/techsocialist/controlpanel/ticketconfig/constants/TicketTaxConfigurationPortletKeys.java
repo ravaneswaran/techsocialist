@@ -1,4 +1,4 @@
-package com.techsocialist.controlpanel.constants;
+package com.techsocialist.controlpanel.ticketconfig.constants;
 
 public class TicketTaxConfigurationPortletKeys {
 

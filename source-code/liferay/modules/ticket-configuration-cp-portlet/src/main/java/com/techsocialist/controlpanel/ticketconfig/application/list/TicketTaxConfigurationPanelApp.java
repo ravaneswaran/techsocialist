@@ -1,10 +1,10 @@
-package com.techsocialist.controlpanel.application.list;
+package com.techsocialist.controlpanel.ticketconfig.application.list;
 
 import com.liferay.application.list.BasePanelApp;
 import com.liferay.application.list.PanelApp;
 import com.liferay.portal.kernel.model.Portlet;
-import com.techsocialist.controlpanel.constants.TicketTaxConfigurationPanelCategoryKeys;
-import com.techsocialist.controlpanel.constants.TicketTaxConfigurationPortletKeys;
+import com.techsocialist.controlpanel.ticketconfig.constants.TicketTaxConfigurationPanelCategoryKeys;
+import com.techsocialist.controlpanel.ticketconfig.constants.TicketTaxConfigurationPortletKeys;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 

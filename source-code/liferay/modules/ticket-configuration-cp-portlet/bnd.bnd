@@ -1,4 +1,4 @@
 Bundle-Name: ticket-configuration-cp-portlet
-Bundle-SymbolicName: com.techsocialist.controlpanel
+Bundle-SymbolicName: com.techsocialist.controlpanel.ticketconfig
 Bundle-Version: 1.0.0
-Export-Package: com.techsocialist.controlpanel.constants
+Export-Package: com.techsocialist.controlpanel.ticketconfig.constants

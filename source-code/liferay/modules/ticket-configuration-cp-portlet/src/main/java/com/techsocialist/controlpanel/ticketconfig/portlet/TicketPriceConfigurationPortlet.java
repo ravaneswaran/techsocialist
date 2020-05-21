@@ -1,7 +1,7 @@
-package com.techsocialist.controlpanel.portlet;
+package com.techsocialist.controlpanel.ticketconfig.portlet;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
-import com.techsocialist.controlpanel.constants.TicketPriceConfigurationPortletKeys;
+import com.techsocialist.controlpanel.ticketconfig.constants.TicketPriceConfigurationPortletKeys;
 import org.osgi.service.component.annotations.Component;
 
 import javax.portlet.Portlet;

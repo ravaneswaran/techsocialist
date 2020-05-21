@@ -1,11 +1,11 @@
-package com.techsocialist.controlpanel.application.list;
+package com.techsocialist.controlpanel.ticketconfig.application.list;
 
 import com.liferay.application.list.BasePanelCategory;
 import com.liferay.application.list.PanelCategory;
 import com.liferay.application.list.constants.PanelCategoryKeys;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
-import com.techsocialist.controlpanel.constants.TicketTaxConfigurationPanelCategoryKeys;
+import com.techsocialist.controlpanel.ticketconfig.constants.TicketTaxConfigurationPanelCategoryKeys;
 import org.osgi.service.component.annotations.Component;
 
 import java.util.Locale;

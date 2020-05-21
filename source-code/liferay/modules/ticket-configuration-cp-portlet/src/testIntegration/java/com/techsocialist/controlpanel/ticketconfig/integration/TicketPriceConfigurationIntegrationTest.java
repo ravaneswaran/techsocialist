@@ -1,32 +1,21 @@
-package com.techsocialist.helloworld.integration;
+package com.techsocialist.controlpanel.ticketconfig.integration;
 
-import com.liferay.arquillian.containter.remote.enricher.Inject;
-import com.liferay.portal.kernel.exception.PortalException;
-import com.techsocialist.helloworld.HelloWorldTestHelper;
-import com.techsocialist.helloworld.service.HelloWorldService;
+import com.techsocialist.controlpanel.ticketconfig.TicketConfigurationTestHelper;
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-@RunWith(Arquillian.class)
-@Ignore
-public class HelloWorldIntegrationTest {
+public class TicketPriceConfigurationIntegrationTest extends TicketConfigurationTestHelper {
 
     @Deployment
     public static JavaArchive create() throws Exception {
-        final File tempDir = HelloWorldTestHelper.createTempDir();
+        final File tempDir = TicketConfigurationTestHelper.createTempDir();
 
         String gradlew = "../../gradlew";
 
@@ -51,15 +40,4 @@ public class HelloWorldIntegrationTest {
 
         return ShrinkWrap.createFromZipFile(JavaArchive.class, jarFile);
     }
-
-    @Test
-    public void testGreetTheWorld() throws IOException, PortalException {
-        final String result = _helloWorldService.greetTheWorld();
-
-        Assert.assertEquals("Hello World", result);
-    }
-
-    @Inject
-    private HelloWorldService _helloWorldService;
-
 }
