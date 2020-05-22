@@ -58,11 +58,12 @@ public class HelloWorldFunctionalTest{
 
     @Test
     public void testGreetTheWorld() throws IOException, PortalException {
+        System.out.println("------------------------->>>>>>>> "+_portalURL.toExternalForm());
         _browser.get(_portalURL.toExternalForm());
         Assert.assertEquals("Hello from HelloWorld!", _result.getText());
     }
 
-    @FindBy(id = "01")
+    @FindBy(id = "test")
     private WebElement _result;
 
     @PortalURL("com_techsocialist_helloworld_HelloWorldPortlet")

@@ -10,6 +10,12 @@ dependencies {
 
 	cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.0.2"
 
+	compileOnly project(":modules:service-builder-portlet:service-builder-portlet-api")
+	compileOnly project(":modules:service-builder-portlet:service-builder-portlet-service")
+
+	testCompile project(":modules:service-builder-portlet:service-builder-portlet-api")
+	testCompile project(":modules:service-builder-portlet:service-builder-portlet-service")
+
 	testIntegrationCompile group: "com.liferay.arquillian", name: "com.liferay.arquillian.arquillian-container-liferay", version: "1.0.6"
 	testIntegrationCompile group: "junit", name: "junit", version: "4.12"
 	testIntegrationCompile group: "org.jboss.arquillian.junit", name: "arquillian-junit-container", version: "1.1.11.Final"

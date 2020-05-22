@@ -21,7 +21,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @RunWith(Arquillian.class)
-@Ignore
 public class HelloWorldIntegrationTest {
 
     @Deployment
