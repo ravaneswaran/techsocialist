@@ -27,8 +27,9 @@ public class TicketPriceServiceImpl implements TicketPriceService {
         ticketPrice.setPrice(price);
         ticketPrice.setCreatedBy(userFullName);
         ticketPrice.setModifiedBy(userFullName);
-        ticketPrice.setCreatedDate(new Date());
-        ticketPrice.setModifiedDate(new Date());
+        Date now = new Date();
+        ticketPrice.setCreatedDate(now);
+        ticketPrice.setModifiedDate(now);
 
         return _ticketPriceLocalService.addTicketPrice(ticketPrice);
     }

@@ -26,8 +26,9 @@ public class TicketTaxServiceImpl implements TicketTaxService {
         TicketTax ticketTax = _ticketTaxLocalService.createTicketTax(id);
         ticketTax.setCreatedBy(userFullName);
         ticketTax.setModifiedBy(userFullName);
-        ticketTax.setCreatedDate(new Date());
-        ticketTax.setModifiedDate(new Date());
+        Date now = new Date();
+        ticketTax.setCreatedDate(now);
+        ticketTax.setModifiedDate(now);
 
         return _ticketTaxLocalService.addTicketTax(ticketTax);
     }
