@@ -16,7 +16,7 @@
     <url>http://www.example.com</url>
 
     <properties>
-        <commons-collections4.version>4.0</commons-collections4.version>
+        <commons-collections4.version>4.1</commons-collections4.version>
         <commons-lang.version>2.3</commons-lang.version>
         <commons-io.version>2.5</commons-io.version>
     </properties>
